@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b336p7nui5u3r"]
+
+[ext_resource type="Script" path="res://Character/BaseCharacter/Skills/Move/GD_Move.gd" id="1_4ady3"]
+
+[node name="S_Move" type="Node2D"]
+script = ExtResource("1_4ady3")
