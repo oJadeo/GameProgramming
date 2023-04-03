@@ -52,6 +52,8 @@ var stat = status.new()
 @export var weapon_skill:Resource
 @export var character_skill:Resource
 
+var damage_display = preload("res://System/Damage/S_DamageNuber.tscn")
+
 @export var start_direction:Vector2 = Vector2(1,0)
 var direction:Vector2 = Vector2(1,0)
 @export var start_cood:Vector2 = Vector2(-1,-1)
@@ -95,7 +97,16 @@ func set_gauge(new_gauge:float)->void:
 func start_turn()->void:
 	is_turn = true
 	animation.play("Idle")
-
+func damaged(atk:int) -> void:
+	stat.health -= atk-stat.def
+	if stat.health == 0:
+		pass
+	animation.play("Hurt")
+	var damage_num = damage_display.instantiate()
+	damage_num.set_values(atk-stat.def,position)
+	add_child(damage_num)
+func return_to_idle():
+	animation.play("Idle")
 func end_turn()->void:
 	stat.gauge = 0
 	is_turn = false

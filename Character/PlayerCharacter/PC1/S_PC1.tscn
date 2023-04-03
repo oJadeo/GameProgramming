@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdet7w3yrnwpp"]
+[gd_scene load_steps=11 format=3 uid="uid://cdet7w3yrnwpp"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_jepcu"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_paamt"]
-[ext_resource type="PackedScene" uid="uid://b3336qy45wd22" path="res://Character/PlayerCharacter/Skills/Move/S_Move.tscn" id="2_soi43"]
+[ext_resource type="PackedScene" uid="uid://cshf1v0ekqclc" path="res://Character/BaseCharacter/Skills/Move/S_Move.tscn" id="2_t1lac"]
+[ext_resource type="PackedScene" uid="uid://5qylad4dianf" path="res://Character/BaseCharacter/Skills/Basic_Atk_1/S_BasicAtk.tscn" id="3_2bsaf"]
 [ext_resource type="Texture2D" uid="uid://cjbmoq0aa6wof" path="res://Character/PlayerCharacter/PC1/Sprite-0002.png" id="3_2g75g"]
 
 [sub_resource type="Theme" id="Theme_v5ygx"]
@@ -67,13 +68,8 @@ _data = {
 
 [node name="S_PC1" type="Node2D" groups=["character"]]
 script = ExtResource("1_jepcu")
-start_atk = null
-start_def = null
-start_speed = null
-start_max_health = null
-move = ExtResource("2_soi43")
-start_direction = null
-start_cood = null
+move = ExtResource("2_t1lac")
+basic_attack = ExtResource("3_2bsaf")
 
 [node name="S_GaugeBar" parent="." instance=ExtResource("2_paamt")]
 offset_left = -18.0

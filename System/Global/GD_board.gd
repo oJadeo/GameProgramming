@@ -29,8 +29,6 @@ func get_cood(object:Character):
 		for j in range(board_size.x):
 			if board[i][j] == object:
 				return Vector2(j,i)
-func set_cood(object:Character,cood:Vector2)->void:
-	board[cood.y][cood.x] = object
 func change_cood(object:Character,new_cood:Vector2)->void:
 	var old_cood = object.board_cood
 	if old_cood == new_cood:
@@ -41,6 +39,7 @@ func change_cood(object:Character,new_cood:Vector2)->void:
 		return
 	board[old_cood.y][old_cood.x] = null
 	board[new_cood.y][new_cood.x] = object
+	print(new_cood.x,",",new_cood.y,":",board[new_cood.y][new_cood.x] )
 func get_character(cood:Vector2):
 	return board[cood.y][cood.x]
 

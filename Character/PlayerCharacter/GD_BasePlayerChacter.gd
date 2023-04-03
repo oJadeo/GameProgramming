@@ -51,6 +51,8 @@ func add_to_skill_list(skill:Resource):
 func select_skill(num:int)->void:
 	if num > len(skill_list):
 		return
+	for i in range(len(skill_list)):
+		skill_list[i].deselect()
 	selecting_move = skill_list[num]
 	skill_list[num].select()
 func select_move():
@@ -70,11 +72,6 @@ func play_animaiton(name:String)->void:
 func targeted() -> void:
 	is_target = true
 	
-func damaged(atk:int) -> void:
-	stat.health -= atk-stat.def
-	if stat.health == 0:
-		pass
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	super(delta)

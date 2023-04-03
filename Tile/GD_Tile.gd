@@ -39,5 +39,4 @@ func _on_area_2d_mouse_exited() -> void:
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if is_hover and event.is_action_pressed("select"):
-		print("Click")
 		get_tree().call_group("character","select_target",cood)
