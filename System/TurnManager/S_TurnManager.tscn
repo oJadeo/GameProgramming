@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://ytg8mivfc41o"]
+
+[ext_resource type="Script" path="res://System/TurnManager/GD_TurnManager.gd" id="1_5lqkf"]
+[ext_resource type="Script" path="res://System/CharacterManager/GD_EnemyManager.gd" id="2_jjfr4"]
+[ext_resource type="Script" path="res://System/CharacterManager/GD_PlayerManager.gd" id="3_4xubk"]
+[ext_resource type="PackedScene" uid="uid://bgvjtinpvs8di" path="res://Character/EnemyCharacter/S_EnemyCharacter.tscn" id="3_wlc5u"]
+[ext_resource type="PackedScene" uid="uid://cdet7w3yrnwpp" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="4_oyiyn"]
+
+[node name="S_turn_manager" type="Node2D"]
+script = ExtResource("1_5lqkf")
+
+[node name="EnemyManager" type="Node2D" parent="."]
+script = ExtResource("2_jjfr4")
+
+[node name="S_EnemyCharacter" parent="EnemyManager" instance=ExtResource("3_wlc5u")]
+start_speed = 15
+start_direction = Vector2(-1, 0)
+start_cood = Vector2(2, 0)
+
+[node name="PlayerManager" type="Node2D" parent="."]
+script = ExtResource("3_4xubk")
+
+[node name="S_PC1" parent="PlayerManager" instance=ExtResource("4_oyiyn")]
+start_cood = Vector2(0, 0)
+
+[node name="TickTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="TickTimer" to="." method="_on_tick_timer_timeout"]
