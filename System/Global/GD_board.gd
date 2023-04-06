@@ -29,10 +29,14 @@ func get_cood(object:Character):
 		for j in range(board_size.x):
 			if board[i][j] == object:
 				return Vector2(j,i)
+	print("Can't find Character")
 func change_cood(object:Character,new_cood:Vector2)->void:
 	var old_cood = object.board_cood
 	if old_cood == new_cood:
 		print("Can't change cood(same cood)")
+		return
+	if 0 > new_cood.y and new_cood.y >= board_size.y and 0 > new_cood.x and new_cood.x >= board_size.x:
+		print("Can't change cood outside board:",new_cood)
 		return
 	if board[new_cood.y][new_cood.x] != null:
 		print("Can't change cood already has:",board[new_cood.y][new_cood.x])
@@ -41,7 +45,9 @@ func change_cood(object:Character,new_cood:Vector2)->void:
 	board[new_cood.y][new_cood.x] = object
 	print(new_cood.x,",",new_cood.y,":",board[new_cood.y][new_cood.x] )
 func get_character(cood:Vector2):
-	return board[cood.y][cood.x]
+	if 0 <= cood.y and cood.y  < board_size.y and 0 <= cood.x and cood.x < board_size.x:
+		return board[cood.y][cood.x]
+	return
 
 func reset_all_tile() -> void:
 	for row in board_tile:

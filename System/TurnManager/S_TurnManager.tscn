@@ -13,7 +13,6 @@ script = ExtResource("1_5lqkf")
 script = ExtResource("2_jjfr4")
 
 [node name="S_EnemyCharacter" parent="EnemyManager" instance=ExtResource("3_wlc5u")]
-start_speed = 15
 start_direction = Vector2(-1, 0)
 start_cood = Vector2(2, 0)
 
@@ -21,6 +20,8 @@ start_cood = Vector2(2, 0)
 script = ExtResource("3_4xubk")
 
 [node name="S_PC1" parent="PlayerManager" instance=ExtResource("4_oyiyn")]
+start_def = 1
+start_direction = Vector2(1, 0)
 start_cood = Vector2(0, 0)
 
 [node name="TickTimer" type="Timer" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdet7w3yrnwpp"]
+[gd_scene load_steps=14 format=3 uid="uid://cdet7w3yrnwpp"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_jepcu"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_paamt"]
@@ -7,6 +7,68 @@
 [ext_resource type="Texture2D" uid="uid://cjbmoq0aa6wof" path="res://Character/PlayerCharacter/PC1/Sprite-0002.png" id="3_2g75g"]
 
 [sub_resource type="Theme" id="Theme_v5ygx"]
+
+[sub_resource type="Animation" id="Animation_imsbf"]
+resource_name = "Basic_Atk"
+length = 0.625004
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_76wfh"]
+resource_name = "Hurt"
+length = 0.250004
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.208333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"return_to_idle"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_h4dee"]
 resource_name = "Idle"
@@ -41,6 +103,23 @@ tracks/0/keys = {
 "values": [Vector2i(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_xuxal"]
+resource_name = "Up_Atk"
+length = 0.750004
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.5, 0.625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4), Vector2i(4, 4)]
+}
+
 [sub_resource type="Animation" id="Animation_q4stp"]
 resource_name = "Walk"
 length = 0.750004
@@ -56,18 +135,22 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1)]
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xmd81"]
 _data = {
+"Basic_Atk": SubResource("Animation_imsbf"),
+"Hurt": SubResource("Animation_76wfh"),
 "Idle": SubResource("Animation_h4dee"),
 "RESET": SubResource("Animation_h5pqb"),
+"Up_Atk": SubResource("Animation_xuxal"),
 "Walk": SubResource("Animation_q4stp")
 }
 
 [node name="S_PC1" type="Node2D" groups=["character"]]
 script = ExtResource("1_jepcu")
+start_atk = 3
 move = ExtResource("2_t1lac")
 basic_attack = ExtResource("3_2bsaf")
 
@@ -113,12 +196,12 @@ text = "Skill_2
 "
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 99
+z_index = 3
 texture_filter = 1
 texture = ExtResource("3_2g75g")
 offset = Vector2(0, -20)
 hframes = 6
-vframes = 2
+vframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"

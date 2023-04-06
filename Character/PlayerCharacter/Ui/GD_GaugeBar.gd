@@ -2,14 +2,14 @@ extends Control
 
 @onready var gauge_bar = $GaugeBar
 @onready var health_bar = $HealthBar
-@onready var player = $".."
+@onready var character = $".."
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player.stat.gauge_updated.connect(_on_guage_updated)
-	player.stat.health_updated.connect(_on_health_updated)
-	player.stat.max_health_updated.connect(_on_max_health_updated)
-	health_bar.max_value = player.stat.max_health
-	health_bar.value = player.stat.max_health
+	character.stat.gauge_updated.connect(_on_guage_updated)
+	character.stat.health_updated.connect(_on_health_updated)
+	character.stat.max_health_updated.connect(_on_max_health_updated)
+	health_bar.max_value = character.stat.max_health
+	health_bar.value = character.stat.max_health
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

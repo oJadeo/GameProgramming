@@ -26,13 +26,13 @@ class status:
 	var health: int = 0:
 		set(new_value):
 			if new_value < 0:
-				emit_signal('death',self)
+				health = 0
 				return
 			health = new_value if new_value < max_health else max_health
 			emit_signal('health_updated',new_value)
 	var max_health:int = 1:
 		set(new_value):
-			health = new_value
+			max_health = new_value
 			emit_signal('max_health_updated',new_value)
 	var gauge:float = 0.0:
 		set(new_value):
@@ -45,7 +45,7 @@ var stat = status.new()
 @export var start_atk:int = 1
 @export var start_def:int = 1
 @export var start_speed:int = 10
-@export var start_max_health:int = 1
+@export var start_max_health:int = 10
 
 @export var move:Resource
 @export var basic_attack:Resource
@@ -66,6 +66,9 @@ var board_cood:Vector2 = Vector2(-1,-1):
 @onready var animation = $AnimationPlayer
 @onready var move_timer = $MoveTimer
 
+var selecting_move:BaseSkills
+var skill_list:Array = []
+var is_move:bool
 var is_turn:bool = false
 var is_target:bool = false
 
@@ -98,18 +101,26 @@ func start_turn()->void:
 	is_turn = true
 	animation.play("Idle")
 func damaged(atk:int) -> void:
-	stat.health -= atk-stat.def
+	var damage:int = atk-stat.def
+	stat.health = stat.health -damage
 	if stat.health == 0:
 		pass
 	animation.play("Hurt")
 	var damage_num = damage_display.instantiate()
-	damage_num.set_values(atk-stat.def,position)
 	add_child(damage_num)
+	damage_num.set_values(damage)
 func return_to_idle():
 	animation.play("Idle")
+func finish_walk()->void:
+	pass
+
+func trigger() -> void:
+	selecting_move.trigger()
+
 func end_turn()->void:
 	stat.gauge = 0
 	is_turn = false
+	selecting_move = null
 	animation.play("Idle")
 	animation.stop()
 # Called every frame. 'delta' is the elapsed time since the previous frame.

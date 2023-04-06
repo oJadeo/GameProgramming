@@ -8,11 +8,13 @@ script = ExtResource("1_ie5i3")
 [node name="LabelContainer" type="Node2D" parent="."]
 
 [node name="DamageLabel" type="Label" parent="LabelContainer"]
+z_index = 5
 offset_right = 40.0
 offset_bottom = 23.0
 text = "12"
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

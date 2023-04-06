@@ -20,6 +20,9 @@ func init(_player:Character)-> void:
 func select_target(cood:Vector2) -> void:
 	pass
 
+func check_target()->bool:
+	return false
+
 func finish_skill() -> void:
 	pass
 

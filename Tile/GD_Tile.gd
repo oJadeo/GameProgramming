@@ -24,6 +24,7 @@ func highlight()->void:
 	set_z_index(1)
 func reset() -> void:
 	is_highlight = false
+	is_hover = false
 	set_frame(0)
 	set_z_index(0)
 	
