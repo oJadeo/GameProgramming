@@ -7,26 +7,33 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func select() -> void:
+	if player.is_move:
+		player.end_turn()
+		return
 	var cood_list = []
-	for i in range(-2,3):
-		for j in range(-2,3):
-			if abs(i)+abs(j) <= 2 and abs(i)+abs(j) != 0:
-				cood_list.append(player.board_cood+Vector2(i,j))
+	check_tile(player.board_cood,player.move_range)
 	Board.highlight_tiles(cood_list,GET_TILE.empty)
+
+func check_tile(cood:Vector2,range:int) -> bool:
+	var can_move = false
+	if cood != player.board_cood:
+		if Board.get_character(cood):
+			return false
+		else:
+			Board.highlight_tiles([cood],GET_TILE.empty)
+	if range > 0:
+		can_move = check_tile(cood+Vector2(1,0),range-1) or  can_move
+		can_move = check_tile(cood+Vector2(0,1),range-1) or  can_move
+		can_move = check_tile(cood+Vector2(-1,0),range-1) or  can_move
+		can_move = check_tile(cood+Vector2(0,-1),range-1) or  can_move
+	return true
+
 
 func check_target()->bool:
 	if player.is_move:
 		return false
-	
-	for i in range(-2,3):
-		for j in range(-2,3):
-			if abs(i)+abs(j) <= 2 and abs(i)+abs(j) != 0:
-				var new_cood = player.board_cood+Vector2(i,j)
-				if 0 <= new_cood.x and new_cood.x < Board.board_size.x and 0 <= new_cood.y and new_cood.y < Board.board_size.y:
-					var character = Board.get_character(new_cood)
-					if not character:
-						return true
-	return false
+
+	return check_tile(player.board_cood,player.move_range)
 
 func select_target(cood:Vector2) -> void:
 	super(cood)
@@ -36,12 +43,10 @@ func select_target(cood:Vector2) -> void:
 	
 	player.is_move = true
 	
-	if player.board_cood.x < cood.x:
-		player.direction = Vector2(-1,0)
-		player.sprite.flip_h = false
 	if player.board_cood.x > cood.x:
+		player.direction = Vector2(-1,0)
+	if player.board_cood.x < cood.x:
 		player.direction = Vector2(1,0)
-		player.sprite.flip_h = true
 	player.board_cood = cood
 	player.play_animaiton("Walk") 
 	

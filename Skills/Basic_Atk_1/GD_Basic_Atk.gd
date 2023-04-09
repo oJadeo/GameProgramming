@@ -12,7 +12,8 @@ func select() -> void:
 func select_target(cood:Vector2) -> void:
 	super(cood)
 	target = Board.get_character(cood)
-	
+	player.direction = cood - player.board_cood
+	print(player.direction )
 	Board.reset_all_tile()
 	player.play_animaiton("Basic_Atk") 
 	player.move_timer.set_wait_time(0.625)
@@ -44,4 +45,4 @@ func _process(delta: float) -> void:
 
 
 func trigger() -> void:
-	target.damaged(player.stat.atk)
+	target.damaged(player.stat.atk,player.direction)

@@ -6,6 +6,9 @@ var board_tile
 var board
 var tile_size:Vector2
 var x_offset:int
+var player_list:Array
+var enemy_list:Array
+
 
 enum GET_TILE{
 	empty,
@@ -48,7 +51,6 @@ func get_character(cood:Vector2):
 	if 0 <= cood.y and cood.y  < board_size.y and 0 <= cood.x and cood.x < board_size.x:
 		return board[cood.y][cood.x]
 	return
-
 func reset_all_tile() -> void:
 	for row in board_tile:
 		for tile in row:

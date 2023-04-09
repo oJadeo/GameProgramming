@@ -22,5 +22,4 @@ func _ready() -> void:
 			board_tile_row.append(new_tile)
 		board_tile.append(board_tile_row)
 	Board.board_tile = board_tile
-	pass # Replace with function body.
 

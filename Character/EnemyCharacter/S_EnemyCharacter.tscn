@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bgvjtinpvs8di"]
+[gd_scene load_steps=11 format=3 uid="uid://bkibxqtms2elt"]
 
 [ext_resource type="Script" path="res://Character/EnemyCharacter/GD_EnemyCharacter.gd" id="1_16r13"]
-[ext_resource type="PackedScene" uid="uid://cshf1v0ekqclc" path="res://Character/BaseCharacter/Skills/Move/S_Move.tscn" id="2_ige3o"]
 [ext_resource type="Texture2D" uid="uid://dq31fsytflb47" path="res://Character/EnemyCharacter/EM1/EM1.png" id="3_drqd1"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="3_wo7cc"]
 
@@ -134,7 +133,6 @@ _data = {
 [node name="S_EnemyCharacter" type="Node2D" groups=["character"]]
 script = ExtResource("1_16r13")
 start_speed = 0
-move = ExtResource("2_ige3o")
 
 [node name="S_GaugeBar" parent="." instance=ExtResource("3_wo7cc")]
 offset_left = -20.0
