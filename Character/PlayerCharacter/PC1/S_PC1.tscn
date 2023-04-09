@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_jepcu"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_paamt"]
-[ext_resource type="PackedScene" uid="uid://d32dtt8m1nrvy" path="res://Skills/Move/S_Move.tscn" id="2_t1lac"]
+[ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="2_t1lac"]
 [ext_resource type="Texture2D" uid="uid://cjbmoq0aa6wof" path="res://Character/PlayerCharacter/PC1/PC1.png" id="5_i5jry"]
 [ext_resource type="PackedScene" uid="uid://deqxmggcxl3xg" path="res://Skills/Basic_Atk_1/S_BasicAtk.tscn" id="5_xlje3"]
 

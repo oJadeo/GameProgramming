@@ -2,9 +2,9 @@ extends Node2D
 
 var total_turn:int = 0
 
+@export var tick_multiplier:float = 1
 @onready var player_manager = $PlayerManager
 @onready var enemy_manager = $EnemyManager
-@onready var tick_timer = $TickTimer
 
 enum State{
 	Character_Turn,
@@ -30,16 +30,12 @@ func _process(delta)->void:
 # Tick according to speed to cal who go next
 var tick_end = false
 func _process_waiting_next_turn(delta)->void:
-	if not tick_timer.is_stopped():
-		update_tick(delta)
+	update_tick(delta*tick_multiplier)
 func update_tick(delta)->void:
 	tick_end = player_manager.update_tick(delta) or tick_end
 	tick_end = enemy_manager.update_tick(delta) or tick_end 
 	if tick_end:
 		change_state(State.Character_Turn)
-func _on_tick_timer_timeout()->void:
-	if current_state == State.Waiting_Next_Turn:
-		tick_timer.start()
 
 func _input(event)->void:
 	if event.is_action("test_input"):
@@ -51,10 +47,10 @@ func _input(event)->void:
 func change_state(new_state)->void:
 	#End current State
 	match current_state:
-		State.Character_Turn:
+		State.Character_Turn:	
 			current_turn_unit = null
 		State.Waiting_Next_Turn:
-			tick_timer.stop()
+			pass
 	
 	current_state = new_state
 	#Setting Start new state
@@ -63,7 +59,6 @@ func change_state(new_state)->void:
 			pass
 		State.Waiting_Next_Turn:
 			tick_end = false
-			tick_timer.start()
 func change_character_turn(character)->void:
 	character.start_turn()
 	current_turn_unit = character

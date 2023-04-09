@@ -1,12 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkibxqtms2elt"]
+[gd_scene load_steps=14 format=3 uid="uid://cc3lvq20hjn6t"]
 
-[ext_resource type="Script" path="res://Character/EnemyCharacter/GD_EnemyCharacter.gd" id="1_16r13"]
-[ext_resource type="Texture2D" uid="uid://dq31fsytflb47" path="res://Character/EnemyCharacter/EM1/EM1.png" id="3_drqd1"]
-[ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="3_wo7cc"]
+[ext_resource type="Script" path="res://Character/EnemyCharacter_AI/EM1/GD_EM1_AI.gd" id="1_d5yim"]
+[ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="1_q84ov"]
+[ext_resource type="Texture2D" uid="uid://dq31fsytflb47" path="res://Character/EnemyCharacter_Test/EM1/EM1.png" id="2_2psbh"]
+[ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="3_4kxkj"]
+[ext_resource type="PackedScene" uid="uid://deqxmggcxl3xg" path="res://Skills/Basic_Atk_1/S_BasicAtk.tscn" id="4_242hd"]
+[ext_resource type="PackedScene" uid="uid://u13gtmnuq5yy" path="res://Skills/EM1/Push/S_Push.tscn" id="5_q6do7"]
 
 [sub_resource type="Animation" id="Animation_kx76g"]
-resource_name = "BasicAtk"
-length = 0.500004
+resource_name = "Basic_Atk"
+length = 0.625005
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -15,10 +18,24 @@ tracks/0/path = NodePath("Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_y53io"]
@@ -70,23 +87,8 @@ tracks/0/keys = {
 "values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0), Vector2i(7, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_h5pqb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_jtqh0"]
-resource_name = "Skill"
+resource_name = "Push"
 length = 2.5
 step = 0.0833333
 tracks/0/type = "value"
@@ -100,6 +102,35 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4), Vector2i(4, 4), Vector2i(5, 4), Vector2i(6, 4), Vector2i(7, 4), Vector2i(8, 4), Vector2i(9, 4), Vector2i(10, 4), Vector2i(11, 4), Vector2i(12, 4), Vector2i(13, 4), Vector2i(14, 4), Vector2i(15, 4), Vector2i(16, 4), Vector2i(17, 4), Vector2i(18, 4), Vector2i(19, 4), Vector2i(20, 4), Vector2i(21, 4), Vector2i(22, 4), Vector2i(23, 4), Vector2i(24, 4), Vector2i(25, 4), Vector2i(26, 4), Vector2i(27, 4), Vector2i(28, 4), Vector2i(29, 4)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_h5pqb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_q4stp"]
@@ -122,19 +153,19 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xmd81"]
 _data = {
-"BasicAtk": SubResource("Animation_kx76g"),
+"Basic_Atk": SubResource("Animation_kx76g"),
 "Hurt": SubResource("Animation_y53io"),
 "Idle": SubResource("Animation_h4dee"),
+"Push": SubResource("Animation_jtqh0"),
 "RESET": SubResource("Animation_h5pqb"),
-"Skill": SubResource("Animation_jtqh0"),
 "Walk": SubResource("Animation_q4stp")
 }
 
-[node name="S_EnemyCharacter" type="Node2D" groups=["character"]]
-script = ExtResource("1_16r13")
-start_speed = 0
+[node name="S_EM1_AI" type="Node2D" groups=["character"]]
+script = ExtResource("1_d5yim")
+start_atk = 3
 
-[node name="S_GaugeBar" parent="." instance=ExtResource("3_wo7cc")]
+[node name="S_GaugeBar" parent="." instance=ExtResource("1_q84ov")]
 offset_left = -20.0
 offset_top = -74.0
 offset_right = -20.0
@@ -143,7 +174,7 @@ offset_bottom = -74.0
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3
 texture_filter = 1
-texture = ExtResource("3_drqd1")
+texture = ExtResource("2_2psbh")
 offset = Vector2(0, -30)
 hframes = 30
 vframes = 5
@@ -156,3 +187,11 @@ libraries = {
 
 [node name="MoveTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="SkillsList" type="Node2D" parent="."]
+
+[node name="S_Move" parent="SkillsList" instance=ExtResource("3_4kxkj")]
+
+[node name="S_BasicAtk" parent="SkillsList" instance=ExtResource("4_242hd")]
+
+[node name="S_Push" parent="SkillsList" instance=ExtResource("5_q6do7")]

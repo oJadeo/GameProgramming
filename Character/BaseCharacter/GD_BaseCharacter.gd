@@ -68,7 +68,7 @@ func set_gauge(new_gauge:float)->void:
 func start_turn()->void:
 	is_turn = true
 	animation.play("Idle")
-	
+	is_move = false
 	for skill in skill_list:
 		if skill.cooldown != 0:
 			skill.cooldown -= 1
@@ -91,10 +91,22 @@ func return_to_idle():
 	animation.play("Idle")
 	animation.stop()
 func finish_walk()->void:
-	pass
-
+	var can_move = false
+	for skill in skill_list:
+		can_move = can_move or skill.check_target()
+	if not can_move:
+		end_turn()
+func select_skill(num:int)->void:
+	if num > len(skill_list):
+		return
+		
+	for i in range(len(skill_list)):
+		skill_list[i].deselect()
+	selecting_move = skill_list[num]
+	skill_list[num].select()
 func trigger() -> void:
-	selecting_move.trigger()
+	if selecting_move:
+		selecting_move.trigger()
 func turn_effect(type:EFFECT,buff_stat:Status,turn:int) -> void:
 	match type:
 		EFFECT.buff:
@@ -131,8 +143,12 @@ func end_turn()->void:
 	selecting_move = null
 	animation.play("Idle")
 	animation.stop()
+	manager.end_turn()
 func dealth():
 	animation.play("death")
-	
+func play_animaiton(name:String)->void:
+	animation.play(name)
 func _process(delta: float) -> void:
-	pass
+	if not move_timer.is_stopped():
+		if selecting_move:
+			selecting_move.update(delta)

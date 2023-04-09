@@ -1,7 +1,8 @@
 extends BaseSkills
 
 var target:Character
-
+var push_velocity:Vector2 = Vector2.ZERO
+@onready var push_timer = $PushTimer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,10 +14,16 @@ func select_target(cood:Vector2) -> void:
 	super(cood)
 	target = Board.get_character(cood)
 	player.direction = cood - player.board_cood
-	print(player.direction )
+	if Board.is_cood_in_board(cood+player.direction) and not Board.get_character(cood+player.direction):
+		var target_pos = Board.get_tile_pos(cood)
+		var pushed_target_pos = Board.get_tile_pos(cood+player.direction)
+		push_velocity = (pushed_target_pos-target_pos)*2
+		target.board_cood += player.direction
+	else:
+		push_velocity = Vector2.ZERO
 	Board.reset_all_tile()
-	player.play_animaiton("Basic_Atk") 
-	player.move_timer.set_wait_time(0.625)
+	player.play_animaiton("Push") 
+	player.move_timer.set_wait_time(2.5)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)
 	player.move_timer.start()
 
@@ -30,10 +37,12 @@ func check_target()->bool:
 	return false
 
 func update(delta:float) -> void:
-	pass
+	if not push_timer.is_stopped():
+		target.position += push_velocity*delta
 
 func finish_skill() -> void:
 	super()
+	target.position = Board.get_tile_pos(target.board_cood)
 	player.end_turn()
 	
 func deselect() -> void:
@@ -45,4 +54,5 @@ func _process(delta: float) -> void:
 
 
 func trigger() -> void:
+	push_timer.start()
 	target.damaged(player.stat.atk,player.direction)

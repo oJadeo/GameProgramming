@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=3 uid="uid://cfow1ju6mfr0l"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_gr4eu"]
-[ext_resource type="PackedScene" uid="uid://d32dtt8m1nrvy" path="res://Skills/Move/S_Move.tscn" id="2_nk87n"]
 [ext_resource type="PackedScene" uid="uid://deqxmggcxl3xg" path="res://Skills/Basic_Atk_1/S_BasicAtk.tscn" id="3_w5miu"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="4_8gbpw"]
+[ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="4_ehyal"]
 [ext_resource type="Texture2D" uid="uid://b0xh54iryv3gf" path="res://Character/PlayerCharacter/PC2/PC2.png" id="5_mkeqx"]
 [ext_resource type="PackedScene" uid="uid://vhfvw06kh4y2" path="res://Skills/PC2/Heal/S_HealBuff.tscn" id="6_s2rlm"]
 
@@ -227,13 +227,9 @@ one_shot = true
 
 [node name="SkillsList" type="Node2D" parent="."]
 
-[node name="S_Move" parent="SkillsList" instance=ExtResource("2_nk87n")]
+[node name="S_Move" parent="SkillsList" instance=ExtResource("4_ehyal")]
 
 [node name="S_BasicAtk" parent="SkillsList" instance=ExtResource("3_w5miu")]
 
 [node name="S_HealBuff" parent="SkillsList" instance=ExtResource("6_s2rlm")]
-atk = 2
-gauge = 10
-buff_duration = 2
 is_heal = true
-max_cooldown = 2

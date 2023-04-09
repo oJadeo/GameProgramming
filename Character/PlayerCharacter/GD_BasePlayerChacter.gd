@@ -17,7 +17,6 @@ func _ready()->void:
 	
 func start_turn()->void:
 	super()
-	is_move = false
 	manager.check_formation(self)
 	SKILL_SELECT_UI.visible = true
 	btn_list[0].text = "Move"
@@ -26,7 +25,7 @@ func start_turn()->void:
 func end_turn()->void:
 	super()
 	SKILL_SELECT_UI.visible = false
-	manager.end_turn()
+	
 func setting_skills_button():
 	var btn_func = [select_move,select_basic_atk,select_skill_1,select_skill_2]
 	
@@ -67,8 +66,7 @@ func select_target(cood:Vector2)-> void:
 			selecting_move.select_target(cood)
 		if select_formation_skill:
 			select_formation_skill.select_target(cood)
-func play_animaiton(name:String)->void:
-	animation.play(name)
+
 func finish_walk()->void:
 	var can_move = false
 	can_move = can_move or manager.check_formation(self)
@@ -83,7 +81,6 @@ func targeted() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	super(delta)
 	if not move_timer.is_stopped():
 		if selecting_move:
 			selecting_move.update(delta)

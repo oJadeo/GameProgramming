@@ -26,6 +26,9 @@ func update_tick(delta:float)->bool:
 			emit_signal('change_character_turn',character)
 	return is_next_turn
 
+func check_formation(character:Character) -> bool:
+	return false
+
 func end_turn():
 	get_parent().end_turn()
 

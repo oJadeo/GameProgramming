@@ -24,7 +24,12 @@ func _ready()->void:
 			row.append(null)
 		board.append(row)
 	pass # Replace with function body.
-	
+func is_cood_in_board(cood:Vector2) -> bool:
+	if cood.x < 0 or cood.x > board_size.x:
+		return false
+	if cood.y < 0 or cood.y > board_size.y:
+		return false
+	return true
 func get_tile_pos(cood:Vector2)->Vector2:
 	return board_global_position+Vector2(tile_size.x*cood.x+((board_size.y-cood.y)*x_offset),tile_size.y*cood.y)
 func get_cood(object:Character):
@@ -51,6 +56,13 @@ func get_character(cood:Vector2):
 	if 0 <= cood.y and cood.y  < board_size.y and 0 <= cood.x and cood.x < board_size.x:
 		return board[cood.y][cood.x]
 	return
+func get_highlight()-> Array:
+	var result = []
+	for i in range(board_size.y):
+		for j in range(board_size.x):
+			if board_tile[i][j].is_highlight:
+				result.append(Vector2(j,i))
+	return result
 func reset_all_tile() -> void:
 	for row in board_tile:
 		for tile in row:
