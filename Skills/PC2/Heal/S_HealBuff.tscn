@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://vhfvw06kh4y2"]
+
+[ext_resource type="Script" path="res://Skills/PC2/Heal/GD_HealBuff.gd" id="1_ysx7e"]
+
+[node name="S_HealBuff" type="Node2D"]
+script = ExtResource("1_ysx7e")
+target_mode = 2

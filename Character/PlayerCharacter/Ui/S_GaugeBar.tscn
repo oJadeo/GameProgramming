@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://dsskmi02nper0"]
+
+[ext_resource type="Script" path="res://Character/PlayerCharacter/Ui/GD_GaugeBar.gd" id="1_1a7e4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anmw6"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ousi"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_effbd"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_anmw6")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_7ousi")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfcg4"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8r7j6"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="Theme" id="Theme_83477"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_lfcg4")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_8r7j6")
+
+[node name="S_Bar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1a7e4")
+
+[node name="GaugeBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_top = 5.0
+offset_right = 40.0
+offset_bottom = 10.0
+theme = SubResource("Theme_effbd")
+allow_lesser = true
+show_percentage = false
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 5.0
+theme = SubResource("Theme_83477")
+show_percentage = false

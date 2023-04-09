@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://dvkisla0mp6r1"]
+
+[ext_resource type="Script" path="res://System/TurnManager/GD_TurnManager.gd" id="1_5lqkf"]
+[ext_resource type="Script" path="res://System/CharacterManager/GD_EnemyManager.gd" id="2_jjfr4"]
+[ext_resource type="Script" path="res://System/CharacterManager/GD_PlayerManager.gd" id="3_4xubk"]
+[ext_resource type="PackedScene" uid="uid://cc3lvq20hjn6t" path="res://Character/EnemyCharacter_AI/EM1/S_EM1_AI.tscn" id="3_j1vdg"]
+[ext_resource type="PackedScene" uid="uid://dpfu863ggn7w5" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="4_oyiyn"]
+[ext_resource type="PackedScene" uid="uid://ctrtwbaekf8se" path="res://Skills/Formation/F_2/S_Formation2.tscn" id="7_c2lqc"]
+[ext_resource type="PackedScene" uid="uid://bbe53oyy08kdb" path="res://Skills/Formation/F_1/S_Formation1.tscn" id="7_rqxfc"]
+[ext_resource type="PackedScene" uid="uid://cfow1ju6mfr0l" path="res://Character/PlayerCharacter/PC2/S_PC2.tscn" id="7_ubfjx"]
+[ext_resource type="PackedScene" uid="uid://xdsaw08y6pfy" path="res://Skills/Formation/F_3/S_Formation3.tscn" id="8_xpr36"]
+
+[sub_resource type="Theme" id="Theme_44u5n"]
+
+[node name="S_turn_manager" type="Node2D"]
+script = ExtResource("1_5lqkf")
+tick_multiplier = 5.0
+
+[node name="EnemyManager" type="Node2D" parent="."]
+script = ExtResource("2_jjfr4")
+
+[node name="Characters" type="Node2D" parent="EnemyManager"]
+
+[node name="S_EM1_AI" parent="EnemyManager/Characters" instance=ExtResource("3_j1vdg")]
+start_speed = 20
+start_direction = Vector2(-1, 0)
+start_cood = Vector2(7, 0)
+
+[node name="PlayerManager" type="Node2D" parent="."]
+script = ExtResource("3_4xubk")
+
+[node name="Characters" type="Node2D" parent="PlayerManager"]
+
+[node name="S_PC1" parent="PlayerManager/Characters" instance=ExtResource("4_oyiyn")]
+start_cood = Vector2(0, 0)
+
+[node name="S_PC2" parent="PlayerManager/Characters" instance=ExtResource("7_ubfjx")]
+start_cood = Vector2(1, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PlayerManager"]
+
+[node name="VBoxContainer" type="HBoxContainer" parent="PlayerManager/CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -254.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme = SubResource("Theme_44u5n")
+alignment = 2
+
+[node name="F_1" type="Button" parent="PlayerManager/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "F_1"
+
+[node name="S_Formation1" parent="PlayerManager/CanvasLayer/VBoxContainer/F_1" instance=ExtResource("7_rqxfc")]
+
+[node name="F_2" type="Button" parent="PlayerManager/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "F_2
+"
+
+[node name="S_Formation2" parent="PlayerManager/CanvasLayer/VBoxContainer/F_2" instance=ExtResource("7_c2lqc")]
+
+[node name="F_3" type="Button" parent="PlayerManager/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "F_3
+"
+
+[node name="S_Formation3" parent="PlayerManager/CanvasLayer/VBoxContainer/F_3" instance=ExtResource("8_xpr36")]

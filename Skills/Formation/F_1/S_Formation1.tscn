@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbe53oyy08kdb"]
+
+[ext_resource type="Script" path="res://Skills/Formation/F_1/GD_Formation1.gd" id="1_btggc"]
+
+[node name="S_Formation1" type="Node2D"]
+script = ExtResource("1_btggc")
