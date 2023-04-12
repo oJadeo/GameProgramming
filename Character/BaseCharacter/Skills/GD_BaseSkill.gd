@@ -6,7 +6,7 @@ enum GET_TILE{
 	unit,
 	all
 }
-var skill_name:String
+@export var skill_name:String
 var player:Character
 var cooldown:int = 0
 @export var max_cooldown:int = 0

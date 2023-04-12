@@ -21,10 +21,10 @@ var speed: int = 10:
 		emit_signal('speed_updated',new_value)
 var health: int = 0:
 	set(new_value):
-		if new_value < 0:
+		if new_value <= 0:
 			health = 0
 			emit_signal('health_updated',new_value)
-			emit_signal('dealth')
+			emit_signal('death')
 			return
 		health = new_value if new_value < max_health else max_health
 		emit_signal('health_updated',new_value)

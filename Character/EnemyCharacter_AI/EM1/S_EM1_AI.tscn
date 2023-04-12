@@ -1,15 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://cc3lvq20hjn6t"]
+[gd_scene load_steps=15 format=3 uid="uid://cwbb5bd1qny4w"]
 
 [ext_resource type="Script" path="res://Character/EnemyCharacter_AI/EM1/GD_EM1_AI.gd" id="1_d5yim"]
-[ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="1_q84ov"]
-[ext_resource type="Texture2D" uid="uid://dq31fsytflb47" path="res://Character/EnemyCharacter_Test/EM1/EM1.png" id="2_2psbh"]
-[ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="3_4kxkj"]
-[ext_resource type="PackedScene" uid="uid://deqxmggcxl3xg" path="res://Skills/Basic_Atk_1/S_BasicAtk.tscn" id="4_242hd"]
-[ext_resource type="PackedScene" uid="uid://u13gtmnuq5yy" path="res://Skills/EM1/Push/S_Push.tscn" id="5_q6do7"]
+[ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_uoy0e"]
+[ext_resource type="Texture2D" uid="uid://dq31fsytflb47" path="res://Character/EnemyCharacter_Test/EM1/EM1.png" id="3_jtlvf"]
+[ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="4_wy130"]
+[ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="5_rkmfk"]
+[ext_resource type="PackedScene" uid="uid://u13gtmnuq5yy" path="res://Skills/EM1/Push/S_Push.tscn" id="6_3pohq"]
 
-[sub_resource type="Animation" id="Animation_kx76g"]
-resource_name = "Basic_Atk"
-length = 0.625005
+[sub_resource type="Animation" id="Animation_6wvck"]
+resource_name = "Death"
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -18,10 +17,10 @@ tracks/0/path = NodePath("Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3)]
+"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -30,11 +29,11 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(0.958333),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"trigger"
+"method": &"queue_free"
 }]
 }
 
@@ -85,6 +84,37 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0), Vector2i(7, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kx76g"]
+resource_name = "Punch"
+length = 0.625005
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_jtqh0"]
@@ -153,19 +183,19 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xmd81"]
 _data = {
-"Basic_Atk": SubResource("Animation_kx76g"),
+"Death": SubResource("Animation_6wvck"),
 "Hurt": SubResource("Animation_y53io"),
 "Idle": SubResource("Animation_h4dee"),
+"Punch": SubResource("Animation_kx76g"),
 "Push": SubResource("Animation_jtqh0"),
 "RESET": SubResource("Animation_h5pqb"),
 "Walk": SubResource("Animation_q4stp")
 }
 
-[node name="S_EM1_AI" type="Node2D" groups=["character"]]
+[node name="S_EM1_Test" type="Node2D" groups=["character"]]
 script = ExtResource("1_d5yim")
-start_atk = 3
 
-[node name="S_GaugeBar" parent="." instance=ExtResource("1_q84ov")]
+[node name="S_GaugeBar" parent="." instance=ExtResource("2_uoy0e")]
 offset_left = -20.0
 offset_top = -74.0
 offset_right = -20.0
@@ -174,10 +204,10 @@ offset_bottom = -74.0
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3
 texture_filter = 1
-texture = ExtResource("2_2psbh")
+texture = ExtResource("3_jtlvf")
 offset = Vector2(0, -30)
 hframes = 30
-vframes = 5
+vframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
@@ -190,8 +220,8 @@ one_shot = true
 
 [node name="SkillsList" type="Node2D" parent="."]
 
-[node name="S_Move" parent="SkillsList" instance=ExtResource("3_4kxkj")]
+[node name="S_Move" parent="SkillsList" instance=ExtResource("4_wy130")]
 
-[node name="S_BasicAtk" parent="SkillsList" instance=ExtResource("4_242hd")]
+[node name="S_Punch" parent="SkillsList" instance=ExtResource("5_rkmfk")]
 
-[node name="S_Push" parent="SkillsList" instance=ExtResource("5_q6do7")]
+[node name="S_Push" parent="SkillsList" instance=ExtResource("6_3pohq")]

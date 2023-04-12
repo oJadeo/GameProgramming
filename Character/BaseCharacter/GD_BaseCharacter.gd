@@ -44,7 +44,7 @@ func _ready()->void:
 	if start_cood == Vector2(-1,-1):
 		return
 	board_cood = start_cood
-	stat.death.connect(dealth)
+	stat.death.connect(death)
 	set_global_position(Board.get_tile_pos(board_cood))
 	set_up_start_stat()
 	animation.play("Idle")
@@ -75,10 +75,8 @@ func start_turn()->void:
 			
 func damaged(atk:int,attack_direction:Vector2) -> void:
 	var damage:int = atk-stat.def if direction.dot(attack_direction) == -1 else (atk-stat.def)*1.5
-	stat.health = stat.health -damage
-	if stat.health == 0:
-		pass
 	animation.play("Hurt")
+	stat.health = stat.health - damage
 	var damage_num = damage_display.instantiate()
 	add_child(damage_num)
 	damage_num.set_values(damage)
@@ -144,8 +142,11 @@ func end_turn()->void:
 	animation.play("Idle")
 	animation.stop()
 	manager.end_turn()
-func dealth():
-	animation.play("death")
+func death():
+	animation.play("Death")
+	Board.delete_character(board_cood)
+	manager.all_character.erase(self)
+
 func play_animaiton(name:String)->void:
 	animation.play(name)
 func _process(delta: float) -> void:

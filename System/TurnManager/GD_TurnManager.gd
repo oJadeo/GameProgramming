@@ -13,6 +13,7 @@ enum State{
 
 var current_state
 var current_turn_unit
+var next_unit = []
 # Called when the node enters the scene tree for the first time.
 func _ready()->void:
 	change_state(State.Waiting_Next_Turn)
@@ -60,8 +61,21 @@ func change_state(new_state)->void:
 		State.Waiting_Next_Turn:
 			tick_end = false
 func change_character_turn(character)->void:
-	character.start_turn()
-	current_turn_unit = character
+	if not current_turn_unit:
+		character.start_turn()
+		current_turn_unit = character
+	else:
+		next_unit.append(character)
 
 func end_turn()->void:
-	change_state(State.Waiting_Next_Turn)
+	if len(next_unit) == 0:
+		change_state(State.Waiting_Next_Turn)
+	else:
+		if next_unit[0].stat.gauge > 100:
+			next_unit[0].start_turn()
+			current_turn_unit = next_unit[0]
+			next_unit.remove_at(0)
+		else:
+			next_unit.remove_at(0)
+			end_turn()
+		

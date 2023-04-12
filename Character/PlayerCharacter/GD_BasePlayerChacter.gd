@@ -47,8 +47,6 @@ func select_skill(num:int)->void:
 	skill_list[num].select()
 func select_move():
 	select_skill(0)
-	btn_list[0].text = "End Turn"
-	SKILL_SELECT_UI.visible = false
 func select_basic_atk():
 	select_skill(1)
 func select_skill_1():
@@ -74,6 +72,7 @@ func finish_walk()->void:
 		can_move = can_move or skill.check_target()
 	if can_move:
 		SKILL_SELECT_UI.visible = true
+		btn_list[0].text = "End Turn"
 	else:
 		end_turn()
 func targeted() -> void:

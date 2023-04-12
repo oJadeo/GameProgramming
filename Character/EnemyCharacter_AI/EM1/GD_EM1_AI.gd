@@ -1,6 +1,7 @@
 extends Character
 
 @onready var skills_node = $SkillsList
+@onready var idle_timer = $Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,6 +15,30 @@ func _ready():
 func start_turn()->void:
 	super()
 	
+	idle_timer.start()
+	
+
+func finish_walk()->void:
+	var can_move = false
+	for skill in skill_list:
+		can_move = can_move or skill.check_target()
+	if not can_move:
+		end_turn()
+	
+	#After walk if have character attack
+	if Board.get_character(board_cood+direction):
+		#Select Basic Atk
+		select_skill(1)
+		#Select Front Cood
+		selecting_move.select_target(board_cood+direction)
+		
+
+# Called every frame. 'delt	animation.play(name)a' is the elapsed time since the previous frame.
+func _process(delta):
+	super(delta)
+
+
+func _on_timer_timeout() -> void:
 	#Check Cooldown
 	for skill in skill_list:
 		if skill.cooldown != 0:
@@ -30,22 +55,3 @@ func start_turn()->void:
 		
 		#Select Front Cood
 		selecting_move.select_target(board_cood+direction)
-	
-
-func finish_walk()->void:
-	var can_move = false
-	for skill in skill_list:
-		can_move = can_move or skill.check_target()
-	if not can_move:
-		end_turn()
-	
-	#After walk if have character attack
-	if Board.get_character(board_cood+direction):
-		#Select Basic Atk
-		select_skill(1)
-		#Select Front Cood
-		selecting_move.select_target(board_cood+direction)
-
-# Called every frame. 'delt	animation.play(name)a' is the elapsed time since the previous frame.
-func _process(delta):
-	super(delta)

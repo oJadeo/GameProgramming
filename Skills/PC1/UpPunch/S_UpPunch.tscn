@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmuwefhc1htl3"]
+
+[ext_resource type="Script" path="res://Skills/PC1/UpPunch/GD_UpPunch.gd" id="1_sjlf4"]
+
+[node name="S_UpPunch" type="Node2D"]
+script = ExtResource("1_sjlf4")
+skill_name = "Talk no jutsu"
+max_cooldown = 2

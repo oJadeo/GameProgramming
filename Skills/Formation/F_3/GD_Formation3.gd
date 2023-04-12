@@ -18,7 +18,7 @@ func select_target(cood:Vector2) -> void:
 	target = Board.get_character(cood)
 	player.direction = skill_direction
 	Board.reset_all_tile()
-	player.play_animaiton("Basic_Atk") 
+	player.play_animaiton("Punch") 
 	player.move_timer.set_wait_time(0.625)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)
 	player.move_timer.start()
