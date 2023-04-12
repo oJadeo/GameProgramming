@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdnhadov1thg8"]
+
+[ext_resource type="Script" path="res://Skills/EM2/Palm/GD_Palm.gd" id="1_d7ocf"]
+
+[node name="S_Palm" type="Node2D"]
+script = ExtResource("1_d7ocf")
+skill_name = "Palm"
+max_cooldown = 2
+
+[node name="PalmTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="PalmTimer" to="." method="_on_palm_timer_timeout"]

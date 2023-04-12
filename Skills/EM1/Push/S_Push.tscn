@@ -4,7 +4,8 @@
 
 [node name="S_Push" type="Node2D"]
 script = ExtResource("1_jg5ka")
-max_cooldown = 3
+skill_name = "Kubota"
+max_cooldown = 2
 
 [node name="PushTimer" type="Timer" parent="."]
 wait_time = 0.5

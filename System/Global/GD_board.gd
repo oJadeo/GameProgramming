@@ -51,11 +51,10 @@ func change_cood(object:Character,new_cood:Vector2)->void:
 		return
 	board[old_cood.y][old_cood.x] = null
 	board[new_cood.y][new_cood.x] = object
-	print(new_cood.x,",",new_cood.y,":",board[new_cood.y][new_cood.x] )
 func get_character(cood:Vector2):
 	if 0 <= cood.y and cood.y  < board_size.y and 0 <= cood.x and cood.x < board_size.x:
 		return board[cood.y][cood.x]
-	return
+	return null
 func get_highlight()-> Array:
 	var result = []
 	for i in range(board_size.y):
@@ -79,6 +78,8 @@ func highlight_tiles(tiles_cood:Array,get_tile:int) -> void:
 						board_tile[cood.y][cood.x].highlight()
 				GET_TILE.all:
 					board_tile[cood.y][cood.x].highlight()
+func delete_character(cood:Vector2) ->void:
+	board[cood.y][cood.x] = null
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta)->void:
 	pass

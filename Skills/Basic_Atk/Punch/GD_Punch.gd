@@ -7,26 +7,28 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func select() -> void:
-	Board.highlight_tiles([player.board_cood-Vector2(1,0),player.board_cood+Vector2(1,0)],GET_TILE.unit)
+	var cood_list = []
+	for y in [Vector2(0,1),Vector2(0,0),Vector2(0,-1)]:
+		for x in [Vector2(1,0),Vector2(-1,0)]:
+			cood_list.append(player.board_cood+x+y)
+	Board.highlight_tiles(cood_list,GET_TILE.unit)
 
 func select_target(cood:Vector2) -> void:
 	super(cood)
 	target = Board.get_character(cood)
-	player.direction = cood - player.board_cood
-	print(player.direction )
+	player.direction = Vector2(cood.x - player.board_cood.x,0)
+	
 	Board.reset_all_tile()
-	player.play_animaiton("Basic_Atk") 
+	player.play_animaiton("Punch") 
 	player.move_timer.set_wait_time(0.625)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)
 	player.move_timer.start()
 
 func check_target()->bool:
-	var is_target = Board.get_character(player.board_cood-Vector2(1,0))
-	if is_target:
-		return true
-	is_target = Board.get_character(player.board_cood+Vector2(1,0))
-	if is_target:
-		return true
+	for y in [Vector2(0,1),Vector2(0,0),Vector2(0,-1)]:
+		for x in [Vector2(1,0),Vector2(-1,0)]:
+			if Board.get_character(player.board_cood+x+y):
+				return true
 	return false
 
 func update(delta:float) -> void:
