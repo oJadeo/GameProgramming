@@ -1,11 +1,41 @@
-[gd_scene load_steps=16 format=3 uid="uid://cp2x3v2qmvcp2"]
+[gd_scene load_steps=15 format=3 uid="uid://cp2x3v2qmvcp2"]
 
-[ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_r5ub5"]
+[ext_resource type="Script" path="res://Character/EnemyCharacter_AI/EM1/GD_EM1_AI.gd" id="1_b4vht"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_0oqjw"]
 [ext_resource type="Texture2D" uid="uid://dq31fsytflb47" path="res://Character/EnemyCharacter_Test/EM1/EM1.png" id="3_wufs4"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="4_u0txx"]
 [ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="5_cf466"]
 [ext_resource type="PackedScene" uid="uid://u13gtmnuq5yy" path="res://Skills/EM1/Push/S_Push.tscn" id="6_5nlrv"]
+
+[sub_resource type="Animation" id="Animation_6wvck"]
+resource_name = "Death"
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.958333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_y53io"]
 resource_name = "Hurt"
@@ -151,37 +181,6 @@ tracks/0/keys = {
 "values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2)]
 }
 
-[sub_resource type="Animation" id="Animation_6wvck"]
-resource_name = "Death"
-length = 1.0
-step = 0.0416667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.958333),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"queue_free"
-}]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xmd81"]
 _data = {
 "Death": SubResource("Animation_6wvck"),
@@ -193,10 +192,8 @@ _data = {
 "Walk": SubResource("Animation_q4stp")
 }
 
-[sub_resource type="Theme" id="Theme_sfsqv"]
-
 [node name="S_EM1_Test" type="Node2D" groups=["character"]]
-script = ExtResource("1_r5ub5")
+script = ExtResource("1_b4vht")
 
 [node name="S_GaugeBar" parent="." instance=ExtResource("2_0oqjw")]
 offset_left = -20.0
@@ -221,41 +218,6 @@ libraries = {
 [node name="MoveTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -176.0
-offset_top = -45.0
-offset_right = -5.0
-offset_bottom = -5.0
-grow_horizontal = 0
-grow_vertical = 0
-theme = SubResource("Theme_sfsqv")
-alignment = 2
-
-[node name="Move" type="Button" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-text = "Move"
-
-[node name="Basic_atk" type="Button" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-text = "Basic Atk"
-
-[node name="Skill_1" type="Button" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-text = "Skill_1
-"
-
-[node name="Skill_2" type="Button" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-text = "Skill_2
-"
-
 [node name="SkillsList" type="Node2D" parent="."]
 
 [node name="S_Move" parent="SkillsList" instance=ExtResource("4_u0txx")]
@@ -263,3 +225,6 @@ text = "Skill_2
 [node name="S_Punch" parent="SkillsList" instance=ExtResource("5_cf466")]
 
 [node name="S_Push" parent="SkillsList" instance=ExtResource("6_5nlrv")]
+
+[node name="IdleTimer" type="Timer" parent="."]
+one_shot = true
