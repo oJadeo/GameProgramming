@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://cp2x3v2qmvcp2"]
+[gd_scene load_steps=15 format=3 uid="uid://cp2x3v2qmvcp2"]
 
-[ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_r5ub5"]
+[ext_resource type="Script" path="res://Character/EnemyCharacter_AI/EM1/GD_EM1_AI.gd" id="1_b4vht"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_0oqjw"]
 [ext_resource type="Texture2D" uid="uid://dq31fsytflb47" path="res://Character/EnemyCharacter_Test/EM1/EM1.png" id="3_wufs4"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="4_u0txx"]
@@ -192,14 +192,8 @@ _data = {
 "Walk": SubResource("Animation_q4stp")
 }
 
-[sub_resource type="Theme" id="Theme_sfsqv"]
-
 [node name="S_EM1_Test" type="Node2D" groups=["character"]]
-script = ExtResource("1_r5ub5")
-start_atk = 2
-start_def = 0
-start_speed = 15
-start_max_health = 7
+script = ExtResource("1_b4vht")
 
 [node name="S_GaugeBar" parent="." instance=ExtResource("2_0oqjw")]
 offset_left = -20.0
@@ -224,41 +218,6 @@ libraries = {
 [node name="MoveTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -176.0
-offset_top = -45.0
-offset_right = -5.0
-offset_bottom = -5.0
-grow_horizontal = 0
-grow_vertical = 0
-theme = SubResource("Theme_sfsqv")
-alignment = 2
-
-[node name="Move" type="Button" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-text = "Move"
-
-[node name="Basic_atk" type="Button" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-text = "Basic Atk"
-
-[node name="Skill_1" type="Button" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-text = "Skill_1
-"
-
-[node name="Skill_2" type="Button" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-text = "Skill_2
-"
-
 [node name="SkillsList" type="Node2D" parent="."]
 
 [node name="S_Move" parent="SkillsList" instance=ExtResource("4_u0txx")]
@@ -266,3 +225,6 @@ text = "Skill_2
 [node name="S_Punch" parent="SkillsList" instance=ExtResource("5_cf466")]
 
 [node name="S_Push" parent="SkillsList" instance=ExtResource("6_5nlrv")]
+
+[node name="IdleTimer" type="Timer" parent="."]
+one_shot = true
