@@ -18,7 +18,11 @@ func select_target(cood:Vector2) -> void:
 	target = Board.get_character(cood)
 	player.direction = skill_direction
 	Board.reset_all_tile()
-	player.play_animaiton("Punch") 
+	
+	#Every one Throw Shuriken
+	for i in range(amount):
+		var cha = Board.get_character(player.board_cood-i*skill_direction)
+		cha.play_animaiton("Shuriken") 
 	player.move_timer.set_wait_time(0.625)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)
 	player.move_timer.start()
@@ -37,6 +41,10 @@ func check_target()->bool:
 func finish_skill() -> void:
 	super()
 	player.end_turn()
+	for i in range(amount):
+		var cha = Board.get_character(player.board_cood-i*skill_direction)
+		cha.return_to_idle()
+		
 
 func update(delta:float) -> void:
 	pass

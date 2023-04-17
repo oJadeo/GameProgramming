@@ -1,11 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://db41fqgfith3u"]
+[gd_scene load_steps=20 format=3 uid="uid://db41fqgfith3u"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_ljthf"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_hmaxi"]
 [ext_resource type="Texture2D" uid="uid://bqrmpk32cw0ce" path="res://Character/PlayerCharacter/PC3/PC3.png" id="3_7jakr"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="4_4666u"]
 [ext_resource type="PackedScene" uid="uid://csoi80d61uckw" path="res://Skills/Basic_Atk/Shuriken/S_ThrowShuriken.tscn" id="5_njkn6"]
-[ext_resource type="PackedScene" uid="uid://d8rjogk6pp1u" path="res://Skills/PC3/Fire/S_ThrowFire.tscn" id="6_5a626"]
+[ext_resource type="PackedScene" uid="uid://dakdbqsx76bu0" path="res://Skills/PC3/BigShuriken/S_ThrowBigShuriken.tscn" id="6_lwrv6"]
 
 [sub_resource type="Theme" id="Theme_v5ygx"]
 
@@ -40,6 +40,23 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_u8kci"]
+resource_name = "Down_Atk"
+length = 0.375004
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 9), Vector2i(1, 9), Vector2i(2, 9)]
+}
+
 [sub_resource type="Animation" id="Animation_2m1t5"]
 resource_name = "Fire"
 length = 1.66667
@@ -63,7 +80,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.916667),
+"times": PackedFloat32Array(1.251),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -197,6 +214,54 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_7jwk0"]
+resource_name = "Teleport"
+length = 1.00001
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 7), Vector2i(6, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7), Vector2i(5, 7), Vector2i(1, 7), Vector2i(0, 7)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_rs5s8"]
+resource_name = "Up_Atk"
+length = 0.750005
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.5, 0.625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 8), Vector2i(1, 8), Vector2i(2, 8), Vector2i(3, 8), Vector2i(4, 8)]
+}
+
 [sub_resource type="Animation" id="Animation_q4stp"]
 resource_name = "Walk"
 length = 0.750004
@@ -218,18 +283,23 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xmd81"]
 _data = {
 "Death": SubResource("Animation_r3dv4"),
+"Down_Atk": SubResource("Animation_u8kci"),
 "Fire": SubResource("Animation_2m1t5"),
 "Hurt": SubResource("Animation_76wfh"),
 "Idle": SubResource("Animation_h4dee"),
 "Punch": SubResource("Animation_imsbf"),
 "RESET": SubResource("Animation_h5pqb"),
 "Shuriken": SubResource("Animation_xuxal"),
+"Teleport": SubResource("Animation_7jwk0"),
+"Up_Atk": SubResource("Animation_rs5s8"),
 "Walk": SubResource("Animation_q4stp")
 }
 
 [node name="S_PC3" type="Node2D" groups=["character"]]
 script = ExtResource("1_ljthf")
-start_atk = 3
+start_atk = 2
+start_def = 0
+start_speed = 12
 
 [node name="S_GaugeBar" parent="." instance=ExtResource("2_hmaxi")]
 offset_left = -18.0
@@ -277,8 +347,8 @@ z_index = 3
 texture_filter = 1
 texture = ExtResource("3_7jakr")
 offset = Vector2(0, -30)
-hframes = 20
-vframes = 7
+hframes = 21
+vframes = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
@@ -295,4 +365,4 @@ one_shot = true
 
 [node name="S_Shuriken" parent="SkillsList" instance=ExtResource("5_njkn6")]
 
-[node name="S_ThrowFire" parent="SkillsList" instance=ExtResource("6_5a626")]
+[node name="S_ThrowBigShutiken" parent="SkillsList" instance=ExtResource("6_lwrv6")]

@@ -1,11 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://dsxgy78b4forx"]
+[gd_scene load_steps=20 format=3 uid="uid://u2etaxq3hrg5"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_jepcu"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_paamt"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="2_t1lac"]
 [ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="5_71wyt"]
 [ext_resource type="Texture2D" uid="uid://cjbmoq0aa6wof" path="res://Character/PlayerCharacter/PC1/PC1.png" id="5_i5jry"]
-[ext_resource type="PackedScene" uid="uid://bmuwefhc1htl3" path="res://Skills/PC1/UpPunch/S_UpPunch.tscn" id="6_2kix6"]
+[ext_resource type="PackedScene" uid="uid://caivfafxswm31" path="res://Skills/PC1/GaugePunch/S_GaugePunch.tscn" id="6_ej21n"]
 
 [sub_resource type="Theme" id="Theme_v5ygx"]
 
@@ -37,6 +37,85 @@ tracks/1/keys = {
 "values": [{
 "args": [],
 "method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_g0km1"]
+resource_name = "Down_Atk"
+length = 0.375004
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 9), Vector2i(1, 9), Vector2i(2, 9)]
+}
+
+[sub_resource type="Animation" id="Animation_xuxal"]
+resource_name = "GaugePunch"
+length = 0.625005
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_xhfwb"]
+resource_name = "Head"
+length = 0.625005
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.3753, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.375),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger"
 }]
 }
 
@@ -166,9 +245,9 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_xuxal"]
-resource_name = "UpPunch"
-length = 0.750004
+[sub_resource type="Animation" id="Animation_27awy"]
+resource_name = "Up_Atk"
+length = 0.750005
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -177,24 +256,10 @@ tracks/0/path = NodePath("Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.5, 0.625),
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.5, 0.625001),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"trigger"
-}]
+"values": [Vector2i(0, 8), Vector2i(1, 8), Vector2i(2, 8), Vector2i(3, 8), Vector2i(4, 8)]
 }
 
 [sub_resource type="Animation" id="Animation_q4stp"]
@@ -218,18 +283,23 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xmd81"]
 _data = {
 "Death": SubResource("Animation_lsid7"),
+"Down_Atk": SubResource("Animation_g0km1"),
+"GaugePunch": SubResource("Animation_xuxal"),
+"Head": SubResource("Animation_xhfwb"),
 "Hurt": SubResource("Animation_76wfh"),
 "Idle": SubResource("Animation_h4dee"),
 "Punch": SubResource("Animation_imsbf"),
 "RESET": SubResource("Animation_h5pqb"),
 "Shuriken": SubResource("Animation_qti31"),
-"UpPunch": SubResource("Animation_xuxal"),
+"Up_Atk": SubResource("Animation_27awy"),
 "Walk": SubResource("Animation_q4stp")
 }
 
 [node name="S_PC1" type="Node2D" groups=["character"]]
 script = ExtResource("1_jepcu")
-start_atk = 3
+start_atk = 5
+start_def = 0
+start_speed = 8
 
 [node name="S_GaugeBar" parent="." instance=ExtResource("2_paamt")]
 offset_left = -18.0
@@ -278,7 +348,7 @@ texture_filter = 1
 texture = ExtResource("5_i5jry")
 offset = Vector2(0, -20)
 hframes = 6
-vframes = 7
+vframes = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
@@ -295,4 +365,4 @@ one_shot = true
 
 [node name="S_Punch" parent="SkillsList" instance=ExtResource("5_71wyt")]
 
-[node name="S_UpPunch" parent="SkillsList" instance=ExtResource("6_2kix6")]
+[node name="S_GaugePunch" parent="SkillsList" instance=ExtResource("6_ej21n")]

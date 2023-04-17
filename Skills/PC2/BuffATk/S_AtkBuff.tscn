@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://1tfumahiaa0r"]
+
+[ext_resource type="Script" path="res://Skills/PC2/BuffATk/GD_AtkBuff.gd" id="1_sv6hb"]
+
+[node name="S_HealBuff" type="Node2D"]
+script = ExtResource("1_sv6hb")
+is_buff = true
+target_mode = 1
+max_cooldown = 3
