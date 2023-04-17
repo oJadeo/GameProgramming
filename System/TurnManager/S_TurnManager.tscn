@@ -36,6 +36,7 @@ start_direction = Vector2(-1, 0)
 start_cood = Vector2(6, 3)
 
 [node name="S_EM2_AI2" parent="EnemyManager/Characters" instance=ExtResource("4_intsc")]
+start_direction = Vector2(-1, 0)
 start_cood = Vector2(7, 4)
 
 [node name="PlayerManager" type="Node2D" parent="."]

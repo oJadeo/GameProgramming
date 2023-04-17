@@ -26,27 +26,30 @@ func finish_walk()->void:
 	if not can_move:
 		end_turn()
 	
+	var use_skill: bool = false
 	#After walk if have character attack
-	if Board.get_character(board_cood + Vector2(-1,0)):
+	if Board.get_character(board_cood + Vector2(-2,0)) and not Board.get_character(board_cood + Vector2(-1,0)):
+		if skill_list[2].cooldown == 0:
+			select_skill(2)
+			selecting_move.select_target(board_cood + Vector2(-2,0))
+			use_skill = true
+	elif Board.get_character(board_cood + Vector2(2,0))and not Board.get_character(board_cood + Vector2(1,0)):
 		#Select Basic Atk
 		if skill_list[2].cooldown == 0:
 			select_skill(2)
-		else:
+			selecting_move.select_target(board_cood + Vector2(2,0))
+			use_skill = true
+	
+	# Use Basic Atk
+	if not use_skill:
+		if Board.get_character(board_cood + Vector2(-1,0)):
 			select_skill(1)
-		#Select Front Cood
-		selecting_move.select_target(board_cood + Vector2(-1,0))
-		
-	elif Board.get_character(board_cood + Vector2(1,0)):
-		#Select Basic Atk
-		if skill_list[2].cooldown == 0:
-			select_skill(2)
-		else:
+			selecting_move.select_target(board_cood + Vector2(-1,0))
+		elif Board.get_character(board_cood + Vector2(1,0)):
 			select_skill(1)
-		#Select Front Cood
-		selecting_move.select_target(board_cood + Vector2(1,0))
-	else:
-		end_turn()
-
+			selecting_move.select_target(board_cood + Vector2(1,0))
+		else:
+			end_turn()
 # Called every frame. 'delt	animation.play(name)a' is the elapsed time since the previous frame.
 func _process(delta):
 	super(delta)
