@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dakdbqsx76bu0"]
+
+[ext_resource type="Script" path="res://Skills/PC3/BigShuriken/GD_ThrowBigShriken.gd" id="1_0alx3"]
+[ext_resource type="PackedScene" uid="uid://cage8n28p80m8" path="res://Skills/PC3/BigShuriken/S_BigShuriken.tscn" id="2_sisl0"]
+
+[node name="S_ThrowBigShutiken" type="Node2D"]
+script = ExtResource("1_0alx3")
+shuriken = ExtResource("2_sisl0")
+
+[node name="ShurikenTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="ShurikenSpawnLocation" type="Node2D" parent="."]
+position = Vector2(20, -20)
+
+[connection signal="timeout" from="ShurikenTimer" to="." method="_on_shuriken_timer_timeout"]

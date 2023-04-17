@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dvciusaoi1wv0"]
+[gd_scene load_steps=19 format=3 uid="uid://dvciusaoi1wv0"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_gr4eu"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="4_8gbpw"]
@@ -69,6 +69,23 @@ tracks/1/keys = {
 "args": [],
 "method": &"queue_free"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_2aifp"]
+resource_name = "Down_Atk"
+length = 0.375004
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 8), Vector2i(1, 8), Vector2i(2, 8)]
 }
 
 [sub_resource type="Animation" id="Animation_76wfh"]
@@ -197,6 +214,23 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_3jqi3"]
+resource_name = "Up_Atk"
+length = 0.750004
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.5, 0.625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7)]
+}
+
 [sub_resource type="Animation" id="Animation_q4stp"]
 resource_name = "Walk"
 length = 0.750004
@@ -219,17 +253,20 @@ tracks/0/keys = {
 _data = {
 "Cast": SubResource("Animation_xuxal"),
 "Death": SubResource("Animation_wruyv"),
+"Down_Atk": SubResource("Animation_2aifp"),
 "Hurt": SubResource("Animation_76wfh"),
 "Idle": SubResource("Animation_h4dee"),
 "Punch": SubResource("Animation_imsbf"),
 "RESET": SubResource("Animation_h5pqb"),
 "Shuriken": SubResource("Animation_i1prq"),
+"Up_Atk": SubResource("Animation_3jqi3"),
 "Walk": SubResource("Animation_q4stp")
 }
 
 [node name="S_PC2" type="Node2D" groups=["character"]]
 script = ExtResource("1_gr4eu")
 start_atk = 3
+start_def = 0
 
 [node name="S_GaugeBar" parent="." instance=ExtResource("4_8gbpw")]
 offset_left = -18.0
@@ -278,7 +315,7 @@ texture_filter = 1
 texture = ExtResource("5_mkeqx")
 offset = Vector2(0, -30)
 hframes = 6
-vframes = 7
+vframes = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"

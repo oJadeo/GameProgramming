@@ -11,6 +11,7 @@ func _ready():
 	#Setting for skill
 	for skill in skill_list:
 		skill.init(self)
+		
 
 func start_turn()->void:
 	super()
@@ -102,6 +103,7 @@ func finish_walk()->void:
 # Called every frame. 'delt	animation.play(name)a' is the elapsed time since the previous frame.
 func _process(delta):
 	super(delta)
+	
 
 
 func _on_timer_timeout() -> void:
