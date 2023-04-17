@@ -1,19 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d8rjogk6pp1u"]
+[gd_scene load_steps=2 format=3 uid="uid://d8rjogk6pp1u"]
 
 [ext_resource type="Script" path="res://Skills/PC3/Fire/GD_ThrowFire.gd" id="1_qnbgh"]
-[ext_resource type="PackedScene" uid="uid://rxdkqd54vq0c" path="res://Skills/PC3/Fire/S_Fire.tscn" id="2_ytqqf"]
 
 [node name="S_ThrowFire" type="Node2D"]
 script = ExtResource("1_qnbgh")
-fire = ExtResource("2_ytqqf")
 skill_name = "Fire in the hole"
 max_cooldown = 2
-
-[node name="FireTimer" type="Timer" parent="."]
-wait_time = 0.75
-one_shot = true
-
-[node name="FireSpawnLocation" type="Node2D" parent="."]
-position = Vector2(40, -20)
-
-[connection signal="timeout" from="FireTimer" to="." method="_on_shuriken_timer_timeout"]

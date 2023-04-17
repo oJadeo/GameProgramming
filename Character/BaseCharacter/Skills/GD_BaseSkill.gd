@@ -21,6 +21,7 @@ func init(_player:Character)-> void:
 	player = _player
 
 func select_target(cood:Vector2) -> void:
+	player.SKILL_SELECT_UI.visible = false
 	pass
 
 func check_target()->bool:

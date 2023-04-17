@@ -59,7 +59,7 @@ func get_highlight()-> Array:
 	var result = []
 	for i in range(board_size.y):
 		for j in range(board_size.x):
-			if board_tile[i][j].is_highlight:
+			if board_tile[i][j].hoverable:
 				result.append(Vector2(j,i))
 	return result
 func reset_all_tile() -> void:
@@ -69,15 +69,16 @@ func reset_all_tile() -> void:
 func highlight_tiles(tiles_cood:Array,get_tile:int) -> void:
 	for cood in tiles_cood:
 		if 0 <= cood.y and cood.y  < board_size.y and 0 <= cood.x and cood.x < board_size.x:
+			board_tile[cood.y][cood.x].highlight()
 			match get_tile:
 				GET_TILE.empty:
 					if not board[cood.y][cood.x]:
-						board_tile[cood.y][cood.x].highlight()
+						board_tile[cood.y][cood.x].hoverable = true
 				GET_TILE.unit:
 					if board[cood.y][cood.x]:
-						board_tile[cood.y][cood.x].highlight()
+						board_tile[cood.y][cood.x].hoverable = true
 				GET_TILE.all:
-					board_tile[cood.y][cood.x].highlight()
+					board_tile[cood.y][cood.x].hoverable = true
 func delete_character(cood:Vector2) ->void:
 	board[cood.y][cood.x] = null
 # Called every frame. 'delta' is the elapsed time since the previous frame.

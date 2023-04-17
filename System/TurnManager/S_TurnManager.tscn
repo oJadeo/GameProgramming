@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://System/CharacterManager/GD_EnemyManager.gd" id="2_jjfr4"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_PlayerManager.gd" id="3_4xubk"]
 [ext_resource type="PackedScene" uid="uid://cp2x3v2qmvcp2" path="res://Character/EnemyCharacter_Test/EM1/S_EM1_Test.tscn" id="3_k3xkt"]
-[ext_resource type="PackedScene" uid="uid://dsxgy78b4forx" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="4_oyiyn"]
+[ext_resource type="PackedScene" uid="uid://u2etaxq3hrg5" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="4_oyiyn"]
 [ext_resource type="PackedScene" uid="uid://c28w6mxwm01de" path="res://Character/EnemyCharacter_Test/EM2/S_EM2_Test.tscn" id="4_qxi3x"]
 [ext_resource type="PackedScene" uid="uid://ctrtwbaekf8se" path="res://Skills/Formation/F_2/S_Formation2.tscn" id="7_c2lqc"]
 [ext_resource type="PackedScene" uid="uid://bbe53oyy08kdb" path="res://Skills/Formation/F_1/S_Formation1.tscn" id="7_rqxfc"]
@@ -24,22 +24,20 @@ script = ExtResource("2_jjfr4")
 [node name="Characters" type="Node2D" parent="EnemyManager"]
 
 [node name="S_EM1_Test" parent="EnemyManager/Characters" instance=ExtResource("3_k3xkt")]
-start_atk = 3
 start_direction = Vector2(-1, 0)
-start_cood = Vector2(8, 1)
+start_cood = Vector2(2, 1)
 
 [node name="S_EM1_Test2" parent="EnemyManager/Characters" instance=ExtResource("3_k3xkt")]
-start_atk = 3
 start_direction = Vector2(-1, 0)
-start_cood = Vector2(2, 0)
+start_cood = Vector2(3, 2)
 
 [node name="S_EM2_Test" parent="EnemyManager/Characters" instance=ExtResource("4_qxi3x")]
 start_direction = Vector2(-1, 0)
-start_cood = Vector2(8, 3)
+start_cood = Vector2(4, 3)
 
 [node name="S_EM2_Test2" parent="EnemyManager/Characters" instance=ExtResource("4_qxi3x")]
 start_direction = Vector2(-1, 0)
-start_cood = Vector2(8, 4)
+start_cood = Vector2(4, 2)
 
 [node name="PlayerManager" type="Node2D" parent="."]
 script = ExtResource("3_4xubk")
@@ -47,14 +45,13 @@ script = ExtResource("3_4xubk")
 [node name="Characters" type="Node2D" parent="PlayerManager"]
 
 [node name="S_PC1" parent="PlayerManager/Characters" instance=ExtResource("4_oyiyn")]
-start_cood = Vector2(0, 0)
+start_cood = Vector2(2, 0)
 
 [node name="S_PC2" parent="PlayerManager/Characters" instance=ExtResource("7_ubfjx")]
-start_speed = 20
-start_cood = Vector2(1, 2)
+start_cood = Vector2(0, 2)
 
 [node name="S_PC3" parent="PlayerManager/Characters" instance=ExtResource("8_p3spw")]
-start_cood = Vector2(0, 4)
+start_cood = Vector2(1, 3)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="PlayerManager"]
 

@@ -4,6 +4,7 @@ class_name PlayerCharacter
 @onready var SKILL_SELECT_UI = $CanvasLayer
 @onready var btns_node = $CanvasLayer/VBoxContainer
 @onready var skills_node = $SkillsList
+var formation_use:int = 1
 var btn_list 
 var select_formation_skill
 # Called when the node enters the scene tree for the first time.
@@ -17,7 +18,8 @@ func _ready()->void:
 	
 func start_turn()->void:
 	super()
-	manager.check_formation(self)
+	if formation_use > 0:
+		manager.check_formation(self)
 	SKILL_SELECT_UI.visible = true
 	btn_list[0].text = "Move"
 	for i in range(len(skill_list)):
@@ -55,6 +57,8 @@ func select_skill_2():
 	select_skill(3)
 
 func select_formation(formation_skill:BaseSkills) -> void:
+	for i in range(len(skill_list)):
+		skill_list[i].deselect()
 	selecting_move = null
 	select_formation_skill = formation_skill
 

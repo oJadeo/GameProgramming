@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgcto6p24tnyp"]
+
+[ext_resource type="Script" path="res://Skills/PC3/Teleport/GD_Teleport.gd" id="1_2evsc"]
+
+[node name="S_Teleport" type="Node2D"]
+script = ExtResource("1_2evsc")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
