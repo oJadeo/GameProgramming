@@ -2,7 +2,7 @@ extends Node
 class_name CharacterManager
 
 var rng = RandomNumberGenerator.new()
-
+@onready var character_node = $Characters
 signal change_character_turn(character)
 var all_character = []
 
@@ -12,7 +12,7 @@ func _ready()->void:
 	random_start_guage()
 	
 func update_all_character()->void:
-	all_character = get_children()
+	all_character = character_node.get_children()
 	
 func random_start_guage()->void:
 	for character in all_character:
@@ -25,6 +25,9 @@ func update_tick(delta:float)->bool:
 			is_next_turn = true
 			emit_signal('change_character_turn',character)
 	return is_next_turn
+
+func check_formation(character:Character) -> bool:
+	return false
 
 func end_turn():
 	get_parent().end_turn()

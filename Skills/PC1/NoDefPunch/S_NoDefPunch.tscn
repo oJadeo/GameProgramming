@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr16h6s46opc0"]
+
+[ext_resource type="Script" path="res://Skills/PC1/NoDefPunch/GD_NoDefPunch.gd" id="1_v0y64"]
+
+[node name="S_NoDefPunch" type="Node2D"]
+script = ExtResource("1_v0y64")

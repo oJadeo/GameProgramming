@@ -1,61 +1,29 @@
 extends Node2D
 class_name Character
 
-signal death(object)
 
 
-class status:
-	signal atk_updated(new_value)
-	signal def_updated(new_value)
-	signal speed_updated(new_value)
-	signal health_updated(new_value)
-	signal max_health_updated(new_value)
-	signal gauge_updated(new_value)
-	var atk: int = 0:
-		set(new_value):
-			atk = new_value
-			emit_signal('atk_updated',new_value)
-	var def: int = 0:
-		set(new_value):
-			def = new_value
-			emit_signal('def_updated',new_value)
-	var speed: int = 10:
-		set(new_value):
-			speed = new_value
-			emit_signal('speed_updated',new_value)
-	var health: int = 0:
-		set(new_value):
-			if new_value < 0:
-				emit_signal('death',self)
-				return
-			health = new_value if new_value < max_health else max_health
-			emit_signal('health_updated',new_value)
-	var max_health:int = 1:
-		set(new_value):
-			health = new_value
-			emit_signal('max_health_updated',new_value)
-	var gauge:float = 0.0:
-		set(new_value):
-			gauge = new_value 
-			emit_signal('gauge_updated',new_value)
-	func _init():
-		pass
-var stat = status.new()
+enum EFFECT{
+	buff,
+	debuff
+}
+var stat = Status.new()
 
 @export var start_atk:int = 1
 @export var start_def:int = 1
 @export var start_speed:int = 10
-@export var start_max_health:int = 1
+@export var start_max_health:int = 10
 
-@export var move:Resource
-@export var basic_attack:Resource
-@export var weapon_skill:Resource
-@export var character_skill:Resource
 
+var skill_list
 var damage_display = preload("res://System/Damage/S_DamageNuber.tscn")
-
+var heal_display = preload("res://System/Heal/S_HealNumber.tscn")
+var move_range:int = 2
 @export var start_direction:Vector2 = Vector2(1,0)
-var direction:Vector2 = Vector2(1,0)
+var direction:Vector2 = Vector2(1,0):
+	set(new_value):
+		direction = new_value
+		sprite.flip_h = direction != Vector2(1,0)
 @export var start_cood:Vector2 = Vector2(-1,-1)
 var board_cood:Vector2 = Vector2(-1,-1):
 	set(new_value):
@@ -65,15 +33,18 @@ var board_cood:Vector2 = Vector2(-1,-1):
 @onready var sprite = $Sprite2D
 @onready var animation = $AnimationPlayer
 @onready var move_timer = $MoveTimer
-
+@onready var manager = get_parent().get_parent()
+var selecting_move:BaseSkills
+var is_move:bool
 var is_turn:bool = false
 var is_target:bool = false
-
+var status_effect:Array
 # Called when the node enters the scene tree for the first time.
 func _ready()->void:
 	if start_cood == Vector2(-1,-1):
 		return
 	board_cood = start_cood
+	stat.death.connect(death)
 	set_global_position(Board.get_tile_pos(board_cood))
 	set_up_start_stat()
 	animation.play("Idle")
@@ -97,21 +68,88 @@ func set_gauge(new_gauge:float)->void:
 func start_turn()->void:
 	is_turn = true
 	animation.play("Idle")
-func damaged(atk:int) -> void:
-	stat.health -= atk-stat.def
-	if stat.health == 0:
-		pass
+	is_move = false
+	for skill in skill_list:
+		if skill.cooldown != 0:
+			skill.cooldown -= 1
+			
+func damaged(atk:int,attack_direction:Vector2) -> void:
+	var damage:int = atk-stat.def if direction.dot(attack_direction) == -1 else (atk-stat.def)*1.5
 	animation.play("Hurt")
+	stat.health = stat.health - damage
 	var damage_num = damage_display.instantiate()
-	damage_num.set_values(atk-stat.def,position)
 	add_child(damage_num)
+	damage_num.set_values(damage)
+func healed(amount:int) -> void:
+	stat.health += amount
+	var heal_num = heal_display.instantiate()
+	add_child(heal_num)
+	heal_num.set_values(amount)
 func return_to_idle():
 	animation.play("Idle")
+	animation.stop()
+func finish_walk()->void:
+	var can_move = false
+	for skill in skill_list:
+		can_move = can_move or skill.check_target()
+	if not can_move:
+		end_turn()
+func select_skill(num:int)->void:
+	if num > len(skill_list):
+		return
+		
+	for i in range(len(skill_list)):
+		skill_list[i].deselect()
+	selecting_move = skill_list[num]
+	skill_list[num].select()
+func trigger() -> void:
+	if selecting_move:
+		selecting_move.trigger()
+func turn_effect(type:EFFECT,buff_stat:Status,turn:int) -> void:
+	match type:
+		EFFECT.buff:
+			stat.atk += buff_stat.atk 
+			stat.def += buff_stat.def 
+			stat.speed += buff_stat.speed 
+			stat.gauge += buff_stat.gauge 
+			status_effect.append([turn,type,buff_stat])
+		EFFECT.debuff:
+			stat.atk -= buff_stat.atk 
+			stat.def -= buff_stat.def 
+			stat.speed -= buff_stat.speed 
+			stat.gauge -= buff_stat.gauge 
+			status_effect.append([turn,type,buff_stat])
+func resolve(effect)-> void:
+	match effect[1]:
+		EFFECT.buff:
+			stat.atk -= effect[2].atk 
+			stat.def -= effect[2].def 
+			stat.speed -= effect[2].speed 
+		EFFECT.debuff:
+			stat.atk += effect[2].atk 
+			stat.def += effect[2].def 
+			stat.speed += effect[2].speed 
 func end_turn()->void:
 	stat.gauge = 0
+	
+	for effect in status_effect:
+		effect[0] -= 1
+		if effect[0] == 0:
+			resolve(effect)
+	
 	is_turn = false
+	selecting_move = null
 	animation.play("Idle")
 	animation.stop()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta)->void:
-	pass
+	manager.end_turn()
+func death():
+	animation.play("Death")
+	Board.delete_character(board_cood)
+	manager.all_character.erase(self)
+
+func play_animaiton(name:String)->void:
+	animation.play(name)
+func _process(delta: float) -> void:
+	if not move_timer.is_stopped():
+		if selecting_move:
+			selecting_move.update(delta)

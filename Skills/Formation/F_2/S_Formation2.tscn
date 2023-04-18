@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctrtwbaekf8se"]
+
+[ext_resource type="Script" path="res://Skills/Formation/F_2/GD_Formation2.gd" id="1_m3rem"]
+
+[node name="S_Formation2" type="Node2D"]
+script = ExtResource("1_m3rem")
+
+[node name="StartDownTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://u13gtmnuq5yy"]
+
+[ext_resource type="Script" path="res://Skills/EM1/Push/GD_Push.gd" id="1_jg5ka"]
+
+[node name="S_Push" type="Node2D"]
+script = ExtResource("1_jg5ka")
+skill_name = "Kubota"
+max_cooldown = 2
+
+[node name="PushTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true

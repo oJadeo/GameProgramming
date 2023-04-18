@@ -6,7 +6,10 @@ enum GET_TILE{
 	unit,
 	all
 }
-var player
+@export var skill_name:String
+var player:Character
+var cooldown:int = 0
+@export var max_cooldown:int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -18,10 +21,15 @@ func init(_player:Character)-> void:
 	player = _player
 
 func select_target(cood:Vector2) -> void:
+	if player is PlayerCharacter:
+		player.SKILL_SELECT_UI.visible = false
 	pass
 
+func check_target()->bool:
+	return false
+
 func finish_skill() -> void:
-	pass
+	cooldown = max_cooldown
 
 func update(delta:float) -> void:
 	pass

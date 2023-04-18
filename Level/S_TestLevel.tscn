@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dfb8h6hvpmwhw"]
 
 [ext_resource type="Script" path="res://Level/GD_TestLevel.gd" id="1_foyb7"]
-[ext_resource type="PackedScene" uid="uid://ytg8mivfc41o" path="res://System/TurnManager/S_TurnManager.tscn" id="1_urn3x"]
+[ext_resource type="PackedScene" uid="uid://dvkisla0mp6r1" path="res://System/TurnManager/S_TurnManager.tscn" id="1_urn3x"]
 [ext_resource type="PackedScene" uid="uid://m4cr7ou4tlfn" path="res://Tile/S_Tile.tscn" id="2_ex7t4"]
 [ext_resource type="Script" path="res://Level/GD_Sprite_Board.gd" id="3_571tc"]
 

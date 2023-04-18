@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://5qylad4dianf"]
-
-[ext_resource type="Script" path="res://Character/BaseCharacter/Skills/Basic_Atk_1/GD_Basic_Atk.gd" id="1_dot43"]
-
-[node name="S_BasicAtk" type="Node2D"]
-script = ExtResource("1_dot43")
