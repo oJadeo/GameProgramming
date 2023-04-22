@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://dvciusaoi1wv0"]
+[gd_scene load_steps=20 format=3 uid="uid://dvciusaoi1wv0"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_gr4eu"]
+[ext_resource type="JSON" path="res://Character/PlayerCharacter/PC2/pc2_stat.json" id="2_vjm3y"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="4_8gbpw"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="4_ehyal"]
 [ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="5_h1alw"]
@@ -265,6 +266,7 @@ _data = {
 
 [node name="S_PC2" type="Node2D" groups=["character"]]
 script = ExtResource("1_gr4eu")
+stat_json = ExtResource("2_vjm3y")
 start_atk = 3
 start_def = 0
 

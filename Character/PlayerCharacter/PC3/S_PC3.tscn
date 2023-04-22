@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://db41fqgfith3u"]
+[gd_scene load_steps=21 format=3 uid="uid://db41fqgfith3u"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_ljthf"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_hmaxi"]
+[ext_resource type="JSON" path="res://Character/PlayerCharacter/PC3/pc3_stat.json" id="2_kp7e3"]
 [ext_resource type="Texture2D" uid="uid://bqrmpk32cw0ce" path="res://Character/PlayerCharacter/PC3/PC3.png" id="3_7jakr"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="4_4666u"]
 [ext_resource type="PackedScene" uid="uid://csoi80d61uckw" path="res://Skills/Basic_Atk/Shuriken/S_ThrowShuriken.tscn" id="5_njkn6"]
@@ -297,6 +298,7 @@ _data = {
 
 [node name="S_PC3" type="Node2D" groups=["character"]]
 script = ExtResource("1_ljthf")
+stat_json = ExtResource("2_kp7e3")
 start_atk = 2
 start_def = 0
 start_speed = 12
@@ -366,3 +368,4 @@ one_shot = true
 [node name="S_Shuriken" parent="SkillsList" instance=ExtResource("5_njkn6")]
 
 [node name="S_ThrowBigShutiken" parent="SkillsList" instance=ExtResource("6_lwrv6")]
+max_cooldown = 2

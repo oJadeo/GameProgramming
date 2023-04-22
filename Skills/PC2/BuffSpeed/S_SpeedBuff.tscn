@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://tck50afqhb65"]
-
-[ext_resource type="Script" path="res://Skills/PC2/BuffSpeed/GD_SpeedBuff.gd" id="1_umngs"]
-
-[node name="S_SpeedBuff" type="Node2D"]
-script = ExtResource("1_umngs")
-is_buff = true
-target_mode = 2
-max_cooldown = 3

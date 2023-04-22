@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://uqu6v7hprggm"]
+
+[ext_resource type="Script" path="res://Skills/PC2/BuffAtkDef/GD_BuffAtkDef.gd" id="1_wcyog"]
+
+[node name="S_BuffAtkDef" type="Node2D"]
+script = ExtResource("1_wcyog")
+is_buff = true
+target_mode = 1
+max_cooldown = 3

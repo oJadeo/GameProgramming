@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://u2etaxq3hrg5"]
+[gd_scene load_steps=21 format=3 uid="uid://u2etaxq3hrg5"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_jepcu"]
+[ext_resource type="JSON" path="res://Character/PlayerCharacter/PC1/pc1_stat.json" id="2_jb0rm"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_paamt"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="2_t1lac"]
 [ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="5_71wyt"]
@@ -297,6 +298,7 @@ _data = {
 
 [node name="S_PC1" type="Node2D" groups=["character"]]
 script = ExtResource("1_jepcu")
+stat_json = ExtResource("2_jb0rm")
 start_atk = 5
 start_def = 0
 start_speed = 8
