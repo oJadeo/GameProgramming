@@ -128,6 +128,7 @@ func check_walk():
 			if dist < min_dist:
 				min_dist = dist
 				min_cood = movable_cood
+				
 	if min_cood != Vector2(-1,-1):
 		move_to_cood = min_cood
 	return
@@ -138,6 +139,7 @@ func _on_idle_timer_timeout():
 	skill_select = -1
 	
 	check_walk()
+	
 	if move_to_cood != Vector2(-1,-1):
 		select_skill(0)
 		selecting_move.select_target(move_to_cood)
