@@ -44,11 +44,11 @@ func select_target(cood:Vector2) -> void:
 		player.direction = Vector2(-1,0)
 	if player.board_cood.x < cood.x:
 		player.direction = Vector2(1,0)
-	player.board_cood = cood
 	
 	if cood.x == player.board_cood.x or cood.y == player.board_cood.y: 
 		target_pos = Board.get_tile_pos(cood)
 		velocity = target_pos - player.position
+		player.board_cood = cood
 		
 		player.play_animaiton("Walk") 
 		
@@ -64,6 +64,7 @@ func select_target(cood:Vector2) -> void:
 			
 		target_pos = Board.get_tile_pos(midpoint)
 		velocity = target_pos - player.position
+		player.board_cood = cood
 		
 		player.play_animaiton("Walk") 
 		
