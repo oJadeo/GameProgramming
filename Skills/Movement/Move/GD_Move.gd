@@ -38,16 +38,47 @@ func check_target()->bool:
 func select_target(cood:Vector2) -> void:
 	super(cood)
 	Board.reset_all_tile()
+	if cood.x == player.board_cood.x or cood.y == player.board_cood.y: 
+		target_pos = Board.get_tile_pos(cood)
+		velocity = target_pos - player.position
+		
+		player.is_move = true
+		
+		if player.board_cood.x > cood.x:
+			player.direction = Vector2(-1,0)
+		if player.board_cood.x < cood.x:
+			player.direction = Vector2(1,0)
+		player.board_cood = cood
+		player.play_animaiton("Walk") 
+		
+		player.move_timer.set_wait_time(1)
+		player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)
+		player.move_timer.start()
+	else:
+		var midpoint
+		if not Board.get_character(Vector2(cood.x,player.board_cood.y)):
+			midpoint = Vector2(cood.x,player.board_cood.y)
+		else:
+			midpoint = Vector2(player.board_cood.x,cood.y)
+			
+		target_pos = Board.get_tile_pos(midpoint)
+		velocity = target_pos - player.position
+		player.is_move = true
+		
+		if player.board_cood.x > cood.x:
+			player.direction = Vector2(-1,0)
+		if player.board_cood.x < cood.x:
+			player.direction = Vector2(1,0)
+		player.board_cood = cood
+		player.play_animaiton("Walk") 
+		
+		player.move_timer.set_wait_time(1)
+		player.move_timer.timeout.connect(move2.bind(cood),CONNECT_ONE_SHOT)
+		player.move_timer.start()
+func move2(cood:Vector2) -> void:
 	target_pos = Board.get_tile_pos(cood)
 	velocity = target_pos - player.position
 	
-	player.is_move = true
-	
-	if player.board_cood.x > cood.x:
-		player.direction = Vector2(-1,0)
-	if player.board_cood.x < cood.x:
-		player.direction = Vector2(1,0)
-	player.board_cood = cood
 	player.play_animaiton("Walk") 
 	
 	player.move_timer.set_wait_time(1)
