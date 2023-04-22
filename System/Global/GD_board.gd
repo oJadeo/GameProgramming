@@ -8,7 +8,7 @@ var tile_size:Vector2
 var x_offset:int
 var player_list:Array
 var enemy_list:Array
-
+var select_tile =[]
 
 enum GET_TILE{
 	empty,
@@ -66,6 +66,9 @@ func reset_all_tile() -> void:
 	for row in board_tile:
 		for tile in row:
 			tile.reset()
+	select_tile.clear()
+func add_select_tile(tiles):
+	select_tile.append_array(tiles)
 func highlight_tiles(tiles_cood:Array,get_tile:int) -> void:
 	for cood in tiles_cood:
 		if 0 <= cood.y and cood.y  < board_size.y and 0 <= cood.x and cood.x < board_size.x:

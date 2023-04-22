@@ -105,20 +105,20 @@ func select_skill(num:int)->void:
 func trigger() -> void:
 	if selecting_move:
 		selecting_move.trigger()
-func turn_effect(type:EFFECT,buff_stat:Status,turn:int) -> void:
+func turn_effect(type:EFFECT,effect_data,turn:int) -> void:
 	match type:
 		EFFECT.buff:
-			stat.atk += buff_stat.atk 
-			stat.def += buff_stat.def 
-			stat.speed += buff_stat.speed 
-			stat.gauge += buff_stat.gauge 
-			status_effect.append([turn,type,buff_stat])
+			stat.atk += effect_data.atk 
+			stat.def += effect_data.def 
+			stat.speed += effect_data.speed 
+			stat.gauge += effect_data.gauge 
+			status_effect.append([turn,type,effect_data])
 		EFFECT.debuff:
-			stat.atk -= buff_stat.atk 
-			stat.def -= buff_stat.def 
-			stat.speed -= buff_stat.speed 
-			stat.gauge -= buff_stat.gauge 
-			status_effect.append([turn,type,buff_stat])
+			stat.atk -= effect_data.atk 
+			stat.def -= effect_data.def 
+			stat.speed -= effect_data.speed 
+			stat.gauge -= effect_data.gauge 
+			status_effect.append([turn,type,effect_data])
 func resolve(effect)-> void:
 	match effect[1]:
 		EFFECT.buff:

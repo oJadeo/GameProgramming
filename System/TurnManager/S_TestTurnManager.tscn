@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://dh0r7rjrcy6er"]
+
+[ext_resource type="Script" path="res://System/TurnManager/GD_TurnManager.gd" id="1_dflja"]
+[ext_resource type="Script" path="res://System/CharacterManager/GD_EnemyManager.gd" id="2_mrvh1"]
+[ext_resource type="Script" path="res://System/CharacterManager/GD_PlayerManager.gd" id="5_nehn5"]
+[ext_resource type="PackedScene" uid="uid://u2etaxq3hrg5" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="6_2le4b"]
+[ext_resource type="PackedScene" uid="uid://bbe53oyy08kdb" path="res://Skills/Formation/F_1/S_Formation1.tscn" id="9_dgnif"]
+[ext_resource type="PackedScene" uid="uid://ctrtwbaekf8se" path="res://Skills/Formation/F_2/S_Formation2.tscn" id="10_xs2ya"]
+[ext_resource type="PackedScene" uid="uid://xdsaw08y6pfy" path="res://Skills/Formation/F_3/S_Formation3.tscn" id="11_uyf1h"]
+
+[sub_resource type="Theme" id="Theme_44u5n"]
+
+[node name="S_turn_manager" type="Node2D"]
+script = ExtResource("1_dflja")
+tick_multiplier = 5.0
+
+[node name="EnemyManager" type="Node2D" parent="."]
+script = ExtResource("2_mrvh1")
+
+[node name="Characters" type="Node2D" parent="EnemyManager"]
+
+[node name="PlayerManager" type="Node2D" parent="."]
+script = ExtResource("5_nehn5")
+
+[node name="Characters" type="Node2D" parent="PlayerManager"]
+
+[node name="S_PC1" parent="PlayerManager/Characters" instance=ExtResource("6_2le4b")]
+start_cood = Vector2(3, 2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PlayerManager"]
+
+[node name="VBoxContainer" type="HBoxContainer" parent="PlayerManager/CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -254.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme = SubResource("Theme_44u5n")
+alignment = 2
+
+[node name="F_1" type="Button" parent="PlayerManager/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "F_1"
+
+[node name="S_Formation1" parent="PlayerManager/CanvasLayer/VBoxContainer/F_1" instance=ExtResource("9_dgnif")]
+
+[node name="F_2" type="Button" parent="PlayerManager/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "F_2
+"
+
+[node name="S_Formation2" parent="PlayerManager/CanvasLayer/VBoxContainer/F_2" instance=ExtResource("10_xs2ya")]
+
+[node name="F_3" type="Button" parent="PlayerManager/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "F_3
+"
+
+[node name="S_Formation3" parent="PlayerManager/CanvasLayer/VBoxContainer/F_3" instance=ExtResource("11_uyf1h")]

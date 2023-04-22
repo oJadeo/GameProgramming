@@ -4,6 +4,8 @@ class_name PlayerCharacter
 @onready var SKILL_SELECT_UI = $CanvasLayer
 @onready var btns_node = $CanvasLayer/VBoxContainer
 @onready var skills_node = $SkillsList
+@export var stat_json:JSON
+@export var level:int = 1
 var formation_use:int = 1
 var btn_list 
 var select_formation_skill
@@ -15,6 +17,17 @@ func _ready()->void:
 	btn_list = btns_node.get_children()
 	setting_skills_button()
 	is_move = false
+	if stat_json:
+		get_stat(level)
+	
+func get_stat(lv:int):
+	var stat_data = stat_json.get_data()
+	
+	stat.atk = stat_data[lv]['atk']
+	stat.def = stat_data[lv]['def']
+	stat.speed = stat_data[lv]['speed']
+	stat.max_health = stat_data[lv]['hp']
+	stat.health = stat_data[lv]['hp']
 	
 func start_turn()->void:
 	super()

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b305f0cmtvlx3"]
+
+[ext_resource type="Script" path="res://Skills/Boss1/HitLeg/GD_HitLeg.gd" id="1_h6pi3"]
+
+[node name="S_HitLeg" type="Node2D"]
+script = ExtResource("1_h6pi3")
+speed_decrease = 10
+max_cooldown = 3
