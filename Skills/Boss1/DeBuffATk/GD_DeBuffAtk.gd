@@ -1,49 +1,47 @@
 extends BaseSkills
 
-@export var is_buff:bool
 @export var atk:int = 0
 @export var def:int = 0
 @export var speed:int = 0
 @export var gauge:int = 0
-@export var buff_duration:int = 0
-@export var is_heal:bool
-@export var heal_multiplier:float = 1
+@export var debuff_duration:int = 0
+@export var insect:Resource
 enum TARGET_MODE{
-	SELF,
-	ALLY,
+	ENEMY,
 	ALL
 }
-var buff_stat:Status
-var target:Character
+var debuff_stat:Status
 @export var target_mode:TARGET_MODE
+var target_list:Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	buff_stat = Status.new()
-	buff_stat.atk = atk
-	buff_stat.def = def
-	buff_stat.speed = speed
-	buff_stat.gauge = gauge
-	pass # Replace with function body.
+	debuff_stat = Status.new()
+	debuff_stat.atk = atk
+	debuff_stat.def = def
+	debuff_stat.speed = speed
+	debuff_stat.gauge = gauge
 
 func select() -> void:
-	match target_mode:
-		TARGET_MODE.SELF:
-			Board.highlight_tiles([player.board_cood],GET_TILE.unit)
-		TARGET_MODE.ALLY,TARGET_MODE.ALL:
-			var cood_list = []
-			for character in Board.player_list:
-				cood_list.append(character.board_cood)
-			Board.highlight_tiles(cood_list,GET_TILE.unit)
+	var cood_list = []
+	for character in Board.player_list:
+		cood_list.append(character.board_cood)
+	Board.highlight_tiles(cood_list,GET_TILE.unit)
 			
 
 func select_target(cood:Vector2) -> void:
+	target_list = []
 	super(cood)
-	target = Board.get_character(cood)
 	
+	match target_mode:
+		TARGET_MODE.ENEMY:
+			target_list.append(Board.get_character(cood))
+		TARGET_MODE.ALL:
+			target_list = Board.player_list
+					
 	Board.reset_all_tile()
-	player.play_animaiton("Cast") 
-	player.move_timer.set_wait_time(0.75)
+	player.play_animaiton("Insect_All") 
+	player.move_timer.set_wait_time(4)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)
 	player.move_timer.start()
 
@@ -66,21 +64,8 @@ func _process(delta: float) -> void:
 
 
 func trigger() -> void:
-	match target_mode:
-		TARGET_MODE.SELF:
-			if is_buff:
-				player.turn_effect(Character.EFFECT.buff,buff_stat,buff_duration)
-			if is_heal:
-				player.healed(player.stat.atk*heal_multiplier)
-		TARGET_MODE.ALLY:
-			if is_buff:
-				target.turn_effect(Character.EFFECT.buff,buff_stat,buff_duration)
-			if is_heal:
-				target.healed(player.stat.atk*heal_multiplier)
-		TARGET_MODE.ALL:
-			for character in Board.player_list:
-				if is_buff:
-					character.turn_effect(Character.EFFECT.buff,buff_stat,buff_duration)
-			for character in Board.player_list:
-				if is_heal:
-					character.healed(player.stat.atk*heal_multiplier)
+	for target in target_list:
+		target.turn_effect(Character.EFFECT.debuff,debuff_stat,debuff_duration)
+		var new_insect = insect.instantiate()
+		get_tree().current_scene.add_child(new_insect)
+		new_insect.set_position(target.global_position)

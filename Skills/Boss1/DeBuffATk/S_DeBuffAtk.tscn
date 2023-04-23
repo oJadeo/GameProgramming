@@ -1,12 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bx36dd13i44ih"]
+[gd_scene load_steps=2 format=3 uid="uid://c84gp60mw7qft"]
 
-[ext_resource type="Script" path="res://Skills/PC2/BuffAtkDef/GD_BuffAtkDef.gd" id="1_5r1eo"]
-[ext_resource type="PackedScene" uid="uid://btb6i7wkm6dho" path="res://Skills/Boss1/DeBuffATk/S_Insect.tscn" id="2_u8btt"]
+[ext_resource type="Script" path="res://Skills/Boss1/DeBuffATk/GD_DeBuffAtk.gd" id="1_pxvnq"]
 
 [node name="S_DeBuffAtk" type="Node2D"]
-script = ExtResource("1_5r1eo")
-atk = 2
-debuff_duration = 2
-insect = ExtResource("2_u8btt")
-target_mode = 1
-max_cooldown = 3
+script = ExtResource("1_pxvnq")

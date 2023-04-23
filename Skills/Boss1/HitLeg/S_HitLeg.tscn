@@ -4,5 +4,5 @@
 
 [node name="S_HitLeg" type="Node2D"]
 script = ExtResource("1_h6pi3")
-speed_decrease = 10
+speed_decrease = 3
 max_cooldown = 3
