@@ -47,5 +47,5 @@ func _process(delta: float) -> void:
 
 func trigger() -> void:
 	debuff_stat.speed = speed_decrease
-	target.damaged(player.stat.atk,player.direction)
+	target.damaged(player.stat.atk*0.5,player.direction)
 	target.turn_effect(Character.EFFECT.debuff,debuff_stat,debuff_duration)
