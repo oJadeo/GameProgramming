@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cp2x3v2qmvcp2"]
+[gd_scene load_steps=18 format=3 uid="uid://cp2x3v2qmvcp2"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_bqckj"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_fhpmd"]
@@ -225,6 +225,8 @@ _data = {
 "Walk": SubResource("Animation_q4stp")
 }
 
+[sub_resource type="Theme" id="Theme_behcg"]
+
 [node name="S_Boss1_Test" type="Node2D" groups=["character"]]
 script = ExtResource("1_bqckj")
 
@@ -263,3 +265,38 @@ one_shot = true
 [node name="S_HitLeg" parent="SkillsList" instance=ExtResource("6_vd2gu")]
 
 [node name="S_DeBuffAtk" parent="SkillsList" instance=ExtResource("7_x3brk")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -45.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_behcg")
+alignment = 2
+
+[node name="Move" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Move"
+
+[node name="Basic_atk" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Basic Atk"
+
+[node name="Skill_1" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Skill_1
+"
+
+[node name="Skill_2" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Skill_2
+"

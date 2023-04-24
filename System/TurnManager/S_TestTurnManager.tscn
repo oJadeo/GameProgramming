@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://System/CharacterManager/GD_PlayerManager.gd" id="5_nehn5"]
 [ext_resource type="PackedScene" uid="uid://u2etaxq3hrg5" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="6_2le4b"]
 [ext_resource type="PackedScene" uid="uid://db41fqgfith3u" path="res://Character/PlayerCharacter/PC3/S_PC3.tscn" id="6_fq2hp"]
-
 [ext_resource type="PackedScene" uid="uid://bbe53oyy08kdb" path="res://Skills/Formation/F_1/S_Formation1.tscn" id="9_dgnif"]
 [ext_resource type="PackedScene" uid="uid://ctrtwbaekf8se" path="res://Skills/Formation/F_2/S_Formation2.tscn" id="10_xs2ya"]
 [ext_resource type="PackedScene" uid="uid://dyie2k2ftkq5p" path="res://Skills/Formation/F_4/S_Formation4.tscn" id="11_ch5yg"]
