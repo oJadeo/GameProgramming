@@ -62,6 +62,15 @@ func _process(delta):
 	super(delta)
 	
 func check_walk():
+	target_cood = Vector2(-1,-1)
+	move_to_cood = Vector2(-1,-1)
+	skill_select = -1
+	
+	if len(Board.player_list) == 0:
+		return
+	select_skill(0)
+	var movable_coods = Board.get_highlight()
+	
 	for player in Board.player_list:
 		var player_cood = Board.get_cood(player)
 		var back_pos = player_cood - player.direction
@@ -69,9 +78,7 @@ func check_walk():
 			target_cood = player_cood
 			skill_select = 1
 			return
-	
-	select_skill(0)
-	var movable_coods = Board.get_highlight()
+
 	for movable_cood in movable_coods:
 		for player in Board.player_list:
 			var player_cood = Board.get_cood(player)
@@ -164,11 +171,7 @@ func check_walk():
 		move_to_cood = min_cood
 	return
 
-func _on_idle_timer_timeout():
-	target_cood = Vector2(-1,-1)
-	move_to_cood = Vector2(-1,-1)
-	skill_select = -1
-	
+func _on_idle_timer_timeout():	
 	check_walk()
 	
 	if move_to_cood != Vector2(-1,-1):
