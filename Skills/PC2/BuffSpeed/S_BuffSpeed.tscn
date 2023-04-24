@@ -5,5 +5,7 @@
 [node name="S_BuffSpeed" type="Node2D"]
 script = ExtResource("1_ge6d3")
 is_buff = true
+speed = 2
+buff_duration = 2
 target_mode = 2
 max_cooldown = 3
