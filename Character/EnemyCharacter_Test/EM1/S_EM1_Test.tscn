@@ -196,6 +196,7 @@ _data = {
 
 [node name="S_EM1_Test" type="Node2D" groups=["character"]]
 script = ExtResource("1_jb47r")
+start_direction = Vector2(-1, 0)
 
 [node name="S_GaugeBar" parent="." instance=ExtResource("2_vdeb3")]
 offset_left = -20.0
