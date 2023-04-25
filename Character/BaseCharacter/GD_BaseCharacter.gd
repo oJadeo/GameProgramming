@@ -13,7 +13,7 @@ var stat = Status.new()
 @export var start_def:int = 1
 @export var start_speed:int = 10
 @export var start_max_health:int = 10
-
+@export var icon_texture:CompressedTexture2D
 
 var skill_list
 var damage_display = preload("res://System/Damage/S_DamageNuber.tscn")

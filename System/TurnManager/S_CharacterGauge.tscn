@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://deaafmasgxd4y"]
+
+[ext_resource type="Script" path="res://System/TurnManager/GD_CharacterGauge.gd" id="1_ioplt"]
+[ext_resource type="Texture2D" uid="uid://rflmq48tekve" path="res://Character/PlayerCharacter/PC1/I_PC1.png" id="2_7vvly"]
+
+[node name="CharacterGauge" type="Panel"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_ioplt")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_7vvly")
