@@ -344,8 +344,22 @@ layout_mode = 2
 text = "Skill_2
 "
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer2"]
+layout_mode = 2
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3
+y_sort_enabled = true
 texture_filter = 1
 texture = ExtResource("3_7jakr")
 offset = Vector2(0, -30)

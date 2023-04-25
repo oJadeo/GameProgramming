@@ -10,6 +10,8 @@ func _ready() -> void:
 	character.stat.max_health_updated.connect(_on_max_health_updated)
 	health_bar.max_value = character.stat.max_health
 	health_bar.value = character.stat.max_health
+	gauge_bar.visible = false
+	health_bar.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -23,3 +25,13 @@ func _on_health_updated(new_value:int) -> void:
 
 func _on_max_health_updated(new_value:int) -> void:
 	health_bar.max_value = new_value
+
+
+func _on_area_2d_mouse_entered():
+	gauge_bar.visible = true
+	health_bar.visible = true
+
+
+func _on_area_2d_mouse_exited():
+	gauge_bar.visible = false
+	health_bar.visible = false

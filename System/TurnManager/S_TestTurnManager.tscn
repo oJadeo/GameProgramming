@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://dh0r7rjrcy6er"]
+[gd_scene load_steps=15 format=3 uid="uid://dh0r7rjrcy6er"]
 
 [ext_resource type="Script" path="res://System/TurnManager/GD_TurnManager.gd" id="1_dflja"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_EnemyManager.gd" id="2_mrvh1"]
 [ext_resource type="PackedScene" uid="uid://cdi6l20pa1hgq" path="res://Character/EnemyCharacter_Test/EM3/S_EM3_Test.tscn" id="3_kkmnf"]
 [ext_resource type="PackedScene" uid="uid://d3hmsncnfy33r" path="res://Character/EnemyCharacter_Test/EM4/S_EM4_Test.tscn" id="4_i7n3u"]
 [ext_resource type="PackedScene" uid="uid://dvciusaoi1wv0" path="res://Character/PlayerCharacter/PC2/S_PC2.tscn" id="5_asctj"]
+[ext_resource type="PackedScene" uid="uid://cp2x3v2qmvcp2" path="res://Character/EnemyCharacter_Test/Boss1/S_Boss1_Test.tscn" id="5_e5wi3"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_PlayerManager.gd" id="5_nehn5"]
 [ext_resource type="PackedScene" uid="uid://u2etaxq3hrg5" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="6_2le4b"]
 [ext_resource type="PackedScene" uid="uid://db41fqgfith3u" path="res://Character/PlayerCharacter/PC3/S_PC3.tscn" id="6_fq2hp"]
@@ -16,34 +17,49 @@
 [sub_resource type="Theme" id="Theme_44u5n"]
 
 [node name="S_turn_manager" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_dflja")
 tick_multiplier = 5.0
 
 [node name="EnemyManager" type="Node2D" parent="."]
+y_sort_enabled = true
 script = ExtResource("2_mrvh1")
 
 [node name="Characters" type="Node2D" parent="EnemyManager"]
+y_sort_enabled = true
 
 [node name="S_EM3_Test" parent="EnemyManager/Characters" instance=ExtResource("3_kkmnf")]
+z_index = 0
 start_direction = Vector2(-1, 0)
 start_cood = Vector2(7, 2)
 
 [node name="S_EM4_Test" parent="EnemyManager/Characters" instance=ExtResource("4_i7n3u")]
+y_sort_enabled = true
 start_direction = Vector2(-1, 0)
 start_cood = Vector2(4, 4)
 
+[node name="S_Boss1_Test" parent="EnemyManager/Characters" instance=ExtResource("5_e5wi3")]
+y_sort_enabled = true
+start_direction = Vector2(-1, 0)
+start_cood = Vector2(3, 3)
+
 [node name="PlayerManager" type="Node2D" parent="."]
+y_sort_enabled = true
 script = ExtResource("5_nehn5")
 
 [node name="Characters" type="Node2D" parent="PlayerManager"]
+y_sort_enabled = true
 
 [node name="S_PC1" parent="PlayerManager/Characters" instance=ExtResource("6_2le4b")]
+y_sort_enabled = true
 start_cood = Vector2(3, 2)
 
 [node name="S_PC2" parent="PlayerManager/Characters" instance=ExtResource("5_asctj")]
+y_sort_enabled = true
 start_cood = Vector2(1, 1)
 
 [node name="S_PC3" parent="PlayerManager/Characters" instance=ExtResource("6_fq2hp")]
+y_sort_enabled = true
 start_cood = Vector2(2, 4)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="PlayerManager"]
@@ -80,6 +96,6 @@ text = "F_3
 
 [node name="F_4" type="Button" parent="PlayerManager/CanvasLayer/VBoxContainer"]
 layout_mode = 2
-text = "F_1"
+text = "F_4"
 
 [node name="S_Formation4" parent="PlayerManager/CanvasLayer/VBoxContainer/F_4" instance=ExtResource("11_ch5yg")]
