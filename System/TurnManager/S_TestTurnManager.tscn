@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dh0r7rjrcy6er"]
+[gd_scene load_steps=17 format=3 uid="uid://dh0r7rjrcy6er"]
 
 [ext_resource type="Script" path="res://System/TurnManager/GD_TurnManager.gd" id="1_dflja"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_EnemyManager.gd" id="2_mrvh1"]
@@ -33,11 +33,12 @@ script = ExtResource("2_mrvh1")
 y_sort_enabled = true
 
 [node name="S_EM1_AI" parent="EnemyManager/Characters" instance=ExtResource("5_4rmte")]
-scale = Vector2(4, 4)
+scale = Vector2(3, 3)
 start_cood = Vector2(4, 4)
 
 [node name="S_Boss1_Test" parent="EnemyManager/Characters" instance=ExtResource("5_e5wi3")]
 y_sort_enabled = true
+scale = Vector2(3, 3)
 start_direction = Vector2(-1, 0)
 start_cood = Vector2(3, 3)
 
@@ -49,15 +50,15 @@ script = ExtResource("5_nehn5")
 y_sort_enabled = true
 
 [node name="S_PC1" parent="PlayerManager/Characters" instance=ExtResource("6_2le4b")]
-scale = Vector2(4, 4)
+scale = Vector2(3, 3)
 start_cood = Vector2(3, 2)
 
 [node name="S_PC2" parent="PlayerManager/Characters" instance=ExtResource("5_asctj")]
-scale = Vector2(4, 4)
+scale = Vector2(3, 3)
 start_cood = Vector2(1, 1)
 
 [node name="S_PC3" parent="PlayerManager/Characters" instance=ExtResource("6_fq2hp")]
-scale = Vector2(4, 4)
+scale = Vector2(3, 3)
 start_cood = Vector2(2, 4)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="PlayerManager"]
