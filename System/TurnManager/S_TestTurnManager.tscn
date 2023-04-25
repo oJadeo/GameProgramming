@@ -1,20 +1,24 @@
-[gd_scene load_steps=15 format=3 uid="uid://dh0r7rjrcy6er"]
+[gd_scene load_steps=16 format=3 uid="uid://dh0r7rjrcy6er"]
 
 [ext_resource type="Script" path="res://System/TurnManager/GD_TurnManager.gd" id="1_dflja"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_EnemyManager.gd" id="2_mrvh1"]
-[ext_resource type="PackedScene" uid="uid://cdi6l20pa1hgq" path="res://Character/EnemyCharacter_Test/EM3/S_EM3_Test.tscn" id="3_kkmnf"]
-[ext_resource type="PackedScene" uid="uid://d3hmsncnfy33r" path="res://Character/EnemyCharacter_Test/EM4/S_EM4_Test.tscn" id="4_i7n3u"]
+[ext_resource type="PackedScene" uid="uid://cwbb5bd1qny4w" path="res://Character/EnemyCharacter_AI/EM1/S_EM1_AI.tscn" id="5_4rmte"]
 [ext_resource type="PackedScene" uid="uid://dvciusaoi1wv0" path="res://Character/PlayerCharacter/PC2/S_PC2.tscn" id="5_asctj"]
 [ext_resource type="PackedScene" uid="uid://cp2x3v2qmvcp2" path="res://Character/EnemyCharacter_Test/Boss1/S_Boss1_Test.tscn" id="5_e5wi3"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_PlayerManager.gd" id="5_nehn5"]
-[ext_resource type="PackedScene" uid="uid://u2etaxq3hrg5" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="6_2le4b"]
+[ext_resource type="PackedScene" uid="uid://bifjpciuhguys" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="6_2le4b"]
 [ext_resource type="PackedScene" uid="uid://db41fqgfith3u" path="res://Character/PlayerCharacter/PC3/S_PC3.tscn" id="6_fq2hp"]
 [ext_resource type="PackedScene" uid="uid://bbe53oyy08kdb" path="res://Skills/Formation/F_1/S_Formation1.tscn" id="9_dgnif"]
 [ext_resource type="PackedScene" uid="uid://ctrtwbaekf8se" path="res://Skills/Formation/F_2/S_Formation2.tscn" id="10_xs2ya"]
 [ext_resource type="PackedScene" uid="uid://dyie2k2ftkq5p" path="res://Skills/Formation/F_4/S_Formation4.tscn" id="11_ch5yg"]
 [ext_resource type="PackedScene" uid="uid://xdsaw08y6pfy" path="res://Skills/Formation/F_3/S_Formation3.tscn" id="11_uyf1h"]
+[ext_resource type="Script" path="res://System/TurnManager/GD_TurnLineManager.gd" id="12_gfjle"]
+[ext_resource type="PackedScene" uid="uid://deaafmasgxd4y" path="res://System/TurnManager/S_CharacterGauge.tscn" id="13_1n2f6"]
 
 [sub_resource type="Theme" id="Theme_44u5n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_661mu"]
+bg_color = Color(0, 0.686275, 0.682353, 1)
 
 [node name="S_turn_manager" type="Node2D"]
 y_sort_enabled = true
@@ -28,14 +32,8 @@ script = ExtResource("2_mrvh1")
 [node name="Characters" type="Node2D" parent="EnemyManager"]
 y_sort_enabled = true
 
-[node name="S_EM3_Test" parent="EnemyManager/Characters" instance=ExtResource("3_kkmnf")]
-z_index = 0
-start_direction = Vector2(-1, 0)
-start_cood = Vector2(7, 2)
-
-[node name="S_EM4_Test" parent="EnemyManager/Characters" instance=ExtResource("4_i7n3u")]
-y_sort_enabled = true
-start_direction = Vector2(-1, 0)
+[node name="S_EM1_AI" parent="EnemyManager/Characters" instance=ExtResource("5_4rmte")]
+scale = Vector2(4, 4)
 start_cood = Vector2(4, 4)
 
 [node name="S_Boss1_Test" parent="EnemyManager/Characters" instance=ExtResource("5_e5wi3")]
@@ -51,15 +49,15 @@ script = ExtResource("5_nehn5")
 y_sort_enabled = true
 
 [node name="S_PC1" parent="PlayerManager/Characters" instance=ExtResource("6_2le4b")]
-y_sort_enabled = true
+scale = Vector2(4, 4)
 start_cood = Vector2(3, 2)
 
 [node name="S_PC2" parent="PlayerManager/Characters" instance=ExtResource("5_asctj")]
-y_sort_enabled = true
+scale = Vector2(4, 4)
 start_cood = Vector2(1, 1)
 
 [node name="S_PC3" parent="PlayerManager/Characters" instance=ExtResource("6_fq2hp")]
-y_sort_enabled = true
+scale = Vector2(4, 4)
 start_cood = Vector2(2, 4)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="PlayerManager"]
@@ -99,3 +97,12 @@ layout_mode = 2
 text = "F_4"
 
 [node name="S_Formation4" parent="PlayerManager/CanvasLayer/VBoxContainer/F_4" instance=ExtResource("11_ch5yg")]
+
+[node name="TurnLineManager" type="Panel" parent="PlayerManager/CanvasLayer"]
+offset_left = 101.0
+offset_top = 99.0
+offset_right = 1101.0
+offset_bottom = 110.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_661mu")
+script = ExtResource("12_gfjle")
+gauge = ExtResource("13_1n2f6")

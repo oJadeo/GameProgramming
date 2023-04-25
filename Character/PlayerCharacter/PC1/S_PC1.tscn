@@ -1,12 +1,20 @@
-[gd_scene load_steps=21 format=3 uid="uid://u2etaxq3hrg5"]
+[gd_scene load_steps=25 format=3 uid="uid://bifjpciuhguys"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_jepcu"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC1/pc1_stat.json" id="2_jb0rm"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_paamt"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="2_t1lac"]
+[ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="4_15k5h"]
 [ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="5_71wyt"]
 [ext_resource type="Texture2D" uid="uid://cjbmoq0aa6wof" path="res://Character/PlayerCharacter/PC1/PC1.png" id="5_i5jry"]
+[ext_resource type="Texture2D" uid="uid://rflmq48tekve" path="res://Character/PlayerCharacter/PC1/I_PC1.png" id="5_ldwor"]
 [ext_resource type="PackedScene" uid="uid://caivfafxswm31" path="res://Skills/PC1/GaugePunch/S_GaugePunch.tscn" id="6_ej21n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_if66p"]
+bg_color = Color(0.870588, 0.490196, 0, 1)
+
+[sub_resource type="Theme" id="Theme_nna44"]
+Panel/styles/panel = SubResource("StyleBoxFlat_if66p")
 
 [sub_resource type="Theme" id="Theme_v5ygx"]
 
@@ -302,6 +310,7 @@ stat_json = ExtResource("2_jb0rm")
 start_atk = 5
 start_def = 0
 start_speed = 8
+icon_texture = ExtResource("5_ldwor")
 
 [node name="S_GaugeBar" parent="." instance=ExtResource("2_paamt")]
 offset_left = -18.0
@@ -310,6 +319,35 @@ offset_right = -18.0
 offset_bottom = -58.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pane" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1090.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_nna44")
+
+[node name="MenuPanel" type="Panel" parent="CanvasLayer/Pane"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StatBackgroundPanel" type="Panel" parent="CanvasLayer/Pane"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -250.0
+offset_right = 920.0
+grow_vertical = 0
 
 [node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 3
@@ -324,25 +362,34 @@ offset_bottom = -5.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = SubResource("Theme_v5ygx")
+theme_override_constants/separation = 12
 alignment = 2
 
 [node name="Move" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "Move"
 
 [node name="Basic_atk" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "Basic Atk"
 
 [node name="Skill_1" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "Skill_1
 "
 
 [node name="Skill_2" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "Skill_2
 "
+
+[node name="StatsContainer" parent="CanvasLayer" instance=ExtResource("4_15k5h")]
+offset_top = -237.0
+offset_bottom = -20.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3
@@ -369,3 +416,6 @@ one_shot = true
 [node name="S_Punch" parent="SkillsList" instance=ExtResource("5_71wyt")]
 
 [node name="S_GaugePunch" parent="SkillsList" instance=ExtResource("6_ej21n")]
+
+[node name="HealthBar" type="Sprite2D" parent="."]
+position = Vector2(809, 575)

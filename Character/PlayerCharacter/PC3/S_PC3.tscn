@@ -1,12 +1,20 @@
-[gd_scene load_steps=21 format=3 uid="uid://db41fqgfith3u"]
+[gd_scene load_steps=25 format=3 uid="uid://db41fqgfith3u"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_ljthf"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_hmaxi"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC3/pc3_stat.json" id="2_kp7e3"]
 [ext_resource type="Texture2D" uid="uid://bqrmpk32cw0ce" path="res://Character/PlayerCharacter/PC3/PC3.png" id="3_7jakr"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="4_4666u"]
+[ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="4_wf3l1"]
+[ext_resource type="Texture2D" uid="uid://bt03wad32c8k2" path="res://Character/PlayerCharacter/PC3/I_PC3.png" id="5_c7rfp"]
 [ext_resource type="PackedScene" uid="uid://csoi80d61uckw" path="res://Skills/Basic_Atk/Shuriken/S_ThrowShuriken.tscn" id="5_njkn6"]
 [ext_resource type="PackedScene" uid="uid://dakdbqsx76bu0" path="res://Skills/PC3/BigShuriken/S_ThrowBigShuriken.tscn" id="6_lwrv6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_adhfd"]
+bg_color = Color(0, 0.694118, 0.643137, 1)
+
+[sub_resource type="Theme" id="Theme_ghrme"]
+Panel/styles/panel = SubResource("StyleBoxFlat_adhfd")
 
 [sub_resource type="Theme" id="Theme_v5ygx"]
 
@@ -302,6 +310,7 @@ stat_json = ExtResource("2_kp7e3")
 start_atk = 2
 start_def = 0
 start_speed = 12
+icon_texture = ExtResource("5_c7rfp")
 
 [node name="S_GaugeBar" parent="." instance=ExtResource("2_hmaxi")]
 offset_left = -18.0
@@ -310,6 +319,35 @@ offset_right = -18.0
 offset_bottom = -58.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pane" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1090.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ghrme")
+
+[node name="MenuPanel" type="Panel" parent="CanvasLayer/Pane"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StatBackgroundPanel" type="Panel" parent="CanvasLayer/Pane"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -255.0
+offset_right = 924.0
+grow_vertical = 0
 
 [node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 3
@@ -328,34 +366,29 @@ alignment = 2
 
 [node name="Move" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "Move"
 
 [node name="Basic_atk" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "Basic Atk"
 
 [node name="Skill_1" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "Skill_1
 "
 
 [node name="Skill_2" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "Skill_2
 "
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer2"]
-layout_mode = 2
-
-[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer2"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer2"]
-layout_mode = 2
+[node name="StatsContainer" parent="CanvasLayer" instance=ExtResource("4_wf3l1")]
+offset_top = -237.0
+offset_bottom = -20.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3
