@@ -9,10 +9,10 @@
 script = ExtResource("1_foyb7")
 
 [node name="Board" type="Node2D" parent="."]
-position = Vector2(100, 300)
+position = Vector2(320, 350)
 script = ExtResource("3_571tc")
 tile = ExtResource("2_ex7t4")
-tile_size = Vector2(192, 128)
-x_offset = 32
+tile_size = Vector2(144, 96)
+x_offset = 24
 
 [node name="S_turn_manager" parent="." instance=ExtResource("4_15bmj")]
