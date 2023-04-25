@@ -392,6 +392,7 @@ offset_bottom = -20.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3
+y_sort_enabled = true
 texture_filter = 1
 texture = ExtResource("3_7jakr")
 offset = Vector2(0, -30)

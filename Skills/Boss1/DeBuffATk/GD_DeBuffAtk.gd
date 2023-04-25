@@ -11,7 +11,7 @@ enum TARGET_MODE{
 	ALL
 }
 var debuff_stat:Status
-@export var target_mode:TARGET_MODE
+@export var target_mode:TARGET_MODE = TARGET_MODE.ALL
 var target_list:Array = []
 
 # Called when the node enters the scene tree for the first time.
@@ -65,6 +65,7 @@ func _process(delta: float) -> void:
 
 func trigger() -> void:
 	for target in target_list:
+		print(target.global_position)
 		target.turn_effect(Character.EFFECT.debuff,debuff_stat,debuff_duration)
 		var new_insect = insect.instantiate()
 		get_tree().current_scene.add_child(new_insect)

@@ -195,7 +195,13 @@ _data = {
 [sub_resource type="Theme" id="Theme_41r5x"]
 
 [node name="S_EM1_Test" type="Node2D" groups=["character"]]
+z_index = 3
+y_sort_enabled = true
 script = ExtResource("1_jb47r")
+start_atk = 2
+start_def = 0
+start_speed = 15
+start_max_health = 7
 
 [node name="S_GaugeBar" parent="." instance=ExtResource("2_vdeb3")]
 offset_left = -20.0

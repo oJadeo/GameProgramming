@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="4_6afmx"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="5_htuqh"]
 [ext_resource type="PackedScene" uid="uid://b305f0cmtvlx3" path="res://Skills/Boss1/HitLeg/S_HitLeg.tscn" id="6_vd2gu"]
-[ext_resource type="PackedScene" uid="uid://bx36dd13i44ih" path="res://Skills/Boss1/DeBuffATk/S_DeBuffAtk.tscn" id="7_x3brk"]
+[ext_resource type="PackedScene" uid="uid://c84gp60mw7qft" path="res://Skills/Boss1/DeBuffATk/S_DeBuffAtk.tscn" id="7_x3brk"]
 
 [sub_resource type="Animation" id="Animation_6wvck"]
 resource_name = "Death"
@@ -229,15 +229,20 @@ _data = {
 
 [node name="S_Boss1_Test" type="Node2D" groups=["character"]]
 script = ExtResource("1_bqckj")
+start_atk = 5
+start_def = 0
+start_speed = 8
+start_max_health = 20
 
 [node name="S_GaugeBar" parent="." instance=ExtResource("2_fhpmd")]
 offset_left = -20.0
-offset_top = -74.0
+offset_top = -68.0
 offset_right = -20.0
-offset_bottom = -74.0
+offset_bottom = -68.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3
+y_sort_enabled = true
 texture_filter = 1
 texture = ExtResource("3_8q4sn")
 offset = Vector2(0, -30)

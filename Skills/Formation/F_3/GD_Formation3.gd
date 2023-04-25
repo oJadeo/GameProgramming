@@ -19,6 +19,8 @@ func select_target(cood:Vector2) -> void:
 	player.direction = skill_direction
 	Board.reset_all_tile()
 	
+	player.formation_use -= 1
+
 	#Every one Throw Shuriken
 	for i in range(amount):
 		var cha = Board.get_character(player.board_cood-i*skill_direction)
