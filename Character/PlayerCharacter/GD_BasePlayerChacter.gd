@@ -6,6 +6,7 @@ class_name PlayerCharacter
 @onready var skills_node = $SkillsList
 @export var stat_json:JSON
 @export var level:int = 1
+
 var formation_use:int = 1
 var btn_list 
 var select_formation_skill
