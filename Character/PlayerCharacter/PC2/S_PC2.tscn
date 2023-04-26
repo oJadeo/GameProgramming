@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dvciusaoi1wv0"]
+[gd_scene load_steps=34 format=3 uid="uid://dvciusaoi1wv0"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_gr4eu"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC2/pc2_stat.json" id="2_vjm3y"]
@@ -8,15 +8,34 @@
 [ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="5_h1alw"]
 [ext_resource type="Texture2D" uid="uid://b0xh54iryv3gf" path="res://Character/PlayerCharacter/PC2/PC2.png" id="5_mkeqx"]
 [ext_resource type="Texture2D" uid="uid://dibfb1py3ool5" path="res://Character/PlayerCharacter/PC2/I_PC2.png" id="5_t8w1n"]
+[ext_resource type="Texture2D" uid="uid://irukhx7v1new" path="res://Assets/Skills/basic/move.png" id="6_qawyf"]
 [ext_resource type="PackedScene" uid="uid://vhfvw06kh4y2" path="res://Skills/PC2/Heal/S_HealBuff.tscn" id="6_s2rlm"]
+[ext_resource type="Texture2D" uid="uid://d2jdlg3u52l35" path="res://Assets/Skills/basic/melee.png" id="7_huost"]
+[ext_resource type="Texture2D" uid="uid://d4kdpjs0k7m7t" path="res://Assets/Skills/PC2_Sakura/PC2_S1.png" id="8_n4r7p"]
+[ext_resource type="Texture2D" uid="uid://cbpd48v8srrai" path="res://Assets/Skills/PC2_Sakura/PC2_S2.png" id="9_xhet8"]
+[ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="10_45kos"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqs4t"]
-bg_color = Color(0.843137, 0.313726, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnamp"]
+bg_color = Color(0.870588, 0.490196, 0, 1)
 
-[sub_resource type="Theme" id="Theme_gkmne"]
-Panel/styles/panel = SubResource("StyleBoxFlat_dqs4t")
+[sub_resource type="Theme" id="Theme_hovl1"]
+Panel/styles/panel = SubResource("StyleBoxFlat_hnamp")
 
-[sub_resource type="Theme" id="Theme_v5ygx"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_em26i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slje5"]
+bg_color = Color(0.866667, 0.278431, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdwta"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3b72"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8r5ri"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bskah"]
+bg_color = Color(0, 0.717647, 0.396078, 1)
 
 [sub_resource type="Animation" id="Animation_xuxal"]
 resource_name = "Cast"
@@ -287,7 +306,7 @@ offset_bottom = -58.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Pane" type="Control" parent="CanvasLayer"]
+[node name="Panel" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -295,67 +314,412 @@ anchor_bottom = 1.0
 offset_top = 1090.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_gkmne")
+theme = SubResource("Theme_hovl1")
 
-[node name="MenuPanel" type="Panel" parent="CanvasLayer/Pane"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -41.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="StatBackgroundPanel" type="Panel" parent="CanvasLayer/Pane"]
+[node name="Back" type="Panel" parent="CanvasLayer/Panel"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -250.0
-offset_right = 915.0
+offset_left = 33.0
+offset_top = -281.0
+offset_right = 1093.0
+offset_bottom = -16.0
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_em26i")
 
-[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+[node name="Front" type="Panel" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -289.0
+offset_right = 1085.0
+offset_bottom = -24.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_slje5")
+
+[node name="StatsContainer" parent="CanvasLayer" instance=ExtResource("4_kxoqt")]
+offset_left = 29.0
+offset_top = -263.0
+offset_right = 1069.0
+offset_bottom = -46.0
+
+[node name="Skills" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 600.0
+offset_top = 920.0
+offset_right = 1064.0
+offset_bottom = 1030.0
+theme_override_constants/separation = 8
+alignment = 2
+
+[node name="Move" type="TextureButton" parent="CanvasLayer/Skills"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+texture_normal = ExtResource("6_qawyf")
+stretch_mode = 0
+
+[node name="Basic_atk" type="TextureButton" parent="CanvasLayer/Skills"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+texture_normal = ExtResource("7_huost")
+
+[node name="Skill_1" type="TextureButton" parent="CanvasLayer/Skills"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+texture_normal = ExtResource("8_n4r7p")
+
+[node name="Skill_2" type="TextureButton" parent="CanvasLayer/Skills"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+texture_normal = ExtResource("9_xhet8")
+
+[node name="Tooltips" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -176.0
-offset_top = -45.0
-offset_right = -5.0
-offset_bottom = -5.0
+offset_left = -556.0
+offset_top = -1061.0
+offset_right = -10.0
+offset_bottom = -10.0
 grow_horizontal = 0
 grow_vertical = 0
-theme = SubResource("Theme_v5ygx")
+theme_override_constants/separation = 4
 alignment = 2
 
-[node name="Move" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="Move" type="Control" parent="CanvasLayer/Tooltips"]
+custom_minimum_size = Vector2(0, 190)
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+size_flags_horizontal = 0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 505.0
+offset_bottom = 185.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gdwta")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Move"]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Top"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.5
+offset_top = -27.0
+offset_right = 247.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
+
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Top/Panel"]
+layout_mode = 0
+offset_right = 496.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("10_45kos")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_bskah")
 text = "Move"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Basic_atk" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Basic Atk"
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
 
-[node name="Weapon_Skill" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Description"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.0
+offset_top = -60.0
+offset_right = 248.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
+
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Description/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 481.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Move 1 - 2 spaces"
+
+[node name="Basic_atk" type="Control" parent="CanvasLayer/Tooltips"]
+custom_minimum_size = Vector2(0, 190)
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Skill_1
-"
+size_flags_horizontal = 0
 
-[node name="Character_Skill" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 505.0
+offset_bottom = 185.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gdwta")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Basic_atk"]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Skill_2
-"
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
 
-[node name="StatsContainer" parent="CanvasLayer" instance=ExtResource("4_kxoqt")]
-offset_top = -237.0
-offset_bottom = -20.0
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Top"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.5
+offset_top = -27.0
+offset_right = 247.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
+
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Top/Panel"]
+layout_mode = 0
+offset_right = 496.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("10_45kos")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_bskah")
+text = "Punch"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Description"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.0
+offset_top = -60.0
+offset_right = 248.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
+
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Description/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 481.0
+offset_bottom = 115.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Choose to attack in 1 of 3 vertical 
+squares (front, diagonal up, diagonal-
+down)."
+
+[node name="Skill_1" type="Control" parent="CanvasLayer/Tooltips"]
+custom_minimum_size = Vector2(0, 190)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_1"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 505.0
+offset_bottom = 185.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gdwta")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Skill_1"]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Top"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.5
+offset_top = -27.0
+offset_right = 247.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
+
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Top/Panel"]
+layout_mode = 0
+offset_right = 496.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("10_45kos")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_bskah")
+text = "Fish Blessing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Description"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.0
+offset_top = -60.0
+offset_right = 248.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
+
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Description/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 481.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Choose 1 team member (including 
+yourself) and heal with Atk * 1."
+
+[node name="Skill_2" type="Control" parent="CanvasLayer/Tooltips"]
+custom_minimum_size = Vector2(0, 190)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_2"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 505.0
+offset_bottom = 185.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gdwta")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Skill_2"]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Top"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.5
+offset_top = -27.0
+offset_right = 247.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
+
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Top/Panel"]
+layout_mode = 0
+offset_right = 496.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("10_45kos")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_bskah")
+text = "Sakura's Fist"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Description"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.0
+offset_top = -60.0
+offset_right = 248.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
+
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Description/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 481.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Increases ATK/DEF by 1 each for 2 turns."
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3
