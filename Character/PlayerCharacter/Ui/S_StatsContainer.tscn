@@ -88,6 +88,7 @@ layout_mode = 2
 
 [node name="Attack" type="HBoxContainer" parent="Stats"]
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_constants/separation = 0
 
 [node name="Label" type="Label" parent="Stats/Attack"]
@@ -99,13 +100,16 @@ theme_override_font_sizes/font_size = 32
 text = "ATK"
 
 [node name="Value" type="Label" parent="Stats/Attack"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_ov5j4")
 theme_override_font_sizes/font_size = 32
 text = "XX"
+horizontal_alignment = 2
 
 [node name="Defence" type="HBoxContainer" parent="Stats"]
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_constants/separation = 0
 
 [node name="Label" type="Label" parent="Stats/Defence"]
@@ -117,13 +121,16 @@ theme_override_font_sizes/font_size = 32
 text = "DEF"
 
 [node name="Value" type="Label" parent="Stats/Defence"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_ov5j4")
 theme_override_font_sizes/font_size = 32
 text = "XX"
+horizontal_alignment = 2
 
 [node name="Speed" type="HBoxContainer" parent="Stats"]
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_constants/separation = 0
 
 [node name="Label" type="Label" parent="Stats/Speed"]
@@ -135,7 +142,9 @@ theme_override_font_sizes/font_size = 32
 text = "SPEED"
 
 [node name="Value" type="Label" parent="Stats/Speed"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_ov5j4")
 theme_override_font_sizes/font_size = 32
 text = "XX"
+horizontal_alignment = 2
