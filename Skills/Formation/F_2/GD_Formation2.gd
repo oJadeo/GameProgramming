@@ -23,6 +23,8 @@ func select_target(cood:Vector2) -> void:
 	damage = player.stat.atk + duo.stat.atk
 	Board.reset_all_tile()
 	
+	player.formation_use -= 1
+		
 	# Up ATk + Down ATk
 	if target_direction == Vector2(0,-1):
 		player.play_animaiton("Up_Atk") 

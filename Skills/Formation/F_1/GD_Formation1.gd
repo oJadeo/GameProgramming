@@ -26,6 +26,7 @@ func select_target(cood:Vector2) -> void:
 	player.direction = skill_direction*Vector2(1,0)
 	Board.reset_all_tile()
 	
+	player.formation_use -= 1
 	
 	# Every one cast
 	player.play_animaiton("Punch") 

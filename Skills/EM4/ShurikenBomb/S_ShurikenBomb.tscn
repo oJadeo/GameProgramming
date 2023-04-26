@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx2p1bk2b77dt"]
+
+[ext_resource type="Script" path="res://Skills/EM4/ShurikenBomb/GD_ShurikenBomb.gd" id="1_e4hi2"]
+
+[node name="S_ShurikenBomb" type="Node2D"]
+script = ExtResource("1_e4hi2")

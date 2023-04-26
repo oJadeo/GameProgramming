@@ -6,6 +6,7 @@
 [node name="S_Tile" type="Sprite2D"]
 z_index = -1
 texture_filter = 1
+scale = Vector2(3, 3)
 texture = ExtResource("1_nk06s")
 hframes = 3
 script = ExtResource("2_5yhxk")

@@ -1,0 +1,150 @@
+[gd_scene load_steps=6 format=3 uid="uid://chpxq2gtmybyg"]
+
+[ext_resource type="Script" path="res://Character/PlayerCharacter/Ui/GD_StatsContainer.gd" id="1_hcoq7"]
+[ext_resource type="Texture2D" uid="uid://rflmq48tekve" path="res://Character/PlayerCharacter/PC1/I_PC1.png" id="2_fvpdo"]
+[ext_resource type="Texture2D" uid="uid://lcfv7kpu00vr" path="res://Character/PlayerCharacter/Ui/HealthBarBGTile.png" id="3_8ahcb"]
+[ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="3_ov5j4"]
+[ext_resource type="Texture2D" uid="uid://cvd2yra5ud71n" path="res://Character/PlayerCharacter/Ui/HealthBarHealthTile.png" id="4_0snja"]
+
+[node name="StatsContainer" type="HBoxContainer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -204.0
+offset_right = 900.0
+grow_vertical = 0
+script = ExtResource("1_hcoq7")
+
+[node name="CharacterIcon" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Icon" type="Sprite2D" parent="CharacterIcon"]
+position = Vector2(30, 10)
+texture = ExtResource("2_fvpdo")
+centered = false
+
+[node name="Stats" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HP" type="HBoxContainer" parent="Stats"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 64
+
+[node name="Label" type="Label" parent="Stats/HP"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ov5j4")
+theme_override_font_sizes/font_size = 32
+text = "HP"
+
+[node name="ProgressBarContainer" type="PanelContainer" parent="Stats/HP"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="ProgressBar" type="TextureProgressBar" parent="Stats/HP/ProgressBarContainer"]
+layout_mode = 2
+value = 70.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_8ahcb")
+texture_progress = ExtResource("4_0snja")
+
+[node name="HealthLabelContainer" type="HBoxContainer" parent="Stats/HP/ProgressBarContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HealthLabel" type="Label" parent="Stats/HP/ProgressBarContainer/HealthLabelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_ov5j4")
+theme_override_font_sizes/font_size = 28
+text = "XX"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SeperatorLabel" type="Label" parent="Stats/HP/ProgressBarContainer/HealthLabelContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ov5j4")
+theme_override_font_sizes/font_size = 28
+text = "/"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MaxHealthLabel" type="Label" parent="Stats/HP/ProgressBarContainer/HealthLabelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_ov5j4")
+theme_override_font_sizes/font_size = 28
+text = "XX"
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Stats"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="Attack" type="HBoxContainer" parent="Stats"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Stats/Attack"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_ov5j4")
+theme_override_font_sizes/font_size = 32
+text = "ATK"
+
+[node name="Value" type="Label" parent="Stats/Attack"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ov5j4")
+theme_override_font_sizes/font_size = 32
+text = "XX"
+horizontal_alignment = 2
+
+[node name="Defence" type="HBoxContainer" parent="Stats"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Stats/Defence"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_ov5j4")
+theme_override_font_sizes/font_size = 32
+text = "DEF"
+
+[node name="Value" type="Label" parent="Stats/Defence"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ov5j4")
+theme_override_font_sizes/font_size = 32
+text = "XX"
+horizontal_alignment = 2
+
+[node name="Speed" type="HBoxContainer" parent="Stats"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Stats/Speed"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_ov5j4")
+theme_override_font_sizes/font_size = 32
+text = "SPEED"
+
+[node name="Value" type="Label" parent="Stats/Speed"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ov5j4")
+theme_override_font_sizes/font_size = 32
+text = "XX"
+horizontal_alignment = 2

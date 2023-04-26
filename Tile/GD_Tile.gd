@@ -34,11 +34,19 @@ func _on_area_2d_mouse_entered() -> void:
 	if is_highlight and hoverable:
 		is_hover = true
 		hover()
+		for select_cood in Board.select_tile:
+			Board.board_tile[cood.y+select_cood.y][select_cood.x+select_cood.x].hover()
 
 func _on_area_2d_mouse_exited() -> void:
 	if is_hover:
 		is_hover = false
 		highlight()
+		for select_cood in Board.select_tile:
+			var tile = Board.board_tile[cood.y+select_cood.y][select_cood.x+select_cood.x]
+			if tile.is_highlight:
+				tile.highlight()
+			else:
+				tile.reset()
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if is_hover and event.is_action_pressed("select"):

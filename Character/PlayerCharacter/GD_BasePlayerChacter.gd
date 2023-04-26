@@ -2,10 +2,15 @@ extends Character
 class_name PlayerCharacter
 
 @onready var SKILL_SELECT_UI = $CanvasLayer
-@onready var btns_node = $CanvasLayer/VBoxContainer
+@onready var btns_node = $CanvasLayer/Skills
 @onready var skills_node = $SkillsList
+@onready var tooltips = $CanvasLayer/Tooltips
+@export var stat_json:JSON
+@export var level:int = 1
+
 var formation_use:int = 1
 var btn_list 
+var tooltip_list
 var select_formation_skill
 # Called when the node enters the scene tree for the first time.
 func _ready()->void:
@@ -13,15 +18,30 @@ func _ready()->void:
 	SKILL_SELECT_UI.visible = false
 	skill_list = skills_node.get_children()
 	btn_list = btns_node.get_children()
+	tooltip_list = tooltips.get_children()
 	setting_skills_button()
+	for c in tooltip_list:
+		c.visible = false
 	is_move = false
+	if stat_json:
+		get_stat(level)
+	
+func get_stat(lv:int):
+	var stat_data = stat_json.get_data()
+	
+	stat.atk = stat_data[lv]['atk']
+	stat.def = stat_data[lv]['def']
+	stat.speed = stat_data[lv]['speed']
+	stat.max_health = stat_data[lv]['hp']
+	stat.health = stat_data[lv]['hp']
 	
 func start_turn()->void:
 	super()
 	if formation_use > 0:
 		manager.check_formation(self)
 	SKILL_SELECT_UI.visible = true
-	btn_list[0].text = "Move"
+	# TODO: btn_move have to be texture move
+	# btn_list[0].text = "Move"
 	for i in range(len(skill_list)):
 		btn_list[i].disabled = skill_list[i].cooldown != 0
 func end_turn()->void:
@@ -30,12 +50,15 @@ func end_turn()->void:
 	
 func setting_skills_button():
 	var btn_func = [select_move,select_basic_atk,select_skill_1,select_skill_2]
+	var etr_func = [enter_move,enter_basic_atk,enter_skill_1,enter_skill_2]
 	
 	for btn in btn_list:
 		btn.visible = false
 	
 	for i in range(len(skill_list)):
 		btn_list[i].pressed.connect(btn_func[i])
+		btn_list[i].mouse_entered.connect(etr_func[i])
+		btn_list[i].mouse_exited.connect(exited_skill)
 		btn_list[i].visible = true
 		skill_list[i].init(self)
 	
@@ -55,6 +78,25 @@ func select_skill_1():
 	select_skill(2)
 func select_skill_2():
 	select_skill(3)
+	
+func enter_skill(num:int)->void:
+	if num >= len(tooltip_list):
+		return
+	for i in range(len(tooltip_list)):
+		tooltip_list[i].visible = false
+	tooltip_list[num].visible = true
+func enter_move():
+	enter_skill(0)
+func enter_basic_atk():
+	enter_skill(1)
+func enter_skill_1():
+	enter_skill(2)
+func enter_skill_2():
+	enter_skill(3)
+
+func exited_skill()->void:
+	for i in range(len(tooltip_list)):
+		tooltip_list[i].visible = false
 
 func select_formation(formation_skill:BaseSkills) -> void:
 	for i in range(len(skill_list)):
@@ -76,7 +118,8 @@ func finish_walk()->void:
 		can_move = can_move or skill.check_target()
 	if can_move:
 		SKILL_SELECT_UI.visible = true
-		btn_list[0].text = "End Turn"
+		# TODO: btn_move have to be texture end turn
+		# btn_list[0].text = "End Turn"
 	else:
 		end_turn()
 func targeted() -> void:
