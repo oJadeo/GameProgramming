@@ -25,9 +25,9 @@ func _ready()->void:
 		board.append(row)
 	pass # Replace with function body.
 func is_cood_in_board(cood:Vector2) -> bool:
-	if cood.x < 0 or cood.x > board_size.x:
+	if cood.x < 0 or cood.x >= board_size.x:
 		return false
-	if cood.y < 0 or cood.y > board_size.y:
+	if cood.y < 0 or cood.y >= board_size.y:
 		return false
 	return true
 func get_tile_pos(cood:Vector2)->Vector2:
