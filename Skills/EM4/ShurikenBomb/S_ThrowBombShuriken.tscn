@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://csoi80d61uckw"]
+
+[ext_resource type="Script" path="res://Skills/EM4/ShurikenBomb/GD_ThrowBombShuriken.gd" id="1_ylp1w"]
+[ext_resource type="PackedScene" uid="uid://v25sgver75u3" path="res://Skills/EM4/ShurikenBomb/S_ShurikenBomb.tscn" id="2_g5dic"]
+
+[node name="S_BombShuriken" type="Node2D"]
+script = ExtResource("1_ylp1w")
+shuriken = ExtResource("2_g5dic")
+skill_name = "Bomb"
+max_cooldown = 3
+
+[node name="ShurikenTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="ShurikenSpawnLocation" type="Node2D" parent="."]
+position = Vector2(20, -20)
+
+[connection signal="timeout" from="ShurikenTimer" to="." method="_on_shuriken_timer_timeout"]

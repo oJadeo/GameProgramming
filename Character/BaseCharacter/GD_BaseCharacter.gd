@@ -75,6 +75,7 @@ func start_turn()->void:
 			
 func damaged(atk:int,attack_direction:Vector2) -> void:
 	var damage:int = atk-stat.def if direction.dot(attack_direction) == -1 else (atk-stat.def)*1.5
+	damage = damage if damage > 0 else 0
 	animation.play("Hurt")
 	stat.health = stat.health - damage
 	var damage_num = damage_display.instantiate()
