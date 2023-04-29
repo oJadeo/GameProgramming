@@ -1,7 +1,7 @@
 extends Node2D
 class_name Character
 
-
+signal can_end_turn(new_value)
 
 enum EFFECT{
 	buff,
@@ -35,7 +35,10 @@ var board_cood:Vector2 = Vector2(-1,-1):
 @onready var move_timer = $MoveTimer
 @onready var manager = get_parent().get_parent()
 var selecting_move:BaseSkills
-var is_move:bool
+var is_move:bool:
+	set(new_value):
+		is_move = new_value
+		emit_signal('can_end_turn',new_value)
 var is_turn:bool = false
 var is_target:bool = false
 var status_effect:Array
