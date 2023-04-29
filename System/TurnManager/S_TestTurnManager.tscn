@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://System/TurnManager/GD_TurnManager.gd" id="1_dflja"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_EnemyManager.gd" id="2_mrvh1"]
-[ext_resource type="PackedScene" uid="uid://bgd3hb5w3wnip" path="res://Character/EnemyCharacter_AI/Boss1/S_Boss1_AI.tscn" id="4_2cqf1"]
+[ext_resource type="PackedScene" uid="uid://c3o88hbp6o77e" path="res://Character/EnemyCharacter_Test/EM4/S_EM4_Test.tscn" id="4_pv4mb"]
 [ext_resource type="PackedScene" uid="uid://cwbb5bd1qny4w" path="res://Character/EnemyCharacter_AI/EM1/S_EM1_AI.tscn" id="5_4rmte"]
-[ext_resource type="Texture2D" uid="uid://bcxy3x1e7jbh2" path="res://Character/EnemyCharacter_AI/Boss1/I_Boss1.png" id="5_5tw0u"]
+[ext_resource type="PackedScene" uid="uid://c5udgloms8gja" path="res://Character/EnemyCharacter_Test/Boss2/S_Boss2.tscn" id="5_70pyg"]
 [ext_resource type="PackedScene" uid="uid://dvciusaoi1wv0" path="res://Character/PlayerCharacter/PC2/S_PC2.tscn" id="5_asctj"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_PlayerManager.gd" id="5_nehn5"]
 [ext_resource type="PackedScene" uid="uid://bifjpciuhguys" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="6_2le4b"]
-[ext_resource type="PackedScene" uid="uid://db41fqgfith3u" path="res://Character/PlayerCharacter/PC3/S_PC3.tscn" id="6_fq2hp"]
+[ext_resource type="PackedScene" uid="uid://ci8mf1gmdprq7" path="res://Character/PlayerCharacter/PC3/S_PC3.tscn" id="6_fq2hp"]
 [ext_resource type="PackedScene" uid="uid://bbe53oyy08kdb" path="res://Skills/Formation/F_1/S_Formation1.tscn" id="9_dgnif"]
 [ext_resource type="PackedScene" uid="uid://ctrtwbaekf8se" path="res://Skills/Formation/F_2/S_Formation2.tscn" id="10_xs2ya"]
 [ext_resource type="PackedScene" uid="uid://dyie2k2ftkq5p" path="res://Skills/Formation/F_4/S_Formation4.tscn" id="11_ch5yg"]
@@ -38,10 +38,12 @@ scale = Vector2(3, 3)
 start_direction = Vector2(110, 110)
 start_cood = Vector2(4, 4)
 
-[node name="S_Boss1_Test" parent="EnemyManager/Characters" instance=ExtResource("4_2cqf1")]
-scale = Vector2(3, 3)
-icon_texture = ExtResource("5_5tw0u")
-start_direction = Vector2(110, 110)
+[node name="S_EM4_Test" parent="EnemyManager/Characters" instance=ExtResource("4_pv4mb")]
+start_direction = Vector2(-1, 0)
+start_cood = Vector2(7, 3)
+
+[node name="S_Boss2" parent="EnemyManager/Characters" instance=ExtResource("5_70pyg")]
+start_direction = Vector2(-1, 0)
 start_cood = Vector2(3, 3)
 
 [node name="PlayerManager" type="Node2D" parent="."]

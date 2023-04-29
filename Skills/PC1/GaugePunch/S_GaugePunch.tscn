@@ -1,8 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://caivfafxswm31"]
+[gd_scene load_steps=2 format=3 uid="uid://x7wqfnm0riq7"]
 
 [ext_resource type="Script" path="res://Skills/PC1/GaugePunch/GD_GaugePunch.gd" id="1_4w6k2"]
 
 [node name="S_GaugePunch" type="Node2D"]
 script = ExtResource("1_4w6k2")
-skill_name = "Talk no jutsu"
-max_cooldown = 2
