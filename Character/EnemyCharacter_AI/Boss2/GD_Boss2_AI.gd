@@ -22,6 +22,7 @@ var move_to_cood
 var skill_select
 
 func finish_walk()->void:
+	print(target_cood,move_to_cood,skill_select)
 	if target_cood != Vector2(-1,-1):
 		select_skill(skill_select)
 		selecting_move.select_target(target_cood)

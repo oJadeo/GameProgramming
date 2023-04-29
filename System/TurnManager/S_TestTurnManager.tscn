@@ -1,14 +1,17 @@
-[gd_scene load_steps=18 format=3 uid="uid://dh0r7rjrcy6er"]
+[gd_scene load_steps=21 format=3 uid="uid://dh0r7rjrcy6er"]
 
 [ext_resource type="Script" path="res://System/TurnManager/GD_TurnManager.gd" id="1_dflja"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_EnemyManager.gd" id="2_mrvh1"]
-[ext_resource type="PackedScene" uid="uid://c3o88hbp6o77e" path="res://Character/EnemyCharacter_Test/EM4/S_EM4_Test.tscn" id="4_pv4mb"]
+[ext_resource type="PackedScene" uid="uid://g73g6o4p2ukg" path="res://Character/EnemyCharacter_AI/EM2/S_EM2_AI.tscn" id="4_ubc7k"]
+[ext_resource type="PackedScene" uid="uid://bgd3hb5w3wnip" path="res://Character/EnemyCharacter_AI/Boss1/S_Boss1_AI.tscn" id="4_wxlj3"]
 [ext_resource type="PackedScene" uid="uid://cwbb5bd1qny4w" path="res://Character/EnemyCharacter_AI/EM1/S_EM1_AI.tscn" id="5_4rmte"]
-[ext_resource type="PackedScene" uid="uid://c5udgloms8gja" path="res://Character/EnemyCharacter_Test/Boss2/S_Boss2.tscn" id="5_70pyg"]
 [ext_resource type="PackedScene" uid="uid://dvciusaoi1wv0" path="res://Character/PlayerCharacter/PC2/S_PC2.tscn" id="5_asctj"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_PlayerManager.gd" id="5_nehn5"]
+[ext_resource type="PackedScene" uid="uid://xkgsdj68abw3" path="res://Character/EnemyCharacter_AI/Boss2/S_Boss2_AI.tscn" id="5_s0sy5"]
 [ext_resource type="PackedScene" uid="uid://bifjpciuhguys" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="6_2le4b"]
 [ext_resource type="PackedScene" uid="uid://ci8mf1gmdprq7" path="res://Character/PlayerCharacter/PC3/S_PC3.tscn" id="6_fq2hp"]
+[ext_resource type="PackedScene" uid="uid://cspcb1h7kr4tf" path="res://Character/EnemyCharacter_AI/EM3/S_EM3_AI.tscn" id="7_18n8g"]
+[ext_resource type="PackedScene" uid="uid://dx3rkyno4p2wb" path="res://Character/EnemyCharacter_AI/EM4/S_EM4_AI.tscn" id="8_vb66t"]
 [ext_resource type="PackedScene" uid="uid://bbe53oyy08kdb" path="res://Skills/Formation/F_1/S_Formation1.tscn" id="9_dgnif"]
 [ext_resource type="PackedScene" uid="uid://ctrtwbaekf8se" path="res://Skills/Formation/F_2/S_Formation2.tscn" id="10_xs2ya"]
 [ext_resource type="PackedScene" uid="uid://dyie2k2ftkq5p" path="res://Skills/Formation/F_4/S_Formation4.tscn" id="11_ch5yg"]
@@ -33,18 +36,29 @@ script = ExtResource("2_mrvh1")
 [node name="Characters" type="Node2D" parent="EnemyManager"]
 y_sort_enabled = true
 
+[node name="S_Boss1_AI" parent="EnemyManager/Characters" instance=ExtResource("4_wxlj3")]
+start_direction = Vector2(-1, 0)
+start_cood = Vector2(8, 1)
+
+[node name="S_Boss2_AI" parent="EnemyManager/Characters" instance=ExtResource("5_s0sy5")]
+start_direction = Vector2(-1, 0)
+start_cood = Vector2(8, 2)
+
 [node name="S_EM1_AI" parent="EnemyManager/Characters" instance=ExtResource("5_4rmte")]
-scale = Vector2(3, 3)
-start_direction = Vector2(110, 110)
-start_cood = Vector2(4, 4)
-
-[node name="S_EM4_Test" parent="EnemyManager/Characters" instance=ExtResource("4_pv4mb")]
 start_direction = Vector2(-1, 0)
-start_cood = Vector2(7, 3)
+start_cood = Vector2(8, 3)
 
-[node name="S_Boss2" parent="EnemyManager/Characters" instance=ExtResource("5_70pyg")]
+[node name="S_EM2_AI" parent="EnemyManager/Characters" instance=ExtResource("4_ubc7k")]
 start_direction = Vector2(-1, 0)
-start_cood = Vector2(3, 3)
+start_cood = Vector2(8, 4)
+
+[node name="S_EM3_AI" parent="EnemyManager/Characters" instance=ExtResource("7_18n8g")]
+start_direction = Vector2(-1, 0)
+start_cood = Vector2(7, 2)
+
+[node name="S_EM4_AI" parent="EnemyManager/Characters" instance=ExtResource("8_vb66t")]
+start_direction = Vector2(-1, 0)
+start_cood = Vector2(7, 4)
 
 [node name="PlayerManager" type="Node2D" parent="."]
 y_sort_enabled = true
