@@ -1,7 +1,13 @@
 extends BaseSkills
 
 @export var range:int = 4
-var target_list = []
+@export var shuriken:Resource
+var spawn_shuriken = null
+@onready var shuriken_spawn_point = $ShurikenSpawnLocation
+@onready var shuriken_timer = $ShurikenTimer
+var velocity = Vector2.ZERO
+var target_list:Array = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,22 +17,23 @@ func select() -> void:
 	for i in range(1,range+1,1):
 		cood_list.append(player.board_cood+Vector2(i,0))
 		cood_list.append(player.board_cood-Vector2(i,0))
-	Board.highlight_tiles(cood_list,GET_TILE.unit)
+	Board.highlight_tiles(cood_list,GET_TILE.all)
 
 func select_target(cood:Vector2) -> void:
 	super(cood)
-	var target = Board.get_character(cood)
+	target_list = []
+	var dir_list = [Vector2(0,0),Vector2(1,0),Vector2(-1,0),Vector2(0,1),Vector2(0,-1)]
+	for dir in dir_list:
+		var target = Board.get_character(cood+dir)
+		if target:
+			target_list.append(target)
+	velocity = Board.get_tile_pos(cood) - shuriken_spawn_point.global_position
 	
 	player.direction = Vector2(cood.x - player.board_cood.x,0).normalized()
 	
-	
-	for i in range(1,range+1,1):
-		var check =  Board.get_character(player.board_cood+i*player.direction)
-		if check:
-			target_list.append(check)
 	Board.reset_all_tile()
-	player.play_animaiton("Fire") 
-	player.move_timer.set_wait_time(1.67)
+	player.play_animaiton("Bomb") 
+	player.move_timer.set_wait_time(2.3)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)
 	player.move_timer.start()
 
@@ -39,10 +46,13 @@ func check_target()->bool:
 	return false
 
 func update(delta:float) -> void:
-	pass
+	if not shuriken_timer.is_stopped():
+		spawn_shuriken.global_position.x += velocity.x*delta*5
 
 func finish_skill() -> void:
 	super()
+	for target in target_list:
+		target.damaged(player.stat.atk,player.direction)
 	player.end_turn()
 	
 func deselect() -> void:
@@ -52,7 +62,14 @@ func deselect() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func trigger() -> void:
-	for target in target_list:
-		target.damaged(player.stat.atk*0.5,player.direction)
 
+func trigger() -> void:
+	shuriken_timer.start()
+	spawn_shuriken = shuriken.instantiate()
+	add_child(spawn_shuriken)
+	spawn_shuriken.set_direction(player.direction)
+	spawn_shuriken.set_position($ShurikenSpawnLocation.get_position())
+
+
+func _on_shuriken_timer_timeout() -> void:
+	pass

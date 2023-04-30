@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://db41fqgfith3u"]
+[gd_scene load_steps=35 format=3 uid="uid://ci8mf1gmdprq7"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_ljthf"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_hmaxi"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="4_4666u"]
 [ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="4_wf3l1"]
 [ext_resource type="Texture2D" uid="uid://bt03wad32c8k2" path="res://Character/PlayerCharacter/PC3/I_PC3.png" id="5_c7rfp"]
-[ext_resource type="PackedScene" uid="uid://csoi80d61uckw" path="res://Skills/Basic_Atk/Shuriken/S_ThrowShuriken.tscn" id="5_njkn6"]
 [ext_resource type="Texture2D" uid="uid://irukhx7v1new" path="res://Assets/Skills/basic/move.png" id="6_3htdx"]
 [ext_resource type="PackedScene" uid="uid://dakdbqsx76bu0" path="res://Skills/PC3/BigShuriken/S_ThrowBigShuriken.tscn" id="6_lwrv6"]
 [ext_resource type="Texture2D" uid="uid://fcmvx6ix3qgj" path="res://Assets/Skills/basic/range.png" id="7_utr1m"]
@@ -15,12 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://bn8skskbpu38b" path="res://Assets/Skills/PC3_Sasuke/PC3_S2.png" id="9_ll4nf"]
 [ext_resource type="Script" path="res://Character/PlayerCharacter/Ui/GD_Tooltip.gd" id="10_jrgjw"]
 [ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="10_osksi"]
+[ext_resource type="PackedScene" uid="uid://ch51imgjt8abe" path="res://Skills/Basic_Atk/Shuriken/S_ThrowShuriken.tscn" id="13_c48m8"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_if66p"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v2jwp"]
 bg_color = Color(0.870588, 0.490196, 0, 1)
 
 [sub_resource type="Theme" id="Theme_7ooy1"]
-Panel/styles/panel = SubResource("StyleBoxFlat_if66p")
+Panel/styles/panel = SubResource("StyleBoxFlat_v2jwp")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0mhn"]
 
@@ -777,6 +777,6 @@ one_shot = true
 
 [node name="S_Move" parent="SkillsList" instance=ExtResource("4_4666u")]
 
-[node name="S_Shuriken" parent="SkillsList" instance=ExtResource("5_njkn6")]
+[node name="S_Shuriken" parent="SkillsList" instance=ExtResource("13_c48m8")]
 
 [node name="S_ThrowBigShutiken" parent="SkillsList" instance=ExtResource("6_lwrv6")]

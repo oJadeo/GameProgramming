@@ -1,7 +1,7 @@
 extends Node2D
 class_name Character
 
-
+signal can_end_turn(new_value)
 
 enum EFFECT{
 	buff,
@@ -35,7 +35,10 @@ var board_cood:Vector2 = Vector2(-1,-1):
 @onready var move_timer = $MoveTimer
 @onready var manager = get_parent().get_parent()
 var selecting_move:BaseSkills
-var is_move:bool
+var is_move:bool:
+	set(new_value):
+		is_move = new_value
+		emit_signal('can_end_turn',new_value)
 var is_turn:bool = false
 var is_target:bool = false
 var status_effect:Array
@@ -75,6 +78,7 @@ func start_turn()->void:
 			
 func damaged(atk:int,attack_direction:Vector2) -> void:
 	var damage:int = atk-stat.def if direction.dot(attack_direction) == -1 else (atk-stat.def)*1.5
+	damage = damage if damage > 0 else 0
 	animation.play("Hurt")
 	stat.health = stat.health - damage
 	var damage_num = damage_display.instantiate()

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhap8jxlgxb55"]
+
+[ext_resource type="Script" path="res://Skills/Boss2/Sweep/GD_Sweep.gd" id="1_46abd"]
+
+[node name="S_Sweep" type="Node2D"]
+script = ExtResource("1_46abd")
+
+[node name="SweepTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true

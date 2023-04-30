@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://csoi80d61uckw"]
+[gd_scene load_steps=3 format=3 uid="uid://ch51imgjt8abe"]
 
 [ext_resource type="Script" path="res://Skills/Basic_Atk/Shuriken/GD_ThrowShuriken.gd" id="1_devjv"]
 [ext_resource type="PackedScene" uid="uid://c62kre20a0y11" path="res://Skills/Basic_Atk/Shuriken/S_Shuriken.tscn" id="2_veauc"]
