@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cjbmoq0aa6wof" path="res://Character/PlayerCharacter/PC1/PC1.png" id="5_i5jry"]
 [ext_resource type="Texture2D" uid="uid://rflmq48tekve" path="res://Character/PlayerCharacter/PC1/I_PC1.png" id="5_ldwor"]
 [ext_resource type="Texture2D" uid="uid://irukhx7v1new" path="res://Assets/Skills/basic/move.png" id="6_bdkai"]
-[ext_resource type="PackedScene" uid="uid://caivfafxswm31" path="res://Skills/PC1/GaugePunch/S_GaugePunch.tscn" id="6_ej21n"]
+[ext_resource type="PackedScene" uid="uid://x7wqfnm0riq7" path="res://Skills/PC1/GaugePunch/S_GaugePunch.tscn" id="6_ej21n"]
 [ext_resource type="Texture2D" uid="uid://d2jdlg3u52l35" path="res://Assets/Skills/basic/melee.png" id="7_ded0u"]
 [ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="7_x44jd"]
 [ext_resource type="Texture2D" uid="uid://c7hqf7xdsm448" path="res://Assets/Skills/PC1_Naruto/PC1_S1.png" id="8_o8ikd"]
@@ -753,6 +753,28 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Attack ATK*0.5 and reduce DEF by half 
 for 2 turns."
+
+[node name="ControlButton" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -37.5
+offset_bottom = 37.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Move" type="Button" parent="CanvasLayer/ControlButton"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Move"
+
+[node name="EndTurn" type="Button" parent="CanvasLayer/ControlButton"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "End Turn"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3
