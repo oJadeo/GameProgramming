@@ -5,16 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://g73g6o4p2ukg" path="res://Character/EnemyCharacter_AI/EM2/S_EM2_AI.tscn" id="4_ubc7k"]
 [ext_resource type="PackedScene" uid="uid://bgd3hb5w3wnip" path="res://Character/EnemyCharacter_AI/Boss1/S_Boss1_AI.tscn" id="4_wxlj3"]
 [ext_resource type="PackedScene" uid="uid://cwbb5bd1qny4w" path="res://Character/EnemyCharacter_AI/EM1/S_EM1_AI.tscn" id="5_4rmte"]
-
-[ext_resource type="PackedScene" uid="uid://xkgsdj68abw3" path="res://Character/EnemyCharacter_AI/Boss2/S_Boss2_AI.tscn" id="5_s0sy5"]
-[ext_resource type="PackedScene" uid="uid://cspcb1h7kr4tf" path="res://Character/EnemyCharacter_AI/EM3/S_EM3_AI.tscn" id="7_18n8g"]
-[ext_resource type="PackedScene" uid="uid://dx3rkyno4p2wb" path="res://Character/EnemyCharacter_AI/EM4/S_EM4_AI.tscn" id="8_vb66t"]
-
 [ext_resource type="PackedScene" uid="uid://dvciusaoi1wv0" path="res://Character/PlayerCharacter/PC2/S_PC2.tscn" id="5_asctj"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_PlayerManager.gd" id="5_nehn5"]
+[ext_resource type="PackedScene" uid="uid://xkgsdj68abw3" path="res://Character/EnemyCharacter_AI/Boss2/S_Boss2_AI.tscn" id="5_s0sy5"]
 [ext_resource type="PackedScene" uid="uid://ci8mf1gmdprq7" path="res://Character/PlayerCharacter/PC3/S_PC3.tscn" id="6_fq2hp"]
+[ext_resource type="PackedScene" uid="uid://cspcb1h7kr4tf" path="res://Character/EnemyCharacter_AI/EM3/S_EM3_AI.tscn" id="7_18n8g"]
 [ext_resource type="PackedScene" uid="uid://b277oyhkc4a32" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="7_66xua"]
-
+[ext_resource type="PackedScene" uid="uid://dx3rkyno4p2wb" path="res://Character/EnemyCharacter_AI/EM4/S_EM4_AI.tscn" id="8_vb66t"]
 [ext_resource type="PackedScene" uid="uid://bbe53oyy08kdb" path="res://Skills/Formation/F_1/S_Formation1.tscn" id="9_dgnif"]
 [ext_resource type="PackedScene" uid="uid://ctrtwbaekf8se" path="res://Skills/Formation/F_2/S_Formation2.tscn" id="10_xs2ya"]
 [ext_resource type="PackedScene" uid="uid://dyie2k2ftkq5p" path="res://Skills/Formation/F_4/S_Formation4.tscn" id="11_ch5yg"]

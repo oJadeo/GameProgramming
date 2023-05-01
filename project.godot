@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Game Programming"
-run/main_scene="res://System/Menu/menu.tscn"
+run/main_scene="res://System/Menu/MainMenu/GD_MainMenu.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Board="*res://System/Global/GD_Board.gd"
+PlayerVar="*res://System/Global/GD_PlayerVariables.gd"
 
 [display]
 
