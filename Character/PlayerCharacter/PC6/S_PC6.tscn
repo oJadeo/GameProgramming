@@ -1,0 +1,745 @@
+[gd_scene load_steps=33 format=3 uid="uid://ckn6c7mc673g7"]
+
+[ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_0j13i"]
+[ext_resource type="JSON" path="res://Character/PlayerCharacter/PC2/pc2_stat.json" id="2_yrynd"]
+[ext_resource type="Texture2D" uid="uid://dibfb1py3ool5" path="res://Character/PlayerCharacter/PC2/I_PC2.png" id="3_iogud"]
+[ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="4_1c765"]
+[ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="5_28lmx"]
+[ext_resource type="Texture2D" uid="uid://irukhx7v1new" path="res://Assets/Skills/basic/move.png" id="6_ulgg0"]
+[ext_resource type="Texture2D" uid="uid://d2jdlg3u52l35" path="res://Assets/Skills/basic/melee.png" id="7_t25nx"]
+[ext_resource type="Texture2D" uid="uid://d4kdpjs0k7m7t" path="res://Assets/Skills/PC2_Sakura/PC2_S1.png" id="8_u6mfw"]
+[ext_resource type="Texture2D" uid="uid://cbpd48v8srrai" path="res://Assets/Skills/PC2_Sakura/PC2_S2.png" id="9_1gtms"]
+[ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="10_rdnw2"]
+[ext_resource type="Texture2D" uid="uid://d0gxb23ndytjk" path="res://Character/PlayerCharacter/PC6/PC6.png" id="11_c4re7"]
+[ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="12_3os77"]
+[ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="13_swq50"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnamp"]
+bg_color = Color(0.870588, 0.490196, 0, 1)
+
+[sub_resource type="Theme" id="Theme_hovl1"]
+Panel/styles/panel = SubResource("StyleBoxFlat_hnamp")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_em26i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slje5"]
+bg_color = Color(0.866667, 0.278431, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdwta"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3b72"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8r5ri"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bskah"]
+bg_color = Color(0, 0.717647, 0.396078, 1)
+
+[sub_resource type="Animation" id="Animation_xuxal"]
+resource_name = "Cast"
+length = 0.750004
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_wruyv"]
+resource_name = "Death"
+length = 1.00001
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 6), Vector2i(1, 6), Vector2i(2, 6)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.958333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_2aifp"]
+resource_name = "Down_Atk"
+length = 0.375004
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 8), Vector2i(1, 8), Vector2i(2, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_76wfh"]
+resource_name = "Hurt"
+length = 0.250004
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.208333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"return_to_idle"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_h4dee"]
+resource_name = "Idle"
+length = 0.416671
+loop_mode = 2
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_imsbf"]
+resource_name = "Punch"
+length = 0.625005
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.375),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_h5pqb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i1prq"]
+resource_name = "Shuriken"
+length = 0.500005
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_3jqi3"]
+resource_name = "Up_Atk"
+length = 0.750004
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7)]
+}
+
+[sub_resource type="Animation" id="Animation_q4stp"]
+resource_name = "Walk"
+length = 0.750004
+loop_mode = 1
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xmd81"]
+_data = {
+"Cast": SubResource("Animation_xuxal"),
+"Death": SubResource("Animation_wruyv"),
+"Down_Atk": SubResource("Animation_2aifp"),
+"Hurt": SubResource("Animation_76wfh"),
+"Idle": SubResource("Animation_h4dee"),
+"Punch": SubResource("Animation_imsbf"),
+"RESET": SubResource("Animation_h5pqb"),
+"Shuriken": SubResource("Animation_i1prq"),
+"Up_Atk": SubResource("Animation_3jqi3"),
+"Walk": SubResource("Animation_q4stp")
+}
+
+[node name="S_PC6" type="Node2D" groups=["character"]]
+script = ExtResource("1_0j13i")
+stat_json = ExtResource("2_yrynd")
+start_atk = 3
+start_def = 0
+icon_texture = ExtResource("3_iogud")
+
+[node name="S_GaugeBar" parent="." instance=ExtResource("4_1c765")]
+offset_left = -22.0
+offset_top = -85.0
+offset_right = -22.0
+offset_bottom = -85.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1090.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_hovl1")
+
+[node name="Back" type="Panel" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = -281.0
+offset_right = 1093.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_em26i")
+
+[node name="Front" type="Panel" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -289.0
+offset_right = 1085.0
+offset_bottom = -24.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_slje5")
+
+[node name="StatsContainer" parent="CanvasLayer" instance=ExtResource("5_28lmx")]
+offset_left = 29.0
+offset_top = -263.0
+offset_right = 1069.0
+offset_bottom = -46.0
+
+[node name="Skills" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 600.0
+offset_top = 920.0
+offset_right = 1064.0
+offset_bottom = 1030.0
+theme_override_constants/separation = 8
+alignment = 2
+
+[node name="Move" type="TextureButton" parent="CanvasLayer/Skills"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+texture_normal = ExtResource("6_ulgg0")
+stretch_mode = 0
+
+[node name="Basic_atk" type="TextureButton" parent="CanvasLayer/Skills"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+texture_normal = ExtResource("7_t25nx")
+
+[node name="Skill_1" type="TextureButton" parent="CanvasLayer/Skills"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+texture_normal = ExtResource("8_u6mfw")
+
+[node name="Skill_2" type="TextureButton" parent="CanvasLayer/Skills"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+texture_normal = ExtResource("9_1gtms")
+
+[node name="Tooltips" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -556.0
+offset_top = -1061.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 4
+alignment = 2
+
+[node name="Move" type="Control" parent="CanvasLayer/Tooltips"]
+custom_minimum_size = Vector2(0, 190)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 505.0
+offset_bottom = 185.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gdwta")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Move"]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Top"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.5
+offset_top = -27.0
+offset_right = 247.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
+
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Top/Panel"]
+layout_mode = 0
+offset_right = 496.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("10_rdnw2")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_bskah")
+text = "Move"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Description"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.0
+offset_top = -60.0
+offset_right = 248.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
+
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Description/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 481.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Move 1 - 2 spaces"
+
+[node name="Basic_atk" type="Control" parent="CanvasLayer/Tooltips"]
+custom_minimum_size = Vector2(0, 190)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 505.0
+offset_bottom = 185.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gdwta")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Basic_atk"]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Top"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.5
+offset_top = -27.0
+offset_right = 247.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
+
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Top/Panel"]
+layout_mode = 0
+offset_right = 496.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("10_rdnw2")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_bskah")
+text = "Punch"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Description"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.0
+offset_top = -60.0
+offset_right = 248.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
+
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Description/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 481.0
+offset_bottom = 115.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Choose to attack in 1 of 3 vertical 
+squares (front, diagonal up, diagonal-
+down)."
+
+[node name="Skill_1" type="Control" parent="CanvasLayer/Tooltips"]
+custom_minimum_size = Vector2(0, 190)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_1"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 505.0
+offset_bottom = 185.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gdwta")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Skill_1"]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Top"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.5
+offset_top = -27.0
+offset_right = 247.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
+
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Top/Panel"]
+layout_mode = 0
+offset_right = 496.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("10_rdnw2")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_bskah")
+text = "Fish Blessing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Description"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.0
+offset_top = -60.0
+offset_right = 248.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
+
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Description/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 481.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Choose 1 team member (including 
+yourself) and heal with Atk * 1."
+
+[node name="Skill_2" type="Control" parent="CanvasLayer/Tooltips"]
+custom_minimum_size = Vector2(0, 190)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_2"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 505.0
+offset_bottom = 185.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gdwta")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Skill_2"]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Top"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.5
+offset_top = -27.0
+offset_right = 247.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
+
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Top/Panel"]
+layout_mode = 0
+offset_right = 496.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("10_rdnw2")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_bskah")
+text = "Sakura's Fist"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Description"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.0
+offset_top = -60.0
+offset_right = 248.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
+
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Description/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 481.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Increases ATK/DEF by 1 each for 2 turns."
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 3
+y_sort_enabled = true
+texture_filter = 1
+texture = ExtResource("11_c4re7")
+offset = Vector2(0, -30)
+hframes = 9
+vframes = 11
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+libraries = {
+"": SubResource("AnimationLibrary_xmd81")
+}
+
+[node name="MoveTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SkillsList" type="Node2D" parent="."]
+
+[node name="S_Move" parent="SkillsList" instance=ExtResource("12_3os77")]
+
+[node name="S_Punch" parent="SkillsList" instance=ExtResource("13_swq50")]
