@@ -1,45 +1,74 @@
-[gd_scene load_steps=37 format=3 uid="uid://ci8mf1gmdprq7"]
+[gd_scene load_steps=34 format=3 uid="uid://ckn6c7mc673g7"]
 
-[ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_ljthf"]
-[ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_hmaxi"]
-[ext_resource type="JSON" path="res://Character/PlayerCharacter/PC3/pc3_stat.json" id="2_kp7e3"]
-[ext_resource type="Texture2D" uid="uid://bqrmpk32cw0ce" path="res://Character/PlayerCharacter/PC3/PC3.png" id="3_7jakr"]
-[ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="4_4666u"]
-[ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="4_wf3l1"]
-[ext_resource type="Texture2D" uid="uid://bt03wad32c8k2" path="res://Character/PlayerCharacter/PC3/I_PC3.png" id="5_c7rfp"]
-[ext_resource type="Texture2D" uid="uid://irukhx7v1new" path="res://Assets/Skills/basic/move.png" id="6_3htdx"]
-[ext_resource type="PackedScene" uid="uid://dakdbqsx76bu0" path="res://Skills/PC3/BigShuriken/S_ThrowBigShuriken.tscn" id="6_lwrv6"]
-[ext_resource type="Texture2D" uid="uid://fcmvx6ix3qgj" path="res://Assets/Skills/basic/range.png" id="7_utr1m"]
-[ext_resource type="Texture2D" uid="uid://d2rguj26fbiay" path="res://Assets/Skills/PC3_Sasuke/PC3_S1.png" id="8_fl3ah"]
-[ext_resource type="Texture2D" uid="uid://bn8skskbpu38b" path="res://Assets/Skills/PC3_Sasuke/PC3_S2.png" id="9_ll4nf"]
-[ext_resource type="Script" path="res://Character/PlayerCharacter/Ui/GD_Tooltip.gd" id="10_jrgjw"]
-[ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="10_osksi"]
-[ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="12_gnvqc"]
-[ext_resource type="PackedScene" uid="uid://ch51imgjt8abe" path="res://Skills/Basic_Atk/Shuriken/S_ThrowShuriken.tscn" id="13_c48m8"]
+[ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_0j13i"]
+[ext_resource type="JSON" path="res://Character/PlayerCharacter/PC2/pc2_stat.json" id="2_yrynd"]
+[ext_resource type="Texture2D" uid="uid://dibfb1py3ool5" path="res://Character/PlayerCharacter/PC2/I_PC2.png" id="3_iogud"]
+[ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="4_1c765"]
+[ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="5_28lmx"]
+[ext_resource type="Texture2D" uid="uid://irukhx7v1new" path="res://Assets/Skills/basic/move.png" id="6_ulgg0"]
+[ext_resource type="Texture2D" uid="uid://d2jdlg3u52l35" path="res://Assets/Skills/basic/melee.png" id="7_t25nx"]
+[ext_resource type="Texture2D" uid="uid://d4kdpjs0k7m7t" path="res://Assets/Skills/PC2_Sakura/PC2_S1.png" id="8_u6mfw"]
+[ext_resource type="Texture2D" uid="uid://cbpd48v8srrai" path="res://Assets/Skills/PC2_Sakura/PC2_S2.png" id="9_1gtms"]
+[ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="10_rdnw2"]
+[ext_resource type="Texture2D" uid="uid://d0gxb23ndytjk" path="res://Character/PlayerCharacter/PC6/PC6.png" id="11_c4re7"]
+[ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="11_h1fmp"]
+[ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="12_3os77"]
+[ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="13_swq50"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v2jwp"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnamp"]
 bg_color = Color(0.870588, 0.490196, 0, 1)
 
-[sub_resource type="Theme" id="Theme_7ooy1"]
-Panel/styles/panel = SubResource("StyleBoxFlat_v2jwp")
+[sub_resource type="Theme" id="Theme_hovl1"]
+Panel/styles/panel = SubResource("StyleBoxFlat_hnamp")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0mhn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_em26i"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l52md"]
-bg_color = Color(0, 0.682353, 0.705882, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slje5"]
+bg_color = Color(0.866667, 0.278431, 1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8hcu"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdwta"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jki0w"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3b72"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibrbo"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8r5ri"]
 bg_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyeb1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bskah"]
 bg_color = Color(0, 0.717647, 0.396078, 1)
 
-[sub_resource type="Animation" id="Animation_r3dv4"]
+[sub_resource type="Animation" id="Animation_xuxal"]
+resource_name = "Cast"
+length = 0.750004
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_wruyv"]
 resource_name = "Death"
 length = 1.00001
 step = 0.0416667
@@ -50,10 +79,10 @@ tracks/0/path = NodePath("Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0833333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 6), Vector2i(1, 6), Vector2i(2, 6), Vector2i(3, 6), Vector2i(4, 6)]
+"values": [Vector2i(0, 6), Vector2i(1, 6), Vector2i(2, 6)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -70,7 +99,7 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_u8kci"]
+[sub_resource type="Animation" id="Animation_2aifp"]
 resource_name = "Down_Atk"
 length = 0.375004
 step = 0.0416667
@@ -84,38 +113,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.125, 0.25),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 9), Vector2i(1, 9), Vector2i(2, 9)]
-}
-
-[sub_resource type="Animation" id="Animation_2m1t5"]
-resource_name = "Fire"
-length = 1.66667
-step = 0.0416667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1, 1.08333, 1.16667, 1.25, 1.33333, 1.41667, 1.5, 1.58333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5), Vector2i(5, 5), Vector2i(6, 5), Vector2i(7, 5), Vector2i(8, 5), Vector2i(9, 5), Vector2i(10, 5), Vector2i(11, 5), Vector2i(12, 5), Vector2i(13, 5), Vector2i(14, 5), Vector2i(15, 5), Vector2i(16, 5), Vector2i(17, 5), Vector2i(18, 5), Vector2i(19, 5)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1.251),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"trigger"
-}]
+"values": [Vector2i(0, 8), Vector2i(1, 8), Vector2i(2, 8)]
 }
 
 [sub_resource type="Animation" id="Animation_76wfh"]
@@ -164,12 +162,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(3, 0), Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_imsbf"]
 resource_name = "Punch"
-length = 0.625004
+length = 0.625005
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -178,7 +176,7 @@ tracks/0/path = NodePath("Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.5),
+"times": PackedFloat32Array(0, 0.125, 0.375, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3)]
@@ -190,7 +188,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.25),
+"times": PackedFloat32Array(0.375),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -213,7 +211,7 @@ tracks/0/keys = {
 "values": [Vector2i(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_xuxal"]
+[sub_resource type="Animation" id="Animation_i1prq"]
 resource_name = "Shuriken"
 length = 0.500005
 step = 0.0416667
@@ -244,40 +242,9 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_7jwk0"]
-resource_name = "Teleport"
-length = 1.00001
-step = 0.0833333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.916667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 7), Vector2i(6, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7), Vector2i(5, 7), Vector2i(1, 7), Vector2i(0, 7)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"trigger"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_rs5s8"]
+[sub_resource type="Animation" id="Animation_3jqi3"]
 resource_name = "Up_Atk"
-length = 0.750005
+length = 0.750004
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -286,10 +253,10 @@ tracks/0/path = NodePath("Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.5, 0.625),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 8), Vector2i(1, 8), Vector2i(2, 8), Vector2i(3, 8), Vector2i(4, 8)]
+"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7)]
 }
 
 [sub_resource type="Animation" id="Animation_q4stp"]
@@ -312,32 +279,30 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xmd81"]
 _data = {
-"Death": SubResource("Animation_r3dv4"),
-"Down_Atk": SubResource("Animation_u8kci"),
-"Fire": SubResource("Animation_2m1t5"),
+"Cast": SubResource("Animation_xuxal"),
+"Death": SubResource("Animation_wruyv"),
+"Down_Atk": SubResource("Animation_2aifp"),
 "Hurt": SubResource("Animation_76wfh"),
 "Idle": SubResource("Animation_h4dee"),
 "Punch": SubResource("Animation_imsbf"),
 "RESET": SubResource("Animation_h5pqb"),
-"Shuriken": SubResource("Animation_xuxal"),
-"Teleport": SubResource("Animation_7jwk0"),
-"Up_Atk": SubResource("Animation_rs5s8"),
+"Shuriken": SubResource("Animation_i1prq"),
+"Up_Atk": SubResource("Animation_3jqi3"),
 "Walk": SubResource("Animation_q4stp")
 }
 
-[node name="S_PC3" type="Node2D" groups=["character"]]
-script = ExtResource("1_ljthf")
-stat_json = ExtResource("2_kp7e3")
-start_atk = 2
+[node name="S_PC6" type="Node2D" groups=["character"]]
+script = ExtResource("1_0j13i")
+stat_json = ExtResource("2_yrynd")
+start_atk = 3
 start_def = 0
-start_speed = 12
-icon_texture = ExtResource("5_c7rfp")
+icon_texture = ExtResource("3_iogud")
 
-[node name="S_GaugeBar" parent="." instance=ExtResource("2_hmaxi")]
-offset_left = -18.0
-offset_top = -58.0
-offset_right = -18.0
-offset_bottom = -58.0
+[node name="S_GaugeBar" parent="." instance=ExtResource("4_1c765")]
+offset_left = -22.0
+offset_top = -85.0
+offset_right = -22.0
+offset_bottom = -85.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -349,7 +314,7 @@ anchor_bottom = 1.0
 offset_top = 1090.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_7ooy1")
+theme = SubResource("Theme_hovl1")
 
 [node name="Back" type="Panel" parent="CanvasLayer/Panel"]
 layout_mode = 1
@@ -361,7 +326,7 @@ offset_top = -281.0
 offset_right = 1093.0
 offset_bottom = -16.0
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_k0mhn")
+theme_override_styles/panel = SubResource("StyleBoxFlat_em26i")
 
 [node name="Front" type="Panel" parent="CanvasLayer/Panel"]
 layout_mode = 1
@@ -373,9 +338,9 @@ offset_top = -289.0
 offset_right = 1085.0
 offset_bottom = -24.0
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_l52md")
+theme_override_styles/panel = SubResource("StyleBoxFlat_slje5")
 
-[node name="StatsContainer" parent="CanvasLayer" instance=ExtResource("4_wf3l1")]
+[node name="StatsContainer" parent="CanvasLayer" instance=ExtResource("5_28lmx")]
 offset_left = 29.0
 offset_top = -263.0
 offset_right = 1069.0
@@ -392,23 +357,23 @@ alignment = 2
 [node name="Move" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("6_3htdx")
+texture_normal = ExtResource("6_ulgg0")
 stretch_mode = 0
 
 [node name="Basic_atk" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("7_utr1m")
+texture_normal = ExtResource("7_t25nx")
 
 [node name="Skill_1" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("8_fl3ah")
+texture_normal = ExtResource("8_u6mfw")
 
 [node name="Skill_2" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("9_ll4nf")
+texture_normal = ExtResource("9_1gtms")
 
 [node name="Tooltips" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 3
@@ -429,7 +394,6 @@ alignment = 2
 custom_minimum_size = Vector2(0, 190)
 layout_mode = 2
 size_flags_horizontal = 0
-script = ExtResource("10_jrgjw")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move"]
 layout_mode = 0
@@ -437,20 +401,20 @@ offset_left = 5.0
 offset_top = 5.0
 offset_right = 505.0
 offset_bottom = 185.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_v8hcu")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gdwta")
 
-[node name="Container" type="VBoxContainer" parent="CanvasLayer/Tooltips/Move"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Move"]
 layout_mode = 0
 offset_right = 500.0
 offset_bottom = 40.0
 theme_override_constants/separation = 0
 
-[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Move/Container"]
+[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jki0w")
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move/Container/Top"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Top"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -464,25 +428,25 @@ offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ibrbo")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
 
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Move/Container/Top/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Top/Panel"]
 layout_mode = 0
 offset_right = 496.0
 offset_bottom = 54.0
-theme_override_fonts/font = ExtResource("10_osksi")
+theme_override_fonts/font = ExtResource("10_rdnw2")
 theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxFlat_fyeb1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bskah")
 text = "Move"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Move/Container"]
+[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer"]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jki0w")
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move/Container/Description"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Description"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -496,9 +460,9 @@ offset_bottom = 57.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ibrbo")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
 
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Move/Container/Description/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Description/Panel"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 4.0
@@ -519,7 +483,7 @@ offset_left = 5.0
 offset_top = 5.0
 offset_right = 505.0
 offset_bottom = 185.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_v8hcu")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gdwta")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Basic_atk"]
 layout_mode = 0
@@ -530,7 +494,7 @@ theme_override_constants/separation = 0
 [node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jki0w")
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Top"]
 layout_mode = 1
@@ -546,23 +510,23 @@ offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ibrbo")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
 
 [node name="Label" type="Label" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Top/Panel"]
 layout_mode = 0
 offset_right = 496.0
 offset_bottom = 54.0
-theme_override_fonts/font = ExtResource("10_osksi")
+theme_override_fonts/font = ExtResource("10_rdnw2")
 theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxFlat_fyeb1")
-text = "Shuriken"
+theme_override_styles/normal = SubResource("StyleBoxFlat_bskah")
+text = "Punch"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer"]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jki0w")
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Description"]
 layout_mode = 1
@@ -578,7 +542,7 @@ offset_bottom = 57.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ibrbo")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
 
 [node name="Label" type="Label" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Description/Panel"]
 layout_mode = 0
@@ -588,8 +552,9 @@ offset_right = 481.0
 offset_bottom = 115.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "Choose to attack 1 out of 3 horizontal 
-cells from the outpost in front of you."
+text = "Choose to attack in 1 of 3 vertical 
+squares (front, diagonal up, diagonal-
+down)."
 
 [node name="Skill_1" type="Control" parent="CanvasLayer/Tooltips"]
 custom_minimum_size = Vector2(0, 190)
@@ -602,7 +567,7 @@ offset_left = 5.0
 offset_top = 5.0
 offset_right = 505.0
 offset_bottom = 185.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_v8hcu")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gdwta")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Skill_1"]
 layout_mode = 0
@@ -613,7 +578,7 @@ theme_override_constants/separation = 0
 [node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jki0w")
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Top"]
 layout_mode = 1
@@ -629,23 +594,23 @@ offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ibrbo")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
 
 [node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Top/Panel"]
 layout_mode = 0
 offset_right = 496.0
 offset_bottom = 54.0
-theme_override_fonts/font = ExtResource("10_osksi")
+theme_override_fonts/font = ExtResource("10_rdnw2")
 theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxFlat_fyeb1")
-text = "Big Shuriken"
+theme_override_styles/normal = SubResource("StyleBoxFlat_bskah")
+text = "Fish Blessing"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer"]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jki0w")
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Description"]
 layout_mode = 1
@@ -661,7 +626,7 @@ offset_bottom = 57.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ibrbo")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
 
 [node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Description/Panel"]
 layout_mode = 0
@@ -671,8 +636,8 @@ offset_right = 481.0
 offset_bottom = 101.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "A long horizontal attack. whoever 
-is in front Will be attacked with Atk * 1.5"
+text = "Choose 1 team member (including 
+yourself) and heal with Atk * 1."
 
 [node name="Skill_2" type="Control" parent="CanvasLayer/Tooltips"]
 custom_minimum_size = Vector2(0, 190)
@@ -685,7 +650,7 @@ offset_left = 5.0
 offset_top = 5.0
 offset_right = 505.0
 offset_bottom = 185.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_v8hcu")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gdwta")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Skill_2"]
 layout_mode = 0
@@ -696,7 +661,7 @@ theme_override_constants/separation = 0
 [node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jki0w")
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Top"]
 layout_mode = 1
@@ -712,23 +677,23 @@ offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ibrbo")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
 
 [node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Top/Panel"]
 layout_mode = 0
 offset_right = 496.0
 offset_bottom = 54.0
-theme_override_fonts/font = ExtResource("10_osksi")
+theme_override_fonts/font = ExtResource("10_rdnw2")
 theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxFlat_fyeb1")
-text = "Punpaksa"
+theme_override_styles/normal = SubResource("StyleBoxFlat_bskah")
+text = "Sakura's Fist"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jki0w")
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Description"]
 layout_mode = 1
@@ -744,7 +709,7 @@ offset_bottom = 57.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ibrbo")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
 
 [node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Description/Panel"]
 layout_mode = 0
@@ -754,18 +719,18 @@ offset_right = 481.0
 offset_bottom = 101.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "Bomb any cell 0.5*ATK"
+text = "Increases ATK/DEF by 1 each for 2 turns."
 
-[node name="ControlButton" parent="CanvasLayer" instance=ExtResource("12_gnvqc")]
+[node name="ControlButton" parent="CanvasLayer" instance=ExtResource("11_h1fmp")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3
 y_sort_enabled = true
 texture_filter = 1
-texture = ExtResource("3_7jakr")
+texture = ExtResource("11_c4re7")
 offset = Vector2(0, -30)
-hframes = 21
-vframes = 10
+hframes = 9
+vframes = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
@@ -778,8 +743,6 @@ one_shot = true
 
 [node name="SkillsList" type="Node2D" parent="."]
 
-[node name="S_Move" parent="SkillsList" instance=ExtResource("4_4666u")]
+[node name="S_Move" parent="SkillsList" instance=ExtResource("12_3os77")]
 
-[node name="S_Shuriken" parent="SkillsList" instance=ExtResource("13_c48m8")]
-
-[node name="S_ThrowBigShutiken" parent="SkillsList" instance=ExtResource("6_lwrv6")]
+[node name="S_Punch" parent="SkillsList" instance=ExtResource("13_swq50")]

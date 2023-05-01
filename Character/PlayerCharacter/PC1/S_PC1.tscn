@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bifjpciuhguys"]
+[gd_scene load_steps=36 format=3 uid="uid://b277oyhkc4a32"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_jepcu"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC1/pc1_stat.json" id="2_jb0rm"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c7hqf7xdsm448" path="res://Assets/Skills/PC1_Naruto/PC1_S1.png" id="8_o8ikd"]
 [ext_resource type="Texture2D" uid="uid://r5r7fs2dtrju" path="res://Assets/Skills/PC1_Naruto/PC1_S2.png" id="9_t414c"]
 [ext_resource type="Script" path="res://Character/PlayerCharacter/Ui/GD_Tooltip.gd" id="10_hvifq"]
+[ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="12_pvu3s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsj8r"]
 bg_color = Color(0.870588, 0.490196, 0, 1)
@@ -322,6 +323,7 @@ _data = {
 }
 
 [node name="S_PC1" type="Node2D" groups=["character"]]
+scale = Vector2(3, 3)
 script = ExtResource("1_jepcu")
 stat_json = ExtResource("2_jb0rm")
 start_atk = 5
@@ -754,27 +756,7 @@ theme_override_font_sizes/font_size = 24
 text = "Attack ATK*0.5 and reduce DEF by half 
 for 2 turns."
 
-[node name="ControlButton" type="VBoxContainer" parent="CanvasLayer"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -135.0
-offset_top = -37.5
-offset_bottom = 37.5
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="Move" type="Button" parent="CanvasLayer/ControlButton"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Move"
-
-[node name="EndTurn" type="Button" parent="CanvasLayer/ControlButton"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "End Turn"
+[node name="ControlButton" parent="CanvasLayer" instance=ExtResource("12_pvu3s")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3
