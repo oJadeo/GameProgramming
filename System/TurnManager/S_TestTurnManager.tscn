@@ -1,14 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://dh0r7rjrcy6er"]
+[gd_scene load_steps=18 format=3]
 
 [ext_resource type="Script" path="res://System/TurnManager/GD_TurnManager.gd" id="1_dflja"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_EnemyManager.gd" id="2_mrvh1"]
 [ext_resource type="PackedScene" uid="uid://c3o88hbp6o77e" path="res://Character/EnemyCharacter_Test/EM4/S_EM4_Test.tscn" id="4_pv4mb"]
 [ext_resource type="PackedScene" uid="uid://cwbb5bd1qny4w" path="res://Character/EnemyCharacter_AI/EM1/S_EM1_AI.tscn" id="5_4rmte"]
-[ext_resource type="PackedScene" uid="uid://c5udgloms8gja" path="res://Character/EnemyCharacter_Test/Boss2/S_Boss2.tscn" id="5_70pyg"]
+[ext_resource type="PackedScene" uid="uid://c5udgloms8gja" path="res://Character/EnemyCharacter_Test/Boss2/S_Boss2_test.tscn" id="5_70pyg"]
 [ext_resource type="PackedScene" uid="uid://dvciusaoi1wv0" path="res://Character/PlayerCharacter/PC2/S_PC2.tscn" id="5_asctj"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_PlayerManager.gd" id="5_nehn5"]
-[ext_resource type="PackedScene" uid="uid://bifjpciuhguys" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="6_2le4b"]
 [ext_resource type="PackedScene" uid="uid://ci8mf1gmdprq7" path="res://Character/PlayerCharacter/PC3/S_PC3.tscn" id="6_fq2hp"]
+[ext_resource type="PackedScene" uid="uid://b277oyhkc4a32" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="7_66xua"]
 [ext_resource type="PackedScene" uid="uid://bbe53oyy08kdb" path="res://Skills/Formation/F_1/S_Formation1.tscn" id="9_dgnif"]
 [ext_resource type="PackedScene" uid="uid://ctrtwbaekf8se" path="res://Skills/Formation/F_2/S_Formation2.tscn" id="10_xs2ya"]
 [ext_resource type="PackedScene" uid="uid://dyie2k2ftkq5p" path="res://Skills/Formation/F_4/S_Formation4.tscn" id="11_ch5yg"]
@@ -53,10 +53,8 @@ script = ExtResource("5_nehn5")
 [node name="Characters" type="Node2D" parent="PlayerManager"]
 y_sort_enabled = true
 
-[node name="S_PC1" parent="PlayerManager/Characters" instance=ExtResource("6_2le4b")]
-position = Vector2(164, -85)
-scale = Vector2(3, 3)
-start_cood = Vector2(3, 2)
+[node name="S_PC1" parent="PlayerManager/Characters" instance=ExtResource("7_66xua")]
+start_cood = Vector2(1, 2)
 
 [node name="S_PC2" parent="PlayerManager/Characters" instance=ExtResource("5_asctj")]
 scale = Vector2(3, 3)

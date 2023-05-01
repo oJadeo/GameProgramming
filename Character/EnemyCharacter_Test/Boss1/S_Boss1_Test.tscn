@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cp2x3v2qmvcp2"]
+[gd_scene load_steps=19 format=3 uid="uid://cp2x3v2qmvcp2"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_bqckj"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_fhpmd"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="5_htuqh"]
 [ext_resource type="PackedScene" uid="uid://b305f0cmtvlx3" path="res://Skills/Boss1/HitLeg/S_HitLeg.tscn" id="6_vd2gu"]
 [ext_resource type="PackedScene" uid="uid://c84gp60mw7qft" path="res://Skills/Boss1/DeBuffATk/S_DeBuffAtk.tscn" id="7_x3brk"]
+[ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="8_j7nvm"]
 
 [sub_resource type="Animation" id="Animation_6wvck"]
 resource_name = "Death"
@@ -305,3 +306,5 @@ text = "Skill_1
 layout_mode = 2
 text = "Skill_2
 "
+
+[node name="ControlButton" parent="CanvasLayer" instance=ExtResource("8_j7nvm")]
