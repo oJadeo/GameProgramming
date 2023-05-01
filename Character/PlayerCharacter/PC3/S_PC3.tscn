@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://ci8mf1gmdprq7"]
+[gd_scene load_steps=37 format=3 uid="uid://ci8mf1gmdprq7"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_ljthf"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_hmaxi"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bn8skskbpu38b" path="res://Assets/Skills/PC3_Sasuke/PC3_S2.png" id="9_ll4nf"]
 [ext_resource type="Script" path="res://Character/PlayerCharacter/Ui/GD_Tooltip.gd" id="10_jrgjw"]
 [ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="10_osksi"]
+[ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="12_gnvqc"]
 [ext_resource type="PackedScene" uid="uid://ch51imgjt8abe" path="res://Skills/Basic_Atk/Shuriken/S_ThrowShuriken.tscn" id="13_c48m8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v2jwp"]
@@ -755,27 +756,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Bomb any cell 0.5*ATK"
 
-[node name="ControlButton" type="VBoxContainer" parent="CanvasLayer"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -135.0
-offset_top = -37.5
-offset_bottom = 37.5
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="Move" type="Button" parent="CanvasLayer/ControlButton"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Move"
-
-[node name="EndTurn" type="Button" parent="CanvasLayer/ControlButton"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "End Turn"
+[node name="ControlButton" parent="CanvasLayer" instance=ExtResource("12_gnvqc")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3

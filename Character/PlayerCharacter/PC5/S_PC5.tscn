@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cd7gb0huoceon"]
+[gd_scene load_steps=34 format=3 uid="uid://cd7gb0huoceon"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_e05uv"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC2/pc2_stat.json" id="2_6dcpi"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://d4kdpjs0k7m7t" path="res://Assets/Skills/PC2_Sakura/PC2_S1.png" id="8_ttn4c"]
 [ext_resource type="Texture2D" uid="uid://cbpd48v8srrai" path="res://Assets/Skills/PC2_Sakura/PC2_S2.png" id="9_vsoy8"]
 [ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="10_uhxp8"]
+[ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="11_r53xl"]
 [ext_resource type="Texture2D" uid="uid://dt5pricqwwxop" path="res://Character/PlayerCharacter/PC5/PC5.png" id="11_xu25y"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="12_okxa3"]
 [ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="13_7h0wm"]
@@ -719,6 +720,8 @@ offset_bottom = 101.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Increases ATK/DEF by 1 each for 2 turns."
+
+[node name="ControlButton" parent="CanvasLayer" instance=ExtResource("11_r53xl")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3

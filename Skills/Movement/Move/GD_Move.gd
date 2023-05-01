@@ -3,6 +3,7 @@ extends BaseSkills
 var velocity:Vector2
 var target_pos:Vector2
 var origin_cood:Vector2 = Vector2.ZERO
+var origin_diretion:Vector2 = Vector2.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -10,11 +11,13 @@ func _ready() -> void:
 func select() -> void:
 	if player.is_move:
 		player.board_cood = origin_cood
+		player.direction = origin_diretion
 		player.global_position = Board.get_tile_pos(origin_cood)
 		player.is_move = false
 		return
 	var cood_list = []
 	origin_cood = player.board_cood
+	origin_diretion = player.direction
 	check_tile(player.board_cood,player.move_range)
 	Board.highlight_tiles(cood_list,GET_TILE.empty)
 
