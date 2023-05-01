@@ -42,6 +42,7 @@ func start_turn()->void:
 	SKILL_SELECT_UI.visible = true
 	# TODO: btn_move have to be texture move
 	# btn_list[0].text = "Move"
+	# tooltip_list[0].set_move()
 	for i in range(len(skill_list)):
 		btn_list[i].disabled = skill_list[i].cooldown != 0
 func end_turn()->void:
@@ -120,6 +121,7 @@ func finish_walk()->void:
 		SKILL_SELECT_UI.visible = true
 		# TODO: btn_move have to be texture end turn
 		# btn_list[0].text = "End Turn"
+		# tooltip_list[0].set_end_turn()
 	else:
 		end_turn()
 func targeted() -> void:

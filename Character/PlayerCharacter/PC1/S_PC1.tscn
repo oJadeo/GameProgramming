@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bifjpciuhguys"]
+[gd_scene load_steps=36 format=3 uid="uid://b277oyhkc4a32"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_jepcu"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC1/pc1_stat.json" id="2_jb0rm"]
@@ -9,11 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://cjbmoq0aa6wof" path="res://Character/PlayerCharacter/PC1/PC1.png" id="5_i5jry"]
 [ext_resource type="Texture2D" uid="uid://rflmq48tekve" path="res://Character/PlayerCharacter/PC1/I_PC1.png" id="5_ldwor"]
 [ext_resource type="Texture2D" uid="uid://irukhx7v1new" path="res://Assets/Skills/basic/move.png" id="6_bdkai"]
-[ext_resource type="PackedScene" uid="uid://caivfafxswm31" path="res://Skills/PC1/GaugePunch/S_GaugePunch.tscn" id="6_ej21n"]
+[ext_resource type="PackedScene" uid="uid://x7wqfnm0riq7" path="res://Skills/PC1/GaugePunch/S_GaugePunch.tscn" id="6_ej21n"]
 [ext_resource type="Texture2D" uid="uid://d2jdlg3u52l35" path="res://Assets/Skills/basic/melee.png" id="7_ded0u"]
 [ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="7_x44jd"]
 [ext_resource type="Texture2D" uid="uid://c7hqf7xdsm448" path="res://Assets/Skills/PC1_Naruto/PC1_S1.png" id="8_o8ikd"]
 [ext_resource type="Texture2D" uid="uid://r5r7fs2dtrju" path="res://Assets/Skills/PC1_Naruto/PC1_S2.png" id="9_t414c"]
+[ext_resource type="Script" path="res://Character/PlayerCharacter/Ui/GD_Tooltip.gd" id="10_hvifq"]
+[ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="12_pvu3s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsj8r"]
 bg_color = Color(0.870588, 0.490196, 0, 1)
@@ -321,6 +323,7 @@ _data = {
 }
 
 [node name="S_PC1" type="Node2D" groups=["character"]]
+scale = Vector2(3, 3)
 script = ExtResource("1_jepcu")
 stat_json = ExtResource("2_jb0rm")
 start_atk = 5
@@ -423,6 +426,7 @@ alignment = 2
 custom_minimum_size = Vector2(0, 190)
 layout_mode = 2
 size_flags_horizontal = 0
+script = ExtResource("10_hvifq")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move"]
 layout_mode = 0
@@ -432,18 +436,18 @@ offset_right = 505.0
 offset_bottom = 185.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_s0emc")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Move"]
+[node name="Container" type="VBoxContainer" parent="CanvasLayer/Tooltips/Move"]
 layout_mode = 0
 offset_right = 500.0
 offset_bottom = 40.0
 theme_override_constants/separation = 0
 
-[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer"]
+[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Move/Container"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2s57q")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Top"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move/Container/Top"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -459,7 +463,7 @@ grow_vertical = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_7ox0b")
 
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Top/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Move/Container/Top/Panel"]
 layout_mode = 0
 offset_right = 496.0
 offset_bottom = 54.0
@@ -470,12 +474,12 @@ text = "Move"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer"]
+[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Move/Container"]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2s57q")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Description"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move/Container/Description"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -491,7 +495,7 @@ grow_vertical = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_7ox0b")
 
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Description/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Move/Container/Description/Panel"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 4.0
@@ -500,6 +504,7 @@ offset_bottom = 101.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Move 1 - 2 spaces"
+autowrap_mode = 3
 
 [node name="Basic_atk" type="Control" parent="CanvasLayer/Tooltips"]
 custom_minimum_size = Vector2(0, 190)
@@ -514,18 +519,18 @@ offset_right = 505.0
 offset_bottom = 185.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_s0emc")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Basic_atk"]
+[node name="Container" type="VBoxContainer" parent="CanvasLayer/Tooltips/Basic_atk"]
 layout_mode = 0
 offset_right = 500.0
 offset_bottom = 40.0
 theme_override_constants/separation = 0
 
-[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer"]
+[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/Container"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2s57q")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Top"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/Container/Top"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -541,7 +546,7 @@ grow_vertical = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_7ox0b")
 
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Top/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Basic_atk/Container/Top/Panel"]
 layout_mode = 0
 offset_right = 496.0
 offset_bottom = 54.0
@@ -552,12 +557,12 @@ text = "Punch"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer"]
+[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/Container"]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2s57q")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Description"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/Container/Description"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -573,7 +578,7 @@ grow_vertical = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_7ox0b")
 
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Description/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Basic_atk/Container/Description/Panel"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 4.0
@@ -598,18 +603,18 @@ offset_right = 505.0
 offset_bottom = 185.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_s0emc")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Skill_1"]
+[node name="Container" type="VBoxContainer" parent="CanvasLayer/Tooltips/Skill_1"]
 layout_mode = 0
 offset_right = 500.0
 offset_bottom = 40.0
 theme_override_constants/separation = 0
 
-[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer"]
+[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/Container"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2s57q")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Top"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/Container/Top"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -625,7 +630,7 @@ grow_vertical = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_7ox0b")
 
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Top/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_1/Container/Top/Panel"]
 layout_mode = 0
 offset_right = 496.0
 offset_bottom = 54.0
@@ -636,12 +641,12 @@ text = "Talk no jutsu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer"]
+[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/Container"]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2s57q")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Description"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/Container/Description"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -657,7 +662,7 @@ grow_vertical = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_7ox0b")
 
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Description/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_1/Container/Description/Panel"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 4.0
@@ -681,18 +686,18 @@ offset_right = 505.0
 offset_bottom = 185.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_s0emc")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Skill_2"]
+[node name="Container" type="VBoxContainer" parent="CanvasLayer/Tooltips/Skill_2"]
 layout_mode = 0
 offset_right = 500.0
 offset_bottom = 40.0
 theme_override_constants/separation = 0
 
-[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer"]
+[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/Container"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2s57q")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Top"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/Container/Top"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -708,7 +713,7 @@ grow_vertical = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_7ox0b")
 
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Top/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_2/Container/Top/Panel"]
 layout_mode = 0
 offset_right = 496.0
 offset_bottom = 54.0
@@ -719,12 +724,12 @@ text = "Swing"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer"]
+[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/Container"]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2s57q")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Description"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/Container/Description"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -740,7 +745,7 @@ grow_vertical = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_7ox0b")
 
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Description/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_2/Container/Description/Panel"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 4.0
@@ -750,6 +755,8 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Attack ATK*0.5 and reduce DEF by half 
 for 2 turns."
+
+[node name="ControlButton" parent="CanvasLayer" instance=ExtResource("12_pvu3s")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c3o88hbp6o77e"]
+[gd_scene load_steps=32 format=3 uid="uid://c3o88hbp6o77e"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_eltjt"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_2pq7k"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://d2rguj26fbiay" path="res://Assets/Skills/PC3_Sasuke/PC3_S1.png" id="9_cgk0x"]
 [ext_resource type="Texture2D" uid="uid://bn8skskbpu38b" path="res://Assets/Skills/PC3_Sasuke/PC3_S2.png" id="10_kmgry"]
 [ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="11_wssfi"]
+[ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="14_k6kci"]
 
 [sub_resource type="Animation" id="Animation_jtqh0"]
 resource_name = "Bomb"
@@ -709,3 +710,5 @@ offset_bottom = 101.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Bomb any cell 0.5*ATK"
+
+[node name="ControlButton" parent="CanvasLayer" instance=ExtResource("14_k6kci")]
