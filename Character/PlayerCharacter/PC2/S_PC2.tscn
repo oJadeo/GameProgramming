@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dvciusaoi1wv0"]
+[gd_scene load_steps=35 format=3 uid="uid://dvciusaoi1wv0"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_gr4eu"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC2/pc2_stat.json" id="2_vjm3y"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://d4kdpjs0k7m7t" path="res://Assets/Skills/PC2_Sakura/PC2_S1.png" id="8_n4r7p"]
 [ext_resource type="Texture2D" uid="uid://cbpd48v8srrai" path="res://Assets/Skills/PC2_Sakura/PC2_S2.png" id="9_xhet8"]
 [ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="10_45kos"]
+[ext_resource type="Script" path="res://Character/PlayerCharacter/Ui/GD_Tooltip.gd" id="10_vy87a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnamp"]
 bg_color = Color(0.870588, 0.490196, 0, 1)
@@ -394,6 +395,7 @@ alignment = 2
 custom_minimum_size = Vector2(0, 190)
 layout_mode = 2
 size_flags_horizontal = 0
+script = ExtResource("10_vy87a")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move"]
 layout_mode = 0
@@ -403,18 +405,18 @@ offset_right = 505.0
 offset_bottom = 185.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_gdwta")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Move"]
+[node name="Container" type="VBoxContainer" parent="CanvasLayer/Tooltips/Move"]
 layout_mode = 0
 offset_right = 500.0
 offset_bottom = 40.0
 theme_override_constants/separation = 0
 
-[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer"]
+[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Move/Container"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Top"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move/Container/Top"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -430,7 +432,7 @@ grow_vertical = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
 
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Top/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Move/Container/Top/Panel"]
 layout_mode = 0
 offset_right = 496.0
 offset_bottom = 54.0
@@ -441,12 +443,12 @@ text = "Move"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer"]
+[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Move/Container"]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Description"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move/Container/Description"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -462,7 +464,7 @@ grow_vertical = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
 
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Description/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Move/Container/Description/Panel"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 4.0
@@ -720,6 +722,28 @@ offset_bottom = 101.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Increases ATK/DEF by 1 each for 2 turns."
+
+[node name="ControlButton" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -37.5
+offset_bottom = 37.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Move" type="Button" parent="CanvasLayer/ControlButton"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Move"
+
+[node name="EndTurn" type="Button" parent="CanvasLayer/ControlButton"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "End Turn"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3
