@@ -10,15 +10,13 @@ func _ready():
 				level.connect('pressed',change_level.bind(level.name))
 			else:
 				level.disabled = true
-	pass # Replace with function body.
 
 func change_level(level_name:String):
 	var next_scene = load("res://System/Menu/TeamSelect/GD_TeamSelect.tscn").instantiate()
 	next_scene.set_stage(level_name)
-	add_child(next_scene)
-
+	PlayerVar.charDataList = [null,null,null]
+	get_tree().get_root().add_child(next_scene)
+	queue_free()
 
 func _on_back_pressed():
-	queue_free()
-	#var next_scene = load("res://System/Menu/MainMenu/GD_MainMenu.tscn")
-	#get_tree().change_scene_to_packed(next_scene)
+	get_tree().change_scene_to_file("res://System/Menu/MainMenu/GD_MainMenu.tscn")

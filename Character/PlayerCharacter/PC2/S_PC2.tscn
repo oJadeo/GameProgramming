@@ -294,6 +294,7 @@ _data = {
 }
 
 [node name="S_PC2" type="Node2D" groups=["character"]]
+y_sort_enabled = true
 script = ExtResource("1_gr4eu")
 stat_json = ExtResource("2_vjm3y")
 start_atk = 3

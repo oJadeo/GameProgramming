@@ -52,7 +52,7 @@ func update(delta:float) -> void:
 func finish_skill() -> void:
 	super()
 	for target in target_list:
-		target.damaged(player.stat.atk,player.direction)
+		target.damaged(player.stat.atk*0.5,player.direction)
 	player.end_turn()
 	
 func deselect() -> void:

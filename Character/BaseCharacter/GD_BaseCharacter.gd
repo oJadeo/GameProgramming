@@ -150,6 +150,7 @@ func death():
 	animation.play("Death")
 	Board.delete_character(board_cood)
 	manager.all_character.erase(self)
+	manager.check_finish_level()
 
 func play_animaiton(name:String)->void:
 	animation.play(name)
