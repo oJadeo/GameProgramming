@@ -24,6 +24,8 @@ func select_target(cood:Vector2) -> void:
 		if target:
 			var rng = RandomNumberGenerator.new()
 			var kicked = rng.randi_range(1,2)
+			if Board.get_character(target.board_cood+target_dir*kicked):
+				continue
 			target.board_cood = target.board_cood+target_dir*kicked
 			var velocity = Board.get_tile_pos(target.board_cood) - target.global_position
 

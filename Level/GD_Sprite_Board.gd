@@ -22,4 +22,4 @@ func _ready() -> void:
 			board_tile_row.append(new_tile)
 		board_tile.append(board_tile_row)
 	Board.board_tile = board_tile
-
+	Board.reset_all_tile()

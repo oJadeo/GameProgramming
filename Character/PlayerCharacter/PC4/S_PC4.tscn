@@ -1,8 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://b5m68l0i55v07"]
+[gd_scene load_steps=38 format=3 uid="uid://b5m68l0i55v07"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_f2nid"]
-[ext_resource type="JSON" path="res://Character/PlayerCharacter/PC2/pc2_stat.json" id="2_lwqk0"]
-[ext_resource type="Texture2D" uid="uid://dibfb1py3ool5" path="res://Character/PlayerCharacter/PC2/I_PC2.png" id="3_fkh1n"]
+[ext_resource type="JSON" path="res://Character/PlayerCharacter/PC4/pc4_stat.json" id="2_g8iqq"]
+[ext_resource type="Texture2D" uid="uid://dsq0lde5prec3" path="res://Character/PlayerCharacter/PC4/PC4_itachi.png" id="3_cgo07"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="4_m000q"]
 [ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="5_uhw6a"]
 [ext_resource type="Texture2D" uid="uid://irukhx7v1new" path="res://Assets/Skills/basic/move.png" id="6_rxmfc"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://cchd6rflvj8r4" path="res://Character/PlayerCharacter/PC4/PC4.png" id="11_w3l5k"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="12_53vyh"]
 [ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="13_usfpg"]
+[ext_resource type="PackedScene" uid="uid://jbkodc7cxug6" path="res://Skills/PC4/Pull/S_Pull.tscn" id="16_s82fc"]
+[ext_resource type="PackedScene" uid="uid://cgkkvtf6n8vtm" path="res://Skills/PC4/Kick/S_Kick.tscn" id="16_unvlf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnamp"]
 bg_color = Color(0.870588, 0.490196, 0, 1)
@@ -165,6 +167,68 @@ tracks/0/keys = {
 "values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_d2o5b"]
+resource_name = "Kick"
+length = 0.750004
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.375, 0.5, 0.625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 10), Vector2i(1, 10), Vector2i(2, 10), Vector2i(3, 10), Vector2i(4, 10)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.375),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ylw2f"]
+resource_name = "Pull"
+length = 0.500004
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 9)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_imsbf"]
 resource_name = "Punch"
 length = 0.625005
@@ -284,6 +348,8 @@ _data = {
 "Down_Atk": SubResource("Animation_2aifp"),
 "Hurt": SubResource("Animation_76wfh"),
 "Idle": SubResource("Animation_h4dee"),
+"Kick": SubResource("Animation_d2o5b"),
+"Pull": SubResource("Animation_ylw2f"),
 "Punch": SubResource("Animation_imsbf"),
 "RESET": SubResource("Animation_h5pqb"),
 "Shuriken": SubResource("Animation_i1prq"),
@@ -292,11 +358,13 @@ _data = {
 }
 
 [node name="S_PC4" type="Node2D" groups=["character"]]
+y_sort_enabled = true
+scale = Vector2(3, 3)
 script = ExtResource("1_f2nid")
-stat_json = ExtResource("2_lwqk0")
+stat_json = ExtResource("2_g8iqq")
 start_atk = 3
 start_def = 0
-icon_texture = ExtResource("3_fkh1n")
+icon_texture = ExtResource("3_cgo07")
 
 [node name="S_GaugeBar" parent="." instance=ExtResource("4_m000q")]
 offset_left = -24.0
@@ -746,3 +814,7 @@ one_shot = true
 [node name="S_Move" parent="SkillsList" instance=ExtResource("12_53vyh")]
 
 [node name="S_Punch" parent="SkillsList" instance=ExtResource("13_usfpg")]
+
+[node name="S_Pull" parent="SkillsList" instance=ExtResource("16_s82fc")]
+
+[node name="S_Kick" parent="SkillsList" instance=ExtResource("16_unvlf")]
