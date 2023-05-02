@@ -41,7 +41,10 @@ func check_walk():
 	var movable_coods = Board.get_highlight()
 	
 	if skill_list[2].cooldown == 0:
-		target_cood = Board.get_cood(Board.enemy_list[0])  #TODO: Change to prioritize Boss
+		target_cood = Board.get_cood(Board.enemy_list[0])
+		for enemy in Board.enemy_list:
+			if enemy.get_name() == "S_Boss2_AI":
+				target_cood = Board.get_cood(enemy)
 		skill_select = 2
 		for movable_cood in movable_coods:
 			var min_dist = 999
