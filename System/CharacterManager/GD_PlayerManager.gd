@@ -24,7 +24,11 @@ func select_formation(num:int)->void:
 	var skill = formation_btn_list[num].get_child(0)
 	get_parent().current_turn_unit.select_formation(skill)
 	skill.select()
-	
+
+func check_finish_level():
+	if len(Board.player_list) == 0:
+		print("Lose")
+
 func end_turn():
 	super()
 	for i in len(formation_btn_list):
