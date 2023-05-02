@@ -36,6 +36,7 @@ func _on_start_pressed():
 	var next_scene = load("res://Level/S_TestLevel.tscn").instantiate()
 	#next_scene.set_stage(level_name)
 	get_tree().get_root().add_child(next_scene)
+	get_tree().set_current_scene(next_scene)
 	queue_free()
 
 func _on_char_1_pressed():

@@ -15,7 +15,7 @@ func set_char_slot(slot_id):
 		button.reset()
 		for i in range(3):
 			if PlayerVar.charDataList[i] and button.char_id == PlayerVar.charDataList[i].char_id:
-				if i == slot_id:
+				if i == cur_slot:
 					button.select()
 				else:
 					button.used()
@@ -30,7 +30,9 @@ func reset_except(char_id):
 	selected_char = char_id
 	for button in $HBoxContainer/VBoxContainer/GridContainer.get_children():
 		if button.char_id != char_id:
-			if button.state != 2:
-				button.reset()
+			button.reset()
+			for i in range(3):
+				if i != cur_slot and PlayerVar.charDataList[i] and PlayerVar.charDataList[i].char_id == button.char_id:
+					button.used()
 		else:
 			button.select()
