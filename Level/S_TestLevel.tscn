@@ -4,15 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://jk4tap6negkm" path="res://Assets/BG2.jpg" id="2_41vko"]
 [ext_resource type="PackedScene" uid="uid://m4cr7ou4tlfn" path="res://Tile/S_Tile.tscn" id="2_ex7t4"]
 [ext_resource type="Script" path="res://Level/GD_Sprite_Board.gd" id="3_571tc"]
-[ext_resource type="PackedScene" uid="uid://dh0r7rjrcy6er" path="res://System/TurnManager/S_TestTurnManager.tscn" id="4_15bmj"]
+[ext_resource type="PackedScene" uid="uid://c6rtg8ritwip" path="res://System/TurnManager/S_TestTurnManager.tscn" id="4_15bmj"]
 
 [node name="S_Test_Level" type="Node2D"]
 script = ExtResource("1_foyb7")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_41vko")
 
 [node name="Board" type="Node2D" parent="."]
 position = Vector2(320, 350)
@@ -20,5 +15,11 @@ script = ExtResource("3_571tc")
 tile = ExtResource("2_ex7t4")
 tile_size = Vector2(144, 96)
 x_offset = 24
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_41vko")
 
 [node name="S_turn_manager" parent="." instance=ExtResource("4_15bmj")]

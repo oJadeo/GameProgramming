@@ -1,10 +1,9 @@
 extends BaseSkills
 
 @export var range:int = 4
-@export var shuriken:Resource
-var spawn_shuriken = null
-@onready var shuriken_spawn_point = $ShurikenSpawnLocation
-@onready var shuriken_timer = $ShurikenTimer
+@export var bomb:Resource
+var spawn_bomb = null
+@onready var bomb_timer = $ArtBombTimer
 var velocity = Vector2.ZERO
 var target_list:Array = []
 
@@ -27,13 +26,13 @@ func select_target(cood:Vector2) -> void:
 		var target = Board.get_character(cood+dir)
 		if target:
 			target_list.append(target)
-	velocity = Board.get_tile_pos(cood) - shuriken_spawn_point.global_position
+	velocity = Board.get_tile_pos(cood) - player.global_position
 	
 	player.direction = Vector2(cood.x - player.board_cood.x,0).normalized()
 	
 	Board.reset_all_tile()
-	player.play_animaiton("Bomb") 
-	player.move_timer.set_wait_time(2.3)
+	player.play_animaiton("Cast") 
+	player.move_timer.set_wait_time(2)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)
 	player.move_timer.start()
 
@@ -46,13 +45,13 @@ func check_target()->bool:
 	return false
 
 func update(delta:float) -> void:
-	if not shuriken_timer.is_stopped():
-		spawn_shuriken.global_position.x += velocity.x*delta*5
+	if not bomb_timer.is_stopped():
+		spawn_bomb.global_position.x += velocity.x*delta*4
 
 func finish_skill() -> void:
 	super()
 	for target in target_list:
-		target.damaged(player.stat.atk*0.5,player.direction)
+		target.damaged(player.stat.atk*0.75,player.direction)
 	player.end_turn()
 	
 func deselect() -> void:
@@ -64,12 +63,11 @@ func _process(delta: float) -> void:
 
 
 func trigger() -> void:
-	shuriken_timer.start()
-	spawn_shuriken = shuriken.instantiate()
-	add_child(spawn_shuriken)
-	spawn_shuriken.set_direction(player.direction)
-	spawn_shuriken.set_position($ShurikenSpawnLocation.get_position())
+	bomb_timer.start()
+	spawn_bomb = bomb.instantiate()
+	add_child(spawn_bomb)
+	spawn_bomb.set_direction(player.direction)
 
 
-func _on_shuriken_timer_timeout() -> void:
-	pass
+func _on_art_bomb_timer_timeout():
+	spawn_bomb.play_bomb()
