@@ -30,8 +30,7 @@ func set_char_done(slot_id):
 func _on_start_pressed():
 	var next_scene = load("res://Level/S_TestLevel.tscn").instantiate()
 	#next_scene.set_stage(level_name)
-	add_sibling(next_scene)
-	queue_free()
+	add_child(next_scene)
 
 
 func _on_char_1_pressed():

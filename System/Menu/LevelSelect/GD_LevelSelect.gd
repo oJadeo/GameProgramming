@@ -15,10 +15,10 @@ func _ready():
 func change_level(level_name:String):
 	var next_scene = load("res://System/Menu/TeamSelect/GD_TeamSelect.tscn").instantiate()
 	next_scene.set_stage(level_name)
-	add_sibling(next_scene)
-	queue_free()
+	add_child(next_scene)
 
 
 func _on_back_pressed():
-	var next_scene = load("res://System/Menu/MainMenu/GD_MainMenu.tscn")
-	get_tree().change_scene_to_packed(next_scene)
+	queue_free()
+	#var next_scene = load("res://System/Menu/MainMenu/GD_MainMenu.tscn")
+	#get_tree().change_scene_to_packed(next_scene)
