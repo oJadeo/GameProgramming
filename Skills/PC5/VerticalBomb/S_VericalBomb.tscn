@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfbohr47mkk0v"]
+
+[ext_resource type="Script" path="res://Skills/PC5/VerticalBomb/GD_VerticalBomb.gd" id="1_da15m"]
+[ext_resource type="PackedScene" uid="uid://12b14c3kd1iv" path="res://Skills/PC5/VerticalBomb/S_Bomb.tscn" id="2_3f86k"]
+
+[node name="S_VericalBomb" type="Node2D"]
+script = ExtResource("1_da15m")
+bomb = ExtResource("2_3f86k")
