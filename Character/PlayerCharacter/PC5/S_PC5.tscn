@@ -1,8 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://cd7gb0huoceon"]
+[gd_scene load_steps=36 format=3 uid="uid://cd7gb0huoceon"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_e05uv"]
-[ext_resource type="JSON" path="res://Character/PlayerCharacter/PC2/pc2_stat.json" id="2_6dcpi"]
-[ext_resource type="Texture2D" uid="uid://dibfb1py3ool5" path="res://Character/PlayerCharacter/PC2/I_PC2.png" id="3_bjg21"]
+[ext_resource type="JSON" path="res://Character/PlayerCharacter/PC5/pc5_stat.json" id="2_oeu14"]
+[ext_resource type="Texture2D" uid="uid://boi0qss7jgn04" path="res://Character/PlayerCharacter/PC5/PC5_deidara.png" id="3_2qg3x"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="4_kqseq"]
 [ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="5_4dnpw"]
 [ext_resource type="Texture2D" uid="uid://irukhx7v1new" path="res://Assets/Skills/basic/move.png" id="6_e2e3c"]
@@ -13,7 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="11_r53xl"]
 [ext_resource type="Texture2D" uid="uid://dt5pricqwwxop" path="res://Character/PlayerCharacter/PC5/PC5.png" id="11_xu25y"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="12_okxa3"]
-[ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="13_7h0wm"]
+[ext_resource type="PackedScene" uid="uid://ch51imgjt8abe" path="res://Skills/Basic_Atk/Shuriken/S_ThrowShuriken.tscn" id="14_caai8"]
+[ext_resource type="PackedScene" uid="uid://0fbb7bgthc8p" path="res://Skills/PC5/ArtBomb/S_ThrowArtBomb.tscn" id="15_3avvi"]
+[ext_resource type="PackedScene" uid="uid://b7500q0101x3a" path="res://Skills/PC5/PunchSkill/S_PunchSkill.tscn" id="16_2jgio"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnamp"]
 bg_color = Color(0.870588, 0.490196, 0, 1)
@@ -292,11 +294,13 @@ _data = {
 }
 
 [node name="S_PC5" type="Node2D" groups=["character"]]
+y_sort_enabled = true
+scale = Vector2(3, 3)
 script = ExtResource("1_e05uv")
-stat_json = ExtResource("2_6dcpi")
+stat_json = ExtResource("2_oeu14")
 start_atk = 3
 start_def = 0
-icon_texture = ExtResource("3_bjg21")
+icon_texture = ExtResource("3_2qg3x")
 
 [node name="S_GaugeBar" parent="." instance=ExtResource("4_kqseq")]
 offset_left = -24.0
@@ -745,4 +749,8 @@ one_shot = true
 
 [node name="S_Move" parent="SkillsList" instance=ExtResource("12_okxa3")]
 
-[node name="S_Punch" parent="SkillsList" instance=ExtResource("13_7h0wm")]
+[node name="S_Shuriken" parent="SkillsList" instance=ExtResource("14_caai8")]
+
+[node name="S_PunchSkill" parent="SkillsList" instance=ExtResource("16_2jgio")]
+
+[node name="S_ThrowArtBomb" parent="SkillsList" instance=ExtResource("15_3avvi")]
