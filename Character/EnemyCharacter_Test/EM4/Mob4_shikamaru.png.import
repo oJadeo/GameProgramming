@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct1jkcn3lj0uy"
-path="res://.godot/imported/I_Boss2.png-0cf84c6a412b8908b2fab1033849e8c4.ctex"
+uid="uid://b1wu6d7o6loec"
+path="res://.godot/imported/Mob4_shikamaru.png-4d986e3098dc9d75bdc025facb0b50d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Character/EnemyCharacter_AI/Boss2/I_Boss2.png"
-dest_files=["res://.godot/imported/I_Boss2.png-0cf84c6a412b8908b2fab1033849e8c4.ctex"]
+source_file="res://Character/EnemyCharacter_Test/EM4/Mob4_shikamaru.png"
+dest_files=["res://.godot/imported/Mob4_shikamaru.png-4d986e3098dc9d75bdc025facb0b50d0.ctex"]
 
 [params]
 

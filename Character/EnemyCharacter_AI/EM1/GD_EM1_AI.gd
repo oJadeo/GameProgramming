@@ -153,13 +153,17 @@ func check_walk():
 					return
 					
 	var min_dist = 999
+	var min_cood = Vector2(-1,-1)
 	for movable_cood in movable_coods:
 		for player in Board.player_list:
 			var player_cood = Board.get_cood(player)
 			var dist = abs(movable_cood.x-player_cood.x)+abs(movable_cood.y-player_cood.y)
 			if dist < min_dist:
 				min_dist = dist
-				move_to_cood = movable_cood
+				min_cood = movable_cood
+				
+	if min_cood != Vector2(-1,-1):
+		move_to_cood = min_cood
 	return
 			
 func _on_idle_timer_timeout():

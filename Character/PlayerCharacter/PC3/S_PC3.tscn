@@ -327,7 +327,6 @@ _data = {
 
 [node name="S_PC3" type="Node2D" groups=["character"]]
 y_sort_enabled = true
-scale = Vector2(3, 3)
 script = ExtResource("1_ljthf")
 stat_json = ExtResource("2_kp7e3")
 start_atk = 2

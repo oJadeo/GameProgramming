@@ -3,8 +3,6 @@ extends BaseSkills
 var amount:int  = 0
 var skill_direction:int = 0
 var damage:int = 0
-var up_player
-var down_player
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -13,6 +11,8 @@ func select() -> void:
 	for j in [-1,0,1]:
 		for i in [1,2,3]:
 			cood_list.append(player.board_cood+Vector2(i,j))
+	for j in [-1,0,1]:
+		for i in [1,2,3]:
 			cood_list.append(player.board_cood-Vector2(i,j))
 	Board.highlight_tiles(cood_list,GET_TILE.unit)
 	
@@ -28,13 +28,9 @@ func select_target(cood:Vector2) -> void:
 	
 	player.formation_use -= 1
 	
-	up_player = Board.get_character(player.board_cood+Vector2(0,1))
-	down_player = Board.get_character(player.board_cood-Vector2(0,1))
 	# Every one cast
-	player.play_animaiton("Cast") 
-	up_player.play_animaiton("Cast") 
-	down_player.play_animaiton("Cast") 
-	player.move_timer.set_wait_time(0.75)
+	player.play_animaiton("Punch") 
+	player.move_timer.set_wait_time(0.625)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)
 	player.move_timer.start()
 
@@ -43,8 +39,6 @@ func check_target()->bool:
 
 func finish_skill() -> void:
 	super()
-	up_player.return_to_idle()
-	down_player.return_to_idle()
 	player.end_turn()
 
 func update(delta:float) -> void:
