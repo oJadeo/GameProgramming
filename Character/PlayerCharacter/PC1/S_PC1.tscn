@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b277oyhkc4a32"]
+[gd_scene load_steps=37 format=3 uid="uid://b277oyhkc4a32"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_jepcu"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC1/pc1_stat.json" id="2_jb0rm"]
@@ -35,6 +35,37 @@ bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3urok"]
 bg_color = Color(0, 0.717647, 0.396078, 1)
+
+[sub_resource type="Animation" id="Animation_76brq"]
+resource_name = "Cast"
+length = 0.750004
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.5, 0.625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 10), Vector2i(1, 10), Vector2i(2, 10), Vector2i(3, 10), Vector2i(4, 10)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_lsid7"]
 resource_name = "Death"
@@ -309,6 +340,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xmd81"]
 _data = {
+"Cast": SubResource("Animation_76brq"),
 "Death": SubResource("Animation_lsid7"),
 "Down_Atk": SubResource("Animation_g0km1"),
 "GaugePunch": SubResource("Animation_xuxal"),
@@ -766,7 +798,7 @@ texture_filter = 1
 texture = ExtResource("5_i5jry")
 offset = Vector2(0, -20)
 hframes = 6
-vframes = 10
+vframes = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
