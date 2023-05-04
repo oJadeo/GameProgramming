@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://System/TurnManager/GD_TurnManager.gd" id="1_dflja"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_EnemyManager.gd" id="2_mrvh1"]
-[ext_resource type="PackedScene" uid="uid://c5udgloms8gja" path="res://Character/EnemyCharacter_Test/Boss2/S_Boss2_test.tscn" id="5_70pyg"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_PlayerManager.gd" id="5_nehn5"]
 [ext_resource type="PackedScene" uid="uid://b277oyhkc4a32" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="5_sflpi"]
 [ext_resource type="PackedScene" uid="uid://dvciusaoi1wv0" path="res://Character/PlayerCharacter/PC2/S_PC2.tscn" id="6_eimei"]
@@ -33,7 +32,7 @@ script = ExtResource("2_mrvh1")
 [node name="Characters" type="Node2D" parent="EnemyManager"]
 y_sort_enabled = true
 
-[node name="S_Boss2" parent="EnemyManager/Characters" instance=ExtResource("5_70pyg")]
+[node name="S_Boss2_AI" parent="EnemyManager/Characters" instance=ExtResource("5_s0sy5")]
 start_direction = Vector2(-1, 0)
 start_cood = Vector2(4, 1)
 
