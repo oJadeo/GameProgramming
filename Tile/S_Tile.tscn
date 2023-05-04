@@ -1,20 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://m4cr7ou4tlfn"]
 
-[ext_resource type="Texture2D" uid="uid://daw7qik26yjsr" path="res://Tile/Test_Tile.png" id="1_nk06s"]
+[ext_resource type="Texture2D" uid="uid://jnah6ijsrepc" path="res://Tile/test_tile4.png" id="1_pflyx"]
 [ext_resource type="Script" path="res://Tile/GD_Tile.gd" id="2_5yhxk"]
 
 [node name="S_Tile" type="Sprite2D"]
 z_index = -1
 texture_filter = 1
-scale = Vector2(3, 3)
-texture = ExtResource("1_nk06s")
+scale = Vector2(1.339, 1.03)
+texture = ExtResource("1_pflyx")
 hframes = 3
 script = ExtResource("2_5yhxk")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(-21, -16, 28, -16, 20, 16, -28, 16)
+polygon = PackedVector2Array(-57.2816, -46.6019, 81.5534, -46.6019, 57.2816, 46.6019, -81.5534, 46.6019)
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
