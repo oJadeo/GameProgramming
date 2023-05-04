@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cd7gb0huoceon"]
+[gd_scene load_steps=37 format=3 uid="uid://cd7gb0huoceon"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_e05uv"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC5/pc5_stat.json" id="2_oeu14"]
@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://dt5pricqwwxop" path="res://Character/PlayerCharacter/PC5/PC5.png" id="11_xu25y"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="12_okxa3"]
 [ext_resource type="PackedScene" uid="uid://ch51imgjt8abe" path="res://Skills/Basic_Atk/Shuriken/S_ThrowShuriken.tscn" id="14_caai8"]
-[ext_resource type="PackedScene" uid="uid://0fbb7bgthc8p" path="res://Skills/PC5/ArtBomb/S_ThrowArtBomb.tscn" id="15_3avvi"]
-[ext_resource type="PackedScene" uid="uid://b7500q0101x3a" path="res://Skills/PC5/PunchSkill/S_PunchSkill.tscn" id="16_2jgio"]
+[ext_resource type="PackedScene" uid="uid://bq3r0wsf5r5tl" path="res://Skills/PC5/ArtBomb/S_ThrowArtBomb.tscn" id="15_3avvi"]
+[ext_resource type="PackedScene" uid="uid://cfbohr47mkk0v" path="res://Skills/PC5/VerticalBomb/S_VericalBomb.tscn" id="16_hpkod"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnamp"]
 bg_color = Color(0.870588, 0.490196, 0, 1)
@@ -261,6 +261,37 @@ tracks/0/keys = {
 "values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7), Vector2i(5, 7), Vector2i(6, 7), Vector2i(7, 7), Vector2i(8, 7)]
 }
 
+[sub_resource type="Animation" id="Animation_df2s1"]
+resource_name = "VerticalBomb"
+length = 1.00001
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 8), Vector2i(1, 8), Vector2i(2, 8), Vector2i(3, 8), Vector2i(4, 8), Vector2i(5, 8), Vector2i(6, 8), Vector2i(7, 8), Vector2i(8, 8), Vector2i(9, 8), Vector2i(10, 8)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_q4stp"]
 resource_name = "Walk"
 length = 0.750004
@@ -290,6 +321,7 @@ _data = {
 "RESET": SubResource("Animation_h5pqb"),
 "Shuriken": SubResource("Animation_i1prq"),
 "Up_Atk": SubResource("Animation_3jqi3"),
+"VerticalBomb": SubResource("Animation_df2s1"),
 "Walk": SubResource("Animation_q4stp")
 }
 
@@ -751,6 +783,6 @@ one_shot = true
 
 [node name="S_Shuriken" parent="SkillsList" instance=ExtResource("14_caai8")]
 
-[node name="S_PunchSkill" parent="SkillsList" instance=ExtResource("16_2jgio")]
-
 [node name="S_ThrowArtBomb" parent="SkillsList" instance=ExtResource("15_3avvi")]
+
+[node name="S_VericalBomb" parent="SkillsList" instance=ExtResource("16_hpkod")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://0fbb7bgthc8p"]
+[gd_scene load_steps=3 format=3 uid="uid://bq3r0wsf5r5tl"]
 
 [ext_resource type="Script" path="res://Skills/PC5/ArtBomb/GD_ThrowArtBomb.gd" id="1_bud7r"]
 [ext_resource type="PackedScene" uid="uid://c2fo2oi1wja0e" path="res://Skills/PC5/ArtBomb/S_ArtBomb.tscn" id="2_hmlnx"]
