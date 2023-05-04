@@ -1,8 +1,8 @@
-[gd_scene load_steps=32 format=3 uid="uid://c3o88hbp6o77e"]
+[gd_scene load_steps=32 format=3]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_eltjt"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_2pq7k"]
-[ext_resource type="Texture2D" uid="uid://b1wu6d7o6loec" path="res://Character/EnemyCharacter_Test/EM4/Mob4_shikamaru.png" id="2_3sfl7"]
+[ext_resource type="Texture2D" uid="uid://b1wu6d7o6loec" path="res://Character/EnemyCharacter_AI/EM4/I_EM4_AI.png" id="2_3sfl7"]
 [ext_resource type="Texture2D" uid="uid://881roda0ungi" path="res://Character/EnemyCharacter_Test/EM4/EM4.png" id="3_y174w"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="4_be2wv"]
 [ext_resource type="PackedScene" uid="uid://csoi80d61uckw" path="res://Skills/EM4/ShurikenBomb/S_ThrowBombShuriken.tscn" id="5_1m4ju"]

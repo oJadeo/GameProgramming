@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1wu6d7o6loec"
-path="res://.godot/imported/Mob4_shikamaru.png-4d986e3098dc9d75bdc025facb0b50d0.ctex"
+path="res://.godot/imported/I_EM4_AI.png-f3df203ff60f1a2c444d9e0fef403fcc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Character/EnemyCharacter_Test/EM4/Mob4_shikamaru.png"
-dest_files=["res://.godot/imported/Mob4_shikamaru.png-4d986e3098dc9d75bdc025facb0b50d0.ctex"]
+source_file="res://Character/EnemyCharacter_AI/EM4/I_EM4_AI.png"
+dest_files=["res://.godot/imported/I_EM4_AI.png-f3df203ff60f1a2c444d9e0fef403fcc.ctex"]
 
 [params]
 

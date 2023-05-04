@@ -1,7 +1,7 @@
 extends Node
 
 @export var level:int
-@export var enemylist:NodePath
+@onready var enemy_list_node = $"../EnemyManager/Characters"
 @export var enemy_data_json:JSON
 @export var EM1:Resource
 @export var EM2:Resource
@@ -9,6 +9,8 @@ extends Node
 @export var EM4:Resource
 @export var BOSS1:Resource
 @export var BOSS2:Resource
+
+@onready var turnline = $"../PlayerManager/CanvasLayer/TurnLineManager"
 
 var enemy_scene:Dictionary
 # Called when the node enters the scene tree for the first time.
@@ -30,8 +32,17 @@ func select_level(lv:int):
 		var enemy = enemy_scene[enemy_data[0]]
 		var enemy_cood = Vector2(enemy_data[1].x,enemy_data[1].y)
 		
-		print(enemy,":",enemy_cood)
+		var enemy_instance = enemy.instantiate()
+		enemy_instance.start_cood = enemy_cood
+		enemy_instance.start_direction = Vector2(-1,0)
+		enemy_list_node.add_child(enemy_instance)
+		
+	enemy_list_node.get_parent().update_all_character()
+	enemy_list_node.get_parent().random_start_guage()
 	
+	Board.enemy_list = enemy_list_node.get_children()
+	
+	turnline.update_enemy_list()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

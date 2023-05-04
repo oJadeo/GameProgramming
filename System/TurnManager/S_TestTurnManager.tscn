@@ -1,19 +1,27 @@
-[gd_scene load_steps=18 format=3 uid="uid://c6rtg8ritwip"]
+[gd_scene load_steps=25 format=3 uid="uid://c6rtg8ritwip"]
 
 [ext_resource type="Script" path="res://System/TurnManager/GD_TurnManager.gd" id="1_dflja"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_EnemyManager.gd" id="2_mrvh1"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_PlayerManager.gd" id="5_nehn5"]
-[ext_resource type="PackedScene" uid="uid://b277oyhkc4a32" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="5_sflpi"]
-[ext_resource type="PackedScene" uid="uid://dvciusaoi1wv0" path="res://Character/PlayerCharacter/PC2/S_PC2.tscn" id="6_eimei"]
-[ext_resource type="PackedScene" uid="uid://ci8mf1gmdprq7" path="res://Character/PlayerCharacter/PC3/S_PC3.tscn" id="7_gxdsm"]
 [ext_resource type="PackedScene" uid="uid://bbe53oyy08kdb" path="res://Skills/Formation/F_1/S_Formation1.tscn" id="9_dgnif"]
 [ext_resource type="PackedScene" uid="uid://ctrtwbaekf8se" path="res://Skills/Formation/F_2/S_Formation2.tscn" id="10_xs2ya"]
 [ext_resource type="PackedScene" uid="uid://dyie2k2ftkq5p" path="res://Skills/Formation/F_4/S_Formation4.tscn" id="11_ch5yg"]
 [ext_resource type="PackedScene" uid="uid://xdsaw08y6pfy" path="res://Skills/Formation/F_3/S_Formation3.tscn" id="11_uyf1h"]
 [ext_resource type="Script" path="res://System/TurnManager/GD_TurnLineManager.gd" id="12_gfjle"]
 [ext_resource type="PackedScene" uid="uid://deaafmasgxd4y" path="res://System/TurnManager/S_CharacterGauge.tscn" id="13_1n2f6"]
-[ext_resource type="Script" path="res://System/Level/GD_EnemySpawner.gd" id="14_8x4nk"]
-[ext_resource type="JSON" path="res://Level/Data/emeny_cood.json" id="15_bv5j6"]
+[ext_resource type="Script" path="res://System/Level/GD_EnemySpawner.gd" id="13_kp5uk"]
+[ext_resource type="JSON" path="res://Level/Data/emeny_cood.json" id="14_dciaw"]
+[ext_resource type="PackedScene" uid="uid://cwbb5bd1qny4w" path="res://Character/EnemyCharacter_AI/EM1/S_EM1_AI.tscn" id="15_6fe4u"]
+[ext_resource type="PackedScene" uid="uid://g73g6o4p2ukg" path="res://Character/EnemyCharacter_AI/EM2/S_EM2_AI.tscn" id="16_u1bhv"]
+[ext_resource type="PackedScene" uid="uid://cspcb1h7kr4tf" path="res://Character/EnemyCharacter_AI/EM3/S_EM3_AI.tscn" id="17_qqeb1"]
+[ext_resource type="PackedScene" uid="uid://dx3rkyno4p2wb" path="res://Character/EnemyCharacter_AI/EM4/S_EM4_AI.tscn" id="18_d2u3t"]
+[ext_resource type="Script" path="res://System/Level/GD_PlayerSpawner.gd" id="18_xd340"]
+[ext_resource type="PackedScene" uid="uid://bgd3hb5w3wnip" path="res://Character/EnemyCharacter_AI/Boss1/S_Boss1_AI.tscn" id="19_b5fbv"]
+[ext_resource type="JSON" path="res://Level/Data/player_start_cood.json" id="19_bwrv8"]
+[ext_resource type="PackedScene" uid="uid://xkgsdj68abw3" path="res://Character/EnemyCharacter_AI/Boss2/S_Boss2_AI.tscn" id="20_lauar"]
+[ext_resource type="PackedScene" uid="uid://b277oyhkc4a32" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="20_swqkd"]
+[ext_resource type="PackedScene" uid="uid://dvciusaoi1wv0" path="res://Character/PlayerCharacter/PC2/S_PC2.tscn" id="21_0i0i6"]
+[ext_resource type="PackedScene" uid="uid://ci8mf1gmdprq7" path="res://Character/PlayerCharacter/PC3/S_PC3.tscn" id="22_fmeed"]
 
 [sub_resource type="Theme" id="Theme_44u5n"]
 
@@ -32,25 +40,12 @@ script = ExtResource("2_mrvh1")
 [node name="Characters" type="Node2D" parent="EnemyManager"]
 y_sort_enabled = true
 
-[node name="S_Boss2_AI" parent="EnemyManager/Characters" instance=ExtResource("5_s0sy5")]
-start_direction = Vector2(-1, 0)
-start_cood = Vector2(4, 1)
-
 [node name="PlayerManager" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("5_nehn5")
 
 [node name="Characters" type="Node2D" parent="PlayerManager"]
 y_sort_enabled = true
-
-[node name="S_PC1" parent="PlayerManager/Characters" instance=ExtResource("5_sflpi")]
-start_cood = Vector2(0, 0)
-
-[node name="S_PC2" parent="PlayerManager/Characters" instance=ExtResource("6_eimei")]
-start_cood = Vector2(0, 2)
-
-[node name="S_PC3" parent="PlayerManager/Characters" instance=ExtResource("7_gxdsm")]
-start_cood = Vector2(2, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="PlayerManager"]
 
@@ -104,7 +99,20 @@ script = ExtResource("12_gfjle")
 gauge = ExtResource("13_1n2f6")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
-script = ExtResource("14_8x4nk")
+script = ExtResource("13_kp5uk")
 level = 1
-enemylist = NodePath("../EnemyManager/Characters")
-enemy_data_json = ExtResource("15_bv5j6")
+enemy_data_json = ExtResource("14_dciaw")
+EM1 = ExtResource("15_6fe4u")
+EM2 = ExtResource("16_u1bhv")
+EM3 = ExtResource("17_qqeb1")
+EM4 = ExtResource("18_d2u3t")
+BOSS1 = ExtResource("19_b5fbv")
+BOSS2 = ExtResource("20_lauar")
+
+[node name="PlayerSpawner" type="Node2D" parent="."]
+script = ExtResource("18_xd340")
+level = 1
+player_data_json = ExtResource("19_bwrv8")
+selected_PCX = ExtResource("20_swqkd")
+selected_PCY = ExtResource("21_0i0i6")
+selected_PCZ = ExtResource("22_fmeed")

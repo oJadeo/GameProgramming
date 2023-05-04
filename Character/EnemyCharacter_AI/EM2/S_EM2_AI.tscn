@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://g73g6o4p2ukg"]
+[gd_scene load_steps=16 format=3 uid="uid://g73g6o4p2ukg"]
 
 [ext_resource type="Script" path="res://Character/EnemyCharacter_AI/EM2/GD_EM2_AI.gd" id="1_j5jbx"]
+[ext_resource type="Texture2D" uid="uid://dve022q7hu5ep" path="res://Character/EnemyCharacter_AI/EM2/I_EM2_AI.png" id="2_ls8f7"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_lsoeb"]
 [ext_resource type="Texture2D" uid="uid://b4h0j37g0xh31" path="res://Character/EnemyCharacter_Test/EM2/EM2.png" id="3_ytubr"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="4_8fgcc"]
@@ -200,6 +201,7 @@ start_atk = 2
 start_def = 0
 start_speed = 15
 start_max_health = 7
+icon_texture = ExtResource("2_ls8f7")
 
 [node name="S_GaugeBar" parent="." instance=ExtResource("2_lsoeb")]
 offset_left = -20.0
