@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bgd3hb5w3wnip"]
+[gd_scene load_steps=18 format=3 uid="uid://bgd3hb5w3wnip"]
 
 [ext_resource type="Script" path="res://Character/EnemyCharacter_AI/Boss1/GD_Boss1_AI.gd" id="1_o1fjm"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_8yvlx"]
+[ext_resource type="Texture2D" uid="uid://bcxy3x1e7jbh2" path="res://Character/EnemyCharacter_AI/Boss1/I_Boss1.png" id="2_td4qk"]
 [ext_resource type="Texture2D" uid="uid://0fjfes2px1e6" path="res://Character/EnemyCharacter_Test/Boss1/Boss1.png" id="3_twdxj"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="4_v778u"]
 [ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="5_yl586"]
@@ -225,8 +226,10 @@ _data = {
 "Walk": SubResource("Animation_q4stp")
 }
 
-[node name="S_Boss1_Test" type="Node2D" groups=["character"]]
+[node name="S_Boss1_AI" type="Node2D" groups=["character"]]
+scale = Vector2(3, 3)
 script = ExtResource("1_o1fjm")
+icon_texture = ExtResource("2_td4qk")
 
 [node name="S_GaugeBar" parent="." instance=ExtResource("2_8yvlx")]
 offset_left = -20.0
