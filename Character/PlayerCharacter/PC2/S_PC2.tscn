@@ -1,7 +1,8 @@
-[gd_scene load_steps=36 format=3 uid="uid://dvciusaoi1wv0"]
+[gd_scene load_steps=37 format=3 uid="uid://dvciusaoi1wv0"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_gr4eu"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC2/pc2_stat.json" id="2_vjm3y"]
+[ext_resource type="JSON" path="res://Character/PlayerCharacter/Charm/charm_data.json" id="3_waf8v"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="4_8gbpw"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="4_ehyal"]
 [ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="4_kxoqt"]
@@ -298,6 +299,7 @@ y_sort_enabled = true
 scale = Vector2(3, 3)
 script = ExtResource("1_gr4eu")
 stat_json = ExtResource("2_vjm3y")
+charm_json = ExtResource("3_waf8v")
 start_atk = 3
 start_def = 0
 icon_texture = ExtResource("5_t8w1n")

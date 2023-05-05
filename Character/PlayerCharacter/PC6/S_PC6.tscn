@@ -1,8 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://ch8mj8rwem38d"]
+[gd_scene load_steps=39 format=3 uid="uid://ch8mj8rwem38d"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_0j13i"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC6/pc6_stat.json" id="2_yi3v6"]
 [ext_resource type="Texture2D" uid="uid://bhduoova12xv1" path="res://Character/PlayerCharacter/PC6/PC6_kisame.png" id="3_wwge3"]
+[ext_resource type="JSON" path="res://Character/PlayerCharacter/Charm/charm_data.json" id="3_yut4h"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="4_1c765"]
 [ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="5_28lmx"]
 [ext_resource type="Texture2D" uid="uid://irukhx7v1new" path="res://Assets/Skills/basic/move.png" id="6_ulgg0"]
@@ -361,6 +362,7 @@ y_sort_enabled = true
 scale = Vector2(3, 3)
 script = ExtResource("1_0j13i")
 stat_json = ExtResource("2_yi3v6")
+charm_json = ExtResource("3_yut4h")
 start_atk = 3
 start_def = 0
 icon_texture = ExtResource("3_wwge3")
