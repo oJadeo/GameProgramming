@@ -12,7 +12,8 @@ var formation_use:int = 1
 var btn_list 
 var tooltip_list
 var select_formation_skill
-# Called when the node enters the scene tree for the first time.
+var last_skill_selected = -1
+
 func _ready()->void:
 	super()
 	SKILL_SELECT_UI.visible = false
@@ -40,11 +41,9 @@ func start_turn()->void:
 	if formation_use > 0:
 		manager.check_formation(self)
 	SKILL_SELECT_UI.visible = true
-	# TODO: btn_move have to be texture move
-	# btn_list[0].text = "Move"
-	# tooltip_list[0].set_move()
 	for i in range(len(skill_list)):
 		btn_list[i].disabled = skill_list[i].cooldown != 0
+
 func end_turn()->void:
 	super()
 	SKILL_SELECT_UI.visible = false
@@ -60,10 +59,12 @@ func setting_skills_button():
 		btn_list[i].pressed.connect(btn_func[i])
 		btn_list[i].mouse_entered.connect(etr_func[i])
 		btn_list[i].mouse_exited.connect(exited_skill)
-		btn_list[i].visible = true
+		if i != 0:
+			btn_list[i].visible = true
 		skill_list[i].init(self)
 	
 func select_skill(num:int)->void:
+	last_skill_selected = num
 	if num > len(skill_list):
 		return
 	for i in range(len(skill_list)):
@@ -71,6 +72,7 @@ func select_skill(num:int)->void:
 	selecting_move = skill_list[num]
 	select_formation_skill = null
 	skill_list[num].select()
+	
 func select_move():
 	select_skill(0)
 func select_basic_atk():

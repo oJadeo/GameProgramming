@@ -27,7 +27,6 @@ func _process(delta)->void:
 		State.Waiting_Next_Turn:
 			_process_waiting_next_turn(delta)
 
-
 # Tick according to speed to cal who go next
 var tick_end = false
 func _process_waiting_next_turn(delta)->void:
