@@ -1,7 +1,5 @@
 extends Control
 
-signal setChar()
-
 var cur_slot
 var selected_char = null
 var selected_skills = []

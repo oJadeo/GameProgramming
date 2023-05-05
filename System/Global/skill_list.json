@@ -1,19 +1,19 @@
 {	
 	"PC1":{
 		"S1":{
-			"title":"skill A",
+			"title":"Talk no Jutsu",
 			"description":"lorem ipsum",
 			"cd":3,
 			"unlock_level":1
 		},
 		"S2":{
-			"title":"skill B",
+			"title":"Swing",
 			"description":"lorem ipsum",
 			"cd":4,
 			"unlock_level":2
 		},
 		"S3":{
-			"title":"skill C",
+			"title":"Rasengan",
 			"description":"lorem ipsum",
 			"cd":4,
 			"unlock_level":4
@@ -21,59 +21,59 @@
 	},
 	"PC2":{
 		"S1":{
-			"title":"skill A",
+			"title":"Fish Blessing",
 			"description":"lorem ipsum",
 			"cd":3,
 			"unlock_level":1
 		},
 		"S2":{
-			"title":"skill B",
+			"title":"Sakura's Fist",
 			"description":"lorem ipsum",
 			"cd":4,
 			"unlock_level":2
 		},
 		"S3":{
-			"title":"skill C",
+			"title":"Sakura Cut Hair",
 			"description":"lorem ipsum",
-			"cd":4,
-			"unlock_level":4
+			"cd":3,
+			"unlock_level":3
 		}
 	},
 	"PC3":{
 		"S1":{
-			"title":"skill A",
+			"title":"Big Shuriken",
 			"description":"lorem ipsum",
-			"cd":3,
+			"cd":2,
 			"unlock_level":1
 		},
 		"S2":{
-			"title":"skill B",
+			"title":"Punpaksa",
 			"description":"lorem ipsum",
 			"cd":4,
-			"unlock_level":2
+			"unlock_level":3
 		},
 		"S3":{
-			"title":"skill C",
+			"title":"Fire in the Hole",
 			"description":"lorem ipsum",
-			"cd":4,
+			"cd":3,
 			"unlock_level":4
 		}
 	},
 	"PC4":{
 		"S1":{
-			"title":"skill A",
+			"title":"You Are Weak",
 			"description":"lorem ipsum",
 			"cd":3,
 			"unlock_level":1
 		},
 		"S2":{
-			"title":"skill B",
+			"title":"Fried Egg",
 			"description":"lorem ipsum",
 			"cd":4,
-			"unlock_level":2
+			"unlock_level":1
 		},
 		"S3":{
-			"title":"skill C",
+			"title":"Sorry, This is it",
 			"description":"lorem ipsum",
 			"cd":4,
 			"unlock_level":4
@@ -81,42 +81,42 @@
 	},
 	"PC5":{
 		"S1":{
-			"title":"skill A",
+			"title":"Hand Tongue",
 			"description":"lorem ipsum",
-			"cd":3,
+			"cd":2,
 			"unlock_level":1
 		},
 		"S2":{
-			"title":"skill B",
+			"title":"Explosion is Art",
 			"description":"lorem ipsum",
 			"cd":4,
-			"unlock_level":2
+			"unlock_level":3
 		},
 		"S3":{
-			"title":"skill C",
+			"title":"Ultimate Art",
 			"description":"lorem ipsum",
-			"cd":4,
-			"unlock_level":4
+			"cd":3,
+			"unlock_level":3
 		}
 	},
 	"PC6":{
 		"S1":{
-			"title":"skill A",
+			"title":"Slide Punch",
 			"description":"lorem ipsum",
 			"cd":3,
 			"unlock_level":1
 		},
 		"S2":{
-			"title":"skill B",
+			"title":"IKEA shark",
 			"description":"lorem ipsum",
 			"cd":4,
-			"unlock_level":2
+			"unlock_level":3
 		},
 		"S3":{
-			"title":"skill C",
+			"title":"Back to reality",
 			"description":"lorem ipsum",
-			"cd":4,
-			"unlock_level":4
+			"cd":3,
+			"unlock_level":3
 		}
 	}
 }

@@ -1,37 +1,37 @@
 {
 	"C1":{
-		"title": "Charm A",
+		"title": "Scroll",
 		"atk": 3,
 		"def": 0,
 		"speed" : 0,
-		"hp" : -1,
+		"hp" : -1
 	},
 	"C2":{
-		"title": "Charm B",
+		"title": "Frog Wallet",
 		"atk": 0,
 		"def": 2,
 		"speed" : 1,
-		"hp" : 0,
+		"hp" : 0
 	},
 	"C3":{
-		"title": "Charm C",
+		"title": "Konoha Headband",
 		"atk": 1,
 		"def": 1,
 		"speed" : 1,
-		"hp" : 0,
+		"hp" : 0
 	},
 	"C4":{
-		"title": "Charm D",
+		"title": "Dango",
 		"atk": 0,
 		"def": 1,
 		"speed" : 0,
-		"hp" : 3,
+		"hp" : 3
 	},
 	"C5":{
-		"title": "Charm E",
+		"title": "Ichiraku Ramen",
 		"atk": -1,
 		"def": 0,
 		"speed" : 0,
-		"hp" : 5,
-	},
+		"hp" : 5
+	}
 }
