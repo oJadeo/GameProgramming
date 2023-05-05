@@ -17,6 +17,6 @@ func reset():
 func select():
 	$TextureButton.set_texture_hover(hover_icon)
 	$TextureButton.set_texture_normal(selected_icon)
-	color = Color.html("#001aff")
+	color = Color.html("#ff0000")
 	$ColorRect2.visible = true
-	$ColorRect2.color = Color.html("#001aff")
+	$ColorRect2.color = Color.html("#ff0000")

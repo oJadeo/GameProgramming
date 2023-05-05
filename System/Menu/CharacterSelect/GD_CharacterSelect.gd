@@ -12,7 +12,6 @@ func _ready():
 		
 	for button in $SkillWindow/SkillButtons.get_children():
 		button.get_node("TextureButton").connect('pressed',set_skill.bind(button.skill_id))
-	pass
 		
 func init_scene(slot_id,char_id):
 	cur_slot = slot_id
@@ -21,10 +20,11 @@ func init_scene(slot_id,char_id):
 	set_character(selected_char)
 	$SkillWindow/SkillButtons.visible = false
 	$SkillBar/EquipSkill.visible = false
-	
+	if char_id == null:
+		$ConfirmSelection.disabled = true
 	selected_skills = []
 	
-	if PlayerVar.charDataList[cur_slot]:
+	if PlayerVar.charDataList[slot_id]:
 		set_stat(PlayerVar.charDataList[cur_slot].char_id)
 		selected_skills = PlayerVar.charDataList[cur_slot].skills
 		$SkillBar/EquipSkill.visible = true
@@ -32,41 +32,43 @@ func init_scene(slot_id,char_id):
 	set_skill_bar()
 	
 func set_stat(char_id):
-	if char_id:
+	if char_id == null:
+		return
 		
-		var char_path = "res://Character/PlayerCharacter/" + char_id + "/S_" + char_id +".tscn"
-		var chr = load(char_path).instantiate()
-		var chr_level = PlayerVar.charLevel[char_id]
+	var char_path = "res://Character/PlayerCharacter/" + char_id + "/S_" + char_id +".tscn"
+	var chr = load(char_path).instantiate()
+	var chr_level = PlayerVar.charLevel[char_id]
 
-		chr.get_stat(chr_level)
-		
-		$Label2.text = PlayerVar.id2name[char_id]
-		$Label3.text = "Level " + str(chr_level)
-		$StatDetails/Label.text =  "HP:       " + str(chr.stat.health)
-		$StatDetails/Label2.text = "ATK:     " + str(chr.stat.atk)
-		$StatDetails/Label3.text = "DEF:     " + str(chr.stat.def)
-		$StatDetails/Label4.text = "SPD:     " + str(chr.stat.speed)
-		
-		match char_id:
-			"PC1","PC2":
-				chr.apply_scale(Vector2(1.5,1.5))
-				chr.set_position(Vector2(800,400))
-			"PC3":
-				chr.apply_scale(Vector2(1.4,1.4))
-				chr.set_position(Vector2(800,400))
-			"PC4","PC5":
-				chr.apply_scale(Vector2(1.2,1.2))
-				chr.set_position(Vector2(800,420))
-			"PC6" :
-				chr.apply_scale(Vector2(1.1,1.1))
-				chr.set_position(Vector2(800,430))
-				
-		for prv_chr in $CharSprite.get_children():
-			prv_chr.queue_free()
+	chr.get_stat(chr_level)
+	
+	$Label2.text = PlayerVar.id2name[char_id]
+	$Label3.text = "Level " + str(chr_level)
+	$StatDetails/Label.text =  "HP:       " + str(chr.stat.health)
+	$StatDetails/Label2.text = "ATK:     " + str(chr.stat.atk)
+	$StatDetails/Label3.text = "DEF:     " + str(chr.stat.def)
+	$StatDetails/Label4.text = "SPD:     " + str(chr.stat.speed)
+	
+	match char_id:
+		"PC1","PC2":
+			chr.apply_scale(Vector2(1.5,1.5))
+			chr.set_position(Vector2(800,400))
+		"PC3":
+			chr.apply_scale(Vector2(1.4,1.4))
+			chr.set_position(Vector2(800,400))
+		"PC4","PC5":
+			chr.apply_scale(Vector2(1.2,1.2))
+			chr.set_position(Vector2(800,420))
+		"PC6" :
+			chr.apply_scale(Vector2(1.1,1.1))
+			chr.set_position(Vector2(800,430))
 			
-		$CharSprite.add_child(chr)
+	for prv_chr in $CharSprite.get_children():
+		prv_chr.queue_free()
+		
+	$CharSprite.add_child(chr)
 	
 func set_character(char_id):
+	$ConfirmSelection.disabled = false
 	if selected_char and char_id and selected_char != char_id:
 		selected_skills = []
 	selected_char = char_id
@@ -91,16 +93,18 @@ func set_character(char_id):
 	set_skill_bar()
 		
 func set_skill_bar():
-	if selected_char:
-		if len(selected_skills)>0:
-			$SkillBar/SkillIcons/SkillIcon.set_texture( load("res://Assets/" + selected_char + "/" + selected_char + "_" + selected_skills[0] + ".png"))
-		else:
-			$SkillBar/SkillIcons/SkillIcon.set_texture( load("res://Assets/character select/default_blank.png"))
-		if len(selected_skills)>1:
-			$SkillBar/SkillIcons/SkillIcon2.set_texture( load("res://Assets/" + selected_char + "/" + selected_char + "_" + selected_skills[1] + ".png"))
-		else:
-			$SkillBar/SkillIcons/SkillIcon2.set_texture( load("res://Assets/character select/default_blank.png"))
-		
+	if selected_char == null:
+		return
+	
+	if len(selected_skills)>0:
+		$SkillBar/SkillIcons/SkillIcon.set_texture( load("res://Assets/" + selected_char + "/" + selected_char + "_" + selected_skills[0] + ".png"))
+	else:
+		$SkillBar/SkillIcons/SkillIcon.set_texture( load("res://Assets/character select/default_blank.png"))
+	if len(selected_skills)>1:
+		$SkillBar/SkillIcons/SkillIcon2.set_texture( load("res://Assets/" + selected_char + "/" + selected_char + "_" + selected_skills[1] + ".png"))
+	else:
+		$SkillBar/SkillIcons/SkillIcon2.set_texture( load("res://Assets/character select/default_blank.png"))
+	
 func set_skill(skill_id):
 	if skill_id in selected_skills:
 		selected_skills.erase(skill_id)
