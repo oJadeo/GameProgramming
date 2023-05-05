@@ -46,7 +46,6 @@ func check_walk():
 	if skill_list[3].cooldown == 0:
 		target_cood = Board.get_cood(Board.player_list[0])
 		skill_select = 3
-		
 		for movable_cood in movable_coods:
 			var min_dist = 999
 			var min_cood = Vector2(-1,-1)
@@ -56,136 +55,132 @@ func check_walk():
 				if min_dist > dist:
 					min_dist = dist
 					min_cood = movable_cood
-			if min_cood != Vector2(-1,-1) and int(min_dist) % 3 == 0:
+			if min_cood != Vector2(-1,-1) and int(min_dist) % 3 == 1:
 				move_to_cood = min_cood
 				return
 		return
-	else:
-		for player in Board.player_list:
-			var player_cood = Board.get_cood(player)
-			var back_pos = player_cood - player.direction
-			if skill_list[2].cooldown == 0 and back_pos == board_cood:
-				target_cood = player_cood
-				skill_select = 2
-				return
-			if back_pos == board_cood:
-				target_cood = player_cood
-				skill_select = 1
-				return
-		
-		for movable_cood in movable_coods:
-			for player in Board.player_list:
-				var player_cood = Board.get_cood(player)
-				var back_pos = player_cood - player.direction
-				if skill_list[2].cooldown == 0 and back_pos == movable_cood:
-					move_to_cood = movable_cood
-					target_cood = player_cood
-					skill_select = 2
-					return	
-				if back_pos == movable_cood:
-					move_to_cood = movable_cood
-					target_cood = player_cood
-					skill_select = 1
-					return
-						
-		for player in Board.player_list:
-			var player_cood = Board.get_cood(player)
-			var back_pos = player_cood - player.direction
-			if skill_list[2].cooldown == 0 and back_pos == board_cood:
-				target_cood = player_cood
-				skill_select = 2
-				return
-			for y in [Vector2(0,1),Vector2(0,-1)]:
-				if back_pos + y == board_cood:
-					target_cood = player_cood
-					skill_select = 1
-					return
 
-		for movable_cood in movable_coods:
-			for player in Board.player_list:
-				var player_cood = Board.get_cood(player)
-				var back_pos = player_cood - player.direction
-				if skill_list[2].cooldown == 0 and back_pos == movable_cood:
-					move_to_cood = movable_cood
-					target_cood = player_cood
-					skill_select = 2
-					return	
-				for y in [Vector2(0,1),Vector2(0,-1)]:
-					if back_pos + y == movable_cood:
-						move_to_cood = movable_cood
-						target_cood = player_cood
-						skill_select = 1
-						return
-						
+	for player in Board.player_list:
+		var player_cood = Board.get_cood(player)
+		var back_pos = player_cood - player.direction
+		if skill_list[2].cooldown == 0 and back_pos == board_cood:
+			target_cood = player_cood
+			skill_select = 2
+			return
+		if back_pos == board_cood:
+			target_cood = player_cood
+			skill_select = 1
+			return
+	
+	for movable_cood in movable_coods:
 		for player in Board.player_list:
 			var player_cood = Board.get_cood(player)
-			var front_pos = player_cood + player.direction
-			if skill_list[2].cooldown == 0 and front_pos == board_cood:
+			var back_pos = player_cood - player.direction
+			if skill_list[2].cooldown == 0 and back_pos == movable_cood:
+				move_to_cood = movable_cood
 				target_cood = player_cood
 				skill_select = 2
-				return
-			if front_pos == board_cood:
+				return	
+			if back_pos == movable_cood:
+				move_to_cood = movable_cood
 				target_cood = player_cood
 				skill_select = 1
 				return
-						
-		for movable_cood in movable_coods:
-			for player in Board.player_list:
-				var player_cood = Board.get_cood(player)
-				var front_pos = player_cood + player.direction
-				if skill_list[2].cooldown == 0 and front_pos == movable_cood:
-					move_to_cood = movable_cood
-					target_cood = player_cood
-					skill_select = 2
-					return	
-				if front_pos  == movable_cood:
+					
+	for player in Board.player_list:
+		var player_cood = Board.get_cood(player)
+		var back_pos = player_cood - player.direction
+		if skill_list[2].cooldown == 0 and back_pos == board_cood:
+			target_cood = player_cood
+			skill_select = 2
+			return
+		for y in [Vector2(0,1),Vector2(0,-1)]:
+			if back_pos + y == board_cood:
+				target_cood = player_cood
+				skill_select = 1
+				return
+
+	for movable_cood in movable_coods:
+		for player in Board.player_list:
+			var player_cood = Board.get_cood(player)
+			var back_pos = player_cood - player.direction
+			if skill_list[2].cooldown == 0 and back_pos == movable_cood:
+				move_to_cood = movable_cood
+				target_cood = player_cood
+				skill_select = 2
+				return	
+			for y in [Vector2(0,1),Vector2(0,-1)]:
+				if back_pos + y == movable_cood:
 					move_to_cood = movable_cood
 					target_cood = player_cood
 					skill_select = 1
 					return
-		
+					
+	for player in Board.player_list:
+		var player_cood = Board.get_cood(player)
+		var front_pos = player_cood + player.direction
+		if skill_list[2].cooldown == 0 and front_pos == board_cood:
+			target_cood = player_cood
+			skill_select = 2
+			return
+		if front_pos == board_cood:
+			target_cood = player_cood
+			skill_select = 1
+			return
+					
+	for movable_cood in movable_coods:
 		for player in Board.player_list:
 			var player_cood = Board.get_cood(player)
 			var front_pos = player_cood + player.direction
-			if skill_list[2].cooldown == 0 and front_pos == board_cood:
+			if skill_list[2].cooldown == 0 and front_pos == movable_cood:
+				move_to_cood = movable_cood
 				target_cood = player_cood
 				skill_select = 2
+				return	
+			if front_pos  == movable_cood:
+				move_to_cood = movable_cood
+				target_cood = player_cood
+				skill_select = 1
 				return
+	
+	for player in Board.player_list:
+		var player_cood = Board.get_cood(player)
+		var front_pos = player_cood + player.direction
+		if skill_list[2].cooldown == 0 and front_pos == board_cood:
+			target_cood = player_cood
+			skill_select = 2
+			return
+		for y in [Vector2(0,1),Vector2(0,-1)]:
+			if front_pos + y == board_cood:
+				target_cood = player_cood
+				skill_select = 1
+				return
+					
+	for movable_cood in movable_coods:
+		for player in Board.player_list:
+			var player_cood = Board.get_cood(player)
+			var front_pos = player_cood + player.direction
+			if skill_list[2].cooldown == 0 and front_pos == movable_cood:
+				move_to_cood = movable_cood
+				target_cood = player_cood
+				skill_select = 2
+				return	
 			for y in [Vector2(0,1),Vector2(0,-1)]:
-				if front_pos + y == board_cood:
+				if front_pos + y == movable_cood:
+					move_to_cood = movable_cood
 					target_cood = player_cood
 					skill_select = 1
 					return
-						
-		for movable_cood in movable_coods:
-			for player in Board.player_list:
-				var player_cood = Board.get_cood(player)
-				var front_pos = player_cood + player.direction
-				if skill_list[2].cooldown == 0 and front_pos == movable_cood:
-					move_to_cood = movable_cood
-					target_cood = player_cood
-					skill_select = 2
-					return	
-				for y in [Vector2(0,1),Vector2(0,-1)]:
-					if front_pos + y == movable_cood:
-						move_to_cood = movable_cood
-						target_cood = player_cood
-						skill_select = 1
-						return
-						
-		var min_dist = 999
-		var min_cood = Vector2(-1,-1)
-		for movable_cood in movable_coods:
-			for player in Board.player_list:
-				var player_cood = Board.get_cood(player)
-				var dist = abs(movable_cood.x-player_cood.x)+abs(movable_cood.y-player_cood.y)
-				if dist < min_dist:
-					min_dist = dist
-					min_cood = movable_cood
 					
-		if min_cood != Vector2(-1,-1):
-			move_to_cood = min_cood
-		return
+	var min_dist = 999
+	for movable_cood in movable_coods:
+		for player in Board.player_list:
+			var player_cood = Board.get_cood(player)
+			var dist = abs(movable_cood.x-player_cood.x)+abs(movable_cood.y-player_cood.y)
+			if dist < min_dist:
+				min_dist = dist
+				move_to_cood = movable_cood
+	return
 			
 func _on_idle_timer_timeout():	
 	check_walk()

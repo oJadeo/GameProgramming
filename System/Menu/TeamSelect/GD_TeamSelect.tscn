@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj2va6q8vy1jg"]
+
+[ext_resource type="Script" path="res://System/Menu/TeamSelect/GD_TeamSelect.gd" id="1_doa6j"]
+
+[node name="TeamSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_doa6j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 705.0
+offset_top = 798.0
+offset_right = 1052.0
+offset_bottom = 928.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Char1" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "null 1"
+
+[node name="Char2" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "null 2"
+
+[node name="Char3" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "null 3"
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Start"
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Char1" to="." method="_on_char_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Char2" to="." method="_on_char_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Char3" to="." method="_on_char_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
