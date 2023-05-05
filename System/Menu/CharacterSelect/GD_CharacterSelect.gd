@@ -5,14 +5,18 @@ signal setChar()
 var cur_slot
 var selected_char = null
 var selected_skills = []
+var button_skill_locked = []
 
 func _ready():
 	for button in $CharButtons.get_children():
 		button.get_node("TextureButton").connect('pressed',set_character.bind(button.char_id))
-		
+		if GlobalSave.get_character_level(button.char_id) == 0:
+			button.visible = false
 	for button in $SkillWindow/SkillButtons.get_children():
 		button.get_node("TextureButton").connect('pressed',set_skill.bind(button.skill_id))
-		
+		button.get_node("TextureButton").connect('mouse_entered',show_skill_desc.bind(button.skill_id))
+		button.get_node("TextureButton").connect('mouse_exited',hide_skill_desc)
+
 func init_scene(slot_id,char_id):
 	cur_slot = slot_id
 	selected_char = char_id
@@ -20,6 +24,7 @@ func init_scene(slot_id,char_id):
 	set_character(selected_char)
 	$SkillWindow/SkillButtons.visible = false
 	$SkillBar/EquipSkill.visible = false
+	$SkillWindow/SkillDesc.visible = false
 	if char_id == null:
 		$ConfirmSelection.disabled = true
 	selected_skills = []
@@ -30,6 +35,23 @@ func init_scene(slot_id,char_id):
 		$SkillBar/EquipSkill.visible = true
 		
 	set_skill_bar()
+
+func show_skill_desc(skill_id):
+	$SkillWindow/SkillDesc.visible = true
+	if skill_id in button_skill_locked:
+		$SkillWindow/SkillDesc/ColorRect.color = Color.html("#fabdaa")
+		$SkillWindow/SkillDesc/ColorRect/Label.text = "Locked"
+		$SkillWindow/SkillDesc/ColorRect2/Label2.text = "???"
+		$SkillWindow/SkillDesc/ColorRect3/Label3.text = "Unlocked at Lv. " + str(PlayerVar.get_skill_unlocked_level(selected_char,skill_id))
+	else:
+		var skill_info = PlayerVar.skill_data[selected_char][skill_id]
+		$SkillWindow/SkillDesc/ColorRect.color = Color.html("#b0faaa")
+		$SkillWindow/SkillDesc/ColorRect/Label.text = skill_info.title
+		$SkillWindow/SkillDesc/ColorRect2/Label2.text = skill_info.description
+		$SkillWindow/SkillDesc/ColorRect3/Label3.text = "Cooldown: " + str(skill_info.cd) + " Turns"
+	
+func hide_skill_desc():
+	$SkillWindow/SkillDesc.visible = false
 	
 func set_stat(char_id):
 	if char_id == null:
@@ -37,7 +59,7 @@ func set_stat(char_id):
 		
 	var char_path = "res://Character/PlayerCharacter/" + char_id + "/S_" + char_id +".tscn"
 	var chr = load(char_path).instantiate()
-	var chr_level = PlayerVar.charLevel[char_id]
+	var chr_level = GlobalSave.get_character_level(char_id)
 
 	chr.get_stat(chr_level)
 	
@@ -84,12 +106,19 @@ func set_character(char_id):
 					button.used(i+1)
 		else:
 			button.select()
+	button_skill_locked = []
 	if char_id:
 		for button in $SkillWindow/SkillButtons.get_children():
-			button.default_icon = load("res://Assets/" + char_id + "/grey/" + char_id + "_" + button.skill_id + ".png")
-			button.selected_icon = load("res://Assets/" + char_id + "/selected/" + char_id + "_" + button.skill_id + ".png")
-			button.hover_icon = load("res://Assets/" + char_id + "/" + char_id + "_" + button.skill_id + ".png")
-			button.reset()
+			print(PlayerVar.get_skill_unlocked_level(char_id,button.skill_id))
+			if GlobalSave.get_character_level(char_id) >= PlayerVar.get_skill_unlocked_level(char_id,button.skill_id):
+				button.default_icon = load("res://Assets/" + char_id + "/grey/" + char_id + "_" + button.skill_id + ".png")
+				button.selected_icon = load("res://Assets/" + char_id + "/selected/" + char_id + "_" + button.skill_id + ".png")
+				button.hover_icon = load("res://Assets/" + char_id + "/" + char_id + "_" + button.skill_id + ".png")
+				button.reset()
+			else:
+				button_skill_locked.append(button.skill_id)
+				button.lock()
+	print(button_skill_locked)
 	set_skill_bar()
 		
 func set_skill_bar():
@@ -106,6 +135,8 @@ func set_skill_bar():
 		$SkillBar/SkillIcons/SkillIcon2.set_texture( load("res://Assets/character select/default_blank.png"))
 	
 func set_skill(skill_id):
+	if skill_id in button_skill_locked:
+		return
 	if skill_id in selected_skills:
 		selected_skills.erase(skill_id)
 		for button in $SkillWindow/SkillButtons.get_children():

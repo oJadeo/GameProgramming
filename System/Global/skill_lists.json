@@ -1,0 +1,122 @@
+{	
+	"PC1":{
+		"S1":{
+			"title":"skill A",
+			"description":"lorem ipsum",
+			"cd":3,
+			"unlock_level":1
+		},
+		"S2":{
+			"title":"skill B",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":2
+		},
+		"S3":{
+			"title":"skill C",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":4
+		}
+	},
+	"PC2":{
+		"S1":{
+			"title":"skill A",
+			"description":"lorem ipsum",
+			"cd":3,
+			"unlock_level":1
+		},
+		"S2":{
+			"title":"skill B",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":2
+		},
+		"S3":{
+			"title":"skill C",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":4
+		}
+	},
+	"PC3":{
+		"S1":{
+			"title":"skill A",
+			"description":"lorem ipsum",
+			"cd":3,
+			"unlock_level":1
+		},
+		"S2":{
+			"title":"skill B",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":2
+		},
+		"S3":{
+			"title":"skill C",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":4
+		}
+	},
+	"PC4":{
+		"S1":{
+			"title":"skill A",
+			"description":"lorem ipsum",
+			"cd":3,
+			"unlock_level":1
+		},
+		"S2":{
+			"title":"skill B",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":2
+		},
+		"S3":{
+			"title":"skill C",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":4
+		}
+	},
+	"PC5":{
+		"S1":{
+			"title":"skill A",
+			"description":"lorem ipsum",
+			"cd":3,
+			"unlock_level":1
+		},
+		"S2":{
+			"title":"skill B",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":2
+		},
+		"S3":{
+			"title":"skill C",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":4
+		}
+	},
+	"PC6":{
+		"S1":{
+			"title":"skill A",
+			"description":"lorem ipsum",
+			"cd":3,
+			"unlock_level":1
+		},
+		"S2":{
+			"title":"skill B",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":2
+		},
+		"S3":{
+			"title":"skill C",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":4
+		}
+	}
+}

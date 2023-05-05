@@ -4,9 +4,9 @@ extends Resource
 const SAVE_GAME_PATH = "user://savegame.tres"
 
 var allLevelOrder = ["11","12","21","22","23","24"]
-var unlockedLevels = [true,false,false,false,false,false] 
-var character_level = [1,1,1,0,0,0]
-var charm = [false,false,false,false,false]
+var unlockedLevels = ["11"]
+var character_level = {"PC1":3,"PC2":1,"PC3":1,"PC4":0,"PC5":0,"PC6":0}
+var charm = {"C1":false,"C2":false,"C3":false,"C4":false,"C5":false}
 
 
 func write_savegame() -> void:

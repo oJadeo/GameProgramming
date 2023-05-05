@@ -5,7 +5,7 @@ extends Control
 func _ready():
 	for hbox in $VBoxContainer.get_children():
 		for level in hbox.get_children():
-			if level.name in PlayerVar.unlockedLevels:
+			if level.name in GlobalSave.get_unlock_level():
 				level.disabled = false
 				level.connect('pressed',change_level.bind(level.name))
 			else:

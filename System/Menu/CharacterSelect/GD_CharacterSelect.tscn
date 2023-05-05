@@ -369,6 +369,92 @@ offset_right = 1812.0
 offset_bottom = 349.0
 skill_id = "S3"
 
+[node name="SkillDesc" type="Control" parent="SkillWindow"]
+anchors_preset = 0
+offset_left = 1410.0
+offset_top = 447.0
+offset_right = 1450.0
+offset_bottom = 487.0
+
+[node name="ColorRect" type="ColorRect" parent="SkillWindow/SkillDesc"]
+layout_mode = 0
+offset_left = -42.0
+offset_right = 431.0
+offset_bottom = 60.0
+color = Color(0.690196, 0.980392, 0.666667, 1)
+
+[node name="ReferenceRect" type="ReferenceRect" parent="SkillWindow/SkillDesc/ColorRect"]
+layout_mode = 0
+offset_right = 473.0
+offset_bottom = 60.0
+border_color = Color(0, 0, 0, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="Label" type="Label" parent="SkillWindow/SkillDesc/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 16.0
+offset_right = 473.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_font_sizes/font_size = 20
+text = "Locked"
+horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="SkillWindow/SkillDesc"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = 60.0
+offset_right = 431.0
+offset_bottom = 210.0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="SkillWindow/SkillDesc/ColorRect2"]
+layout_mode = 0
+offset_right = 473.0
+offset_bottom = 150.0
+border_color = Color(0, 0, 0, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="Label2" type="Label" parent="SkillWindow/SkillDesc/ColorRect2"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 14.0
+offset_right = 444.0
+offset_bottom = 132.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "???"
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="SkillWindow/SkillDesc"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = 210.0
+offset_right = 431.0
+offset_bottom = 294.0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="SkillWindow/SkillDesc/ColorRect3"]
+layout_mode = 0
+offset_right = 473.0
+offset_bottom = 84.0
+border_color = Color(0, 0, 0, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="Label3" type="Label" parent="SkillWindow/SkillDesc/ColorRect3"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 16.0
+offset_right = 444.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Unlocked at Lv. 1"
+vertical_alignment = 1
+
 [node name="CharButtons" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 100.0
