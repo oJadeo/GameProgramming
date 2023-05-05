@@ -1,0 +1,37 @@
+{
+	"C1":{
+		"title": "Charm A",
+		"atk": 3,
+		"def": 0,
+		"speed" : 0,
+		"hp" : -1,
+	},
+	"C2":{
+		"title": "Charm B",
+		"atk": 0,
+		"def": 2,
+		"speed" : 1,
+		"hp" : 0,
+	},
+	"C3":{
+		"title": "Charm C",
+		"atk": 1,
+		"def": 1,
+		"speed" : 1,
+		"hp" : 0,
+	},
+	"C4":{
+		"title": "Charm D",
+		"atk": 0,
+		"def": 1,
+		"speed" : 0,
+		"hp" : 3,
+	},
+	"C5":{
+		"title": "Charm E",
+		"atk": -1,
+		"def": 0,
+		"speed" : 0,
+		"hp" : 5,
+	},
+}

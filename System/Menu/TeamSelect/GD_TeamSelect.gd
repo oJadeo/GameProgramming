@@ -18,7 +18,8 @@ func set_text():
 
 func set_stage(level_name:String):
 	#Load stage information (map/enemy/reward)
-	print(level_name) 
+	#print(level_name) 
+	pass
 
 func set_char_done(slot_id,char_data):
 	var prv_slot_id = -1
@@ -37,6 +38,7 @@ func set_char_done(slot_id,char_data):
 	
 func _on_start_pressed():
 	var next_scene = load("res://Level/S_TestLevel.tscn").instantiate()
+	print(PlayerVar.charDataList)
 	#next_scene.set_stage(level_name)
 	get_tree().get_root().add_child(next_scene)
 	get_tree().set_current_scene(next_scene)
@@ -63,4 +65,3 @@ func _on_char_3_pressed():
 func _on_back_pressed():
 	get_tree().change_scene_to_file("res://System/Menu/LevelSelect/GD_LevelSelect.tscn")
 	queue_free()
-	print(PlayerVar.charDataList)
