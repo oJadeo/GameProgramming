@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c2lmhoum36wfc"]
+[gd_scene load_steps=33 format=3 uid="uid://c2lmhoum36wfc"]
 
 [ext_resource type="Script" path="res://System/Menu/CharacterSelect/GD_CharacterSelect.gd" id="1_xlwfo"]
 [ext_resource type="PackedScene" uid="uid://dqw1ocl6ej2ud" path="res://System/Menu/CharacterSelect/GD_CharacterButton.tscn" id="2_lp1nh"]
@@ -24,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://d2v6fu85joquq" path="res://Assets/character icon/combat&selected/PC6_Kisame.png" id="22_8xo6w"]
 [ext_resource type="Texture2D" uid="uid://die0roa6jwajp" path="res://Assets/character icon/unselected/PC6_Kisame.png" id="23_dyey0"]
 [ext_resource type="Texture2D" uid="uid://b330d1iexgnho" path="res://Assets/character icon/selecttoteam/PC6_Kisame.png" id="24_va6vs"]
+[ext_resource type="Texture2D" uid="uid://c701o6et8emsj" path="res://Assets/character select/default_blank.png" id="25_41b8e"]
+[ext_resource type="PackedScene" uid="uid://iddbumumkj0k" path="res://System/Menu/CharacterSelect/GD_SkillButton.tscn" id="25_ybwwj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3104t"]
 bg_color = Color(1, 1, 1, 1)
@@ -57,6 +59,22 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.196078, 0.196078, 0.196078, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gj6wp"]
+bg_color = Color(1, 0.909804, 0.678431, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ls5iu"]
+bg_color = Color(0.65098, 0.592157, 0.45098, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
 [node name="CharacterSelect" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -79,6 +97,10 @@ offset_top = 972.0
 offset_right = 1486.0
 offset_bottom = 1052.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_uuu8p")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_3104t")
@@ -92,77 +114,15 @@ offset_top = 972.0
 offset_right = 1896.0
 offset_bottom = 1052.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_uuu8p")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_74lic")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ogfqq")
 text = "Confirm Selection"
-
-[node name="CharButtons" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 100.0
-offset_top = 226.0
-offset_right = 140.0
-offset_bottom = 266.0
-
-[node name="CharButton" parent="CharButtons" instance=ExtResource("2_lp1nh")]
-layout_mode = 0
-hover_icon = ExtResource("4_5kdr2")
-char_id = "PC1"
-
-[node name="CharButton2" parent="CharButtons" instance=ExtResource("2_lp1nh")]
-layout_mode = 0
-offset_left = 250.0
-offset_right = 434.0
-default_icon = ExtResource("7_s3ei7")
-selected_icon = ExtResource("9_rk6bb")
-hover_icon = ExtResource("8_rky3l")
-used_icon = ExtResource("10_h8f4k")
-char_id = "PC2"
-
-[node name="CharButton3" parent="CharButtons" instance=ExtResource("2_lp1nh")]
-layout_mode = 0
-offset_top = 250.0
-offset_bottom = 434.0
-default_icon = ExtResource("9_qp57r")
-selected_icon = ExtResource("10_g2hnk")
-hover_icon = ExtResource("11_xfv50")
-used_icon = ExtResource("12_7samh")
-char_id = "PC3"
-
-[node name="CharButton4" parent="CharButtons" instance=ExtResource("2_lp1nh")]
-layout_mode = 0
-offset_left = 250.0
-offset_top = 250.0
-offset_right = 434.0
-offset_bottom = 434.0
-default_icon = ExtResource("13_3k117")
-selected_icon = ExtResource("14_cvhma")
-hover_icon = ExtResource("15_4fq2t")
-used_icon = ExtResource("16_afep0")
-char_id = "PC4"
-
-[node name="CharButton5" parent="CharButtons" instance=ExtResource("2_lp1nh")]
-layout_mode = 0
-offset_top = 500.0
-offset_bottom = 684.0
-default_icon = ExtResource("17_4q1lf")
-selected_icon = ExtResource("18_gam1t")
-hover_icon = ExtResource("19_pln28")
-used_icon = ExtResource("20_pneep")
-char_id = "PC5"
-
-[node name="CharButton6" parent="CharButtons" instance=ExtResource("2_lp1nh")]
-layout_mode = 0
-offset_left = 250.0
-offset_top = 500.0
-offset_right = 434.0
-offset_bottom = 684.0
-default_icon = ExtResource("21_n32xe")
-selected_icon = ExtResource("22_8xo6w")
-hover_icon = ExtResource("23_dyey0")
-used_icon = ExtResource("24_va6vs")
-char_id = "PC6"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -229,6 +189,22 @@ offset_right = 1193.0
 offset_bottom = 172.0
 color = Color(0, 0, 0, 1)
 
+[node name="ColorRect7" type="ColorRect" parent="Lines"]
+layout_mode = 0
+offset_left = 1378.0
+offset_top = 169.0
+offset_right = 1828.0
+offset_bottom = 172.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="Lines"]
+layout_mode = 0
+offset_left = 743.0
+offset_top = 506.0
+offset_right = 1193.0
+offset_bottom = 509.0
+color = Color(0, 0, 0, 1)
+
 [node name="ColorRect5" type="ColorRect" parent="Lines"]
 layout_mode = 0
 offset_left = 1296.0
@@ -282,5 +258,179 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_uuu8p")
 theme_override_font_sizes/font_size = 24
 
+[node name="SkillBar" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label4" type="Label" parent="SkillBar"]
+layout_mode = 0
+offset_left = 747.0
+offset_top = 458.0
+offset_right = 1297.0
+offset_bottom = 511.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_font_sizes/font_size = 32
+text = "Equipped Skill"
+
+[node name="EquipSkill" type="Button" parent="SkillBar"]
+layout_mode = 0
+offset_left = 1005.0
+offset_top = 558.0
+offset_right = 1192.0
+offset_bottom = 614.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_gj6wp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ls5iu")
+text = "Equip Skill"
+
+[node name="SkillIcons" type="Control" parent="SkillBar"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SkillIcon" type="TextureRect" parent="SkillBar/SkillIcons"]
+layout_mode = 0
+offset_left = 752.0
+offset_top = 546.0
+offset_right = 832.0
+offset_bottom = 626.0
+texture = ExtResource("25_41b8e")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="SkillIcon2" type="TextureRect" parent="SkillBar/SkillIcons"]
+layout_mode = 0
+offset_left = 875.0
+offset_top = 546.0
+offset_right = 955.0
+offset_bottom = 626.0
+texture = ExtResource("25_41b8e")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="SkillWindow" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 0.432
+anchor_bottom = 0.143
+offset_right = -789.44
+offset_bottom = -114.44
+
+[node name="Label4" type="Label" parent="SkillWindow"]
+layout_mode = 0
+offset_left = 1456.0
+offset_top = 98.0
+offset_right = 1740.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_font_sizes/font_size = 40
+text = "Skill"
+horizontal_alignment = 1
+
+[node name="SkillButtons" type="Control" parent="SkillWindow"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SkillButton" parent="SkillWindow/SkillButtons" instance=ExtResource("25_ybwwj")]
+layout_mode = 0
+offset_left = 1388.0
+offset_top = 239.0
+offset_right = 1498.0
+offset_bottom = 349.0
+skill_id = "S1"
+
+[node name="SkillButton2" parent="SkillWindow/SkillButtons" instance=ExtResource("25_ybwwj")]
+layout_mode = 0
+offset_left = 1545.0
+offset_top = 239.0
+offset_right = 1655.0
+offset_bottom = 349.0
+skill_id = "S2"
+
+[node name="SkillButton3" parent="SkillWindow/SkillButtons" instance=ExtResource("25_ybwwj")]
+layout_mode = 0
+offset_left = 1702.0
+offset_top = 239.0
+offset_right = 1812.0
+offset_bottom = 349.0
+skill_id = "S3"
+
+[node name="CharButtons" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 100.0
+offset_top = 226.0
+offset_right = 100.0
+offset_bottom = 226.0
+
+[node name="CharButton" parent="CharButtons" instance=ExtResource("2_lp1nh")]
+layout_mode = 0
+hover_icon = ExtResource("4_5kdr2")
+char_id = "PC1"
+
+[node name="CharButton2" parent="CharButtons" instance=ExtResource("2_lp1nh")]
+layout_mode = 0
+offset_left = 250.0
+offset_right = 434.0
+default_icon = ExtResource("7_s3ei7")
+selected_icon = ExtResource("9_rk6bb")
+hover_icon = ExtResource("8_rky3l")
+used_icon = ExtResource("10_h8f4k")
+char_id = "PC2"
+
+[node name="CharButton3" parent="CharButtons" instance=ExtResource("2_lp1nh")]
+layout_mode = 0
+offset_top = 250.0
+offset_bottom = 434.0
+default_icon = ExtResource("9_qp57r")
+selected_icon = ExtResource("10_g2hnk")
+hover_icon = ExtResource("11_xfv50")
+used_icon = ExtResource("12_7samh")
+char_id = "PC3"
+
+[node name="CharButton4" parent="CharButtons" instance=ExtResource("2_lp1nh")]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 250.0
+offset_right = 434.0
+offset_bottom = 434.0
+default_icon = ExtResource("13_3k117")
+selected_icon = ExtResource("14_cvhma")
+hover_icon = ExtResource("15_4fq2t")
+used_icon = ExtResource("16_afep0")
+char_id = "PC4"
+
+[node name="CharButton5" parent="CharButtons" instance=ExtResource("2_lp1nh")]
+layout_mode = 0
+offset_top = 500.0
+offset_bottom = 684.0
+default_icon = ExtResource("17_4q1lf")
+selected_icon = ExtResource("18_gam1t")
+hover_icon = ExtResource("19_pln28")
+used_icon = ExtResource("20_pneep")
+char_id = "PC5"
+
+[node name="CharButton6" parent="CharButtons" instance=ExtResource("2_lp1nh")]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 500.0
+offset_right = 434.0
+offset_bottom = 684.0
+default_icon = ExtResource("21_n32xe")
+selected_icon = ExtResource("22_8xo6w")
+hover_icon = ExtResource("23_dyey0")
+used_icon = ExtResource("24_va6vs")
+char_id = "PC6"
+
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="ConfirmSelection" to="." method="_on_confirm_selection_pressed"]
+[connection signal="pressed" from="SkillBar/EquipSkill" to="." method="_on_equip_skill_pressed"]
