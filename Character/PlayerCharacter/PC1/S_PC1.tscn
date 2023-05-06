@@ -1,9 +1,11 @@
 [gd_scene load_steps=29 format=3 uid="uid://dlwbobh00tg0w"]
 
+
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_jepcu"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC1/pc1_stat.json" id="2_jb0rm"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_paamt"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="2_t1lac"]
+[ext_resource type="JSON" path="res://Character/PlayerCharacter/Charm/charm_data.json" id="3_na27x"]
 [ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="4_15k5h"]
 [ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="5_71wyt"]
 [ext_resource type="Texture2D" uid="uid://cjbmoq0aa6wof" path="res://Character/PlayerCharacter/PC1/PC1.png" id="5_i5jry"]
@@ -344,6 +346,8 @@ y_sort_enabled = true
 scale = Vector2(3, 3)
 script = ExtResource("1_jepcu")
 stat_json = ExtResource("2_jb0rm")
+charm_json = ExtResource("3_na27x")
+charm = 2
 start_atk = 5
 start_def = 0
 start_speed = 8

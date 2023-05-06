@@ -8,7 +8,9 @@ class_name PlayerCharacter
 @onready var move_button = $CanvasLayer/ControlButton/Move
 @onready var endturn_button = $CanvasLayer/ControlButton/EndTurn
 @export var stat_json:JSON
+@export var charm_json:JSON
 @export var level:int = 1
+@export var charm:int = 0
 
 var formation_use:int = 1
 var btn_list 
@@ -37,6 +39,16 @@ func get_stat(lv:int):
 	stat.speed = stat_data[lv]['speed']
 	stat.max_health = stat_data[lv]['hp']
 	stat.health = stat_data[lv]['hp']
+	
+	var charm_data = charm_json.get_data()
+	
+	stat.atk += charm_data[charm]['atk']
+	stat.def += charm_data[charm]['def']
+	stat.speed += charm_data[charm]['speed']
+	stat.max_health += charm_data[charm]['hp']
+	stat.health += charm_data[charm]['hp']
+	
+	
 	
 func start_turn()->void:
 	super()
