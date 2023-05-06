@@ -12,6 +12,8 @@ extends Node
 
 @onready var turnline = $"../PlayerManager/CanvasLayer/TurnLineManager"
 
+var start_velocity = []
+
 var enemy_scene:Dictionary
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,13 +39,30 @@ func select_level(lv:int):
 		enemy_instance.start_direction = Vector2(-1,0)
 		enemy_list_node.add_child(enemy_instance)
 		
+		start_velocity.append(enemy_instance.global_position.x - 2020)
+		
+		enemy_instance.global_position.x = 2020
+
 	enemy_list_node.get_parent().update_all_character()
 	enemy_list_node.get_parent().random_start_guage()
 	
 	Board.enemy_list = enemy_list_node.get_children()
 	
 	turnline.update_enemy_list()
+	
+func start_enemy_move():
+	$MoveTimer.start()
+	for enemy in Board.enemy_list:
+		enemy.play_animaiton("Walk")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if not $MoveTimer.is_stopped():
+		for i in len(Board.enemy_list):
+			var enemy =  Board.enemy_list[i]
+			enemy.global_position.x += start_velocity[i]*delta
 
+
+func _on_move_timer_timeout():
+	for enemy in Board.enemy_list:
+		enemy.return_to_idle()
+		enemy.global_position = Board.get_tile_pos(enemy.board_cood)

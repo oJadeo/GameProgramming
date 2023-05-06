@@ -48,6 +48,7 @@ script = ExtResource("5_nehn5")
 y_sort_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="PlayerManager"]
+visible = false
 
 [node name="VBoxContainer" type="HBoxContainer" parent="PlayerManager/CanvasLayer"]
 anchors_preset = 1
@@ -109,6 +110,9 @@ EM4 = ExtResource("18_d2u3t")
 BOSS1 = ExtResource("19_b5fbv")
 BOSS2 = ExtResource("20_lauar")
 
+[node name="MoveTimer" type="Timer" parent="EnemySpawner"]
+one_shot = true
+
 [node name="PlayerSpawner" type="Node2D" parent="."]
 script = ExtResource("18_xd340")
 level = 1
@@ -116,3 +120,9 @@ player_data_json = ExtResource("19_bwrv8")
 selected_PCX = ExtResource("20_swqkd")
 selected_PCY = ExtResource("21_0i0i6")
 selected_PCZ = ExtResource("22_fmeed")
+
+[node name="MoveTimer" type="Timer" parent="PlayerSpawner"]
+one_shot = true
+
+[connection signal="timeout" from="EnemySpawner/MoveTimer" to="EnemySpawner" method="_on_move_timer_timeout"]
+[connection signal="timeout" from="PlayerSpawner/MoveTimer" to="PlayerSpawner" method="_on_move_timer_timeout"]

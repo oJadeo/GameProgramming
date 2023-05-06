@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ci8mf1gmdprq7"]
+[gd_scene load_steps=31 format=3 uid="uid://ci8mf1gmdprq7"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_ljthf"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_hmaxi"]
@@ -433,4 +433,3 @@ one_shot = true
 [node name="S_Shuriken" parent="SkillsList" instance=ExtResource("13_c48m8")]
 
 [node name="S_ThrowBigShutiken" parent="SkillsList" instance=ExtResource("6_lwrv6")]
-max_cooldown = 2
