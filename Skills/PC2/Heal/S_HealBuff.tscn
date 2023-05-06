@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://vhfvw06kh4y2"]
+[gd_scene load_steps=3 format=3 uid="uid://vhfvw06kh4y2"]
 
 [ext_resource type="Script" path="res://Skills/PC2/Heal/GD_HealBuff.gd" id="1_ysx7e"]
+[ext_resource type="Texture2D" uid="uid://ckwq42bu2efuh" path="res://Assets/Skills/PC2_Sakura/SP_PC2_S1.png" id="2_by0wd"]
 
 [node name="S_HealBuff" type="Node2D"]
 script = ExtResource("1_ysx7e")
@@ -8,3 +9,4 @@ is_heal = true
 target_mode = 1
 skill_name = "Fish Blessing"
 max_cooldown = 3
+skill_spritesheet = ExtResource("2_by0wd")

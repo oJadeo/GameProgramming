@@ -12,3 +12,4 @@ func select():
 
 func used():
 	set_texture_normal(used_icon)
+	
