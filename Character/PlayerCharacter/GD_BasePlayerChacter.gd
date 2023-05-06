@@ -5,6 +5,8 @@ class_name PlayerCharacter
 @onready var btns_node = $CanvasLayer/Skills
 @onready var skills_node = $SkillsList
 @onready var tooltips = $CanvasLayer/Tooltips
+@onready var move_button = $CanvasLayer/ControlButton/Move
+@onready var endturn_button = $CanvasLayer/ControlButton/EndTurn
 @export var stat_json:JSON
 @export var level:int = 1
 
@@ -41,28 +43,50 @@ func start_turn()->void:
 	if formation_use > 0:
 		manager.check_formation(self)
 	SKILL_SELECT_UI.visible = true
-	for i in range(len(skill_list)):
-		btn_list[i].disabled = skill_list[i].cooldown != 0
+	for i in range(1, len(skill_list)):
+		btn_list[i - 1].set_cooldown(skill_list[i].cooldown)
 
 func end_turn()->void:
 	super()
 	SKILL_SELECT_UI.visible = false
 	
 func setting_skills_button():
-	var btn_func = [select_move,select_basic_atk,select_skill_1,select_skill_2]
-	var etr_func = [enter_move,enter_basic_atk,enter_skill_1,enter_skill_2]
+	var btn_func = [
+		select_basic_atk,
+		select_skill_1,
+		select_skill_2,
+	]
+	
+	var etr_func = [
+		enter_basic_atk,
+		enter_skill_1,
+		enter_skill_2,
+	]
 	
 	for btn in btn_list:
 		btn.visible = false
 	
-	for i in range(len(skill_list)):
-		btn_list[i].pressed.connect(btn_func[i])
-		btn_list[i].mouse_entered.connect(etr_func[i])
-		btn_list[i].mouse_exited.connect(exited_skill)
-		if i != 0:
-			btn_list[i].visible = true
-		skill_list[i].init(self)
+	move_button.pressed.connect(select_move)
+	move_button.mouse_entered.connect(enter_move)
+	move_button.mouse_exited.connect(exited_skill)
 	
+	endturn_button.pressed.connect(end_turn)
+	endturn_button.mouse_entered.connect(enter_endturn)
+	endturn_button.mouse_exited.connect(exited_skill)
+	
+	for i in range(len(skill_list)):
+		if i != 0:
+			btn_list[i - 1].pressed.connect(btn_func[i - 1])
+			btn_list[i - 1].mouse_entered.connect(etr_func[i - 1])
+			btn_list[i - 1].mouse_exited.connect(exited_skill)
+			btn_list[i - 1].visible = true
+			btn_list[i - 1].set_spritesheet(skill_list[i].skill_spritesheet)
+			tooltip_list[i].set_tooltip_desc(
+				skill_list[i].skill_name, 
+				skill_list[i].skill_description,
+			)
+		skill_list[i].init(self)	
+			
 func select_skill(num:int)->void:
 	last_skill_selected = num
 	if num > len(skill_list):
@@ -96,6 +120,8 @@ func enter_skill_1():
 	enter_skill(2)
 func enter_skill_2():
 	enter_skill(3)
+func enter_endturn():
+	enter_skill(4)
 
 func exited_skill()->void:
 	for i in range(len(tooltip_list)):
