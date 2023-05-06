@@ -5,7 +5,7 @@ var total_turn:int = 0
 @export var tick_multiplier:float = 1
 @onready var player_manager = $PlayerManager
 @onready var enemy_manager = $EnemyManager
-
+@onready var ui = $PlayerManager/CanvasLayer
 enum State{
 	Character_Turn,
 	Waiting_Next_Turn
@@ -14,18 +14,26 @@ enum State{
 var current_state
 var current_turn_unit
 var next_unit = []
+var playing = false
 # Called when the node enters the scene tree for the first time.
 func _ready()->void:
 	change_state(State.Waiting_Next_Turn)
 	player_manager.connect("change_character_turn",change_character_turn)
 	enemy_manager.connect("change_character_turn",change_character_turn)
+	ui.visible = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta)->void:
-	match current_state:
-		State.Character_Turn:
-			pass
-		State.Waiting_Next_Turn:
-			_process_waiting_next_turn(delta)
+	if playing:
+		match current_state:
+			State.Character_Turn:
+				pass
+			State.Waiting_Next_Turn:
+				_process_waiting_next_turn(delta)
+		if not ui.visible:
+			ui.visible = true
+
+func start_level():
+	playing = true
 
 
 # Tick according to speed to cal who go next
@@ -79,3 +87,9 @@ func end_turn()->void:
 			next_unit.remove_at(0)
 			end_turn()
 		
+func start_player_move():
+	$PlayerSpawner.start_player_move()
+	
+	
+func start_enemy_move():
+	$EnemySpawner.start_enemy_move()

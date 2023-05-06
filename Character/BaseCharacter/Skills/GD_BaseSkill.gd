@@ -6,10 +6,15 @@ enum GET_TILE{
 	unit,
 	all
 }
-@export var skill_name:String
+
 var player:Character
 var cooldown:int = 0
+
+@export var skill_name:String
+@export var skill_description:String
 @export var max_cooldown:int = 0
+@export var skill_spritesheet:Texture
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

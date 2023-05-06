@@ -9,3 +9,4 @@ atk = 1
 def = 1
 buff_duration = 2
 target_mode = 1
+max_cooldown = 4

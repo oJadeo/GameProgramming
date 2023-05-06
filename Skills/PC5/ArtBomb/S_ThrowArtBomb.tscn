@@ -6,6 +6,7 @@
 [node name="S_ThrowArtBomb" type="Node2D"]
 script = ExtResource("1_bud7r")
 bomb = ExtResource("2_hmlnx")
+max_cooldown = 4
 
 [node name="ArtBombTimer" type="Timer" parent="."]
 wait_time = 0.25
