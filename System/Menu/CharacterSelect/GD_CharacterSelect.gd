@@ -300,6 +300,11 @@ func hide_charm_desc():
 
 func _on_back_pressed():
 	queue_free()
+	
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_ESCAPE:
+			queue_free()
 
 func _on_confirm_selection_pressed():
 	if selected_char:

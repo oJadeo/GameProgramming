@@ -24,3 +24,4 @@ func used(pos:int):
 	$ColorRect2.visible = true
 	$ColorRect2.color = Color.html("#ff0000")
 	$ColorRect2/Label.text = "P"+str(pos)
+
