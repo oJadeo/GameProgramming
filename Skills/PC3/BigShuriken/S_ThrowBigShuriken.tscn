@@ -8,6 +8,7 @@
 script = ExtResource("1_0alx3")
 shuriken = ExtResource("2_sisl0")
 skill_spritesheet = ExtResource("3_gxpu1")
+max_cooldown = 2
 
 [node name="ShurikenTimer" type="Timer" parent="."]
 wait_time = 0.2

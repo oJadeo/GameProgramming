@@ -6,3 +6,4 @@
 [node name="S_GaugePunch" type="Node2D"]
 script = ExtResource("1_4w6k2")
 skill_spritesheet = ExtResource("2_kyx0b")
+max_cooldown = 3
