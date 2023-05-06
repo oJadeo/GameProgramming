@@ -817,3 +817,4 @@ one_shot = true
 [node name="S_Shuriken" parent="SkillsList" instance=ExtResource("13_c48m8")]
 
 [node name="S_ThrowBigShutiken" parent="SkillsList" instance=ExtResource("6_lwrv6")]
+max_cooldown = 2

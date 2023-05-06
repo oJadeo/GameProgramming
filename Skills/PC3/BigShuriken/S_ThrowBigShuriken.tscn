@@ -6,6 +6,7 @@
 [node name="S_ThrowBigShutiken" type="Node2D"]
 script = ExtResource("1_0alx3")
 shuriken = ExtResource("2_sisl0")
+max_cooldown = 2
 
 [node name="ShurikenTimer" type="Timer" parent="."]
 wait_time = 0.2
