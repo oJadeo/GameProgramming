@@ -12,6 +12,7 @@ hframes = 3
 script = ExtResource("2_5yhxk")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(-57.2816, -46.6019, 81.5534, -46.6019, 57.2816, 46.6019, -81.5534, 46.6019)

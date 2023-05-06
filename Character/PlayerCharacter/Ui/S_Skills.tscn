@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0qyi6bvtkv28"]
+
+[ext_resource type="Script" path="res://Character/PlayerCharacter/Ui/GD_ButtonSkill.gd" id="1_1hlu2"]
+[ext_resource type="Texture2D" uid="uid://bgiq8me4j0xfl" path="res://Assets/Skills/PC3_Sasuke/SP_PC3_S3.png" id="2_4sjbl"]
+[ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="3_iajwo"]
+
+[node name="Skills" type="HBoxContainer"]
+offset_left = 653.0
+offset_top = 901.0
+offset_right = 1066.0
+offset_bottom = 1029.0
+theme_override_constants/separation = 8
+alignment = 2
+
+[node name="Basic_atk" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("1_1hlu2")
+
+[node name="Sprite" type="Sprite2D" parent="Basic_atk"]
+texture = ExtResource("2_4sjbl")
+offset = Vector2(64, 64)
+hframes = 4
+frame = 3
+
+[node name="Label" type="Label" parent="Basic_atk/Sprite"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_iajwo")
+theme_override_font_sizes/font_size = 64
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Skill_1" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("1_1hlu2")
+
+[node name="Sprite" type="Sprite2D" parent="Skill_1"]
+texture = ExtResource("2_4sjbl")
+offset = Vector2(64, 64)
+hframes = 4
+frame = 3
+
+[node name="Label" type="Label" parent="Skill_1/Sprite"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_iajwo")
+theme_override_font_sizes/font_size = 64
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Skill_2" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+script = ExtResource("1_1hlu2")
+
+[node name="Sprite" type="Sprite2D" parent="Skill_2"]
+texture = ExtResource("2_4sjbl")
+offset = Vector2(64, 64)
+hframes = 4
+frame = 3
+
+[node name="Label" type="Label" parent="Skill_2/Sprite"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_iajwo")
+theme_override_font_sizes/font_size = 64
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1

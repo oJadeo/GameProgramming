@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://x7wqfnm0riq7"]
+[gd_scene load_steps=3 format=3 uid="uid://x7wqfnm0riq7"]
 
 [ext_resource type="Script" path="res://Skills/PC1/GaugePunch/GD_GaugePunch.gd" id="1_4w6k2"]
+[ext_resource type="Texture2D" uid="uid://dtcbwfaonep82" path="res://Assets/Skills/PC1_Naruto/SP_PC1_S1.png" id="2_kyx0b"]
 
 [node name="S_GaugePunch" type="Node2D"]
 script = ExtResource("1_4w6k2")
+skill_spritesheet = ExtResource("2_kyx0b")
 max_cooldown = 3

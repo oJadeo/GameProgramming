@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://System/CharacterManager/GD_PlayerManager.gd" id="3_4xubk"]
 [ext_resource type="PackedScene" uid="uid://cwbb5bd1qny4w" path="res://Character/EnemyCharacter_AI/EM1/S_EM1_AI.tscn" id="3_biw8o"]
 [ext_resource type="PackedScene" uid="uid://g73g6o4p2ukg" path="res://Character/EnemyCharacter_AI/EM2/S_EM2_AI.tscn" id="4_intsc"]
-[ext_resource type="PackedScene" uid="uid://bifjpciuhguys" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="4_oyiyn"]
+[ext_resource type="PackedScene" uid="uid://b277oyhkc4a32" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="4_oyiyn"]
 [ext_resource type="PackedScene" uid="uid://ctrtwbaekf8se" path="res://Skills/Formation/F_2/S_Formation2.tscn" id="7_c2lqc"]
 [ext_resource type="PackedScene" uid="uid://bbe53oyy08kdb" path="res://Skills/Formation/F_1/S_Formation1.tscn" id="7_rqxfc"]
 [ext_resource type="PackedScene" uid="uid://dvciusaoi1wv0" path="res://Character/PlayerCharacter/PC2/S_PC2.tscn" id="7_ubfjx"]
