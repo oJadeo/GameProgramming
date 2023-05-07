@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdm38iwcrhoqd"]
+[gd_scene load_steps=6 format=3 uid="uid://cdm38iwcrhoqd"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/Ui/GD_end_turn_button.gd" id="1_s1ivc"]
+[ext_resource type="Texture2D" uid="uid://dlf6dr6c6rvn8" path="res://Assets/Button/btn_idle.png" id="2_itsb2"]
+[ext_resource type="Texture2D" uid="uid://c64v50xmxnysa" path="res://Assets/Button/btn_selected.png" id="3_epii4"]
+[ext_resource type="Texture2D" uid="uid://dxh0xfmvr03e1" path="res://Assets/Button/btn_hover.png" id="4_bxx4e"]
+[ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="5_tcc3a"]
 
 [node name="ControlButton" type="VBoxContainer"]
 anchors_preset = 6
@@ -15,15 +19,44 @@ grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("1_s1ivc")
 
-[node name="Move" type="Button" parent="."]
+[node name="Move" type="TextureButton" parent="."]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+texture_normal = ExtResource("2_itsb2")
+texture_pressed = ExtResource("3_epii4")
+texture_hover = ExtResource("4_bxx4e")
+texture_focused = ExtResource("3_epii4")
+
+[node name="Label" type="Label" parent="Move"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_tcc3a")
+theme_override_font_sizes/font_size = 32
 text = "Move"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="EndTurn" type="Button" parent="."]
+[node name="EndTurn" type="TextureButton" parent="."]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "End Turn"
+texture_normal = ExtResource("2_itsb2")
+texture_pressed = ExtResource("3_epii4")
+texture_hover = ExtResource("4_bxx4e")
+texture_focused = ExtResource("3_epii4")
 
-[connection signal="pressed" from="Move" to="." method="_on_move_pressed"]
-[connection signal="pressed" from="EndTurn" to="." method="_on_end_turn_pressed"]
+[node name="Label" type="Label" parent="EndTurn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_tcc3a")
+theme_override_font_sizes/font_size = 32
+text = "End turn"
+horizontal_alignment = 1
+vertical_alignment = 1
