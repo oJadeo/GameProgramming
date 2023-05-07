@@ -65,3 +65,14 @@ func _on_char_3_pressed():
 func _on_back_pressed():
 	get_tree().change_scene_to_file("res://System/Menu/LevelSelect/GD_LevelSelect.tscn")
 	queue_free()
+
+func _on_node_2d_draw():
+	var top_l = $ReferenceTopGrid.position + Vector2(0,$ReferenceTopGrid.size.y)
+	var top_r = $ReferenceTopGrid.position + $ReferenceTopGrid.size
+	var btm_l = $ReferenceBtmGrid.position
+	var btm_r = $ReferenceBtmGrid.position + Vector2($ReferenceBtmGrid.size.x,0)
+	var v_grid = 5
+	var h_grid = 10
+	var draw_data = $Util.calculateGrid(top_l,top_r,btm_l,btm_r,h_grid,v_grid)
+	for i in draw_data[0]:
+		$Node2D.draw_line(i[0],i[1],Color(255, 0, 0),5)

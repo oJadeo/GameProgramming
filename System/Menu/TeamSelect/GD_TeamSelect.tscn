@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj2va6q8vy1jg"]
+[gd_scene load_steps=3 format=3 uid="uid://dj2va6q8vy1jg"]
 
 [ext_resource type="Script" path="res://System/Menu/TeamSelect/GD_TeamSelect.gd" id="1_doa6j"]
+[ext_resource type="Script" path="res://System/Menu/TeamSelect/GD_DrawUtils.gd" id="2_w8jeg"]
 
 [node name="TeamSelect" type="Control"]
 layout_mode = 3
@@ -46,8 +47,33 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Back"
 
+[node name="ReferenceTopGrid" type="ReferenceRect" parent="."]
+layout_mode = 0
+offset_left = 598.0
+offset_top = 428.0
+offset_right = 1130.0
+offset_bottom = 676.0
+border_color = Color(1, 1, 1, 1)
+border_width = 2.0
+
+[node name="ReferenceBtmGrid" type="ReferenceRect" parent="."]
+layout_mode = 0
+offset_left = 697.0
+offset_top = 428.0
+offset_right = 1037.0
+offset_bottom = 676.0
+border_color = Color(1, 1, 1, 1)
+border_width = 2.0
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Util" type="Node" parent="."]
+script = ExtResource("2_w8jeg")
+
+[connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Char1" to="." method="_on_char_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Char2" to="." method="_on_char_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Char3" to="." method="_on_char_3_pressed"]
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="draw" from="Node2D" to="." method="_on_node_2d_draw"]
