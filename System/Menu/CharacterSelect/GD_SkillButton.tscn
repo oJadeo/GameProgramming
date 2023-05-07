@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://iddbumumkj0k"]
+
+[ext_resource type="Script" path="res://System/Menu/CharacterSelect/GD_SkillButton.gd" id="1_nlky0"]
+[ext_resource type="Texture2D" uid="uid://d2ebvsnr5g3g6" path="res://Assets/PC1/grey/PC1_S1.png" id="2_0r7it"]
+[ext_resource type="Texture2D" uid="uid://bymjo8jhefmq8" path="res://Assets/PC1/selected/PC1_S1.png" id="3_85kaj"]
+[ext_resource type="Texture2D" uid="uid://jylvv0oji7w0" path="res://Assets/PC1/PC1_S1.png" id="4_0xic8"]
+[ext_resource type="Texture2D" uid="uid://dlgkb3wllff40" path="res://Assets/character select/selecteditem.png" id="6_exu3c"]
+
+[node name="SkillButton" type="ColorRect"]
+offset_right = 110.0
+offset_bottom = 110.0
+color = Color(1, 0, 0, 1)
+script = ExtResource("1_nlky0")
+default_icon = ExtResource("2_0r7it")
+selected_icon = ExtResource("3_85kaj")
+hover_icon = ExtResource("4_0xic8")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 105.0
+offset_bottom = 105.0
+texture_normal = ExtResource("2_0r7it")
+texture_hover = ExtResource("4_0xic8")
+stretch_mode = 3
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 36.0
+offset_bottom = 36.0
+color = Color(1, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 34.0
+offset_bottom = 34.0
+texture = ExtResource("6_exu3c")

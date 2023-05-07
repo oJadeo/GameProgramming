@@ -1,0 +1,122 @@
+{	
+	"PC1":{
+		"S1":{
+			"title":"Talk no Jutsu",
+			"description":"lorem ipsum",
+			"cd":3,
+			"unlock_level":1
+		},
+		"S2":{
+			"title":"Swing",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":2
+		},
+		"S3":{
+			"title":"Rasengan",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":4
+		}
+	},
+	"PC2":{
+		"S1":{
+			"title":"Fish Blessing",
+			"description":"lorem ipsum",
+			"cd":3,
+			"unlock_level":1
+		},
+		"S2":{
+			"title":"Sakura's Fist",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":2
+		},
+		"S3":{
+			"title":"Sakura Cut Hair",
+			"description":"lorem ipsum",
+			"cd":3,
+			"unlock_level":3
+		}
+	},
+	"PC3":{
+		"S1":{
+			"title":"Big Shuriken",
+			"description":"lorem ipsum",
+			"cd":2,
+			"unlock_level":1
+		},
+		"S2":{
+			"title":"Punpaksa",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":3
+		},
+		"S3":{
+			"title":"Fire in the Hole",
+			"description":"lorem ipsum",
+			"cd":3,
+			"unlock_level":4
+		}
+	},
+	"PC4":{
+		"S1":{
+			"title":"You Are Weak",
+			"description":"lorem ipsum",
+			"cd":3,
+			"unlock_level":1
+		},
+		"S2":{
+			"title":"Fried Egg",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":1
+		},
+		"S3":{
+			"title":"Sorry, This is it",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":4
+		}
+	},
+	"PC5":{
+		"S1":{
+			"title":"Hand Tongue",
+			"description":"lorem ipsum",
+			"cd":2,
+			"unlock_level":1
+		},
+		"S2":{
+			"title":"Explosion is Art",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":3
+		},
+		"S3":{
+			"title":"Ultimate Art",
+			"description":"lorem ipsum",
+			"cd":3,
+			"unlock_level":3
+		}
+	},
+	"PC6":{
+		"S1":{
+			"title":"Slide Punch",
+			"description":"lorem ipsum",
+			"cd":3,
+			"unlock_level":1
+		},
+		"S2":{
+			"title":"IKEA shark",
+			"description":"lorem ipsum",
+			"cd":4,
+			"unlock_level":3
+		},
+		"S3":{
+			"title":"Back to reality",
+			"description":"lorem ipsum",
+			"cd":3,
+			"unlock_level":3
+		}
+	}
+}

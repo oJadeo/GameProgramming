@@ -1,16 +1,18 @@
-[gd_scene load_steps=28 format=3 uid="uid://dvciusaoi1wv0"]
+[gd_scene load_steps=31 format=3 uid="uid://dvciusaoi1wv0"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_gr4eu"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC2/pc2_stat.json" id="2_vjm3y"]
-[ext_resource type="JSON" path="res://Character/PlayerCharacter/Charm/charm_data.json" id="3_waf8v"]
+[ext_resource type="JSON" path="res://System/Global/charm_list.json" id="3_eni7v"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="4_8gbpw"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="4_ehyal"]
 [ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="4_kxoqt"]
+[ext_resource type="PackedScene" path="res://Skills/PC2/S1/S_HealBuff.tscn" id="4_rm88o"]
+[ext_resource type="PackedScene" path="res://Skills/PC2/S2/S_BuffAtkDef.tscn" id="5_bf3ye"]
 [ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="5_h1alw"]
 [ext_resource type="Texture2D" uid="uid://b0xh54iryv3gf" path="res://Character/PlayerCharacter/PC2/PC2.png" id="5_mkeqx"]
 [ext_resource type="Texture2D" uid="uid://dibfb1py3ool5" path="res://Character/PlayerCharacter/PC2/I_PC2.png" id="5_t8w1n"]
+[ext_resource type="PackedScene" path="res://Skills/PC2/S3/S_BuffSpeed.tscn" id="6_45bsb"]
 [ext_resource type="PackedScene" uid="uid://c0qyi6bvtkv28" path="res://Character/PlayerCharacter/Ui/S_Skills.tscn" id="6_65ywg"]
-[ext_resource type="PackedScene" uid="uid://vhfvw06kh4y2" path="res://Skills/PC2/Heal/S_HealBuff.tscn" id="6_s2rlm"]
 [ext_resource type="PackedScene" uid="uid://8ba0frl04q03" path="res://Character/PlayerCharacter/Ui/S_Tooltips.tscn" id="7_l6pu2"]
 [ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="12_8h6uu"]
 
@@ -284,7 +286,10 @@ y_sort_enabled = true
 scale = Vector2(3, 3)
 script = ExtResource("1_gr4eu")
 stat_json = ExtResource("2_vjm3y")
-charm_json = ExtResource("3_waf8v")
+charm_json = ExtResource("3_eni7v")
+S1 = ExtResource("4_rm88o")
+S2 = ExtResource("5_bf3ye")
+S3 = ExtResource("6_45bsb")
 start_atk = 3
 start_def = 0
 icon_texture = ExtResource("5_t8w1n")
@@ -366,5 +371,3 @@ one_shot = true
 [node name="S_Move" parent="SkillsList" instance=ExtResource("4_ehyal")]
 
 [node name="S_Punch" parent="SkillsList" instance=ExtResource("5_h1alw")]
-
-[node name="S_HealBuff" parent="SkillsList" instance=ExtResource("6_s2rlm")]

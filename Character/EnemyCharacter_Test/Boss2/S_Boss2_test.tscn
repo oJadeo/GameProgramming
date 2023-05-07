@@ -1,13 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://c5udgloms8gja"]
+[gd_scene load_steps=29 format=3 uid="uid://c5udgloms8gja"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_0bqsi"]
 [ext_resource type="Texture2D" uid="uid://bln6cgat06wgw" path="res://Character/EnemyCharacter_Test/Boss2/Boss2_kakashi.png" id="2_q4ud0"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="4_ngrqm"]
 [ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="5_ctdsl"]
-[ext_resource type="Texture2D" uid="uid://irukhx7v1new" path="res://Assets/Skills/basic/move.png" id="6_wl4bq"]
-[ext_resource type="Texture2D" uid="uid://d2jdlg3u52l35" path="res://Assets/Skills/basic/melee.png" id="7_12osw"]
-[ext_resource type="Texture2D" uid="uid://c7hqf7xdsm448" path="res://Assets/Skills/PC1_Naruto/PC1_S1.png" id="8_e300u"]
-[ext_resource type="Texture2D" uid="uid://r5r7fs2dtrju" path="res://Assets/Skills/PC1_Naruto/PC1_S2.png" id="9_qlsf7"]
 [ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="10_3gucy"]
 [ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="10_gyfjh"]
 [ext_resource type="Texture2D" uid="uid://bj1fytkfm377j" path="res://Character/EnemyCharacter_Test/Boss2/Boss2.png" id="11_nppfd"]
@@ -351,23 +347,19 @@ alignment = 2
 [node name="Move" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("6_wl4bq")
 stretch_mode = 0
 
 [node name="Basic_atk" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("7_12osw")
 
 [node name="Skill_1" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("8_e300u")
 
 [node name="Skill_2" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("9_qlsf7")
 
 [node name="Tooltips" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 3
