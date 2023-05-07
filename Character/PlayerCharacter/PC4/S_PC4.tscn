@@ -1,22 +1,19 @@
-[gd_scene load_steps=39 format=3 uid="uid://b5m68l0i55v07"]
+[gd_scene load_steps=36 format=3 uid="uid://b5m68l0i55v07"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_f2nid"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC4/pc4_stat.json" id="2_g8iqq"]
 [ext_resource type="Texture2D" uid="uid://dsq0lde5prec3" path="res://Character/PlayerCharacter/PC4/PC4_itachi.png" id="3_cgo07"]
-[ext_resource type="JSON" path="res://Character/PlayerCharacter/Charm/charm_data.json" id="3_muv88"]
+[ext_resource type="JSON" path="res://System/Global/charm_list.json" id="3_wqx72"]
+[ext_resource type="PackedScene" path="res://Skills/PC4/S1/S_Pull.tscn" id="4_20xhw"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="4_m000q"]
+[ext_resource type="PackedScene" path="res://Skills/PC4/S2/S_BuffDef.tscn" id="5_rgksl"]
 [ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="5_uhw6a"]
-[ext_resource type="Texture2D" uid="uid://irukhx7v1new" path="res://Assets/Skills/basic/move.png" id="6_rxmfc"]
-[ext_resource type="Texture2D" uid="uid://d2jdlg3u52l35" path="res://Assets/Skills/basic/melee.png" id="7_oh8t7"]
-[ext_resource type="Texture2D" uid="uid://d4kdpjs0k7m7t" path="res://Assets/Skills/PC2_Sakura/PC2_S1.png" id="8_uguo1"]
-[ext_resource type="Texture2D" uid="uid://cbpd48v8srrai" path="res://Assets/Skills/PC2_Sakura/PC2_S2.png" id="9_srdge"]
+[ext_resource type="PackedScene" path="res://Skills/PC4/S3/S_Kick.tscn" id="6_i0ows"]
 [ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="10_nownm"]
 [ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="11_vvqtl"]
 [ext_resource type="Texture2D" uid="uid://cchd6rflvj8r4" path="res://Character/PlayerCharacter/PC4/PC4.png" id="11_w3l5k"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="12_53vyh"]
 [ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="13_usfpg"]
-[ext_resource type="PackedScene" uid="uid://jbkodc7cxug6" path="res://Skills/PC4/Pull/S_Pull.tscn" id="16_s82fc"]
-[ext_resource type="PackedScene" uid="uid://cgkkvtf6n8vtm" path="res://Skills/PC4/Kick/S_Kick.tscn" id="16_unvlf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnamp"]
 bg_color = Color(0.870588, 0.490196, 0, 1)
@@ -363,7 +360,10 @@ y_sort_enabled = true
 scale = Vector2(3, 3)
 script = ExtResource("1_f2nid")
 stat_json = ExtResource("2_g8iqq")
-charm_json = ExtResource("3_muv88")
+charm_json = ExtResource("3_wqx72")
+S1 = ExtResource("4_20xhw")
+S2 = ExtResource("5_rgksl")
+S3 = ExtResource("6_i0ows")
 start_atk = 3
 start_def = 0
 icon_texture = ExtResource("3_cgo07")
@@ -427,23 +427,19 @@ alignment = 2
 [node name="Move" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("6_rxmfc")
 stretch_mode = 0
 
 [node name="Basic_atk" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("7_oh8t7")
 
 [node name="Skill_1" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("8_uguo1")
 
 [node name="Skill_2" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("9_srdge")
 
 [node name="Tooltips" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 3
@@ -816,7 +812,3 @@ one_shot = true
 [node name="S_Move" parent="SkillsList" instance=ExtResource("12_53vyh")]
 
 [node name="S_Punch" parent="SkillsList" instance=ExtResource("13_usfpg")]
-
-[node name="S_Pull" parent="SkillsList" instance=ExtResource("16_s82fc")]
-
-[node name="S_Kick" parent="SkillsList" instance=ExtResource("16_unvlf")]

@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	set_text()
 	checkStartCondition()
 	
 func checkStartCondition():
@@ -9,10 +10,16 @@ func checkStartCondition():
 		startButton.disabled = false
 	else:
 		startButton.disabled = true
+		
+func set_text():
+	$VBoxContainer/HBoxContainer/Char1.text = PlayerVar.charDataList[0].char_id if PlayerVar.charDataList[0] else "Null 1"
+	$VBoxContainer/HBoxContainer/Char2.text = PlayerVar.charDataList[1].char_id if PlayerVar.charDataList[1] else "Null 2"
+	$VBoxContainer/HBoxContainer/Char3.text = PlayerVar.charDataList[2].char_id if PlayerVar.charDataList[2] else "Null 3"
 
 func set_stage(level_name:String):
 	#Load stage information (map/enemy/reward)
-	print(level_name) 
+	#print(level_name) 
+	pass
 
 func set_char_done(slot_id,char_data):
 	var prv_slot_id = -1
@@ -26,33 +33,34 @@ func set_char_done(slot_id,char_data):
 		PlayerVar.charDataList[prv_slot_id] = null
 		PlayerVar.charDataList[slot_id] = char_data
 		
-	$VBoxContainer/HBoxContainer/Char1.text = PlayerVar.charDataList[0].char_id if PlayerVar.charDataList[0] else "Null 1"
-	$VBoxContainer/HBoxContainer/Char2.text = PlayerVar.charDataList[1].char_id if PlayerVar.charDataList[1] else "Null 2"
-	$VBoxContainer/HBoxContainer/Char3.text = PlayerVar.charDataList[2].char_id if PlayerVar.charDataList[2] else "Null 3"
-		
+	set_text()
 	checkStartCondition()		
 	
 func _on_start_pressed():
 	var next_scene = load("res://Level/S_TestLevel.tscn").instantiate()
+	print(PlayerVar.charDataList)
 	#next_scene.set_stage(level_name)
 	get_tree().get_root().add_child(next_scene)
 	get_tree().set_current_scene(next_scene)
 	queue_free()
 
+func init_character_select(slot_id):
+	var char_select_scene = load("res://System/Menu/CharacterSelect/GD_CharacterSelect.tscn").instantiate()
+
+	if PlayerVar.charDataList[slot_id]:
+		char_select_scene.init_scene(slot_id,PlayerVar.charDataList[slot_id].char_id)
+	else:
+		char_select_scene.init_scene(slot_id,null)
+	add_child(char_select_scene)
+	
 func _on_char_1_pressed():
-	var next_scene = load("res://System/Menu/CharacterSelect/GD_CharacterSelect.tscn").instantiate()
-	next_scene.set_char_slot(0)
-	add_child(next_scene)
+	init_character_select(0)
 
 func _on_char_2_pressed():
-	var next_scene = load("res://System/Menu/CharacterSelect/GD_CharacterSelect.tscn").instantiate()
-	next_scene.set_char_slot(1)
-	add_child(next_scene)
+	init_character_select(1)
 
 func _on_char_3_pressed():
-	var next_scene = load("res://System/Menu/CharacterSelect/GD_CharacterSelect.tscn").instantiate()
-	next_scene.set_char_slot(2)
-	add_child(next_scene)
+	init_character_select(2)
 
 func _on_back_pressed():
 	get_tree().change_scene_to_file("res://System/Menu/LevelSelect/GD_LevelSelect.tscn")

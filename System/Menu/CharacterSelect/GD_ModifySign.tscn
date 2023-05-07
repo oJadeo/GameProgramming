@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://duedlylc1aqyp"]
+
+[ext_resource type="Texture2D" uid="uid://bmxbptds6u138" path="res://Assets/character select/stay.png" id="1_ibhjd"]
+[ext_resource type="Script" path="res://System/Menu/CharacterSelect/GD_ModifySign.gd" id="2_di2em"]
+
+[node name="ModifySign" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ibhjd")
+script = ExtResource("2_di2em")

@@ -1,0 +1,37 @@
+{
+	"C1":{
+		"title": "Scroll",
+		"atk": 3,
+		"def": 0,
+		"speed" : 0,
+		"hp" : -1
+	},
+	"C2":{
+		"title": "Frog Wallet",
+		"atk": 0,
+		"def": 2,
+		"speed" : 1,
+		"hp" : 0
+	},
+	"C3":{
+		"title": "Konoha Headband",
+		"atk": 1,
+		"def": 1,
+		"speed" : 1,
+		"hp" : 0
+	},
+	"C4":{
+		"title": "Dango",
+		"atk": 0,
+		"def": 1,
+		"speed" : 0,
+		"hp" : 3
+	},
+	"C5":{
+		"title": "Ichiraku Ramen",
+		"atk": -1,
+		"def": 0,
+		"speed" : 0,
+		"hp" : 5
+	}
+}
