@@ -16,7 +16,7 @@ func set_text():
 	$VBoxContainer/HBoxContainer/Char2.text = PlayerVar.charDataList[1].char_id if PlayerVar.charDataList[1] else "Null 2"
 	$VBoxContainer/HBoxContainer/Char3.text = PlayerVar.charDataList[2].char_id if PlayerVar.charDataList[2] else "Null 3"
 
-func set_stage(level_name:String):
+func set_stage(level_name):
 	PlayerVar.selectedLevel = level_name
 
 func set_char_done(slot_id,char_data):

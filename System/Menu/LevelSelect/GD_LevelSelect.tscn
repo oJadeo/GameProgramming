@@ -21,38 +21,38 @@ offset_bottom = 222.0
 [node name="HBoxContainer1" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="11" type="Button" parent="VBoxContainer/HBoxContainer1"]
+[node name="1" type="Button" parent="VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "1-1"
+text = "1"
 
-[node name="12" type="Button" parent="VBoxContainer/HBoxContainer1"]
+[node name="2" type="Button" parent="VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "1-2"
+text = "2"
+
+[node name="3" type="Button" parent="VBoxContainer/HBoxContainer1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "3"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="21" type="Button" parent="VBoxContainer/HBoxContainer2"]
+[node name="4" type="Button" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "2-1"
+text = "4"
 
-[node name="22" type="Button" parent="VBoxContainer/HBoxContainer2"]
+[node name="5" type="Button" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "2-2"
+text = "5"
 
-[node name="23" type="Button" parent="VBoxContainer/HBoxContainer2"]
+[node name="6" type="Button" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "2-3"
-
-[node name="24" type="Button" parent="VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "2-4"
+text = "6"
 
 [node name="Back" type="Button" parent="VBoxContainer"]
 layout_mode = 2

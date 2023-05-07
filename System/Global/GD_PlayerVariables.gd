@@ -1,7 +1,7 @@
 extends Node
 
 
-var allLevelOrder = ["11","12","21","22","23","24"]
+var allLevelOrder = [1,2,3,4,5,6]
 #var unlockedLevels = ["11"] #add more every prevent stage clears
 var charDataList = [null,null,null]
 var selectedLevel = null

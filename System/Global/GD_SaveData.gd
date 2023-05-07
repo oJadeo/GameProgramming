@@ -3,10 +3,11 @@ extends Resource
 
 const SAVE_GAME_PATH = "user://savegame.tres"
 
-var allLevelOrder = ["11","12","21","22","23","24"]
-var unlockedLevels = ["11","12","21","22"]
+var allLevelOrder = [1,2,3,4,5,6]
+var unlockedLevels = [1,2,3,4]
 var character_level = {"PC1":3,"PC2":1,"PC3":1,"PC4":0,"PC5":0,"PC6":0}
 var unlockedCharms = {"C1":true,"C2":true,"C3":false,"C4":false,"C5":false}
+var unlockedFormations= {"F1":true,"F2":true,"F3":false,"F4":false,"F5":false}
 
 
 func write_savegame() -> void:
