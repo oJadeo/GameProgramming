@@ -9,7 +9,6 @@ var character_level = {"PC1":3,"PC2":1,"PC3":1,"PC4":0,"PC5":0,"PC6":0}
 var unlockedCharms = {"C1":true,"C2":true,"C3":false,"C4":false,"C5":false}
 var unlockedFormations= {"F1":true,"F2":true,"F3":false,"F4":false,"F5":false}
 
-
 func write_savegame() -> void:
 	ResourceSaver.save(self,SAVE_GAME_PATH)
 
