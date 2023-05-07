@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Skills/PC4/S2/GD_BuffDef.gd" id="1_epade"]
+
+[node name="S_BuffDef" type="Node2D"]
+script = ExtResource("1_epade")
+is_buff = true
+def = 2
+buff_duration = 2
+max_cooldown = 4

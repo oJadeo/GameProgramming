@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c6rtg8ritwip"]
+[gd_scene load_steps=28 format=3 uid="uid://c6rtg8ritwip"]
 
 [ext_resource type="Script" path="res://System/TurnManager/GD_TurnManager.gd" id="1_dflja"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_EnemyManager.gd" id="2_mrvh1"]
@@ -22,6 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://dlwbobh00tg0w" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="20_swqkd"]
 [ext_resource type="PackedScene" uid="uid://dvciusaoi1wv0" path="res://Character/PlayerCharacter/PC2/S_PC2.tscn" id="21_0i0i6"]
 [ext_resource type="PackedScene" uid="uid://ci8mf1gmdprq7" path="res://Character/PlayerCharacter/PC3/S_PC3.tscn" id="22_fmeed"]
+[ext_resource type="PackedScene" uid="uid://b5m68l0i55v07" path="res://Character/PlayerCharacter/PC4/S_PC4.tscn" id="23_p0big"]
+[ext_resource type="PackedScene" uid="uid://cd7gb0huoceon" path="res://Character/PlayerCharacter/PC5/S_PC5.tscn" id="24_4mtmh"]
+[ext_resource type="PackedScene" uid="uid://ch8mj8rwem38d" path="res://Character/PlayerCharacter/PC6/S_PC6.tscn" id="25_u5pou"]
 
 [sub_resource type="Theme" id="Theme_44u5n"]
 
@@ -117,9 +120,12 @@ one_shot = true
 script = ExtResource("18_xd340")
 level = 1
 player_data_json = ExtResource("19_bwrv8")
-selected_PCX = ExtResource("20_swqkd")
-selected_PCY = ExtResource("21_0i0i6")
-selected_PCZ = ExtResource("22_fmeed")
+PC1 = ExtResource("20_swqkd")
+PC2 = ExtResource("21_0i0i6")
+PC3 = ExtResource("22_fmeed")
+PC4 = ExtResource("23_p0big")
+PC5 = ExtResource("24_4mtmh")
+PC6 = ExtResource("25_u5pou")
 
 [node name="MoveTimer" type="Timer" parent="PlayerSpawner"]
 one_shot = true

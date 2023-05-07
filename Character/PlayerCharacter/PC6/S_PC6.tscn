@@ -1,22 +1,19 @@
-[gd_scene load_steps=39 format=3 uid="uid://ch8mj8rwem38d"]
+[gd_scene load_steps=36 format=3 uid="uid://ch8mj8rwem38d"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_0j13i"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC6/pc6_stat.json" id="2_yi3v6"]
+[ext_resource type="JSON" path="res://System/Global/charm_list.json" id="3_7xldv"]
 [ext_resource type="Texture2D" uid="uid://bhduoova12xv1" path="res://Character/PlayerCharacter/PC6/PC6_kisame.png" id="3_wwge3"]
-[ext_resource type="JSON" path="res://Character/PlayerCharacter/Charm/charm_data.json" id="3_yut4h"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="4_1c765"]
+[ext_resource type="PackedScene" path="res://Skills/PC6/S1/S_Slide.tscn" id="4_r7cdx"]
 [ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="5_28lmx"]
-[ext_resource type="Texture2D" uid="uid://irukhx7v1new" path="res://Assets/Skills/basic/move.png" id="6_ulgg0"]
-[ext_resource type="Texture2D" uid="uid://d2jdlg3u52l35" path="res://Assets/Skills/basic/melee.png" id="7_t25nx"]
-[ext_resource type="Texture2D" uid="uid://d4kdpjs0k7m7t" path="res://Assets/Skills/PC2_Sakura/PC2_S1.png" id="8_u6mfw"]
-[ext_resource type="Texture2D" uid="uid://cbpd48v8srrai" path="res://Assets/Skills/PC2_Sakura/PC2_S2.png" id="9_1gtms"]
+[ext_resource type="PackedScene" path="res://Skills/PC6/S2/S_BuffAtk.tscn" id="5_h31if"]
+[ext_resource type="PackedScene" path="res://Skills/PC6/S3/S_BackSlide.tscn" id="6_q5gds"]
 [ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="10_rdnw2"]
 [ext_resource type="Texture2D" uid="uid://d0gxb23ndytjk" path="res://Character/PlayerCharacter/PC6/PC6.png" id="11_c4re7"]
 [ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="11_h1fmp"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="12_3os77"]
 [ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="13_swq50"]
-[ext_resource type="PackedScene" uid="uid://c31jqsip2a5qf" path="res://Skills/PC6/BuffAtk/S_BuffAtk.tscn" id="15_71hd3"]
-[ext_resource type="PackedScene" uid="uid://fnf37gbnfjji" path="res://Skills/PC6/BackSlide/S_BackSlide.tscn" id="16_yccoc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnamp"]
 bg_color = Color(0.870588, 0.490196, 0, 1)
@@ -362,7 +359,10 @@ y_sort_enabled = true
 scale = Vector2(3, 3)
 script = ExtResource("1_0j13i")
 stat_json = ExtResource("2_yi3v6")
-charm_json = ExtResource("3_yut4h")
+charm_json = ExtResource("3_7xldv")
+S1 = ExtResource("4_r7cdx")
+S2 = ExtResource("5_h31if")
+S3 = ExtResource("6_q5gds")
 start_atk = 3
 start_def = 0
 icon_texture = ExtResource("3_wwge3")
@@ -426,23 +426,19 @@ alignment = 2
 [node name="Move" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("6_ulgg0")
 stretch_mode = 0
 
 [node name="Basic_atk" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("7_t25nx")
 
 [node name="Skill_1" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("8_u6mfw")
 
 [node name="Skill_2" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("9_1gtms")
 
 [node name="Tooltips" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 3
@@ -815,7 +811,3 @@ one_shot = true
 [node name="S_Move" parent="SkillsList" instance=ExtResource("12_3os77")]
 
 [node name="S_Punch" parent="SkillsList" instance=ExtResource("13_swq50")]
-
-[node name="S_BuffAtk" parent="SkillsList" instance=ExtResource("15_71hd3")]
-
-[node name="S_BackSlide" parent="SkillsList" instance=ExtResource("16_yccoc")]
