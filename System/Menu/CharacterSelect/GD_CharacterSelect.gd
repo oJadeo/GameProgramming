@@ -75,7 +75,7 @@ func set_stat(char_id):
 	$StatDetails/Label2.visible = true
 	$Label2.text = PlayerVar.id2name[char_id]
 	$Label3.text = "Level " + str(chr_level)
-	$StatDetails/Label.text =  "HP:\nATK:\nDEF\nSPD:"
+	$StatDetails/Label.text =  "HP:\nATK:\nDEF:\nSPD:"
 	$StatDetails/Label2.text = get_formatted_string(chr.stat)
 	
 	match char_id:

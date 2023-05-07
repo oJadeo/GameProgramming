@@ -13,7 +13,7 @@ func create_or_load_save():
 	else:
 		save = SaveGame.new()
 		
-		save.unlockedLevels = ["11"] 
+		save.unlockedLevels = ["11","12","21","22"] 
 		save.character_level = {"PC1":1,"PC2":1,"PC3":1,"PC4":0,"PC5":0,"PC6":0}
 		save.unlockedCharms= {"C1":false,"C2":false,"C3":false,"C4":false,"C5":false}
 		

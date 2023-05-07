@@ -49,19 +49,19 @@ text = "Back"
 
 [node name="ReferenceTopGrid" type="ReferenceRect" parent="."]
 layout_mode = 0
-offset_left = 598.0
+offset_left = 498.0
 offset_top = 428.0
-offset_right = 1130.0
-offset_bottom = 676.0
+offset_right = 1264.0
+offset_bottom = 755.0
 border_color = Color(1, 1, 1, 1)
 border_width = 2.0
 
 [node name="ReferenceBtmGrid" type="ReferenceRect" parent="."]
 layout_mode = 0
-offset_left = 697.0
+offset_left = 650.0
 offset_top = 428.0
-offset_right = 1037.0
-offset_bottom = 676.0
+offset_right = 1117.0
+offset_bottom = 755.0
 border_color = Color(1, 1, 1, 1)
 border_width = 2.0
 

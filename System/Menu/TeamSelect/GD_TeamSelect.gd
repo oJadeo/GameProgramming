@@ -17,9 +17,7 @@ func set_text():
 	$VBoxContainer/HBoxContainer/Char3.text = PlayerVar.charDataList[2].char_id if PlayerVar.charDataList[2] else "Null 3"
 
 func set_stage(level_name:String):
-	#Load stage information (map/enemy/reward)
-	#print(level_name) 
-	pass
+	PlayerVar.selectedLevel = level_name
 
 func set_char_done(slot_id,char_data):
 	var prv_slot_id = -1
