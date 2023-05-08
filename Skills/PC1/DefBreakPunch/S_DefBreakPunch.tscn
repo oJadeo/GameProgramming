@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://5km4re121ks3"]
-
-[ext_resource type="Script" path="res://Skills/PC1/DefBreakPunch/GD_DefBreakPunch.gd" id="1_pbdns"]
-
-[node name="S_DefBreakPunch" type="Node2D"]
-script = ExtResource("1_pbdns")
-max_cooldown = 4

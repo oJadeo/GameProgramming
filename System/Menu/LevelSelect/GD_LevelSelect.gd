@@ -5,7 +5,7 @@ extends Control
 func _ready():
 	for hbox in $VBoxContainer.get_children():
 		for level in hbox.get_children():
-			if level.name in PlayerVar.unlockedLevels:
+			if level.name in GlobalSave.get_unlock_level():
 				level.disabled = false
 				level.connect('pressed',change_level.bind(level.name))
 			else:
@@ -14,7 +14,7 @@ func _ready():
 func change_level(level_name:String):
 	var next_scene = load("res://System/Menu/TeamSelect/GD_TeamSelect.tscn").instantiate()
 	next_scene.set_stage(level_name)
-	PlayerVar.charDataList = [null,null,null]
+	#PlayerVar.charDataList = [null,null,null]
 	get_tree().get_root().add_child(next_scene)
 	queue_free()
 

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Skills/PC3/S3/GD_ThrowFire.gd" id="1_qnbgh"]
+
+[node name="S_ThrowFire" type="Node2D"]
+script = ExtResource("1_qnbgh")
+skill_name = "Fire in the hole"
+max_cooldown = 3

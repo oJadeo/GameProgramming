@@ -24,8 +24,12 @@ func select_target(cood:Vector2) -> void:
 		if target:
 			var rng = RandomNumberGenerator.new()
 			var kicked = rng.randi_range(1,2)
-			if Board.get_character(target.board_cood+target_dir*kicked):
+			if Board.get_character(target.board_cood+target_dir*kicked) or not Board.is_cood_in_board(target.board_cood+target_dir*kicked):
 				continue
+			if Board.get_character(target.board_cood+target_dir):
+				continue
+			if kicked == 2 and not Board.get_character(target.board_cood+target_dir):
+				kicked = 1
 			target.board_cood = target.board_cood+target_dir*kicked
 			var velocity = Board.get_tile_pos(target.board_cood) - target.global_position
 

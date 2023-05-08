@@ -1,7 +1,90 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2lmhoum36wfc"]
+[gd_scene load_steps=37 format=3 uid="uid://c2lmhoum36wfc"]
 
 [ext_resource type="Script" path="res://System/Menu/CharacterSelect/GD_CharacterSelect.gd" id="1_xlwfo"]
 [ext_resource type="PackedScene" uid="uid://dqw1ocl6ej2ud" path="res://System/Menu/CharacterSelect/GD_CharacterButton.tscn" id="2_lp1nh"]
+[ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="2_uuu8p"]
+[ext_resource type="Texture2D" uid="uid://lf2vncm8cx07" path="res://Assets/character select/back.png" id="3_pfx0n"]
+[ext_resource type="Texture2D" uid="uid://1sh3e03fdtrb" path="res://Assets/character icon/unselected/PC1_Naruto.png" id="4_5kdr2"]
+[ext_resource type="PackedScene" uid="uid://ba1e2woa3lyj" path="res://System/Menu/CharacterSelect/GD_CharmButton.tscn" id="6_inn8g"]
+[ext_resource type="PackedScene" uid="uid://duedlylc1aqyp" path="res://System/Menu/CharacterSelect/GD_ModifySign.tscn" id="7_36nmb"]
+[ext_resource type="Texture2D" uid="uid://b2s54verw8rn2" path="res://Assets/character icon/unselected/grey/PC2_Sakura.png" id="7_s3ei7"]
+[ext_resource type="Texture2D" uid="uid://dqiabev68lr1q" path="res://Assets/character icon/unselected/PC2_Sakura.png" id="8_rky3l"]
+[ext_resource type="Texture2D" uid="uid://b7hf1tfuo3ep6" path="res://Assets/character icon/unselected/grey/PC3_Sasuke.png" id="9_qp57r"]
+[ext_resource type="Texture2D" uid="uid://cb1dmnx5ku5wo" path="res://Assets/character icon/combat&selected/PC2_Sakura.png" id="9_rk6bb"]
+[ext_resource type="Texture2D" uid="uid://c8igd0yte10rp" path="res://Assets/character icon/combat&selected/PC3_Sasuke.png" id="10_g2hnk"]
+[ext_resource type="Texture2D" uid="uid://dmaa2ty03dafq" path="res://Assets/character icon/selecttoteam/PC2_Sakura.png" id="10_h8f4k"]
+[ext_resource type="Texture2D" uid="uid://cwcchpyxjx33" path="res://Assets/character icon/unselected/PC3_Sasuke.png" id="11_xfv50"]
+[ext_resource type="Texture2D" uid="uid://dy16wtttxge86" path="res://Assets/character icon/selecttoteam/PC3_Sasuke.png" id="12_7samh"]
+[ext_resource type="Texture2D" uid="uid://d3vp8vk4qn5ms" path="res://Assets/character icon/unselected/grey/PC4_Itachi.png" id="13_3k117"]
+[ext_resource type="Texture2D" uid="uid://bq02lot80otyn" path="res://Assets/character icon/combat&selected/PC4_Itachi.png" id="14_cvhma"]
+[ext_resource type="Texture2D" uid="uid://dn8wjt3nyp3vp" path="res://Assets/character icon/unselected/PC4_Itachi.png" id="15_4fq2t"]
+[ext_resource type="Texture2D" uid="uid://1nwdf6ql8nrt" path="res://Assets/character icon/selecttoteam/PC4_Itachi.png" id="16_afep0"]
+[ext_resource type="Texture2D" uid="uid://d3s86mrm8tuod" path="res://Assets/character icon/unselected/grey/PC5_Deidara.png" id="17_4q1lf"]
+[ext_resource type="Texture2D" uid="uid://dhj44176ufq0o" path="res://Assets/character icon/combat&selected/PC5_Deidara.png" id="18_gam1t"]
+[ext_resource type="Texture2D" uid="uid://blvtyd1ejgpaw" path="res://Assets/character icon/unselected/PC5_Deidara.png" id="19_pln28"]
+[ext_resource type="Texture2D" uid="uid://dha11l4tm374y" path="res://Assets/character icon/selecttoteam/PC5_Deidara.png" id="20_pneep"]
+[ext_resource type="Texture2D" uid="uid://dt213s04nms1p" path="res://Assets/character icon/unselected/grey/PC6_Kisame.png" id="21_n32xe"]
+[ext_resource type="Texture2D" uid="uid://d2v6fu85joquq" path="res://Assets/character icon/combat&selected/PC6_Kisame.png" id="22_8xo6w"]
+[ext_resource type="Texture2D" uid="uid://die0roa6jwajp" path="res://Assets/character icon/unselected/PC6_Kisame.png" id="23_dyey0"]
+[ext_resource type="Texture2D" uid="uid://b330d1iexgnho" path="res://Assets/character icon/selecttoteam/PC6_Kisame.png" id="24_va6vs"]
+[ext_resource type="Texture2D" uid="uid://c701o6et8emsj" path="res://Assets/character select/default_blank.png" id="25_41b8e"]
+[ext_resource type="PackedScene" uid="uid://iddbumumkj0k" path="res://System/Menu/CharacterSelect/GD_SkillButton.tscn" id="25_ybwwj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3104t"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8dsdd"]
+bg_color = Color(0.709804, 0.709804, 0.709804, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.196078, 0.196078, 0.196078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74lic"]
+bg_color = Color(0.690196, 0.980392, 0.666667, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogfqq"]
+bg_color = Color(0.45098, 0.905882, 0.435294, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.196078, 0.196078, 0.196078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gj6wp"]
+bg_color = Color(1, 0.909804, 0.678431, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ls5iu"]
+bg_color = Color(0.65098, 0.592157, 0.45098, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8y37p"]
+bg_color = Color(0.980392, 0.741176, 0.666667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 
 [node name="CharacterSelect" type="Control"]
 layout_mode = 3
@@ -12,46 +95,755 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xlwfo")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.87451, 0.87451, 0.87451, 1)
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 2
+offset_left = 1269.0
+offset_top = 972.0
+offset_right = 1486.0
+offset_bottom = 1052.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_3104t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8dsdd")
+text = "Back"
+
+[node name="ConfirmSelection" type="Button" parent="."]
+layout_mode = 2
+offset_left = 1512.0
+offset_top = 972.0
+offset_right = 1896.0
+offset_bottom = 1052.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_74lic")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ogfqq")
+text = "Confirm Selection"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 98.0
+offset_right = 462.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_font_sizes/font_size = 40
+text = "Characters"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 747.0
+offset_top = 98.0
+offset_right = 1297.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_font_sizes/font_size = 40
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 988.0
+offset_top = 98.0
+offset_right = 1538.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_font_sizes/font_size = 40
+
+[node name="CharSprite" type="Control" parent="."]
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
+[node name="Lines" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="GridContainer" type="GridContainer" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-columns = 3
+[node name="ColorRect3" type="ColorRect" parent="Lines"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 169.0
+offset_right = 525.0
+offset_bottom = 172.0
+color = Color(0, 0, 0, 1)
 
-[node name="CharacterButton" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("2_lp1nh")]
-layout_mode = 2
-char_id = "C1"
+[node name="ColorRect2" type="ColorRect" parent="Lines"]
+layout_mode = 0
+offset_left = 628.0
+offset_top = 90.0
+offset_right = 631.0
+offset_bottom = 940.0
+color = Color(0, 0, 0, 1)
 
-[node name="CharacterButton2" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("2_lp1nh")]
-layout_mode = 2
-char_id = "C2"
+[node name="ColorRect4" type="ColorRect" parent="Lines"]
+layout_mode = 0
+offset_left = 743.0
+offset_top = 169.0
+offset_right = 1193.0
+offset_bottom = 172.0
+color = Color(0, 0, 0, 1)
 
-[node name="CharacterButton3" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("2_lp1nh")]
-layout_mode = 2
-char_id = "C3"
+[node name="ColorRect5" type="ColorRect" parent="Lines"]
+layout_mode = 0
+offset_left = 1296.0
+offset_top = 90.0
+offset_right = 1299.0
+offset_bottom = 940.0
+color = Color(0, 0, 0, 1)
 
-[node name="CharacterButton4" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("2_lp1nh")]
-layout_mode = 2
-char_id = "C4"
+[node name="StatDetails" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="CharacterButton5" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("2_lp1nh")]
-layout_mode = 2
-char_id = "C5"
+[node name="Label" type="Label" parent="StatDetails"]
+layout_mode = 0
+offset_left = 942.0
+offset_top = 238.0
+offset_right = 1048.0
+offset_bottom = 267.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_font_sizes/font_size = 24
+text = "HP:
+ATK:
+DEF:
+SPD:"
 
-[node name="CharacterButton6" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("2_lp1nh")]
-layout_mode = 2
-char_id = "C6"
+[node name="Label2" type="Label" parent="StatDetails"]
+layout_mode = 0
+offset_left = 1030.0
+offset_top = 238.0
+offset_right = 1091.0
+offset_bottom = 370.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_font_sizes/font_size = 24
+text = "0
+0
+0
+0"
 
-[node name="Back" type="Button" parent="HBoxContainer"]
-layout_mode = 2
+[node name="Label3" type="Label" parent="StatDetails"]
+layout_mode = 0
+offset_left = 1142.0
+offset_top = 238.0
+offset_right = 1203.0
+offset_bottom = 370.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_font_sizes/font_size = 24
+text = "0
+0
+0
+0"
+
+[node name="ModifySigns2" type="Control" parent="StatDetails"]
+anchors_preset = 0
+offset_left = 984.0
+offset_top = 226.0
+offset_right = 1024.0
+offset_bottom = 266.0
+
+[node name="ModifySign" parent="StatDetails/ModifySigns2" instance=ExtResource("7_36nmb")]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 7.0
+offset_right = 134.0
+offset_bottom = 47.0
+attribute = "hp"
+
+[node name="ModifySign2" parent="StatDetails/ModifySigns2" instance=ExtResource("7_36nmb")]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 40.0
+offset_right = 134.0
+offset_bottom = 80.0
+attribute = "atk"
+
+[node name="ModifySign3" parent="StatDetails/ModifySigns2" instance=ExtResource("7_36nmb")]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 73.0
+offset_right = 134.0
+offset_bottom = 113.0
+attribute = "def"
+
+[node name="ModifySign4" parent="StatDetails/ModifySigns2" instance=ExtResource("7_36nmb")]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 106.0
+offset_right = 134.0
+offset_bottom = 146.0
+attribute = "speed"
+
+[node name="SkillBar" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label4" type="Label" parent="SkillBar"]
+layout_mode = 0
+offset_left = 747.0
+offset_top = 458.0
+offset_right = 1297.0
+offset_bottom = 511.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_font_sizes/font_size = 32
+text = "Equipped Skill"
+
+[node name="EquipSkill" type="Button" parent="SkillBar"]
+layout_mode = 0
+offset_left = 1005.0
+offset_top = 558.0
+offset_right = 1192.0
+offset_bottom = 614.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_gj6wp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ls5iu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8y37p")
+toggle_mode = true
+text = "Equip Skill"
+
+[node name="TextureRect" type="TextureRect" parent="SkillBar/EquipSkill"]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 8.0
+offset_right = 44.0
+offset_bottom = 48.0
+mouse_filter = 2
+texture = ExtResource("3_pfx0n")
+
+[node name="SkillIcons" type="Control" parent="SkillBar"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SkillIcon" type="TextureRect" parent="SkillBar/SkillIcons"]
+layout_mode = 0
+offset_left = 752.0
+offset_top = 546.0
+offset_right = 832.0
+offset_bottom = 626.0
+texture = ExtResource("25_41b8e")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="SkillIcon2" type="TextureRect" parent="SkillBar/SkillIcons"]
+layout_mode = 0
+offset_left = 875.0
+offset_top = 546.0
+offset_right = 955.0
+offset_bottom = 626.0
+texture = ExtResource("25_41b8e")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="ColorRect6" type="ColorRect" parent="SkillBar"]
+layout_mode = 0
+offset_left = 743.0
+offset_top = 506.0
+offset_right = 1193.0
+offset_bottom = 509.0
+color = Color(0, 0, 0, 1)
+
+[node name="CharmBar" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 252.0
+offset_right = 40.0
+offset_bottom = 292.0
+
+[node name="Label4" type="Label" parent="CharmBar"]
+layout_mode = 0
+offset_left = 747.0
+offset_top = 458.0
+offset_right = 1297.0
+offset_bottom = 511.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_font_sizes/font_size = 32
+text = "Equipped Charm"
+
+[node name="EquipCharm" type="Button" parent="CharmBar"]
+layout_mode = 0
+offset_left = 973.0
+offset_top = 558.0
+offset_right = 1192.0
+offset_bottom = 614.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_gj6wp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ls5iu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8y37p")
+toggle_mode = true
+text = "Equip Charm"
+
+[node name="TextureRect" type="TextureRect" parent="CharmBar/EquipCharm"]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 8.0
+offset_right = 44.0
+offset_bottom = 48.0
+mouse_filter = 2
+texture = ExtResource("3_pfx0n")
+
+[node name="CharmIcon" type="Control" parent="CharmBar"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CharmIcon" type="TextureRect" parent="CharmBar/CharmIcon"]
+layout_mode = 0
+offset_left = 752.0
+offset_top = 546.0
+offset_right = 832.0
+offset_bottom = 626.0
+texture = ExtResource("25_41b8e")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="ColorRect7" type="ColorRect" parent="CharmBar"]
+layout_mode = 0
+offset_left = 743.0
+offset_top = 506.0
+offset_right = 1193.0
+offset_bottom = 509.0
+color = Color(0, 0, 0, 1)
+
+[node name="SkillWindow" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchor_right = 0.432
+anchor_bottom = 0.143
+offset_right = -789.44
+offset_bottom = -114.44
+
+[node name="ColorRect7" type="ColorRect" parent="SkillWindow"]
+layout_mode = 0
+offset_left = 1378.0
+offset_top = 169.0
+offset_right = 1828.0
+offset_bottom = 172.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label4" type="Label" parent="SkillWindow"]
+layout_mode = 0
+offset_left = 1456.0
+offset_top = 98.0
+offset_right = 1740.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
 theme_override_font_sizes/font_size = 40
-text = "Back"
+text = "Skill"
+horizontal_alignment = 1
 
-[connection signal="pressed" from="HBoxContainer/Back" to="." method="_on_back_pressed"]
+[node name="SkillButtons" type="Control" parent="SkillWindow"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SkillButton" parent="SkillWindow/SkillButtons" instance=ExtResource("25_ybwwj")]
+layout_mode = 0
+offset_left = 1388.0
+offset_top = 239.0
+offset_right = 1498.0
+offset_bottom = 349.0
+skill_id = "S1"
+
+[node name="SkillButton2" parent="SkillWindow/SkillButtons" instance=ExtResource("25_ybwwj")]
+layout_mode = 0
+offset_left = 1545.0
+offset_top = 239.0
+offset_right = 1655.0
+offset_bottom = 349.0
+skill_id = "S2"
+
+[node name="SkillButton3" parent="SkillWindow/SkillButtons" instance=ExtResource("25_ybwwj")]
+layout_mode = 0
+offset_left = 1702.0
+offset_top = 239.0
+offset_right = 1812.0
+offset_bottom = 349.0
+skill_id = "S3"
+
+[node name="SkillDesc" type="Control" parent="SkillWindow"]
+anchors_preset = 0
+offset_left = 1410.0
+offset_top = 447.0
+offset_right = 1450.0
+offset_bottom = 487.0
+
+[node name="ColorRect" type="ColorRect" parent="SkillWindow/SkillDesc"]
+layout_mode = 0
+offset_left = -42.0
+offset_right = 431.0
+offset_bottom = 60.0
+color = Color(0.690196, 0.980392, 0.666667, 1)
+
+[node name="ReferenceRect" type="ReferenceRect" parent="SkillWindow/SkillDesc/ColorRect"]
+layout_mode = 0
+offset_right = 473.0
+offset_bottom = 60.0
+border_color = Color(0, 0, 0, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="Label" type="Label" parent="SkillWindow/SkillDesc/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 16.0
+offset_right = 473.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_font_sizes/font_size = 20
+text = "Locked"
+horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="SkillWindow/SkillDesc"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = 60.0
+offset_right = 431.0
+offset_bottom = 210.0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="SkillWindow/SkillDesc/ColorRect2"]
+layout_mode = 0
+offset_right = 473.0
+offset_bottom = 150.0
+border_color = Color(0, 0, 0, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="Label2" type="Label" parent="SkillWindow/SkillDesc/ColorRect2"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 14.0
+offset_right = 444.0
+offset_bottom = 132.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "???"
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="SkillWindow/SkillDesc"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = 210.0
+offset_right = 431.0
+offset_bottom = 294.0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="SkillWindow/SkillDesc/ColorRect3"]
+layout_mode = 0
+offset_right = 473.0
+offset_bottom = 84.0
+border_color = Color(0, 0, 0, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="Label3" type="Label" parent="SkillWindow/SkillDesc/ColorRect3"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 16.0
+offset_right = 444.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Unlocked at Lv. 1"
+vertical_alignment = 1
+
+[node name="CharmWindow" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 0.432
+anchor_bottom = 0.143
+offset_right = -789.44
+offset_bottom = -114.44
+
+[node name="ColorRect7" type="ColorRect" parent="CharmWindow"]
+layout_mode = 0
+offset_left = 1378.0
+offset_top = 169.0
+offset_right = 1828.0
+offset_bottom = 172.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label4" type="Label" parent="CharmWindow"]
+layout_mode = 0
+offset_left = 1456.0
+offset_top = 98.0
+offset_right = 1740.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_font_sizes/font_size = 40
+text = "Charm"
+horizontal_alignment = 1
+
+[node name="CharmButtons" type="Control" parent="CharmWindow"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CharmButton" parent="CharmWindow/CharmButtons" instance=ExtResource("6_inn8g")]
+layout_mode = 0
+offset_left = 1388.0
+offset_top = 239.0
+offset_right = 1498.0
+offset_bottom = 349.0
+charm_id = "C1"
+
+[node name="CharmButton2" parent="CharmWindow/CharmButtons" instance=ExtResource("6_inn8g")]
+layout_mode = 0
+offset_left = 1545.0
+offset_top = 239.0
+offset_right = 1655.0
+offset_bottom = 349.0
+charm_id = "C2"
+
+[node name="CharmButton3" parent="CharmWindow/CharmButtons" instance=ExtResource("6_inn8g")]
+layout_mode = 0
+offset_left = 1702.0
+offset_top = 239.0
+offset_right = 1812.0
+offset_bottom = 349.0
+charm_id = "C3"
+
+[node name="CharmButton4" parent="CharmWindow/CharmButtons" instance=ExtResource("6_inn8g")]
+layout_mode = 0
+offset_left = 1466.0
+offset_top = 390.0
+offset_right = 1576.0
+offset_bottom = 500.0
+charm_id = "C4"
+
+[node name="CharmButton5" parent="CharmWindow/CharmButtons" instance=ExtResource("6_inn8g")]
+layout_mode = 0
+offset_left = 1623.0
+offset_top = 390.0
+offset_right = 1733.0
+offset_bottom = 500.0
+charm_id = "C5"
+
+[node name="CharmDesc" type="Control" parent="CharmWindow"]
+anchors_preset = 0
+offset_left = 1410.0
+offset_top = 538.0
+offset_right = 1450.0
+offset_bottom = 578.0
+
+[node name="ColorRect" type="ColorRect" parent="CharmWindow/CharmDesc"]
+layout_mode = 0
+offset_left = -42.0
+offset_right = 431.0
+offset_bottom = 60.0
+color = Color(0.690196, 0.980392, 0.666667, 1)
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CharmWindow/CharmDesc/ColorRect"]
+layout_mode = 0
+offset_right = 473.0
+offset_bottom = 60.0
+border_color = Color(0, 0, 0, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="Label" type="Label" parent="CharmWindow/CharmDesc/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 16.0
+offset_right = 473.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_font_sizes/font_size = 20
+text = "Locked"
+horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="CharmWindow/CharmDesc"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = 60.0
+offset_right = 431.0
+offset_bottom = 210.0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CharmWindow/CharmDesc/ColorRect2"]
+layout_mode = 0
+offset_right = 473.0
+offset_bottom = 150.0
+border_color = Color(0, 0, 0, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="ModifySigns" type="Control" parent="CharmWindow/CharmDesc/ColorRect2"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ModifySign" parent="CharmWindow/CharmDesc/ColorRect2/ModifySigns" instance=ExtResource("7_36nmb")]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 7.0
+offset_right = 134.0
+offset_bottom = 47.0
+attribute = "hp"
+
+[node name="ModifySign2" parent="CharmWindow/CharmDesc/ColorRect2/ModifySigns" instance=ExtResource("7_36nmb")]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 38.0
+offset_right = 134.0
+offset_bottom = 78.0
+attribute = "atk"
+
+[node name="ModifySign3" parent="CharmWindow/CharmDesc/ColorRect2/ModifySigns" instance=ExtResource("7_36nmb")]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 69.0
+offset_right = 134.0
+offset_bottom = 109.0
+attribute = "def"
+
+[node name="ModifySign4" parent="CharmWindow/CharmDesc/ColorRect2/ModifySigns" instance=ExtResource("7_36nmb")]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 100.0
+offset_right = 134.0
+offset_bottom = 140.0
+attribute = "speed"
+
+[node name="Labels" type="Control" parent="CharmWindow/CharmDesc/ColorRect2"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label2" type="Label" parent="CharmWindow/CharmDesc/ColorRect2/Labels"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 12.0
+offset_right = 77.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "HP
+ATK
+DEF
+SPD"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="CharmWindow/CharmDesc/ColorRect2/Labels"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 12.0
+offset_right = 546.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "0
+0
+0
+0"
+vertical_alignment = 1
+
+[node name="CharButtons" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 100.0
+offset_top = 226.0
+offset_right = 100.0
+offset_bottom = 226.0
+
+[node name="CharButton" parent="CharButtons" instance=ExtResource("2_lp1nh")]
+layout_mode = 0
+hover_icon = ExtResource("4_5kdr2")
+char_id = "PC1"
+
+[node name="CharButton2" parent="CharButtons" instance=ExtResource("2_lp1nh")]
+layout_mode = 0
+offset_left = 250.0
+offset_right = 434.0
+default_icon = ExtResource("7_s3ei7")
+selected_icon = ExtResource("9_rk6bb")
+hover_icon = ExtResource("8_rky3l")
+used_icon = ExtResource("10_h8f4k")
+char_id = "PC2"
+
+[node name="CharButton3" parent="CharButtons" instance=ExtResource("2_lp1nh")]
+layout_mode = 0
+offset_top = 250.0
+offset_bottom = 434.0
+default_icon = ExtResource("9_qp57r")
+selected_icon = ExtResource("10_g2hnk")
+hover_icon = ExtResource("11_xfv50")
+used_icon = ExtResource("12_7samh")
+char_id = "PC3"
+
+[node name="CharButton4" parent="CharButtons" instance=ExtResource("2_lp1nh")]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 250.0
+offset_right = 434.0
+offset_bottom = 434.0
+default_icon = ExtResource("13_3k117")
+selected_icon = ExtResource("14_cvhma")
+hover_icon = ExtResource("15_4fq2t")
+used_icon = ExtResource("16_afep0")
+char_id = "PC4"
+
+[node name="CharButton5" parent="CharButtons" instance=ExtResource("2_lp1nh")]
+layout_mode = 0
+offset_top = 500.0
+offset_bottom = 684.0
+default_icon = ExtResource("17_4q1lf")
+selected_icon = ExtResource("18_gam1t")
+hover_icon = ExtResource("19_pln28")
+used_icon = ExtResource("20_pneep")
+char_id = "PC5"
+
+[node name="CharButton6" parent="CharButtons" instance=ExtResource("2_lp1nh")]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 500.0
+offset_right = 434.0
+offset_bottom = 684.0
+default_icon = ExtResource("21_n32xe")
+selected_icon = ExtResource("22_8xo6w")
+hover_icon = ExtResource("23_dyey0")
+used_icon = ExtResource("24_va6vs")
+char_id = "PC6"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="ConfirmSelection" to="." method="_on_confirm_selection_pressed"]
+[connection signal="toggled" from="SkillBar/EquipSkill" to="." method="_on_equip_skill_toggled"]
+[connection signal="toggled" from="CharmBar/EquipCharm" to="." method="_on_equip_charm_toggled"]
