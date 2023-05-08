@@ -35,7 +35,6 @@ func _process(delta)->void:
 func start_level():
 	playing = true
 
-
 # Tick according to speed to cal who go next
 var tick_end = false
 func _process_waiting_next_turn(delta)->void:
@@ -89,7 +88,6 @@ func end_turn()->void:
 		
 func start_player_move():
 	$PlayerSpawner.start_player_move()
-	
 	
 func start_enemy_move():
 	$EnemySpawner.start_enemy_move()

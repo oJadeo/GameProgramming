@@ -4,7 +4,7 @@ var formation_btn_list:Array
 func _ready() -> void:
 	super()
 	Board.player_list = all_character
-	formation_btn_list = $CanvasLayer/VBoxContainer.get_children()
+	formation_btn_list = $CanvasLayer/FormationButtons.get_children()
 	$CanvasLayer.visible = true
 	for i in len(formation_btn_list):
 		formation_btn_list[i].visible = false

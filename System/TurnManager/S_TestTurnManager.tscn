@@ -50,7 +50,7 @@ y_sort_enabled = true
 [node name="CanvasLayer" type="CanvasLayer" parent="PlayerManager"]
 visible = false
 
-[node name="VBoxContainer" type="HBoxContainer" parent="PlayerManager/CanvasLayer"]
+[node name="FormationButtons" type="HBoxContainer" parent="PlayerManager/CanvasLayer"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -60,35 +60,35 @@ grow_horizontal = 0
 theme = SubResource("Theme_44u5n")
 alignment = 2
 
-[node name="F_1" type="Button" parent="PlayerManager/CanvasLayer/VBoxContainer"]
+[node name="F_1" type="Button" parent="PlayerManager/CanvasLayer/FormationButtons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "F_1"
 
-[node name="S_Formation1" parent="PlayerManager/CanvasLayer/VBoxContainer/F_1" instance=ExtResource("9_dgnif")]
+[node name="S_Formation1" parent="PlayerManager/CanvasLayer/FormationButtons/F_1" instance=ExtResource("9_dgnif")]
 
-[node name="F_2" type="Button" parent="PlayerManager/CanvasLayer/VBoxContainer"]
+[node name="F_2" type="Button" parent="PlayerManager/CanvasLayer/FormationButtons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "F_2
 "
 
-[node name="S_Formation2" parent="PlayerManager/CanvasLayer/VBoxContainer/F_2" instance=ExtResource("10_xs2ya")]
+[node name="S_Formation2" parent="PlayerManager/CanvasLayer/FormationButtons/F_2" instance=ExtResource("10_xs2ya")]
 
-[node name="F_3" type="Button" parent="PlayerManager/CanvasLayer/VBoxContainer"]
+[node name="F_3" type="Button" parent="PlayerManager/CanvasLayer/FormationButtons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "F_3
 "
 
-[node name="S_Formation3" parent="PlayerManager/CanvasLayer/VBoxContainer/F_3" instance=ExtResource("11_uyf1h")]
+[node name="S_Formation3" parent="PlayerManager/CanvasLayer/FormationButtons/F_3" instance=ExtResource("11_uyf1h")]
 
-[node name="F_4" type="Button" parent="PlayerManager/CanvasLayer/VBoxContainer"]
+[node name="F_4" type="Button" parent="PlayerManager/CanvasLayer/FormationButtons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "F_4"
 
-[node name="S_Formation4" parent="PlayerManager/CanvasLayer/VBoxContainer/F_4" instance=ExtResource("11_ch5yg")]
+[node name="S_Formation4" parent="PlayerManager/CanvasLayer/FormationButtons/F_4" instance=ExtResource("11_ch5yg")]
 
 [node name="TurnLineManager" type="Panel" parent="PlayerManager/CanvasLayer"]
 offset_left = 101.0
