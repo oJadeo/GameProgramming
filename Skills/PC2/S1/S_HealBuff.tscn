@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://caundk8kuup2y"]
 
 [ext_resource type="Script" path="res://Skills/PC2/S1/GD_HealBuff.gd" id="1_ysx7e"]
 [ext_resource type="Texture2D" uid="uid://ckwq42bu2efuh" path="res://Assets/Skills/PC2_Sakura/SP_PC2_S1.png" id="2_by0wd"]
@@ -8,5 +8,7 @@ script = ExtResource("1_ysx7e")
 is_heal = true
 target_mode = 1
 skill_name = "Fish Blessing"
+skill_description = "Heal one friendly team member (including self), scale with ATK.
+HEAL: ATK * 1"
 max_cooldown = 3
 skill_spritesheet = ExtResource("2_by0wd")

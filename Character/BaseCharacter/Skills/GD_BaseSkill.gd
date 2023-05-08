@@ -11,7 +11,7 @@ var player:Character
 var cooldown:int = 0
 
 @export var skill_name:String
-@export var skill_description:String
+@export_multiline var skill_description:String
 @export var max_cooldown:int = 0
 @export var skill_spritesheet:Texture
 
