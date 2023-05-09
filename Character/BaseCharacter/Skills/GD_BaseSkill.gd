@@ -7,9 +7,14 @@ enum GET_TILE{
 	all
 }
 
-var player:Character
-var cooldown:int = 0
+signal cooldown_changed(cooldown)
 
+var player:Character
+var cooldown:int = 0:
+	set(new_value):
+		cooldown = new_value
+		emit_signal('cooldown_changed',new_value)
+		
 @export var skill_name:String
 @export_multiline var skill_description:String
 @export var max_cooldown:int = 0

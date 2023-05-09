@@ -39,7 +39,8 @@ func select_level(lv:int):
 		var player_instance = pc_dict[char_data["char_id"]].instantiate()
 		player_instance.start_cood = player_cood
 		player_instance.start_direction = Vector2(1,0)
-		player_instance.charm = char_data["charm"]
+		if "charm" in char_data:
+			player_instance.charm = char_data["charm"]
 		player_instance.level = GlobalSave.get_character_level(char_data["char_id"])
 		player_instance.equip_skill_list = char_data["skills"]
 		player_list_node.add_child(player_instance)
