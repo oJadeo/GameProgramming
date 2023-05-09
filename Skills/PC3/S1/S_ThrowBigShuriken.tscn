@@ -8,7 +8,7 @@
 script = ExtResource("1_0alx3")
 shuriken = ExtResource("2_sisl0")
 skill_name = "Big Shuriken"
-skill_description = "Attacks horizontally. The nearest character is damaged.
+skill_description = "Throw a shuriken horizontally. The first target it struck is dealt damage, the shuriken travels indefinitely.
 DAMAGE: ATK * 1.5"
 max_cooldown = 2
 skill_spritesheet = ExtResource("3_gxpu1")
