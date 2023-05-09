@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://c5oljp8bfqx43"]
 
 [ext_resource type="Script" path="res://Skills/PC6/S2/GD_BuffAtk.gd" id="1_35q8j"]
 
@@ -7,4 +7,6 @@ script = ExtResource("1_35q8j")
 is_buff = true
 atk = 2
 buff_duration = 2
+skill_name = "IKEA Shark"
+skill_description = "Increases self ATK +2 for 2 turns"
 max_cooldown = 4

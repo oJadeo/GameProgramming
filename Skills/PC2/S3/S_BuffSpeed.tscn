@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://u3mnq0br21wf"]
 
 [ext_resource type="Script" path="res://Skills/PC2/S3/GD_BuffSpeed.gd" id="1_ge6d3"]
 
@@ -8,4 +8,6 @@ is_buff = true
 speed = 2
 buff_duration = 2
 target_mode = 2
+skill_name = "Sakura Cuts Hair"
+skill_description = "Increases all team members' SPEED +2 for 2 turns."
 max_cooldown = 3
