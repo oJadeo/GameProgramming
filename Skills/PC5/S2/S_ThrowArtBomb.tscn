@@ -8,7 +8,7 @@ script = ExtResource("1_bud7r")
 bomb = ExtResource("2_hmlnx")
 skill_name = "Explosion is Art"
 skill_description = "Throw a bomb horizontally, range 4. Damage is dealt as a plus sign. 
-DAMAGE: 0.75 ATK"
+DAMAGE: ATK * 0.75"
 max_cooldown = 4
 
 [node name="ArtBombTimer" type="Timer" parent="."]

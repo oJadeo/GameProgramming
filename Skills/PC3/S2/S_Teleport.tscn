@@ -5,7 +5,7 @@
 [node name="S_Teleport" type="Node2D"]
 script = ExtResource("1_2evsc")
 skill_name = "Chidori"
-skill_description = "Attacks any tiles on map. 
+skill_description = "Attacks any tiles on the map. 
 DAMAGE: ATK * 0.5"
 max_cooldown = 4
 
