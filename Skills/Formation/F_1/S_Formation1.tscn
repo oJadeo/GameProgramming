@@ -4,3 +4,6 @@
 
 [node name="S_Formation1" type="Node2D"]
 script = ExtResource("1_btggc")
+skill_name = "Bomber Formation"
+skill_description = "Every Characters in formation attack all tiles horizontally,range 3.
+DAMAGE: Sum of every characters' ATK * 0.5"
