@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://hcre8ptwhrn5"]
 
 [ext_resource type="Script" path="res://Skills/PC1/S2/GD_DefBreakPunch.gd" id="1_pbdns"]
 
 [node name="S_DefBreakPunch" type="Node2D"]
 script = ExtResource("1_pbdns")
+skill_name = "Swing"
+skill_description = "Attacks targat horzizontally, range 1. Target's defense is halved.
+DAMAGE: ATK * 1"
 max_cooldown = 4

@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bgd3hb5w3wnip" path="res://Character/EnemyCharacter_AI/Boss1/S_Boss1_AI.tscn" id="19_b5fbv"]
 [ext_resource type="JSON" path="res://Level/Data/player_start_cood.json" id="19_bwrv8"]
 [ext_resource type="PackedScene" uid="uid://xkgsdj68abw3" path="res://Character/EnemyCharacter_AI/Boss2/S_Boss2_AI.tscn" id="20_lauar"]
-[ext_resource type="PackedScene" uid="uid://dlwbobh00tg0w" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="20_swqkd"]
+[ext_resource type="PackedScene" uid="uid://carpx82hev0x0" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="20_swqkd"]
 [ext_resource type="PackedScene" uid="uid://dvciusaoi1wv0" path="res://Character/PlayerCharacter/PC2/S_PC2.tscn" id="21_0i0i6"]
 [ext_resource type="PackedScene" uid="uid://ci8mf1gmdprq7" path="res://Character/PlayerCharacter/PC3/S_PC3.tscn" id="22_fmeed"]
 [ext_resource type="PackedScene" uid="uid://b5m68l0i55v07" path="res://Character/PlayerCharacter/PC4/S_PC4.tscn" id="23_p0big"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://bnq37o66srgif"]
 
 [ext_resource type="Script" path="res://Skills/PC2/S2/GD_BuffAtkDef..gd" id="1_nceyl"]
 
@@ -9,4 +9,6 @@ atk = 1
 def = 1
 buff_duration = 2
 target_mode = 1
+skill_name = "Sakura's Fist"
+skill_description = "Increases all team members' ATK +1/DEF +1 for 2 turns."
 max_cooldown = 4

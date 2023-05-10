@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://dm4sc7b4o17gl"]
 
 [ext_resource type="Script" path="res://Skills/PC1/S1/GD_GaugePunch.gd" id="1_4w6k2"]
 [ext_resource type="Texture2D" uid="uid://dtcbwfaonep82" path="res://Assets/Skills/PC1_Naruto/SP_PC1_S1.png" id="2_kyx0b"]
 
 [node name="S_GaugePunch" type="Node2D"]
 script = ExtResource("1_4w6k2")
-skill_spritesheet = ExtResource("2_kyx0b")
+skill_name = "Talk No Jutsu"
+skill_description = "Attacks target horizontally, range 1. Target's turn gauge is set to 0.
+DAMAGE: ATK * 1"
 max_cooldown = 3
+skill_spritesheet = ExtResource("2_kyx0b")
