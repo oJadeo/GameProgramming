@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://8ba0frl04q03"]
+[gd_scene load_steps=8 format=3 uid="uid://bqsnymftdlc26"]
 
 [ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="1_a23da"]
+[ext_resource type="Script" path="res://Character/PlayerCharacter/Ui/S_Tooltips.gd" id="1_vxekx"]
 [ext_resource type="Script" path="res://Character/PlayerCharacter/Ui/GD_TextTooltip.gd" id="2_hr8td"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l80y2"]
@@ -28,6 +29,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/separation = 4
 alignment = 2
+script = ExtResource("1_vxekx")
 
 [node name="Move" type="Control" parent="."]
 custom_minimum_size = Vector2(0, 190)
@@ -161,7 +163,7 @@ offset_bottom = 54.0
 theme_override_fonts/font = ExtResource("1_a23da")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_m7qa3")
-text = "Punch"
+text = "Basic Attack"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -195,7 +197,7 @@ offset_bottom = 129.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_a23da")
 theme_override_font_sizes/font_size = 24
-text = "Choose to attack in 1 of 3 vertical squares (front, diagonal up, diagonal-down)."
+text = "Description"
 autowrap_mode = 2
 
 [node name="Skill_1" type="Control" parent="."]
@@ -246,7 +248,7 @@ offset_bottom = 54.0
 theme_override_fonts/font = ExtResource("1_a23da")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_m7qa3")
-text = "Talk no jutsu"
+text = "Skill 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -280,7 +282,7 @@ offset_bottom = 101.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_a23da")
 theme_override_font_sizes/font_size = 24
-text = "Attacks the enemy in front with Atk * 1 and makes the Turn Gauge on hits to 0."
+text = "Description"
 autowrap_mode = 2
 
 [node name="Skill_2" type="Control" parent="."]
@@ -331,7 +333,7 @@ offset_bottom = 54.0
 theme_override_fonts/font = ExtResource("1_a23da")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_m7qa3")
-text = "Swing"
+text = "Skill 2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -365,7 +367,7 @@ offset_bottom = 101.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_a23da")
 theme_override_font_sizes/font_size = 24
-text = "Attack ATK*0.5 and reduce DEF by half for 2 turns."
+text = "Description"
 autowrap_mode = 2
 
 [node name="EndTurn" type="Control" parent="."]
@@ -449,5 +451,5 @@ offset_bottom = 101.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_a23da")
 theme_override_font_sizes/font_size = 24
-text = "end this turn"
+text = "End this turn"
 autowrap_mode = 3
