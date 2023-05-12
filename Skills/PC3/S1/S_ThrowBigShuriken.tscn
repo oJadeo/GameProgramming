@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://bihoqmaajcxp1"]
 
 [ext_resource type="Script" path="res://Skills/PC3/S1/GD_ThrowBigShriken.gd" id="1_0alx3"]
 [ext_resource type="PackedScene" path="res://Skills/PC3/S1/S_BigShuriken.tscn" id="2_sisl0"]
@@ -7,8 +7,11 @@
 [node name="S_ThrowBigShutiken" type="Node2D"]
 script = ExtResource("1_0alx3")
 shuriken = ExtResource("2_sisl0")
-skill_spritesheet = ExtResource("3_gxpu1")
+skill_name = "Big Shuriken"
+skill_description = "Throw a shuriken horizontally. The first target it struck is dealt damage, the shuriken travels indefinitely.
+DAMAGE: ATK * 1.5"
 max_cooldown = 2
+skill_spritesheet = ExtResource("3_gxpu1")
 
 [node name="ShurikenTimer" type="Timer" parent="."]
 wait_time = 0.2

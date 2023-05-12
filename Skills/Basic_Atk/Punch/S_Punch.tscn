@@ -5,4 +5,7 @@
 
 [node name="S_Punch" type="Node2D"]
 script = ExtResource("1_wfl2i")
+skill_name = "Punch"
+skill_description = "Attack target horizontally or diagonally, range 1
+DAMAGE: ATK * 1"
 skill_spritesheet = ExtResource("2_8lwi6")

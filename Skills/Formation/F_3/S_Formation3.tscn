@@ -4,3 +4,6 @@
 
 [node name="S_Formation3" type="Node2D"]
 script = ExtResource("1_d2agf")
+skill_name = "Linkage Formation"
+skill_description = "Attack character in front of Activator, range 1 .
+Damage: Activator's ATK * Number of characters in formation"
