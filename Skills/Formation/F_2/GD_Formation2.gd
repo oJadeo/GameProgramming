@@ -27,12 +27,12 @@ func select_target(cood:Vector2) -> void:
 		
 	# Up ATk + Down ATk
 	if target_direction == Vector2(0,-1):
-		player.play_animaiton("Up_Atk") 
+		player.play_animaiton("Shuriken") 
 		down_timer.timeout.connect(play_down.bind(duo),CONNECT_ONE_SHOT)
 		down_timer.start()
 
 	if target_direction == Vector2(0,1):
-		duo.play_animaiton("Up_Atk") 
+		duo.play_animaiton("Shuriken") 
 		down_timer.timeout.connect(play_down.bind(player),CONNECT_ONE_SHOT)
 		down_timer.start()
 
@@ -66,7 +66,7 @@ func _process(delta: float) -> void:
 	pass
 
 func play_down(char:PlayerCharacter) -> void:
-	char.play_animaiton("Down_Atk") 
+	char.play_animaiton("Shuriken") 
 	trigger()
 
 func trigger() -> void:

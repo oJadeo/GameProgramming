@@ -10,7 +10,12 @@ class_name PlayerCharacter
 @export var stat_json:JSON
 @export var charm_json:JSON
 @export var level:int = 1
-@export var charm:int = 0
+@export var charm:String
+
+var equip_skill_list:Array = []
+@export var S1:Resource
+@export var S2:Resource
+@export var S3:Resource
 
 var formation_use:int = 1
 var btn_list 
@@ -21,6 +26,7 @@ var last_skill_selected = -1
 func _ready()->void:
 	super()
 	SKILL_SELECT_UI.visible = false
+	equip_skill()
 	skill_list = skills_node.get_children()
 	btn_list = btns_node.get_children()
 	tooltip_list = tooltips.get_children()
@@ -41,14 +47,23 @@ func get_stat(lv:int):
 	stat.health = stat_data[lv]['hp']
 	
 	var charm_data = charm_json.get_data()
+	if charm in charm_data:
+		stat.atk += charm_data[charm]['atk']
+		stat.def += charm_data[charm]['def']
+		stat.speed += charm_data[charm]['speed']
+		stat.max_health += charm_data[charm]['hp']
+		stat.health += charm_data[charm]['hp']
 	
-	stat.atk += charm_data[charm]['atk']
-	stat.def += charm_data[charm]['def']
-	stat.speed += charm_data[charm]['speed']
-	stat.max_health += charm_data[charm]['hp']
-	stat.health += charm_data[charm]['hp']
+func equip_skill():
+	var skill_dict = {
+		"S1":S1,
+		"S2":S2,
+		"S3":S3,
+	}
 	
-	
+	for skill in equip_skill_list:
+		var skill_instance = skill_dict[skill].instantiate()
+		skills_node.add_child(skill_instance)
 	
 func start_turn()->void:
 	super()

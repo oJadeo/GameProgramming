@@ -1,22 +1,19 @@
-[gd_scene load_steps=38 format=3 uid="uid://cd7gb0huoceon"]
+[gd_scene load_steps=35 format=3 uid="uid://cd7gb0huoceon"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_e05uv"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC5/pc5_stat.json" id="2_oeu14"]
 [ext_resource type="Texture2D" uid="uid://boi0qss7jgn04" path="res://Character/PlayerCharacter/PC5/PC5_deidara.png" id="3_2qg3x"]
-[ext_resource type="JSON" path="res://Character/PlayerCharacter/Charm/charm_data.json" id="3_nrw8g"]
+[ext_resource type="JSON" path="res://System/Global/charm_list.json" id="3_h26ih"]
+[ext_resource type="PackedScene" path="res://Skills/PC5/S1/S_PunchSkill.tscn" id="4_jlqyo"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="4_kqseq"]
 [ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="5_4dnpw"]
-[ext_resource type="Texture2D" uid="uid://irukhx7v1new" path="res://Assets/Skills/basic/move.png" id="6_e2e3c"]
-[ext_resource type="Texture2D" uid="uid://d2jdlg3u52l35" path="res://Assets/Skills/basic/melee.png" id="7_id2p1"]
-[ext_resource type="Texture2D" uid="uid://d4kdpjs0k7m7t" path="res://Assets/Skills/PC2_Sakura/PC2_S1.png" id="8_ttn4c"]
-[ext_resource type="Texture2D" uid="uid://cbpd48v8srrai" path="res://Assets/Skills/PC2_Sakura/PC2_S2.png" id="9_vsoy8"]
+[ext_resource type="PackedScene" path="res://Skills/PC5/S2/S_ThrowArtBomb.tscn" id="5_feoin"]
+[ext_resource type="PackedScene" path="res://Skills/PC5/S3/S_VericalBomb.tscn" id="6_en65v"]
 [ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="10_uhxp8"]
 [ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="11_r53xl"]
 [ext_resource type="Texture2D" uid="uid://dt5pricqwwxop" path="res://Character/PlayerCharacter/PC5/PC5.png" id="11_xu25y"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="12_okxa3"]
 [ext_resource type="PackedScene" uid="uid://ch51imgjt8abe" path="res://Skills/Basic_Atk/Shuriken/S_ThrowShuriken.tscn" id="14_caai8"]
-[ext_resource type="PackedScene" uid="uid://bq3r0wsf5r5tl" path="res://Skills/PC5/ArtBomb/S_ThrowArtBomb.tscn" id="15_3avvi"]
-[ext_resource type="PackedScene" uid="uid://cfbohr47mkk0v" path="res://Skills/PC5/VerticalBomb/S_VericalBomb.tscn" id="16_hpkod"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnamp"]
 bg_color = Color(0.870588, 0.490196, 0, 1)
@@ -331,7 +328,10 @@ y_sort_enabled = true
 scale = Vector2(3, 3)
 script = ExtResource("1_e05uv")
 stat_json = ExtResource("2_oeu14")
-charm_json = ExtResource("3_nrw8g")
+charm_json = ExtResource("3_h26ih")
+S1 = ExtResource("4_jlqyo")
+S2 = ExtResource("5_feoin")
+S3 = ExtResource("6_en65v")
 start_atk = 3
 start_def = 0
 icon_texture = ExtResource("3_2qg3x")
@@ -395,23 +395,19 @@ alignment = 2
 [node name="Move" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("6_e2e3c")
 stretch_mode = 0
 
 [node name="Basic_atk" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("7_id2p1")
 
 [node name="Skill_1" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("8_ttn4c")
 
 [node name="Skill_2" type="TextureButton" parent="CanvasLayer/Skills"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-texture_normal = ExtResource("9_vsoy8")
 
 [node name="Tooltips" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 3
@@ -784,7 +780,3 @@ one_shot = true
 [node name="S_Move" parent="SkillsList" instance=ExtResource("12_okxa3")]
 
 [node name="S_Shuriken" parent="SkillsList" instance=ExtResource("14_caai8")]
-
-[node name="S_ThrowArtBomb" parent="SkillsList" instance=ExtResource("15_3avvi")]
-
-[node name="S_VericalBomb" parent="SkillsList" instance=ExtResource("16_hpkod")]
