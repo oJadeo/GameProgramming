@@ -6,6 +6,7 @@ extends BaseSkills
 @export var gauge:int = 0
 @export var debuff_duration:int = 0
 @export var insect:Resource
+@onready var audioPlayer = $AudioStreamPlayer
 enum TARGET_MODE{
 	ENEMY,
 	ALL
@@ -40,6 +41,8 @@ func select_target(cood:Vector2) -> void:
 			target_list = Board.player_list
 					
 	Board.reset_all_tile()
+	audioPlayer.seek(0.45)
+	audioPlayer.play()
 	player.play_animaiton("Insect_All") 
 	player.move_timer.set_wait_time(4)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)

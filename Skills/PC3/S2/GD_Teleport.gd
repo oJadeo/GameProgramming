@@ -2,6 +2,7 @@ extends BaseSkills
 
 @export var range:int = 4
 @onready var teleport_timer = $Timer
+@onready var audioPlayer = $AudioStreamPlayer
 var teleport_position: Vector2
 var player_position: Vector2
 var target
@@ -27,6 +28,7 @@ func select_target(cood:Vector2) -> void:
 	teleport_timer.timeout.connect(teleport_to,CONNECT_ONE_SHOT)
 	teleport_timer.start()
 	Board.reset_all_tile()
+	audioPlayer.play()
 	player.play_animaiton("Teleport") 
 	player.move_timer.set_wait_time(1)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)

@@ -28,6 +28,8 @@ func select_target(cood:Vector2) -> void:
 	
 	Board.reset_all_tile()
 	player.play_animaiton("Shuriken") 
+	audioPlayer.seek(0.2)
+	audioPlayer.play()
 	player.move_timer.set_wait_time(0.5)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)
 	player.move_timer.start()
@@ -60,8 +62,6 @@ func trigger() -> void:
 	shuriken_timer.start()
 	spawn_shuriken = shuriken.instantiate()
 	add_child(spawn_shuriken)
-	audioPlayer.seek(0.2)
-	audioPlayer.play()
 	spawn_shuriken.set_position($ShurikenSpawnLocation.get_position())
 
 

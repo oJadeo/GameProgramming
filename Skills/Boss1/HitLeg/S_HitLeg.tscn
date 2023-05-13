@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b305f0cmtvlx3"]
+[gd_scene load_steps=3 format=3 uid="uid://b305f0cmtvlx3"]
 
 [ext_resource type="Script" path="res://Skills/Boss1/HitLeg/GD_HitLeg.gd" id="1_h6pi3"]
+[ext_resource type="AudioStream" uid="uid://dpdqcdr220gf8" path="res://Audio/Character/Boss1/Boss1_S1.mp3" id="2_dh1bp"]
 
 [node name="S_HitLeg" type="Node2D"]
 script = ExtResource("1_h6pi3")
 speed_decrease = 3
 max_cooldown = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_dh1bp")
+volume_db = -15.0

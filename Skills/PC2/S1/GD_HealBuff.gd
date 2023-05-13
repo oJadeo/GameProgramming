@@ -43,7 +43,7 @@ func select_target(cood:Vector2) -> void:
 	target = Board.get_character(cood)
 	
 	Board.reset_all_tile()
-	audioPlayer.seek(1.5)
+	audioPlayer.seek(1.75)
 	audioPlayer.play()
 	player.play_animaiton("Cast") 
 	player.move_timer.set_wait_time(0.75)
