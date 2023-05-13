@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b210ald42gs1y"]
+
+[ext_resource type="Script" path="res://Level/Tutorial/2/Basic_Atk_Tutorial/Shuriken/GDT_ThrowShuriken.gd" id="1_jva8w"]
+
+[node name="S_Shuriken" type="Node2D"]
+script = ExtResource("1_jva8w")
+
+[node name="ShurikenTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="ShurikenSpawnLocation" type="Node2D" parent="."]
+position = Vector2(20, -20)
+
+[connection signal="timeout" from="ShurikenTimer" to="." method="_on_shuriken_timer_timeout"]

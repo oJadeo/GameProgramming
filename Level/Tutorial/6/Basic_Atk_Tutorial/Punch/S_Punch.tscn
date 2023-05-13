@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://xxrvllss1u2r"]
+
+[ext_resource type="Script" path="res://Skills/Basic_Atk/Punch/GD_Punch.gd" id="1_16sai"]
+[ext_resource type="Texture2D" uid="uid://4pv10detkhby" path="res://Assets/Skills/basic/SP_Melee.png" id="2_6sjla"]
+
+[node name="S_Punch" type="Node2D"]
+script = ExtResource("1_16sai")
+skill_spritesheet = ExtResource("2_6sjla")

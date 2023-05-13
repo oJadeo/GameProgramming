@@ -1,8 +1,11 @@
 extends BaseSkills
 
+signal finish_tutorial
+
 var amount:int  = 0
 var skill_direction:Vector2 = Vector2.ZERO
 var target
+
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -46,7 +49,7 @@ func finish_skill() -> void:
 	for i in range(amount):
 		var cha = Board.get_character(player.board_cood-i*skill_direction)
 		cha.return_to_idle()
-		
+	emit_signal("finish_tutorial")
 
 func update(delta:float) -> void:
 	pass
