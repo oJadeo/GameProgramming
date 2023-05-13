@@ -84,6 +84,7 @@ func highlight_tiles(tiles_cood:Array,get_tile:int) -> void:
 					board_tile[cood.y][cood.x].hoverable = true
 func delete_character(cood:Vector2) ->void:
 	board[cood.y][cood.x] = null
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta)->void:
 	pass
