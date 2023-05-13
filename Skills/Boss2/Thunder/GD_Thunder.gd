@@ -4,6 +4,7 @@ var target:Character
 var velocity:Vector2 = Vector2.ZERO
 @onready var thunder_timer = $ThunderTimer
 @onready var hurt_timer =$Hurt_Timer
+@onready var audioPlayer = $AudioStreamPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -19,6 +20,7 @@ func select_target(cood:Vector2) -> void:
 	target.board_cood = target_cood(cood,player.direction)
 	velocity = (Board.get_tile_pos(target.board_cood) - target.global_position)/3*2
 	Board.reset_all_tile()
+	audioPlayer.play()
 	player.play_animaiton("Thunder") 
 	player.move_timer.set_wait_time(3.5)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)

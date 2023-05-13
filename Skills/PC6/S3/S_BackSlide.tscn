@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlncdu4owme4c"]
+[gd_scene load_steps=3 format=3 uid="uid://dlncdu4owme4c"]
 
 [ext_resource type="Script" path="res://Skills/PC6/S3/GD_BackSlide.gd" id="1_xi07v"]
+[ext_resource type="AudioStream" uid="uid://d2d4wujy7y55s" path="res://Audio/Character/PC6/PC6_S3.mp3" id="2_fwch7"]
 
 [node name="S_BackSlide" type="Node2D"]
 script = ExtResource("1_xi07v")
@@ -12,5 +13,9 @@ max_cooldown = 3
 [node name="BackSlideTimer" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fwch7")
+volume_db = -20.0
 
 [connection signal="timeout" from="BackSlideTimer" to="." method="_on_palm_timer_timeout"]

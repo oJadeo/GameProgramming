@@ -8,6 +8,7 @@ extends BaseSkills
 @export var buff_duration:int = 0
 @export var is_heal:bool
 @export var heal_multiplier:float = 1
+@onready var audioPlayer = $AudioStreamPlayer
 enum TARGET_MODE{
 	SELF,
 	ALLY,
@@ -43,6 +44,7 @@ func select_target(cood:Vector2) -> void:
 	
 	Board.reset_all_tile()
 	player.play_animaiton("Cast") 
+	audioPlayer.play()
 	player.move_timer.set_wait_time(0.75)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)
 	player.move_timer.start()

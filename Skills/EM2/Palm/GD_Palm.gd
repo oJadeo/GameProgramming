@@ -3,6 +3,7 @@ extends BaseSkills
 var target:Character
 var velocity:Vector2 = Vector2.ZERO
 @onready var palm_timer = $PalmTimer
+@onready var audioPlayer =  $AudioStreamPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -22,6 +23,7 @@ func select_target(cood:Vector2) -> void:
 	player.direction = (cood - player.board_cood)/2
 	velocity = Board.get_tile_pos(player.board_cood+player.direction) - player.position
 	Board.reset_all_tile()
+	audioPlayer.play()
 	player.play_animaiton("Palm") 
 	player.move_timer.set_wait_time(1)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)

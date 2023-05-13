@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnq37o66srgif"]
+[gd_scene load_steps=3 format=3 uid="uid://bnq37o66srgif"]
 
 [ext_resource type="Script" path="res://Skills/PC2/S2/GD_BuffAtkDef..gd" id="1_nceyl"]
+[ext_resource type="AudioStream" uid="uid://bnnqalrulrb3o" path="res://Audio/Character/PC2/PC2_S2.mp3" id="2_yqbkd"]
 
 [node name="S_BuffAtkDef" type="Node2D"]
 script = ExtResource("1_nceyl")
@@ -12,3 +13,7 @@ target_mode = 1
 skill_name = "Sakura's Fist"
 skill_description = "Increases all team members' ATK +1/DEF +1 for 2 turns."
 max_cooldown = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_yqbkd")
+volume_db = -10.0

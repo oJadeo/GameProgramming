@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnmp3uleoce4g"]
+[gd_scene load_steps=3 format=3 uid="uid://cnmp3uleoce4g"]
 
 [ext_resource type="Script" path="res://Skills/PC6/S1/GD_Slide.gd" id="1_0bcab"]
+[ext_resource type="AudioStream" uid="uid://dku418int7m5c" path="res://Audio/Character/PC6/PC6_S1.mp3" id="2_0688u"]
 
 [node name="S_Slide" type="Node2D"]
 script = ExtResource("1_0bcab")
@@ -12,5 +13,9 @@ max_cooldown = 3
 [node name="SlideTimer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0688u")
+volume_db = -20.0
 
 [connection signal="timeout" from="SlideTimer" to="." method="_on_palm_timer_timeout"]
