@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://c8ee50y5d7voi"]
+
+[ext_resource type="Script" path="res://Level/Tutorial/GD_TutorialTurnManager.gd" id="1_xvm80"]
+[ext_resource type="Script" path="res://System/CharacterManager/GD_EnemyManager.gd" id="2_coy1w"]
+[ext_resource type="Script" path="res://System/CharacterManager/GD_PlayerManager.gd" id="3_8xhg5"]
+[ext_resource type="PackedScene" uid="uid://bbe53oyy08kdb" path="res://Skills/Formation/F_1/S_Formation1.tscn" id="4_chl7h"]
+[ext_resource type="PackedScene" uid="uid://ctrtwbaekf8se" path="res://Skills/Formation/F_2/S_Formation2.tscn" id="5_a4q7j"]
+[ext_resource type="PackedScene" uid="uid://xdsaw08y6pfy" path="res://Skills/Formation/F_3/S_Formation3.tscn" id="6_wd4py"]
+[ext_resource type="PackedScene" uid="uid://dyie2k2ftkq5p" path="res://Skills/Formation/F_4/S_Formation4.tscn" id="7_thrx5"]
+[ext_resource type="Script" path="res://System/TurnManager/GD_TurnLineManager.gd" id="8_u7jtt"]
+[ext_resource type="PackedScene" uid="uid://deaafmasgxd4y" path="res://System/TurnManager/S_CharacterGauge.tscn" id="9_pf01b"]
+
+[sub_resource type="Theme" id="Theme_44u5n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_661mu"]
+bg_color = Color(0, 0.686275, 0.682353, 1)
+
+[node name="S_tutorial_turn_manager" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_xvm80")
+tick_multiplier = 10.0
+
+[node name="EnemyManager" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("2_coy1w")
+
+[node name="Characters" type="Node2D" parent="EnemyManager"]
+y_sort_enabled = true
+
+[node name="PlayerManager" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("3_8xhg5")
+
+[node name="Characters" type="Node2D" parent="PlayerManager"]
+y_sort_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PlayerManager"]
+
+[node name="VBoxContainer" type="HBoxContainer" parent="PlayerManager/CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -254.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme = SubResource("Theme_44u5n")
+alignment = 2
+
+[node name="F_1" type="Button" parent="PlayerManager/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "F_1"
+
+[node name="S_Formation1" parent="PlayerManager/CanvasLayer/VBoxContainer/F_1" instance=ExtResource("4_chl7h")]
+
+[node name="F_2" type="Button" parent="PlayerManager/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "F_2
+"
+
+[node name="S_Formation2" parent="PlayerManager/CanvasLayer/VBoxContainer/F_2" instance=ExtResource("5_a4q7j")]
+
+[node name="F_3" type="Button" parent="PlayerManager/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "F_3
+"
+
+[node name="S_Formation3" parent="PlayerManager/CanvasLayer/VBoxContainer/F_3" instance=ExtResource("6_wd4py")]
+
+[node name="F_4" type="Button" parent="PlayerManager/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "F_4"
+
+[node name="S_Formation4" parent="PlayerManager/CanvasLayer/VBoxContainer/F_4" instance=ExtResource("7_thrx5")]
+
+[node name="TurnLineManager" type="Panel" parent="PlayerManager/CanvasLayer"]
+offset_left = 101.0
+offset_top = 99.0
+offset_right = 1101.0
+offset_bottom = 103.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_661mu")
+script = ExtResource("8_u7jtt")
+gauge = ExtResource("9_pf01b")

@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://f2vj5xjta7n4"]
+
+[ext_resource type="Script" path="res://Level/Tutorial/3/GD_Tutorial_End.gd" id="1_uky6a"]
+[ext_resource type="Script" path="res://Level/GD_Sprite_Board.gd" id="2_mdu8b"]
+[ext_resource type="PackedScene" uid="uid://m4cr7ou4tlfn" path="res://Tile/S_Tile.tscn" id="3_kuvcy"]
+[ext_resource type="Texture2D" uid="uid://d0ncn5pkbn1bn" path="res://Assets/test_bg_2.png" id="4_84tp4"]
+[ext_resource type="PackedScene" uid="uid://c8ee50y5d7voi" path="res://Level/Tutorial/S_TutorialTurnManager.tscn" id="5_md2uy"]
+[ext_resource type="PackedScene" uid="uid://idlnyacv1sxo" path="res://Level/Tutorial/3/PC2_tutorial/ST_PC2.tscn" id="6_mljgt"]
+
+[sub_resource type="Animation" id="Animation_mxlh2"]
+resource_name = "Opening"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Board")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3gdfo"]
+_data = {
+"Opening": SubResource("Animation_mxlh2")
+}
+
+[node name="S_Test_Level" type="Node2D"]
+script = ExtResource("1_uky6a")
+
+[node name="Board" type="Node2D" parent="."]
+position = Vector2(120, 350)
+script = ExtResource("2_mdu8b")
+tile = ExtResource("3_kuvcy")
+tile_size = Vector2(187.2, 96)
+x_offset = 33
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_84tp4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Opening"
+libraries = {
+"": SubResource("AnimationLibrary_3gdfo")
+}
+
+[node name="S_tutorial_move_turn_manager" parent="." instance=ExtResource("5_md2uy")]
+
+[node name="S_PC2" parent="S_tutorial_move_turn_manager/PlayerManager/Characters" index="0" instance=ExtResource("6_mljgt")]
+start_cood = Vector2(2, 2)
+
+[connection signal="finish_tutorial" from="S_tutorial_move_turn_manager" to="." method="_on_s_tutorial_move_turn_manager_finish_tutorial"]
+
+[editable path="S_tutorial_move_turn_manager"]
