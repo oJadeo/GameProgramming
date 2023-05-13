@@ -1,0 +1,148 @@
+[gd_scene load_steps=9 format=3 uid="uid://dpjju6q6bxph5"]
+
+[ext_resource type="Texture2D" uid="uid://57fm78mwmy6j" path="res://Assets/character icon/combat&selected/PC1_Naruto.png" id="1_0kj81"]
+[ext_resource type="Script" path="res://System/Menu/TeamSelect/GD_SlotButton.gd" id="1_fs5r2"]
+[ext_resource type="Texture2D" uid="uid://jylvv0oji7w0" path="res://Assets/PC1/PC1_S1.png" id="2_i7r0w"]
+[ext_resource type="Texture2D" uid="uid://dja4rf16fvnil" path="res://Assets/PC1/PC1_S2.png" id="3_xd1u0"]
+[ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="4_fjbom"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvqq8"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpk8m"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.101961, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dh5wc"]
+bg_color = Color(0.886275, 0.886275, 0.886275, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Button" type="Button"]
+offset_right = 370.0
+offset_bottom = 252.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_lvqq8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tpk8m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dh5wc")
+script = ExtResource("1_fs5r2")
+
+[node name="Selected" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Selected"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 180.0
+offset_bottom = 180.0
+mouse_filter = 2
+texture = ExtResource("1_0kj81")
+
+[node name="TextureRect2" type="TextureRect" parent="Selected"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 187.0
+offset_right = 117.0
+offset_bottom = 241.0
+mouse_filter = 2
+texture = ExtResource("2_i7r0w")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Selected"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 187.0
+offset_right = 180.0
+offset_bottom = 241.0
+mouse_filter = 2
+texture = ExtResource("3_xd1u0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Selected"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 15.0
+offset_right = 347.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_fjbom")
+theme_override_font_sizes/font_size = 36
+text = "Deidara"
+
+[node name="Label2" type="Label" parent="Selected"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 60.0
+offset_right = 296.0
+offset_bottom = 172.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_fjbom")
+theme_override_font_sizes/font_size = 28
+text = "HP:
+ATK:
+DEF:
+SPD:"
+
+[node name="Label3" type="Label" parent="Selected"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 60.0
+offset_right = 352.0
+offset_bottom = 172.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_fjbom")
+theme_override_font_sizes/font_size = 28
+text = "1
+1
+1
+1"
+
+[node name="Unselected" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label4" type="Label" parent="Unselected"]
+layout_mode = 0
+offset_left = 314.0
+offset_top = 13.0
+offset_right = 363.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_fjbom")
+theme_override_font_sizes/font_size = 36
+text = "P1"
+
+[node name="Label5" type="Label" parent="Unselected"]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 58.0
+offset_right = 227.0
+offset_bottom = 188.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_fjbom")
+theme_override_font_sizes/font_size = 144
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

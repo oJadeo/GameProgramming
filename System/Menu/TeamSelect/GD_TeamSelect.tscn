@@ -1,6 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj2va6q8vy1jg"]
+[gd_scene load_steps=11 format=3 uid="uid://cibm6rmqyq6ra"]
 
 [ext_resource type="Script" path="res://System/Menu/TeamSelect/GD_TeamSelect.gd" id="1_doa6j"]
+[ext_resource type="Script" path="res://System/Menu/TeamSelect/GD_DrawUtils.gd" id="2_w8jeg"]
+[ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="3_d3uab"]
+[ext_resource type="PackedScene" uid="uid://dpjju6q6bxph5" path="res://System/Menu/TeamSelect/GD_SlotButton.tscn" id="4_p7b2p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6nxn4"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2ah3"]
+bg_color = Color(0.709804, 0.709804, 0.709804, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.196078, 0.196078, 0.196078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_huudj"]
+bg_color = Color(0.690196, 0.980392, 0.666667, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umf1i"]
+bg_color = Color(0.45098, 0.905882, 0.435294, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.196078, 0.196078, 0.196078, 1)
+
+[sub_resource type="Gradient" id="Gradient_n5fk3"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7vadg"]
+gradient = SubResource("Gradient_n5fk3")
+width = 1920
 
 [node name="TeamSelect" type="Control"]
 layout_mode = 3
@@ -11,43 +53,130 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_doa6j")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 705.0
-offset_top = 798.0
-offset_right = 1052.0
-offset_bottom = 928.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.87451, 0.87451, 0.87451, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
+[node name="ReferenceTopGrid" type="ReferenceRect" parent="."]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 632.0
+offset_right = 1360.0
+offset_bottom = 894.0
+border_color = Color(0, 0, 0, 1)
+border_width = 2.0
 
-[node name="Char1" type="Button" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "null 1"
+[node name="ReferenceBtmGrid" type="ReferenceRect" parent="."]
+layout_mode = 0
+offset_left = 630.0
+offset_top = 632.0
+offset_right = 1290.0
+offset_bottom = 894.0
+border_color = Color(0, 0, 0, 1)
+border_width = 2.0
 
-[node name="Char2" type="Button" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "null 2"
+[node name="Node2D" type="Node2D" parent="."]
 
-[node name="Char3" type="Button" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "null 3"
+[node name="Util" type="Node" parent="."]
+script = ExtResource("2_w8jeg")
 
-[node name="Start" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Start"
-
-[node name="Back" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1269.0
+offset_top = 972.0
+offset_right = 1486.0
+offset_bottom = 1052.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_d3uab")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_6nxn4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q2ah3")
 text = "Back"
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Char1" to="." method="_on_char_1_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Char2" to="." method="_on_char_2_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Char3" to="." method="_on_char_3_pressed"]
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
+[node name="ConfirmSelection" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1512.0
+offset_top = 972.0
+offset_right = 1896.0
+offset_bottom = 1052.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_d3uab")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_huudj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_umf1i")
+text = "Confirm Selection"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 72.0
+texture = SubResource("GradientTexture1D_7vadg")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 404.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_d3uab")
+theme_override_font_sizes/font_size = 48
+text = "Characters"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 464.0
+offset_right = 1920.0
+offset_bottom = 536.0
+texture = SubResource("GradientTexture1D_7vadg")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 472.0
+offset_right = 404.0
+offset_bottom = 532.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_d3uab")
+theme_override_font_sizes/font_size = 48
+text = "Floor
+"
+
+[node name="Slot1" parent="." instance=ExtResource("4_p7b2p")]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 138.0
+offset_right = 509.0
+offset_bottom = 390.0
+
+[node name="Slot2" parent="." instance=ExtResource("4_p7b2p")]
+layout_mode = 0
+offset_left = 652.0
+offset_top = 138.0
+offset_right = 1022.0
+offset_bottom = 390.0
+slot_id = 1
+
+[node name="Slot3" parent="." instance=ExtResource("4_p7b2p")]
+layout_mode = 0
+offset_left = 1165.0
+offset_top = 138.0
+offset_right = 1535.0
+offset_bottom = 390.0
+slot_id = 2
+
+[connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="draw" from="Node2D" to="." method="_on_node_2d_draw"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="ConfirmSelection" to="." method="_on_confirm_selection_pressed"]
+[connection signal="pressed" from="Slot1" to="." method="_on_slot_1_pressed"]
