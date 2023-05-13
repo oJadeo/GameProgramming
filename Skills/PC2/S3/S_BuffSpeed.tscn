@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://u3mnq0br21wf"]
+[gd_scene load_steps=3 format=3 uid="uid://u3mnq0br21wf"]
 
 [ext_resource type="Script" path="res://Skills/PC2/S3/GD_BuffSpeed.gd" id="1_ge6d3"]
+[ext_resource type="AudioStream" uid="uid://b2m4jm0i6mgcv" path="res://Audio/Character/PC2/PC2_S3.mp3" id="2_gd5vy"]
 
 [node name="S_BuffSpeed" type="Node2D"]
 script = ExtResource("1_ge6d3")
@@ -11,3 +12,7 @@ target_mode = 2
 skill_name = "Sakura Cuts Hair"
 skill_description = "Increases all team members' SPEED +2 for 2 turns."
 max_cooldown = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gd5vy")
+volume_db = -7.0

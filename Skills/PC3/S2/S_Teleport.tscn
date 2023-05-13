@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnvnim4omss3x"]
+[gd_scene load_steps=3 format=3 uid="uid://bnvnim4omss3x"]
 
 [ext_resource type="Script" path="res://Skills/PC3/S2/GD_Teleport.gd" id="1_2evsc"]
+[ext_resource type="AudioStream" uid="uid://ctnxgipiyte2o" path="res://Audio/Character/PC3/PC3_S2.mp3" id="2_xjmne"]
 
 [node name="S_Teleport" type="Node2D"]
 script = ExtResource("1_2evsc")
@@ -12,3 +13,7 @@ max_cooldown = 4
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xjmne")
+volume_db = -10.0
