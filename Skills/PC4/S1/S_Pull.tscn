@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://cjvvrlkqrf6bh"]
 
 [ext_resource type="Script" path="res://Skills/PC4/S1/GD_Pull.gd" id="1_jjvol"]
 
 [node name="S_Pull" type="Node2D"]
 script = ExtResource("1_jjvol")
+skill_name = "You Are Weak"
+skill_description = "Pull target within 3 tiles horizontally toward yourself."
 max_cooldown = 3
 
 [node name="PullTimer" type="Timer" parent="."]

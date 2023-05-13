@@ -16,7 +16,7 @@ var cooldown:int = 0:
 		emit_signal('cooldown_changed',new_value)
 		
 @export var skill_name:String
-@export var skill_description:String
+@export_multiline var skill_description:String
 @export var max_cooldown:int = 0
 @export var skill_spritesheet:Texture
 
