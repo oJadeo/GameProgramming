@@ -1,8 +1,50 @@
 extends Control
 
+var draw_data
+var enemy_cood = load("res://Level/Data/emeny_cood.json").get_data()
+var player_cood = load("res://Level/Data/player_start_cood.json").get_data()
+
 func _ready():
+	var top_l = $ReferenceTopGrid.position + Vector2(0,$ReferenceTopGrid.size.y)
+	var top_r = $ReferenceTopGrid.position + $ReferenceTopGrid.size
+	var btm_l = $ReferenceBtmGrid.position
+	var btm_r = $ReferenceBtmGrid.position + Vector2($ReferenceBtmGrid.size.x,0)
+	var v_grid = 5
+	var h_grid = 10
+	draw_data = $Util.calculateGrid(top_l,top_r,btm_l,btm_r,h_grid,v_grid)
 	set_text()
 	checkStartCondition()
+	draw_enemy()
+	draw_player()
+	
+func draw_enemy():
+	var offset = Vector2(15,25)
+	var scale
+	for enemy in enemy_cood[PlayerVar.selectedLevel]:
+		var enemy_name = enemy[0]
+		var enemy_cood = enemy[1]
+		var enemyPic = TextureRect.new()
+		if enemy_name in ["BOSS1","BOSS2"]:
+			enemyPic.set_texture( load("res://System/Menu/TeamSelect/boss.png"))
+			scale = 2.5
+		else:
+			enemyPic.set_texture( load("res://System/Menu/TeamSelect/enemy.png"))
+			scale = 2
+		enemyPic.set_position(draw_data[1][enemy_cood.y][enemy_cood.x]-offset*scale)
+		enemyPic.scale = Vector2(scale,scale)
+		add_child(enemyPic)
+		
+func draw_player():
+	var offset = Vector2(15,22)
+	var scale
+	for player in player_cood[PlayerVar.selectedLevel]:
+		var player_cood = player
+		var playerPic = TextureRect.new()
+		playerPic.set_texture( load("res://System/Menu/TeamSelect/pos.png"))
+		scale = 2
+		playerPic.set_position(draw_data[1][player_cood.y][player_cood.x]-offset*scale)
+		playerPic.scale = Vector2(scale,scale)
+		add_child(playerPic)
 	
 func checkStartCondition():
 	var startButton = $ConfirmSelection
@@ -16,9 +58,6 @@ func set_text():
 	$Slot2.update_button()
 	$Slot3.update_button()
 	
-func set_stage(level_name):
-	PlayerVar.selectedLevel = level_name
-
 func set_char_done(slot_id,char_data):
 	var prv_slot_id = -1
 	for i in range(3):
@@ -48,20 +87,11 @@ func _on_back_pressed():
 	queue_free()
 
 func _on_node_2d_draw():
-	var top_l = $ReferenceTopGrid.position + Vector2(0,$ReferenceTopGrid.size.y)
-	var top_r = $ReferenceTopGrid.position + $ReferenceTopGrid.size
-	var btm_l = $ReferenceBtmGrid.position
-	var btm_r = $ReferenceBtmGrid.position + Vector2($ReferenceBtmGrid.size.x,0)
-	var v_grid = 5
-	var h_grid = 10
-	var draw_data = $Util.calculateGrid(top_l,top_r,btm_l,btm_r,h_grid,v_grid)
 	for i in draw_data[0]:
 		$Node2D.draw_line(i[0],i[1],Color(0, 0, 0),3)
 
 func _on_confirm_selection_pressed():
 	var next_scene = load("res://Level/S_TestLevel.tscn").instantiate()
-	print(PlayerVar.charDataList)
-	#next_scene.set_stage(level_name)
 	get_tree().get_root().add_child(next_scene)
 	get_tree().set_current_scene(next_scene)
 	queue_free()

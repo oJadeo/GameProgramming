@@ -15,7 +15,7 @@ func _ready():
 
 func change_level(level_name:int):
 	var next_scene = load("res://System/Menu/TeamSelect/GD_TeamSelect.tscn").instantiate()
-	next_scene.set_stage(level_name)
+	PlayerVar.selectedLevel = level_name
 	#PlayerVar.charDataList = [null,null,null]
 	get_tree().get_root().add_child(next_scene)
 	queue_free()

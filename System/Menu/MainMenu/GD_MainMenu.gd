@@ -10,6 +10,6 @@ func _on_level_select_pressed():
 func _on_continue_pressed():
 	var last_level_name = GlobalSave.get_unlock_level()[-1]
 	var next_scene = load("res://System/Menu/TeamSelect/GD_TeamSelect.tscn").instantiate()
-	next_scene.set_stage(last_level_name)
+	PlayerVar.selectedLevel = last_level_name
 	get_tree().get_root().add_child(next_scene)
 	queue_free()
