@@ -35,16 +35,18 @@ func draw_enemy():
 		add_child(enemyPic)
 		
 func draw_player():
-	var offset = Vector2(15,22)
-	var scale
-	for player in player_cood[PlayerVar.selectedLevel]:
-		var player_cood = player
-		var playerPic = TextureRect.new()
-		playerPic.set_texture( load("res://System/Menu/TeamSelect/pos.png"))
-		scale = 2
-		playerPic.set_position(draw_data[1][player_cood.y][player_cood.x]-offset*scale)
-		playerPic.scale = Vector2(scale,scale)
-		add_child(playerPic)
+	for prv_pos in $PlayerPos.get_children():
+		prv_pos.queue_free()
+		
+	for i in range(3):
+		var p_cood = player_cood[PlayerVar.selectedLevel][i]
+		var char_pos = load("res://System/Menu/TeamSelect/GD_CharacterPos.tscn").instantiate()
+		if PlayerVar.charDataList[i]:
+			char_pos.set_character(PlayerVar.charDataList[i].char_id)
+		else:
+			char_pos.set_text(i)
+		char_pos.set_position(draw_data[1][p_cood.y][p_cood.x])
+		$PlayerPos.add_child(char_pos)
 	
 func checkStartCondition():
 	var startButton = $ConfirmSelection
@@ -71,6 +73,7 @@ func set_char_done(slot_id,char_data):
 		PlayerVar.charDataList[slot_id] = char_data
 		
 	set_text()
+	draw_player()
 	checkStartCondition()
 
 func init_character_select(slot_id):

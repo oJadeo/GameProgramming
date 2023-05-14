@@ -175,6 +175,11 @@ offset_right = 1535.0
 offset_bottom = 390.0
 slot_id = 2
 
+[node name="PlayerPos" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="draw" from="Node2D" to="." method="_on_node_2d_draw"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
