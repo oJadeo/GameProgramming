@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_e05uv"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC5/pc5_stat.json" id="2_oeu14"]
-[ext_resource type="Texture2D" uid="uid://boi0qss7jgn04" path="res://Character/PlayerCharacter/PC5/PC5_deidara.png" id="3_2qg3x"]
 [ext_resource type="JSON" path="res://System/Global/charm_list.json" id="3_h26ih"]
 [ext_resource type="PackedScene" uid="uid://hd753bp7j7rw" path="res://Skills/PC5/S1/S_PunchSkill.tscn" id="4_jlqyo"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="4_kqseq"]
 [ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="5_4dnpw"]
 [ext_resource type="PackedScene" uid="uid://u2lv1k7jq3vn" path="res://Skills/PC5/S2/S_ThrowArtBomb.tscn" id="5_feoin"]
 [ext_resource type="PackedScene" uid="uid://clt3toc7errfd" path="res://Skills/PC5/S3/S_VericalBomb.tscn" id="6_en65v"]
+[ext_resource type="Texture2D" uid="uid://dhj44176ufq0o" path="res://Assets/character icon/combat&selected/PC5_Deidara.png" id="7_h8gcd"]
 [ext_resource type="PackedScene" uid="uid://c0qyi6bvtkv28" path="res://Character/PlayerCharacter/Ui/S_Skills.tscn" id="10_c3y0o"]
 [ext_resource type="PackedScene" uid="uid://8ba0frl04q03" path="res://Character/PlayerCharacter/Ui/S_Tooltips.tscn" id="11_he6wu"]
 [ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="11_r53xl"]
@@ -475,7 +475,7 @@ S2 = ExtResource("5_feoin")
 S3 = ExtResource("6_en65v")
 start_atk = 3
 start_def = 0
-icon_texture = ExtResource("3_2qg3x")
+icon_texture = ExtResource("7_h8gcd")
 
 [node name="S_GaugeBar" parent="." instance=ExtResource("4_kqseq")]
 offset_left = -24.0
