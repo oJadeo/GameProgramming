@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdlr8axyfctsb"]
+
+[ext_resource type="Script" path="res://System/Menu/TeamSelect/GD_CharacterPos.gd" id="1_7ao3a"]
+[ext_resource type="Texture2D" uid="uid://0b75xwfnpgub" path="res://System/Menu/TeamSelect/pos.png" id="1_etdkl"]
+[ext_resource type="Texture2D" uid="uid://1sh3e03fdtrb" path="res://Assets/character icon/unselected/PC1_Naruto.png" id="2_0mtu1"]
+[ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="4_hovt2"]
+
+[node name="CharacterPos" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7ao3a")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -40.0
+offset_top = -64.0
+offset_bottom = -24.0
+scale = Vector2(2, 2)
+texture = ExtResource("1_etdkl")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -36.0
+offset_top = -128.0
+offset_right = 108.0
+offset_bottom = 16.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_0mtu1")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -83.0
+offset_right = 20.0
+offset_bottom = -55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_hovt2")
+theme_override_font_sizes/font_size = 28
+text = "P1"
+horizontal_alignment = 1

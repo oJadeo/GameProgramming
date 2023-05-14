@@ -12,8 +12,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func finish_level(victory:bool)-> void:
+func win_level()-> void:
 	pass
 
+func lose_level() -> void:
+	pass
+	
 func _on_s_tutorial_move_turn_manager_finish_tutorial():
 	print("Finish Endturn tutorial")
+
+
+func _on_s_tutorial_move_turn_manager_start_turn():
+	$CanvasLayer.visible = true

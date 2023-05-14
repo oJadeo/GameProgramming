@@ -6,6 +6,7 @@ var amount:int  = 0
 var skill_direction:Vector2 = Vector2.ZERO
 var target
 @onready var audioPlayer = $AudioStreamPlayer
+
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -56,7 +57,7 @@ func update(delta:float) -> void:
 	pass
 
 func deselect() -> void:
-	pass
+	Board.reset_all_tile()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

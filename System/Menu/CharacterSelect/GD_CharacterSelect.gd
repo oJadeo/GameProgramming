@@ -75,7 +75,7 @@ func set_stat(char_id):
 	$StatDetails/Label2.visible = true
 	$Label2.text = PlayerVar.id2name[char_id]
 	$Label3.text = "Level " + str(chr_level)
-	$StatDetails/Label.text =  "HP:\nATK:\nDEF\nSPD:"
+	$StatDetails/Label.text =  "HP:\nATK:\nDEF:\nSPD:"
 	$StatDetails/Label2.text = get_formatted_string(chr.stat)
 	
 	match char_id:
@@ -300,6 +300,11 @@ func hide_charm_desc():
 
 func _on_back_pressed():
 	queue_free()
+	
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_ESCAPE:
+			queue_free()
 
 func _on_confirm_selection_pressed():
 	if selected_char:

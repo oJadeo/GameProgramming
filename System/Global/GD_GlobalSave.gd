@@ -16,11 +16,11 @@ func create_or_load_save():
 	else:
 		save = SaveGame.new()
 		
-		save.unlockedLevels = ["11"] 
+		save.unlockedLevels = [] 
 		save.character_level = {"PC1":1,"PC2":1,"PC3":1,"PC4":0,"PC5":0,"PC6":0}
 		save.character_exp = {"PC1":0,"PC2":0,"PC3":0,"PC4":0,"PC5":0,"PC6":0}
 		save.unlockedCharms= {"C1":false,"C2":false,"C3":false,"C4":false,"C5":false}
-		
+		save.unlockedFormations= {"F1":false,"F2":false,"F3":false,"F4":false,"F5":false}
 		save.write_savegame()
 
 func print_data():
@@ -44,11 +44,11 @@ func get_unlock_charm():
 	
 	
 func unlock_charm(charm:String) -> void:
-	if save.charm[charm]:
+	if save.unlockedCharms[charm]:
 		return
 		
 	emit_signal("charm_unlocked",charm)
-	save.charm[charm] = true
+	save.unlockedCharms[charm] = true
 	save.write_savegame()
 	
 

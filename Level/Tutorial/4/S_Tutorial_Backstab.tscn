@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnxrpwh36b1gr"]
+[gd_scene load_steps=11 format=3 uid="uid://dnxrpwh36b1gr"]
 
 [ext_resource type="Script" path="res://Level/Tutorial/4/GD_Tutorial_backstab.gd" id="1_kfmmu"]
+[ext_resource type="PackedScene" uid="uid://l2gbp32bgfl" path="res://Level/Tutorial/S_tutorial_popup.tscn" id="2_bfrnd"]
 [ext_resource type="Script" path="res://Level/GD_Sprite_Board.gd" id="2_f1g1v"]
 [ext_resource type="PackedScene" uid="uid://m4cr7ou4tlfn" path="res://Tile/S_Tile.tscn" id="3_lekop"]
 [ext_resource type="Texture2D" uid="uid://d0ncn5pkbn1bn" path="res://Assets/test_bg_2.png" id="4_6sekf"]
@@ -30,6 +31,11 @@ _data = {
 
 [node name="S_Tutorial_Basic" type="Node2D"]
 script = ExtResource("1_kfmmu")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_bfrnd")]
+visible = false
+title = "Backstab"
+description = "    When character is attacked in back in the back the damage will increase (*1.5)."
 
 [node name="Board" type="Node2D" parent="."]
 position = Vector2(120, 350)
@@ -61,6 +67,7 @@ start_cood = Vector2(3, 2)
 start_direction = Vector2(-1, 0)
 start_cood = Vector2(4, 2)
 
+[connection signal="start_turn" from="S_tutorial_turn_manager" to="." method="_on_s_tutorial_turn_manager_start_turn"]
 [connection signal="finish_tutorial" from="S_tutorial_turn_manager/PlayerManager/Characters/S_PC_basic_tutorial/SkillsList/S_Punch" to="." method="_on_s_punch_finish_tutorial"]
 
 [editable path="S_tutorial_turn_manager"]

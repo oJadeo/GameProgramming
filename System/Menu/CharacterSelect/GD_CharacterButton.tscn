@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://57fm78mwmy6j" path="res://Assets/character icon/combat&selected/PC1_Naruto.png" id="1_nta2e"]
 [ext_resource type="Texture2D" uid="uid://1sh3e03fdtrb" path="res://Assets/character icon/unselected/PC1_Naruto.png" id="2_xwoqv"]
 [ext_resource type="Texture2D" uid="uid://blgq2b6dyxk1p" path="res://Assets/character icon/selecttoteam/PC1_Naruto.png" id="5_b2656"]
-[ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="5_rc10x"]
+[ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="6_btj15"]
 
 [node name="CharButton" type="ColorRect"]
 offset_right = 184.0
@@ -36,8 +36,8 @@ layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_rc10x")
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("6_btj15")
+theme_override_font_sizes/font_size = 28
 text = "P1"
 horizontal_alignment = 1
 vertical_alignment = 1

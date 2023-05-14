@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bard51nhitw36"]
+[gd_scene load_steps=7 format=3 uid="uid://bh4s60marrcrl"]
 
-[ext_resource type="Script" path="res://System/Menu/LevelSelect/GD_LevelSelect.gd" id="1_nhi3v"]
-[ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="2_w2nco"]
+[ext_resource type="Script" path="res://System/Menu/TutorialSelect/GD_TutorialSelect.gd" id="1_y81gp"]
+[ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="2_2st3o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsrvy"]
 bg_color = Color(1, 1, 1, 1)
@@ -35,26 +35,28 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.196078, 0.196078, 0.196078, 1)
 
-[node name="Levels" type="Control"]
+[node name="TutorialSelect" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_nhi3v")
+script = ExtResource("1_y81gp")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.87451, 0.87451, 0.87451, 1)
 
-[node name="LevelButton" type="Control" parent="."]
+[node name="TutorialButton" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="1" type="Button" parent="LevelButton"]
+[node name="1" type="Button" parent="TutorialButton"]
+layout_mode = 0
 offset_left = 1291.0
 offset_top = 233.0
 offset_right = 1734.0
@@ -64,13 +66,14 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_w2nco")
+theme_override_fonts/font = ExtResource("2_2st3o")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_nsrvy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3fenw")
 text = "Level 1"
 
-[node name="2" type="Button" parent="LevelButton"]
+[node name="2" type="Button" parent="TutorialButton"]
+layout_mode = 0
 offset_left = 1291.0
 offset_top = 331.0
 offset_right = 1734.0
@@ -80,13 +83,14 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_w2nco")
+theme_override_fonts/font = ExtResource("2_2st3o")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_nsrvy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3fenw")
 text = "Level 2"
 
-[node name="3" type="Button" parent="LevelButton"]
+[node name="3" type="Button" parent="TutorialButton"]
+layout_mode = 0
 offset_left = 1291.0
 offset_top = 429.0
 offset_right = 1734.0
@@ -96,13 +100,14 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_w2nco")
+theme_override_fonts/font = ExtResource("2_2st3o")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_nsrvy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3fenw")
 text = "Level 3"
 
-[node name="4" type="Button" parent="LevelButton"]
+[node name="4" type="Button" parent="TutorialButton"]
+layout_mode = 0
 offset_left = 1291.0
 offset_top = 527.0
 offset_right = 1734.0
@@ -112,13 +117,14 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_w2nco")
+theme_override_fonts/font = ExtResource("2_2st3o")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_nsrvy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3fenw")
 text = "Level 4"
 
-[node name="5" type="Button" parent="LevelButton"]
+[node name="5" type="Button" parent="TutorialButton"]
+layout_mode = 0
 offset_left = 1291.0
 offset_top = 625.0
 offset_right = 1734.0
@@ -128,13 +134,14 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_w2nco")
+theme_override_fonts/font = ExtResource("2_2st3o")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_nsrvy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3fenw")
 text = "Level 5"
 
-[node name="6" type="Button" parent="LevelButton"]
+[node name="6" type="Button" parent="TutorialButton"]
+layout_mode = 0
 offset_left = 1291.0
 offset_top = 723.0
 offset_right = 1734.0
@@ -144,13 +151,14 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_w2nco")
+theme_override_fonts/font = ExtResource("2_2st3o")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_nsrvy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3fenw")
 text = "Level 6"
 
 [node name="Back" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1512.0
 offset_top = 972.0
 offset_right = 1729.0
@@ -160,7 +168,7 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_w2nco")
+theme_override_fonts/font = ExtResource("2_2st3o")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_yhwxn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ogew6")
@@ -168,14 +176,14 @@ text = "Back"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1159.0
+offset_left = 1069.0
 offset_top = 129.0
 offset_right = 1734.0
 offset_bottom = 196.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_w2nco")
+theme_override_fonts/font = ExtResource("2_2st3o")
 theme_override_font_sizes/font_size = 60
-text = "Select the Level"
+text = "Select the Tutorial"
 horizontal_alignment = 2
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=37 format=3 uid="uid://c2lmhoum36wfc"]
 
 [ext_resource type="Script" path="res://System/Menu/CharacterSelect/GD_CharacterSelect.gd" id="1_xlwfo"]
+[ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="2_3fndh"]
 [ext_resource type="PackedScene" uid="uid://dqw1ocl6ej2ud" path="res://System/Menu/CharacterSelect/GD_CharacterButton.tscn" id="2_lp1nh"]
-[ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="2_uuu8p"]
 [ext_resource type="Texture2D" uid="uid://lf2vncm8cx07" path="res://Assets/character select/back.png" id="3_pfx0n"]
 [ext_resource type="Texture2D" uid="uid://1sh3e03fdtrb" path="res://Assets/character icon/unselected/PC1_Naruto.png" id="4_5kdr2"]
 [ext_resource type="PackedScene" uid="uid://ba1e2woa3lyj" path="res://System/Menu/CharacterSelect/GD_CharmButton.tscn" id="6_inn8g"]
@@ -112,7 +112,7 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_fonts/font = ExtResource("2_3fndh")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_3104t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8dsdd")
@@ -129,7 +129,7 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_fonts/font = ExtResource("2_3fndh")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_74lic")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ogfqq")
@@ -142,8 +142,8 @@ offset_top = 98.0
 offset_right = 462.0
 offset_bottom = 151.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_uuu8p")
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("2_3fndh")
+theme_override_font_sizes/font_size = 48
 text = "Characters"
 
 [node name="Label2" type="Label" parent="."]
@@ -153,17 +153,17 @@ offset_top = 98.0
 offset_right = 1297.0
 offset_bottom = 151.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_uuu8p")
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("2_3fndh")
+theme_override_font_sizes/font_size = 48
 
 [node name="Label3" type="Label" parent="."]
 layout_mode = 0
 offset_left = 988.0
-offset_top = 98.0
+offset_top = 104.0
 offset_right = 1538.0
-offset_bottom = 151.0
+offset_bottom = 157.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_fonts/font = ExtResource("2_3fndh")
 theme_override_font_sizes/font_size = 40
 
 [node name="CharSprite" type="Control" parent="."]
@@ -220,8 +220,8 @@ offset_top = 238.0
 offset_right = 1048.0
 offset_bottom = 267.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_uuu8p")
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("2_3fndh")
+theme_override_font_sizes/font_size = 32
 text = "HP:
 ATK:
 DEF:
@@ -234,8 +234,8 @@ offset_top = 238.0
 offset_right = 1091.0
 offset_bottom = 370.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_uuu8p")
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("2_3fndh")
+theme_override_font_sizes/font_size = 32
 text = "0
 0
 0
@@ -248,8 +248,8 @@ offset_top = 238.0
 offset_right = 1203.0
 offset_bottom = 370.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_uuu8p")
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("2_3fndh")
+theme_override_font_sizes/font_size = 32
 text = "0
 0
 0
@@ -302,17 +302,17 @@ offset_bottom = 40.0
 [node name="Label4" type="Label" parent="SkillBar"]
 layout_mode = 0
 offset_left = 747.0
-offset_top = 458.0
+offset_top = 455.0
 offset_right = 1297.0
-offset_bottom = 511.0
+offset_bottom = 508.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_uuu8p")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("2_3fndh")
+theme_override_font_sizes/font_size = 40
 text = "Equipped Skill"
 
 [node name="EquipSkill" type="Button" parent="SkillBar"]
 layout_mode = 0
-offset_left = 1005.0
+offset_left = 987.0
 offset_top = 558.0
 offset_right = 1192.0
 offset_bottom = 614.0
@@ -322,8 +322,8 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_uuu8p")
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("2_3fndh")
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_gj6wp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ls5iu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8y37p")
@@ -382,12 +382,12 @@ offset_bottom = 292.0
 [node name="Label4" type="Label" parent="CharmBar"]
 layout_mode = 0
 offset_left = 747.0
-offset_top = 458.0
+offset_top = 455.0
 offset_right = 1297.0
-offset_bottom = 511.0
+offset_bottom = 508.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_uuu8p")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("2_3fndh")
+theme_override_font_sizes/font_size = 40
 text = "Equipped Charm"
 
 [node name="EquipCharm" type="Button" parent="CharmBar"]
@@ -402,8 +402,8 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_uuu8p")
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("2_3fndh")
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_gj6wp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ls5iu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8y37p")
@@ -466,8 +466,8 @@ offset_top = 98.0
 offset_right = 1740.0
 offset_bottom = 151.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_uuu8p")
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("2_3fndh")
+theme_override_font_sizes/font_size = 48
 text = "Skill"
 horizontal_alignment = 1
 
@@ -529,8 +529,8 @@ offset_top = 16.0
 offset_right = 473.0
 offset_bottom = 42.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_uuu8p")
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("2_3fndh")
+theme_override_font_sizes/font_size = 28
 text = "Locked"
 horizontal_alignment = 1
 
@@ -551,14 +551,16 @@ editor_only = false
 
 [node name="Label2" type="Label" parent="SkillWindow/SkillDesc/ColorRect2"]
 layout_mode = 0
-offset_left = 43.0
+offset_left = 37.0
 offset_top = 14.0
-offset_right = 444.0
+offset_right = 436.0
 offset_bottom = 132.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("2_3fndh")
+theme_override_font_sizes/font_size = 24
 text = "???"
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="ColorRect3" type="ColorRect" parent="SkillWindow/SkillDesc"]
 layout_mode = 0
@@ -582,7 +584,8 @@ offset_top = 16.0
 offset_right = 444.0
 offset_bottom = 69.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("2_3fndh")
+theme_override_font_sizes/font_size = 24
 text = "Unlocked at Lv. 1"
 vertical_alignment = 1
 
@@ -608,7 +611,7 @@ offset_top = 98.0
 offset_right = 1740.0
 offset_bottom = 151.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_uuu8p")
+theme_override_fonts/font = ExtResource("2_3fndh")
 theme_override_font_sizes/font_size = 40
 text = "Charm"
 horizontal_alignment = 1
@@ -687,8 +690,8 @@ offset_top = 16.0
 offset_right = 473.0
 offset_bottom = 42.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_uuu8p")
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("2_3fndh")
+theme_override_font_sizes/font_size = 28
 text = "Locked"
 horizontal_alignment = 1
 
@@ -715,17 +718,17 @@ offset_bottom = 40.0
 [node name="ModifySign" parent="CharmWindow/CharmDesc/ColorRect2/ModifySigns" instance=ExtResource("7_36nmb")]
 layout_mode = 0
 offset_left = 94.0
-offset_top = 7.0
+offset_top = 9.0
 offset_right = 134.0
-offset_bottom = 47.0
+offset_bottom = 49.0
 attribute = "hp"
 
 [node name="ModifySign2" parent="CharmWindow/CharmDesc/ColorRect2/ModifySigns" instance=ExtResource("7_36nmb")]
 layout_mode = 0
 offset_left = 94.0
-offset_top = 38.0
+offset_top = 39.0
 offset_right = 134.0
-offset_bottom = 78.0
+offset_bottom = 79.0
 attribute = "atk"
 
 [node name="ModifySign3" parent="CharmWindow/CharmDesc/ColorRect2/ModifySigns" instance=ExtResource("7_36nmb")]
@@ -739,9 +742,9 @@ attribute = "def"
 [node name="ModifySign4" parent="CharmWindow/CharmDesc/ColorRect2/ModifySigns" instance=ExtResource("7_36nmb")]
 layout_mode = 0
 offset_left = 94.0
-offset_top = 100.0
+offset_top = 99.0
 offset_right = 134.0
-offset_bottom = 140.0
+offset_bottom = 139.0
 attribute = "speed"
 
 [node name="Labels" type="Control" parent="CharmWindow/CharmDesc/ColorRect2"]
@@ -752,11 +755,12 @@ offset_bottom = 40.0
 [node name="Label2" type="Label" parent="CharmWindow/CharmDesc/ColorRect2/Labels"]
 layout_mode = 0
 offset_left = 39.0
-offset_top = 12.0
-offset_right = 77.0
-offset_bottom = 136.0
+offset_top = 11.0
+offset_right = 93.0
+offset_bottom = 135.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("2_3fndh")
+theme_override_font_sizes/font_size = 30
 text = "HP
 ATK
 DEF
@@ -766,11 +770,12 @@ vertical_alignment = 1
 [node name="Label3" type="Label" parent="CharmWindow/CharmDesc/ColorRect2/Labels"]
 layout_mode = 0
 offset_left = 145.0
-offset_top = 12.0
+offset_top = 11.0
 offset_right = 546.0
-offset_bottom = 136.0
+offset_bottom = 135.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("2_3fndh")
+theme_override_font_sizes/font_size = 30
 text = "0
 0
 0

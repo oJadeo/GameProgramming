@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://drrykm0uvgh3t"]
+[gd_scene load_steps=13 format=3 uid="uid://drrykm0uvgh3t"]
 
 [ext_resource type="Script" path="res://Level/Tutorial/6/GD_Tutorial_Formation.gd" id="1_cad6j"]
 [ext_resource type="Script" path="res://Level/GD_Sprite_Board.gd" id="2_3bx3o"]
+[ext_resource type="PackedScene" uid="uid://l2gbp32bgfl" path="res://Level/Tutorial/S_tutorial_popup.tscn" id="2_ut462"]
 [ext_resource type="PackedScene" uid="uid://m4cr7ou4tlfn" path="res://Tile/S_Tile.tscn" id="3_23r8o"]
 [ext_resource type="Texture2D" uid="uid://d0ncn5pkbn1bn" path="res://Assets/test_bg_2.png" id="4_023jk"]
 [ext_resource type="PackedScene" uid="uid://c8ee50y5d7voi" path="res://Level/Tutorial/S_TutorialTurnManager.tscn" id="5_3fpu1"]
@@ -32,6 +33,11 @@ _data = {
 
 [node name="S_Tutorial_Basic" type="Node2D"]
 script = ExtResource("1_cad6j")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_ut462")]
+visible = false
+title = "Formation"
+description = "     When the characters are in the position of the formation.The formation skill button will show up on the top right of the screens."
 
 [node name="Board" type="Node2D" parent="."]
 position = Vector2(120, 350)
@@ -65,9 +71,17 @@ start_cood = Vector2(1, 2)
 [node name="S_PC3" parent="S_tutorial_turn_manager/PlayerManager/Characters" index="1" instance=ExtResource("8_u3csa")]
 start_cood = Vector2(2, 2)
 
+[node name="Skills" parent="S_tutorial_turn_manager/PlayerManager/Characters/S_PC3/CanvasLayer" index="2"]
+visible = false
+
+[node name="ControlButton" parent="S_tutorial_turn_manager/PlayerManager/Characters/S_PC3/CanvasLayer" index="4"]
+visible = false
+
 [node name="S_PC2" parent="S_tutorial_turn_manager/PlayerManager/Characters" index="2" instance=ExtResource("9_bebbu")]
 start_cood = Vector2(0, 2)
 
+[connection signal="start_turn" from="S_tutorial_turn_manager" to="." method="_on_s_tutorial_turn_manager_start_turn"]
 [connection signal="finish_tutorial" from="S_tutorial_turn_manager/PlayerManager/CanvasLayer/VBoxContainer/F_3/S_Formation3" to="." method="_on_s_formation_3_finish_tutorial"]
 
 [editable path="S_tutorial_turn_manager"]
+[editable path="S_tutorial_turn_manager/PlayerManager/Characters/S_PC3"]
