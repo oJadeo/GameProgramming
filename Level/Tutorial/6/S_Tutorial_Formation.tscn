@@ -85,3 +85,4 @@ start_cood = Vector2(0, 2)
 
 [editable path="S_tutorial_turn_manager"]
 [editable path="S_tutorial_turn_manager/PlayerManager/Characters/S_PC3"]
+

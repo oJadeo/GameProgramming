@@ -5,6 +5,7 @@ extends BaseSkills
 var spawn_shuriken = null
 @onready var shuriken_spawn_point = $ShurikenSpawnLocation
 @onready var shuriken_timer = $ShurikenTimer
+@onready var audioPlayer = $AudioStreamPlayer
 var velocity = Vector2.ZERO
 var target_list:Array = []
 
@@ -32,6 +33,7 @@ func select_target(cood:Vector2) -> void:
 	player.direction = Vector2(cood.x - player.board_cood.x,0).normalized()
 	
 	Board.reset_all_tile()
+	audioPlayer.play()
 	player.play_animaiton("Bomb") 
 	player.move_timer.set_wait_time(2.3)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)

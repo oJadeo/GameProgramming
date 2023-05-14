@@ -3,6 +3,7 @@ extends BaseSkills
 var target:Character
 @export var range:int = 3
 @onready var pull_timer = $PullTimer
+@onready var audioPlayer = $AudioStreamPlayer
 var velocity = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
@@ -25,6 +26,8 @@ func select_target(cood:Vector2) -> void:
 	velocity = Board.get_tile_pos(player.board_cood+player.direction) -  Board.get_tile_pos(cood) 
 	
 	Board.reset_all_tile()
+	audioPlayer.seek(0.3)
+	audioPlayer.play()
 	player.play_animaiton("Pull") 
 	player.move_timer.set_wait_time(0.5)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)

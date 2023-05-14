@@ -18,7 +18,6 @@ func win_level()-> void:
 func lose_level() -> void:
 	pass
 	
-
 func _on_s_move_tutorial_finish_tutorial():
 	print("Finish Move tutorial")
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://y2wrr87tcjx"]
+[gd_scene load_steps=3 format=3 uid="uid://y2wrr87tcjx"]
 
 [ext_resource type="Script" path="res://Skills/PC1/S3/GD_NoDefPunch.gd" id="1_v0y64"]
+[ext_resource type="AudioStream" uid="uid://b1stahqsp2pi8" path="res://Audio/Character/PC1/PC1_S3.mp3" id="2_7stgp"]
 
 [node name="S_NoDefPunch" type="Node2D"]
 script = ExtResource("1_v0y64")
@@ -8,3 +9,7 @@ skill_name = "Rasengan"
 skill_description = "Attacks target horizontally, range 1. The attack ignores target's defense. 
 DAMAGE: ATK * 1"
 max_cooldown = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_7stgp")
+volume_db = -7.0

@@ -9,7 +9,7 @@ var selectedLevel = null
 var id2name = {"PC1":"Naruto","PC2":"Sakura","PC3":"Sasuke","PC4":"Itachi","PC5":"Deidara","PC6":"Kisame"}
 var skill_data = load("res://System/Global/skill_list.json").get_data()
 var charm_data = load("res://System/Global/charm_list.json").get_data()
-var selected_level:int
+#var selected_level:int
 
 func get_skill_unlocked_level(char_id,skill_id):
 	return skill_data[char_id][skill_id].unlock_level

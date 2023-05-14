@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c84gp60mw7qft"]
+[gd_scene load_steps=4 format=3 uid="uid://c84gp60mw7qft"]
 
 [ext_resource type="Script" path="res://Skills/Boss1/DeBuffATk/GD_DeBuffAtk.gd" id="1_pxvnq"]
 [ext_resource type="PackedScene" uid="uid://btb6i7wkm6dho" path="res://Skills/Boss1/DeBuffATk/S_Insect.tscn" id="2_3sifc"]
+[ext_resource type="AudioStream" uid="uid://c5ubsea6gr6cy" path="res://Audio/Character/Boss1/Boss1_S2.mp3" id="3_l6vwu"]
 
 [node name="S_DeBuffAtk" type="Node2D"]
 script = ExtResource("1_pxvnq")
@@ -9,3 +10,7 @@ atk = 2
 debuff_duration = 2
 insect = ExtResource("2_3sifc")
 max_cooldown = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_l6vwu")
+volume_db = -15.0

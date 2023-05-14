@@ -25,6 +25,7 @@ func i2f(v):
 	return Vector2(float(v[0]),float(v[1]))
 	
 func calculateGrid(top_l,top_r,btm_l,btm_r,h_grid,v_grid):
+	print(top_l,top_r,btm_l,btm_r,h_grid,v_grid)
 	top_l = i2f(top_l)
 	top_r = i2f(top_r)
 	btm_l = i2f(btm_l)
@@ -43,10 +44,10 @@ func calculateGrid(top_l,top_r,btm_l,btm_r,h_grid,v_grid):
 	var b = btm_r[0]-btm_l[0]
 	for i in range(v_grid-1):
 		var ii = float(v_grid - 2 - i)
-		var hh = (top_r[1]-btm_r[1])/(1+(a/b)*((v_grid-1-ii)/(ii+1)))
+		var hh = (top_r[1]-btm_r[1])/(1.0+(a/b)*((v_grid-1-ii)/(ii+1)))
 		var x = draw_hori(top_l,top_r,btm_l,btm_r,hh)
 		to_draw.append(x)
-		h_lines.append(hh)
+		h_lines.append(hh+btm_l[1])
 	h_lines.append(btm_l[1])
 
 	var v_lines = [[btm_l,top_l]]
@@ -58,15 +59,15 @@ func calculateGrid(top_l,top_r,btm_l,btm_r,h_grid,v_grid):
 	v_lines.append([btm_r,top_r])
 
 	var grid_pos = []
+	var g
 	for i in range(v_grid):
-		var g = []
+		g = []
 		for j in range(h_grid):
-			var tl = intersection(v_lines[j][0],v_lines[j][1],h_lines[i])
-			var tr = intersection(v_lines[j+1][0],v_lines[j+1][1],h_lines[i])
-			var bl = intersection(v_lines[j][0],v_lines[j][1],h_lines[i+1])
-			var br = intersection(v_lines[j+1][0],v_lines[j+1][1],h_lines[i+1])
+			var tl = intersection(v_lines[j][0],v_lines[j][1],h_lines[i]-btm_l[1])
+			var tr = intersection(v_lines[j+1][0],v_lines[j+1][1],h_lines[i]-btm_l[1])
+			var bl = intersection(v_lines[j][0],v_lines[j][1],h_lines[i+1]-btm_l[1])
+			var br = intersection(v_lines[j+1][0],v_lines[j+1][1],h_lines[i+1]-btm_l[1])
 			var x = midpoint(tl,tr,bl,br)
 			g.append(x)
 		grid_pos.append(g)
-	
 	return [to_draw,grid_pos]

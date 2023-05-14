@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://u2lv1k7jq3vn"]
+[gd_scene load_steps=4 format=3 uid="uid://u2lv1k7jq3vn"]
 
 [ext_resource type="Script" path="res://Skills/PC5/S2/GD_ThrowArtBomb.gd" id="1_bud7r"]
 [ext_resource type="PackedScene" path="res://Skills/PC5/S2/S_ArtBomb.tscn" id="2_hmlnx"]
+[ext_resource type="AudioStream" uid="uid://dtfu1sijkaopo" path="res://Audio/Character/PC5/PC5_S2.mp3" id="3_pa8pf"]
 
 [node name="S_ThrowArtBomb" type="Node2D"]
 script = ExtResource("1_bud7r")
@@ -14,5 +15,9 @@ max_cooldown = 4
 [node name="ArtBombTimer" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pa8pf")
+volume_db = -10.0
 
 [connection signal="timeout" from="ArtBombTimer" to="." method="_on_art_bomb_timer_timeout"]
