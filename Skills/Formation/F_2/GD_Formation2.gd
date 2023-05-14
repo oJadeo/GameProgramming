@@ -4,7 +4,7 @@ var amount:int  = 0
 var target_pos:Array = []
 var damage:int = 0
 var duo :PlayerCharacter
-var target
+var target :Character
 @onready var audioPlayer = $AudioStreamPlayer
 @onready var down_timer = $StartDownTimer
 func _ready() -> void:
@@ -61,7 +61,7 @@ func update(delta:float) -> void:
 	pass
 
 func deselect() -> void:
-	pass
+	Board.reset_all_tile()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

@@ -12,12 +12,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func finish_level(victory:bool)-> void:
+func win_level()-> void:
 	pass
 
-
-
+func lose_level() -> void:
+	pass
+	
 
 
 func _on_s_punch_finish_tutorial():
 	print("Finish Backstab tutorial")
+
+
+func _on_s_tutorial_turn_manager_start_turn():
+	$CanvasLayer.visible = true

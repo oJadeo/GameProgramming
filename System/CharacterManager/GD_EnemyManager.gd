@@ -13,4 +13,4 @@ func _process(delta):
 
 func check_finish_level():
 	if len(Board.enemy_list) == 0:
-		print("Victory")
+		get_tree().get_current_scene().win_level()
