@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmr3xchclk53s"]
+[gd_scene load_steps=4 format=3 uid="uid://cmr3xchclk53s"]
 
 [ext_resource type="Script" path="res://System/Menu/SplashScreen/GD_SplashScreen.gd" id="1_xcne1"]
 [ext_resource type="Texture2D" uid="uid://jk4tap6negkm" path="res://Assets/BG2.jpg" id="2_ahu1b"]
+[ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="3_6from"]
 
 [node name="SplashScreen" type="Control"]
 layout_mode = 3
@@ -18,28 +19,28 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("2_ahu1b")
 
-[node name="GameTitle" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 743.0
-offset_top = 430.0
-offset_right = 1249.0
-offset_bottom = 586.0
-theme_override_font_sizes/normal_font_size = 96
-text = "Game Title"
-
-[node name="ClickToContinue" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 772.0
-offset_top = 795.0
-offset_right = 1189.0
-offset_bottom = 878.0
-theme_override_font_sizes/normal_font_size = 48
-text = "Click to Continue"
-
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+
+[node name="Label" type="Label" parent="."]
+offset_top = 500.0
+offset_right = 1920.0
+offset_bottom = 588.0
+theme_override_fonts/font = ExtResource("3_6from")
+theme_override_font_sizes/font_size = 112
+text = "Game Title"
+horizontal_alignment = 1
+
+[node name="ClickCon" type="Label" parent="."]
+offset_top = 900.0
+offset_right = 1920.0
+offset_bottom = 988.0
+theme_override_fonts/font = ExtResource("3_6from")
+theme_override_font_sizes/font_size = 32
+text = "Click to Continue"
+horizontal_alignment = 1
 
 [connection signal="gui_input" from="TextureRect" to="." method="_on_texture_rect_gui_input"]
 [connection signal="gui_input" from="ReferenceRect" to="." method="_on_reference_rect_gui_input"]

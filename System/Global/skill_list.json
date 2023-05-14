@@ -2,19 +2,19 @@
 	"PC1":{
 		"S1":{
 			"title":"Talk no Jutsu",
-			"description":"lorem ipsum",
+			"description":"Attack target horizontally, range 1, with ATK x1. Target's turn gauge is reset.",
 			"cd":3,
 			"unlock_level":1
 		},
 		"S2":{
 			"title":"Swing",
-			"description":"lorem ipsum",
+			"description":"Attack target in front with ATK x0.5. Target's defense is halved.",
 			"cd":4,
 			"unlock_level":2
 		},
 		"S3":{
 			"title":"Rasengan",
-			"description":"lorem ipsum",
+			"description":"Attack target in front with ATK x1 ignoring target's defense.",
 			"cd":4,
 			"unlock_level":4
 		}
@@ -22,19 +22,19 @@
 	"PC2":{
 		"S1":{
 			"title":"Fish Blessing",
-			"description":"lorem ipsum",
+			"description":"Heal one ally (including self) by ATK x1.",
 			"cd":3,
 			"unlock_level":1
 		},
 		"S2":{
 			"title":"Sakura's Fist",
-			"description":"lorem ipsum",
+			"description":"Increase all allies' ATK +1 / DEF +1 for 2 turns.",
 			"cd":4,
 			"unlock_level":2
 		},
 		"S3":{
 			"title":"Sakura Cut Hair",
-			"description":"lorem ipsum",
+			"description":"Increase all team members' SPD +2 for 2 turns.",
 			"cd":3,
 			"unlock_level":3
 		}
@@ -42,19 +42,19 @@
 	"PC3":{
 		"S1":{
 			"title":"Big Shuriken",
-			"description":"lorem ipsum",
+			"description":"Throw a shuriken with ATK x1.5 horizontally until it hit a target",
 			"cd":2,
 			"unlock_level":1
 		},
 		"S2":{
 			"title":"Punpaksa",
-			"description":"lorem ipsum",
+			"description":"Throw a bomb with ATK x0.5 anywhere on the map.",
 			"cd":4,
 			"unlock_level":3
 		},
 		"S3":{
 			"title":"Fire in the Hole",
-			"description":"lorem ipsum",
+			"description":"Attack all tiles horizontally, range 4, with ATK x0.5.",
 			"cd":3,
 			"unlock_level":4
 		}
@@ -62,19 +62,19 @@
 	"PC4":{
 		"S1":{
 			"title":"You Are Weak",
-			"description":"lorem ipsum",
+			"description":"Pull a character within 3 tiles horizontally toward self.",
 			"cd":3,
 			"unlock_level":1
 		},
 		"S2":{
 			"title":"Fried Egg",
-			"description":"lorem ipsum",
+			"description":"Increase self DEF +2 for 2 turns",
 			"cd":4,
 			"unlock_level":1
 		},
 		"S3":{
 			"title":"Sorry, This is it",
-			"description":"lorem ipsum",
+			"description":"Attack target with ATK x1.5. Target is pushed 1 tile away.",
 			"cd":4,
 			"unlock_level":4
 		}
@@ -82,19 +82,19 @@
 	"PC5":{
 		"S1":{
 			"title":"Hand Tongue",
-			"description":"lorem ipsum",
+			"description":"Attack target horizontally or diagonally, range 1, with ATK x1.5.",
 			"cd":2,
 			"unlock_level":1
 		},
 		"S2":{
 			"title":"Explosion is Art",
-			"description":"lorem ipsum",
+			"description":"Throw a bomb horizontally, range 4, with ATK x0.75. Deal damage as a plus sign.",
 			"cd":4,
 			"unlock_level":3
 		},
 		"S3":{
 			"title":"Ultimate Art",
-			"description":"lorem ipsum",
+			"description":"Attack all tiles vertically with ATK x1. All characters in the range are damaged.",
 			"cd":3,
 			"unlock_level":3
 		}
@@ -102,19 +102,19 @@
 	"PC6":{
 		"S1":{
 			"title":"Slide Punch",
-			"description":"lorem ipsum",
+			"description":"Move 2 tiles toward target then attack target with ATK x1.",
 			"cd":3,
 			"unlock_level":1
 		},
 		"S2":{
 			"title":"IKEA shark",
-			"description":"lorem ipsum",
+			"description":"Increase self ATK +2 for 2 turns.",
 			"cd":4,
 			"unlock_level":3
 		},
 		"S3":{
 			"title":"Back to reality",
-			"description":"lorem ipsum",
+			"description":"Attack horizontally, range 1, with ATK x1 then moves backward 1 tile.",
 			"cd":3,
 			"unlock_level":3
 		}
