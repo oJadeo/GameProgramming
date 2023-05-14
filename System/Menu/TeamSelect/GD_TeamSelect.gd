@@ -10,7 +10,7 @@ func _ready():
 	var btm_l = $ReferenceBtmGrid.position
 	var btm_r = $ReferenceBtmGrid.position + Vector2($ReferenceBtmGrid.size.x,0)
 	var v_grid = 5
-	var h_grid = 10
+	var h_grid = 9
 	draw_data = $Util.calculateGrid(top_l,top_r,btm_l,btm_r,h_grid,v_grid)
 	set_text()
 	checkStartCondition()
