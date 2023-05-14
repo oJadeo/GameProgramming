@@ -526,10 +526,6 @@ offset_right = 1069.0
 offset_bottom = -46.0
 
 [node name="Skills" parent="CanvasLayer" instance=ExtResource("10_c3y0o")]
-offset_left = 1520.0
-offset_top = 576.0
-offset_right = 1920.0
-offset_bottom = 704.0
 
 [node name="Tooltips" parent="CanvasLayer" instance=ExtResource("11_he6wu")]
 
