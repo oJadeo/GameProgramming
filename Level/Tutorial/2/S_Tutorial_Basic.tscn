@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxvie5wawo1ow"]
+[gd_scene load_steps=12 format=3 uid="uid://cxvie5wawo1ow"]
 
 [ext_resource type="Script" path="res://Level/Tutorial/2/GD_Tutorial_basic.gd" id="1_3f1is"]
+[ext_resource type="PackedScene" uid="uid://l2gbp32bgfl" path="res://Level/Tutorial/S_tutorial_popup.tscn" id="2_morxn"]
 [ext_resource type="Script" path="res://Level/GD_Sprite_Board.gd" id="2_q1jyr"]
 [ext_resource type="PackedScene" uid="uid://m4cr7ou4tlfn" path="res://Tile/S_Tile.tscn" id="3_r1ruu"]
 [ext_resource type="Texture2D" uid="uid://d0ncn5pkbn1bn" path="res://Assets/test_bg_2.png" id="4_htn5r"]
@@ -31,6 +32,22 @@ _data = {
 
 [node name="S_Tutorial_Basic" type="Node2D"]
 script = ExtResource("1_3f1is")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_morxn")]
+visible = false
+title = "Punch"
+description = "    Character can use basic attack to deal damage to the enemy. 
+
+     character with punch as their basic attack can attack target horizontally or diagonally.
+
+    Play can read skill description in the bottom right of the screen when hover mouse over skill button."
+
+[node name="CanvasLayer2" parent="." instance=ExtResource("2_morxn")]
+visible = false
+title = "Shuriken"
+description = "    character with shuriken as their basic attack can attack target horizontally within 3 space. This attack can go through other target.
+
+    Character can move before attack."
 
 [node name="Board" type="Node2D" parent="."]
 position = Vector2(120, 350)
@@ -63,10 +80,22 @@ stat_json = null
 start_speed = 20
 start_cood = Vector2(2, 2)
 
+[node name="S_Punch" parent="S_tutorial_turn_manager/PlayerManager/Characters/S_PC_basic_tutorial/SkillsList" index="1"]
+skill_name = "Punch"
+skill_description = "Attack target horizontally or diagonally, range 1
+DAMAGE: ATK * 1"
+
 [node name="S_PC3" parent="S_tutorial_turn_manager/PlayerManager/Characters" index="1" instance=ExtResource("8_24ooa")]
 start_cood = Vector2(0, 3)
 
+[node name="S_Shuriken" parent="S_tutorial_turn_manager/PlayerManager/Characters/S_PC3/SkillsList" index="1"]
+skill_name = "Shuriken"
+skill_description = "Attacks target horizontally, range 3
+DAMAGE: ATK * 1 "
+
+[connection signal="start_turn" from="S_tutorial_turn_manager" to="." method="_on_s_tutorial_turn_manager_start_turn"]
 [connection signal="finish_tutorial" from="S_tutorial_turn_manager/PlayerManager/Characters/S_PC3/SkillsList/S_Shuriken" to="." method="_on_s_shuriken_finish_tutorial"]
 
 [editable path="S_tutorial_turn_manager"]
+[editable path="S_tutorial_turn_manager/PlayerManager/Characters/S_PC_basic_tutorial"]
 [editable path="S_tutorial_turn_manager/PlayerManager/Characters/S_PC3"]

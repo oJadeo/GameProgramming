@@ -1,6 +1,5 @@
 extends Node
 
-@export var level:int
 @onready var enemy_list_node = $"../EnemyManager/Characters"
 @export var enemy_data_json:JSON
 @export var EM1:Resource
@@ -24,7 +23,7 @@ func _ready():
 	enemy_scene["BOSS1"] = BOSS1
 	enemy_scene["BOSS2"] = BOSS2
 	
-	select_level(level)
+	select_level(PlayerVar.selectedLevel)
 
 func select_level(lv:int):
 	var all_level_data = enemy_data_json.get_data()

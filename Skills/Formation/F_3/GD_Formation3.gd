@@ -55,7 +55,7 @@ func update(delta:float) -> void:
 	pass
 
 func deselect() -> void:
-	pass
+	Board.reset_all_tile()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
