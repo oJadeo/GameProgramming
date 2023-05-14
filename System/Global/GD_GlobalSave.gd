@@ -44,11 +44,11 @@ func get_unlock_charm():
 	
 	
 func unlock_charm(charm:String) -> void:
-	if save.charm[charm]:
+	if save.unlockedCharms[charm]:
 		return
 		
 	emit_signal("charm_unlocked",charm)
-	save.charm[charm] = true
+	save.unlockedCharms[charm] = true
 	save.write_savegame()
 	
 

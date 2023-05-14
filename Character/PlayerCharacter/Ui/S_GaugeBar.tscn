@@ -58,5 +58,10 @@ show_percentage = false
 position = Vector2(20.25, 40.25)
 shape = SubResource("RectangleShape2D_eacfl")
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
