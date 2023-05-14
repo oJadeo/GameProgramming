@@ -10,7 +10,7 @@ func _ready():
 	var btm_l = $ReferenceBtmGrid.position
 	var btm_r = $ReferenceBtmGrid.position + Vector2($ReferenceBtmGrid.size.x,0)
 	var v_grid = 5
-	var h_grid = 10
+	var h_grid = 9
 	draw_data = $Util.calculateGrid(top_l,top_r,btm_l,btm_r,h_grid,v_grid)
 	set_text()
 	checkStartCondition()
@@ -30,7 +30,7 @@ func draw_enemy():
 		else:
 			enemyPic.set_texture( load("res://System/Menu/TeamSelect/enemy.png"))
 			scale = 2
-		enemyPic.set_position(draw_data[1][enemy_cood.y][enemy_cood.x]-offset*scale)
+		enemyPic.set_position(draw_data[1][4-enemy_cood.y][enemy_cood.x]-offset*scale)
 		enemyPic.scale = Vector2(scale,scale)
 		add_child(enemyPic)
 		
@@ -45,7 +45,7 @@ func draw_player():
 			char_pos.set_character(PlayerVar.charDataList[i].char_id)
 		else:
 			char_pos.set_text(i)
-		char_pos.set_position(draw_data[1][p_cood.y][p_cood.x])
+		char_pos.set_position(draw_data[1][4-p_cood.y][p_cood.x])
 		$PlayerPos.add_child(char_pos)
 	
 func checkStartCondition():
