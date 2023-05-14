@@ -1,8 +1,11 @@
 extends Control
 
+func _ready():
+	if len(GlobalSave.get_unlock_level()) == 0 or GlobalSave.get_unlock_level()[-1] == 1:
+		$Continue.text = "New Game"
+
 func _on_quit_pressed():
 	get_tree().quit()
-
 
 func _on_level_select_pressed():
 	get_tree().change_scene_to_file("res://System/Menu/LevelSelect/GD_LevelSelect.tscn")
