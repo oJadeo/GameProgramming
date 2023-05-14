@@ -6,6 +6,7 @@ var target:Character
 var spawn_shuriken = null
 @onready var shuriken_spawn_point = $ShurikenSpawnLocation
 @onready var shuriken_timer = $ShurikenTimer
+@onready var audioPlayer = $AudioStreamPlayer
 var velocity = Vector2.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,7 +27,9 @@ func select_target(cood:Vector2) -> void:
 	player.direction = Vector2(cood.x - player.board_cood.x,0).normalized()
 	
 	Board.reset_all_tile()
-	player.play_animaiton("Shuriken") 
+	player.play_animaiton("Shuriken")
+	audioPlayer.play()
+	audioPlayer.seek(1.1)
 	player.move_timer.set_wait_time(0.5)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)
 	player.move_timer.start()
@@ -60,8 +63,10 @@ func trigger() -> void:
 	spawn_shuriken = shuriken.instantiate()
 	add_child(spawn_shuriken)
 	spawn_shuriken.set_position(shuriken_spawn_point.get_position())
+	
 
 
 func _on_shuriken_timer_timeout() -> void:
 	target.damaged(player.stat.atk*1.5,player.direction)
 	spawn_shuriken.queue_free()
+	audioPlayer.stop()

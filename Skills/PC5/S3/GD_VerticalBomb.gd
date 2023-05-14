@@ -4,7 +4,7 @@ extends BaseSkills
 @export var bomb:Resource
 var spawn_bomb = null
 var target
-
+@onready var audioPlayer = $AudioStreamPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -21,6 +21,7 @@ func select_target(cood:Vector2) -> void:
 	target = Board.get_character(cood)
 	
 	Board.reset_all_tile()
+	audioPlayer.play()
 	player.play_animaiton("VerticalBomb") 
 	player.move_timer.set_wait_time(1)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)

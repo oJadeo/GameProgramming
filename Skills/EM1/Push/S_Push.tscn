@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://u13gtmnuq5yy"]
+[gd_scene load_steps=3 format=3 uid="uid://u13gtmnuq5yy"]
 
 [ext_resource type="Script" path="res://Skills/EM1/Push/GD_Push.gd" id="1_jg5ka"]
+[ext_resource type="AudioStream" uid="uid://dqkv8hka6llcb" path="res://Audio/Character/EM1/EM1_S1.mp3" id="2_5asyd"]
 
 [node name="S_Push" type="Node2D"]
 script = ExtResource("1_jg5ka")
@@ -10,3 +11,7 @@ max_cooldown = 2
 [node name="PushTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5asyd")
+volume_db = -15.0

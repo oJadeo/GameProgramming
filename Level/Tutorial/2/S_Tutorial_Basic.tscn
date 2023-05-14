@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://cxvie5wawo1ow"]
+
+[ext_resource type="Script" path="res://Level/Tutorial/2/GD_Tutorial_basic.gd" id="1_3f1is"]
+[ext_resource type="Script" path="res://Level/GD_Sprite_Board.gd" id="2_q1jyr"]
+[ext_resource type="PackedScene" uid="uid://m4cr7ou4tlfn" path="res://Tile/S_Tile.tscn" id="3_r1ruu"]
+[ext_resource type="Texture2D" uid="uid://d0ncn5pkbn1bn" path="res://Assets/test_bg_2.png" id="4_htn5r"]
+[ext_resource type="PackedScene" uid="uid://c8ee50y5d7voi" path="res://Level/Tutorial/S_TutorialTurnManager.tscn" id="5_v4mqu"]
+[ext_resource type="PackedScene" uid="uid://djxm5bktnxj2d" path="res://Level/Tutorial/2/EM_Tutorial/S_EM1_AI.tscn" id="6_dck4l"]
+[ext_resource type="PackedScene" uid="uid://bm8nn8v6p5v61" path="res://Level/Tutorial/2/PC_tutorial/S_PC_tutorial.tscn" id="6_vsvn8"]
+[ext_resource type="PackedScene" uid="uid://cff1yqjplc1rm" path="res://Level/Tutorial/2/PC3_Tutorial/ST_PC3.tscn" id="8_24ooa"]
+
+[sub_resource type="Animation" id="Animation_mxlh2"]
+resource_name = "Opening"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Board")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3gdfo"]
+_data = {
+"Opening": SubResource("Animation_mxlh2")
+}
+
+[node name="S_Tutorial_Basic" type="Node2D"]
+script = ExtResource("1_3f1is")
+
+[node name="Board" type="Node2D" parent="."]
+position = Vector2(120, 350)
+script = ExtResource("2_q1jyr")
+tile = ExtResource("3_r1ruu")
+tile_size = Vector2(187.2, 96)
+x_offset = 33
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_htn5r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Opening"
+libraries = {
+"": SubResource("AnimationLibrary_3gdfo")
+}
+
+[node name="S_tutorial_turn_manager" parent="." instance=ExtResource("5_v4mqu")]
+
+[node name="S_EM1_AI" parent="S_tutorial_turn_manager/EnemyManager/Characters" index="0" instance=ExtResource("6_dck4l")]
+start_speed = 1
+start_direction = Vector2(-1, 0)
+start_cood = Vector2(3, 2)
+
+[node name="S_PC_basic_tutorial" parent="S_tutorial_turn_manager/PlayerManager/Characters" index="0" instance=ExtResource("6_vsvn8")]
+stat_json = null
+start_speed = 20
+start_cood = Vector2(2, 2)
+
+[node name="S_PC3" parent="S_tutorial_turn_manager/PlayerManager/Characters" index="1" instance=ExtResource("8_24ooa")]
+start_cood = Vector2(0, 3)
+
+[connection signal="finish_tutorial" from="S_tutorial_turn_manager/PlayerManager/Characters/S_PC3/SkillsList/S_Shuriken" to="." method="_on_s_shuriken_finish_tutorial"]
+
+[editable path="S_tutorial_turn_manager"]
+[editable path="S_tutorial_turn_manager/PlayerManager/Characters/S_PC3"]

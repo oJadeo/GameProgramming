@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://mikbcnflpeb0"]
+[gd_scene load_steps=3 format=3 uid="uid://mikbcnflpeb0"]
 
 [ext_resource type="Script" path="res://Skills/Boss2/Thunder/GD_Thunder.gd" id="1_cn8ss"]
+[ext_resource type="AudioStream" uid="uid://cxedehar0ew6m" path="res://Audio/Character/Boss2/Boss2_S2.mp3" id="2_1kwlh"]
 
 [node name="S_Thunder" type="Node2D"]
 script = ExtResource("1_cn8ss")
@@ -13,6 +14,10 @@ one_shot = true
 [node name="Hurt_Timer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_1kwlh")
+volume_db = -15.0
 
 [connection signal="timeout" from="ThunderTimer" to="." method="_on_thunder_timer_timeout"]
 [connection signal="timeout" from="Hurt_Timer" to="." method="_on_hurt_timer_timeout"]

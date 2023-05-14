@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://csoi80d61uckw"]
+[gd_scene load_steps=4 format=3 uid="uid://csoi80d61uckw"]
 
 [ext_resource type="Script" path="res://Skills/EM4/ShurikenBomb/GD_ThrowBombShuriken.gd" id="1_ylp1w"]
 [ext_resource type="PackedScene" uid="uid://v25sgver75u3" path="res://Skills/EM4/ShurikenBomb/S_ShurikenBomb.tscn" id="2_g5dic"]
+[ext_resource type="AudioStream" uid="uid://d0mpqy507ce0" path="res://Audio/Character/EM4/EM4_S1.mp3" id="3_l4jig"]
 
 [node name="S_BombShuriken" type="Node2D"]
 script = ExtResource("1_ylp1w")
@@ -15,5 +16,9 @@ one_shot = true
 
 [node name="ShurikenSpawnLocation" type="Node2D" parent="."]
 position = Vector2(20, -20)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_l4jig")
+volume_db = -10.0
 
 [connection signal="timeout" from="ShurikenTimer" to="." method="_on_shuriken_timer_timeout"]

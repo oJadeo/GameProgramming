@@ -1,0 +1,24 @@
+basic sound effect
+- walk
+- punch
+- shuriken [On baseskills]
+- cast
+
+PC1 - 
+PC2 - walk melee S1 S2 S3 hurt
+PC3 - walk S1 S2 S3 hurt
+PC4 - walk basic S1 S2 S3 hurt
+PC5 - walk basic S1 S2 S3 hurt
+PC6 - walk basic S1 S2 S3 hurt 
+
+EM1 - walk basic S1 hurt 
+EM2 - walk basic S1 hurt 
+EM3 - walk basic S1 hurt 
+EM4 - walk basic S1 hurt 
+Boss1 - walk basic S1 S2 hurt 
+Boss2 - walk basic S1 S2 hurt 
+
+F1 - cast
+F2 - shuriken
+F3 - shuriken
+F4 - cast

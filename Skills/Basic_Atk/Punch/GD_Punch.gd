@@ -1,5 +1,7 @@
 extends BaseSkills
 
+signal finish_tutorial
+
 var target:Character
 
 # Called when the node enters the scene tree for the first time.
@@ -37,6 +39,7 @@ func update(delta:float) -> void:
 func finish_skill() -> void:
 	super()
 	player.end_turn()
+	emit_signal("finish_tutorial")
 	
 func deselect() -> void:
 	Board.reset_all_tile()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm4sc7b4o17gl"]
+[gd_scene load_steps=4 format=3 uid="uid://dm4sc7b4o17gl"]
 
 [ext_resource type="Script" path="res://Skills/PC1/S1/GD_GaugePunch.gd" id="1_4w6k2"]
 [ext_resource type="Texture2D" uid="uid://dtcbwfaonep82" path="res://Assets/Skills/PC1_Naruto/SP_PC1_S1.png" id="2_kyx0b"]
+[ext_resource type="AudioStream" uid="uid://bm2t7ye465mt6" path="res://Audio/Character/PC1/PC1_S1.mp3" id="3_d80i1"]
 
 [node name="S_GaugePunch" type="Node2D"]
 script = ExtResource("1_4w6k2")
@@ -10,3 +11,7 @@ skill_description = "Attacks target horizontally, range 1. Target's turn gauge i
 DAMAGE: ATK * 1"
 max_cooldown = 3
 skill_spritesheet = ExtResource("2_kyx0b")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_d80i1")
+volume_db = -7.5

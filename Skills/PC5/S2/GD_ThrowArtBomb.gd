@@ -6,7 +6,7 @@ var spawn_bomb = null
 @onready var bomb_timer = $ArtBombTimer
 var velocity = Vector2.ZERO
 var target_list:Array = []
-
+@onready var audioPlayer = $AudioStreamPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -31,6 +31,8 @@ func select_target(cood:Vector2) -> void:
 	player.direction = Vector2(cood.x - player.board_cood.x,0).normalized()
 	
 	Board.reset_all_tile()
+	audioPlayer.seek(1.25)
+	audioPlayer.play()
 	player.play_animaiton("Cast") 
 	player.move_timer.set_wait_time(2)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)
