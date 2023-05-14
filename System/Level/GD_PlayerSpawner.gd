@@ -1,6 +1,5 @@
 extends Node
 
-@export var level:int
 @onready var player_list_node = $"../PlayerManager/Characters"
 @export var player_data_json:JSON
 @export var PC1:Resource
@@ -26,7 +25,7 @@ func _ready():
 		"PC5":PC5,
 		"PC6":PC6
 	}
-	select_level(level)
+	select_level(PlayerVar.selectedLevel)
 
 func select_level(lv:int):
 	var all_level_data = player_data_json.get_data()

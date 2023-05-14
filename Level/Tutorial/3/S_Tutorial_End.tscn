@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://f2vj5xjta7n4"]
+[gd_scene load_steps=10 format=3 uid="uid://f2vj5xjta7n4"]
 
 [ext_resource type="Script" path="res://Level/Tutorial/3/GD_Tutorial_End.gd" id="1_uky6a"]
 [ext_resource type="Script" path="res://Level/GD_Sprite_Board.gd" id="2_mdu8b"]
+[ext_resource type="PackedScene" uid="uid://l2gbp32bgfl" path="res://Level/Tutorial/S_tutorial_popup.tscn" id="2_q6yox"]
 [ext_resource type="PackedScene" uid="uid://m4cr7ou4tlfn" path="res://Tile/S_Tile.tscn" id="3_kuvcy"]
 [ext_resource type="Texture2D" uid="uid://d0ncn5pkbn1bn" path="res://Assets/test_bg_2.png" id="4_84tp4"]
 [ext_resource type="PackedScene" uid="uid://c8ee50y5d7voi" path="res://Level/Tutorial/S_TutorialTurnManager.tscn" id="5_md2uy"]
@@ -30,6 +31,11 @@ _data = {
 [node name="S_Test_Level" type="Node2D"]
 script = ExtResource("1_uky6a")
 
+[node name="CanvasLayer" parent="." instance=ExtResource("2_q6yox")]
+visible = false
+title = "End Turn"
+description = "    Player can not end turn without doing anything. But can end turn after move. The move button will change to end turn button after character move."
+
 [node name="Board" type="Node2D" parent="."]
 position = Vector2(120, 350)
 script = ExtResource("2_mdu8b")
@@ -54,6 +60,11 @@ libraries = {
 [node name="S_PC2" parent="S_tutorial_move_turn_manager/PlayerManager/Characters" index="0" instance=ExtResource("6_mljgt")]
 start_cood = Vector2(2, 2)
 
+[node name="Skills" parent="S_tutorial_move_turn_manager/PlayerManager/Characters/S_PC2/CanvasLayer" index="2"]
+visible = false
+
 [connection signal="finish_tutorial" from="S_tutorial_move_turn_manager" to="." method="_on_s_tutorial_move_turn_manager_finish_tutorial"]
+[connection signal="start_turn" from="S_tutorial_move_turn_manager" to="." method="_on_s_tutorial_move_turn_manager_start_turn"]
 
 [editable path="S_tutorial_move_turn_manager"]
+[editable path="S_tutorial_move_turn_manager/PlayerManager/Characters/S_PC2"]
