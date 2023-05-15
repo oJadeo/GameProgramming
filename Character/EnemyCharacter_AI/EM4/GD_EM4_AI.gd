@@ -42,7 +42,7 @@ func check_walk():
 	
 	var skill_tile = [Vector2(1,0),Vector2(2,0),Vector2(3,0),Vector2(4,0),Vector2(-1,0),Vector2(-2,0),Vector2(-3,0),Vector2(-4,0)]
 	var aoe = [Vector2(0,0),Vector2(0,-1),Vector2(0,1),Vector2(-1,0),Vector2(1,0)]
-	
+
 	if skill_list[2].cooldown == 0:
 		var simulateSkill = []
 		var playerHit
@@ -75,15 +75,18 @@ func check_walk():
 					if center + splash == movable_cood:
 						enemyHit += 1
 				simulateSkill.append([movable_cood,center,playerHit,enemyHit])
-		var max_score = 1
+				
+		var max_score = -1
 		for i in simulateSkill:
-			var score = i[2] - i[3] * 0.4
+			if i[2] < 2:
+				continue
+			var score = i[2] - i[3]
 			if score > max_score:
 				target_cood = i[1]
 				move_to_cood = i[0]
 				skill_select = 2
 				max_score = score
-		if max_score > 1:
+		if max_score > -1:
 			return			
 			
 	for player in Board.player_list:
@@ -125,7 +128,7 @@ func check_walk():
 					target_cood = player_cood
 					skill_select = 1
 					return
-					
+		
 	var min_dist = 999
 	for movable_cood in movable_coods:
 		for player in Board.player_list:
