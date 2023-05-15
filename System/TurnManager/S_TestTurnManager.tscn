@@ -58,14 +58,14 @@ script = ExtResource("5_nehn5")
 y_sort_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="PlayerManager"]
-visible = false
 
 [node name="FormationButtons" type="HBoxContainer" parent="PlayerManager/CanvasLayer"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -254.0
-offset_bottom = 40.0
+offset_left = -544.0
+offset_right = -20.0
+offset_bottom = 128.0
 grow_horizontal = 0
 theme = SubResource("Theme_44u5n")
 alignment = 2
