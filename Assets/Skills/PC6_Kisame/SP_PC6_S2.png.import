@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6dsb75a6uu7k"
-path="res://.godot/imported/F_4.png-39cefc220661f90a9edda94f4311340b.ctex"
+uid="uid://tibe2ycqcv3a"
+path="res://.godot/imported/SP_PC6_S2.png-37b9a3588aa101cfc6a26edacfdd6d03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Skills/formation/raw/F_4.png"
-dest_files=["res://.godot/imported/F_4.png-39cefc220661f90a9edda94f4311340b.ctex"]
+source_file="res://Assets/Skills/PC6_Kisame/SP_PC6_S2.png"
+dest_files=["res://.godot/imported/SP_PC6_S2.png-37b9a3588aa101cfc6a26edacfdd6d03.ctex"]
 
 [params]
 
