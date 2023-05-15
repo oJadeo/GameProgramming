@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://bykkq2s0xsjm7"]
+
+[ext_resource type="Script" path="res://Level/Tutorial/5/GD_Tutorial_Skill.gd" id="1_lg7hh"]
+[ext_resource type="Script" path="res://Level/GD_Sprite_Board.gd" id="2_g2r2p"]
+[ext_resource type="PackedScene" uid="uid://l2gbp32bgfl" path="res://Level/Tutorial/S_tutorial_popup.tscn" id="2_gik4j"]
+[ext_resource type="PackedScene" uid="uid://m4cr7ou4tlfn" path="res://Tile/S_Tile.tscn" id="3_lmcjo"]
+[ext_resource type="Texture2D" uid="uid://d0ncn5pkbn1bn" path="res://Assets/test_bg_2.png" id="4_hhp1d"]
+[ext_resource type="PackedScene" uid="uid://c8ee50y5d7voi" path="res://Level/Tutorial/S_TutorialTurnManager.tscn" id="5_hpurp"]
+[ext_resource type="PackedScene" uid="uid://casuhb57lyt2p" path="res://Level/Tutorial/5/PC2_tutorial/ST_PC2.tscn" id="6_00k8g"]
+
+[sub_resource type="Animation" id="Animation_mxlh2"]
+resource_name = "Opening"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Board")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3gdfo"]
+_data = {
+"Opening": SubResource("Animation_mxlh2")
+}
+
+[node name="S_Test_Level" type="Node2D"]
+script = ExtResource("1_lg7hh")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_gik4j")]
+title = "Skill"
+
+[node name="Board" type="Node2D" parent="."]
+position = Vector2(120, 350)
+script = ExtResource("2_g2r2p")
+tile = ExtResource("3_lmcjo")
+tile_size = Vector2(187.2, 96)
+x_offset = 33
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_hhp1d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Opening"
+libraries = {
+"": SubResource("AnimationLibrary_3gdfo")
+}
+
+[node name="S_tutorial_move_turn_manager" parent="." instance=ExtResource("5_hpurp")]
+
+[node name="S_PC2" parent="S_tutorial_move_turn_manager/PlayerManager/Characters" index="0" instance=ExtResource("6_00k8g")]
+start_cood = Vector2(2, 2)
+
+[connection signal="finish_tutorial" from="S_tutorial_move_turn_manager" to="." method="_on_s_tutorial_move_turn_manager_finish_tutorial"]
+
+[editable path="S_tutorial_move_turn_manager"]

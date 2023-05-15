@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://b6kj6tp2awgih"]
+
+[ext_resource type="Script" path="res://Level/Tutorial/1/GD_Tutorial_move.gd" id="1_hkra6"]
+[ext_resource type="PackedScene" uid="uid://l2gbp32bgfl" path="res://Level/Tutorial/S_tutorial_popup.tscn" id="2_d4rau"]
+[ext_resource type="Script" path="res://Level/GD_Sprite_Board.gd" id="2_lp6j2"]
+[ext_resource type="PackedScene" uid="uid://m4cr7ou4tlfn" path="res://Tile/S_Tile.tscn" id="3_468gi"]
+[ext_resource type="Texture2D" uid="uid://d0ncn5pkbn1bn" path="res://Assets/test_bg_2.png" id="4_lfapi"]
+[ext_resource type="PackedScene" uid="uid://c8ee50y5d7voi" path="res://Level/Tutorial/S_TutorialTurnManager.tscn" id="5_vrvf7"]
+[ext_resource type="PackedScene" uid="uid://dbggkmw510u1p" path="res://Level/Tutorial/1/PC_tutorial/S_PC_tutorial.tscn" id="6_jha0w"]
+
+[sub_resource type="Animation" id="Animation_mxlh2"]
+resource_name = "Opening"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Board")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3gdfo"]
+_data = {
+"Opening": SubResource("Animation_mxlh2")
+}
+
+[node name="S_Test_Level" type="Node2D"]
+script = ExtResource("1_hkra6")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_d4rau")]
+visible = false
+title = "Move"
+description = "   All Character can move up to 2 space Then turn will automaticly end if there are no action avaiable left.
+
+   After press the move button on the right side of the screen all avaible space will be highlighted. Click to move to that space."
+
+[node name="Board" type="Node2D" parent="."]
+position = Vector2(120, 350)
+script = ExtResource("2_lp6j2")
+tile = ExtResource("3_468gi")
+tile_size = Vector2(187.2, 96)
+x_offset = 33
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_lfapi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Opening"
+libraries = {
+"": SubResource("AnimationLibrary_3gdfo")
+}
+
+[node name="S_tutorial_move_turn_manager" parent="." instance=ExtResource("5_vrvf7")]
+
+[node name="S_PC_move_tutorial" parent="S_tutorial_move_turn_manager/PlayerManager/Characters" index="0" instance=ExtResource("6_jha0w")]
+start_cood = Vector2(2, 2)
+
+[connection signal="start_turn" from="S_tutorial_move_turn_manager" to="." method="_on_s_tutorial_move_turn_manager_start_turn"]
+[connection signal="finish_tutorial" from="S_tutorial_move_turn_manager/PlayerManager/Characters/S_PC_move_tutorial/SkillsList/S_MoveTutorial" to="." method="_on_s_move_tutorial_finish_tutorial"]
+
+[editable path="S_tutorial_move_turn_manager"]
+[editable path="S_tutorial_move_turn_manager/PlayerManager/Characters/S_PC_move_tutorial"]

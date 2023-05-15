@@ -1,10 +1,10 @@
 extends BaseSkills
 
 var target:Character
-
+@onready var audioPlayer = $AudioStreamPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 func select() -> void:
 	var cood_list = [player.board_cood+Vector2(1,0),player.board_cood+Vector2(-1,0)]
@@ -14,9 +14,9 @@ func select_target(cood:Vector2) -> void:
 	super(cood)
 	target = Board.get_character(cood)
 	player.direction = Vector2(cood.x - player.board_cood.x,0)
-	
 	Board.reset_all_tile()
 	player.play_animaiton("GaugePunch") 
+	audioPlayer.play()
 	player.move_timer.set_wait_time(0.625)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)
 	player.move_timer.start()

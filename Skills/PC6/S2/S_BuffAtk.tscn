@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5oljp8bfqx43"]
+[gd_scene load_steps=3 format=3 uid="uid://c5oljp8bfqx43"]
 
 [ext_resource type="Script" path="res://Skills/PC6/S2/GD_BuffAtk.gd" id="1_35q8j"]
+[ext_resource type="AudioStream" uid="uid://ch8dan6texxt" path="res://Audio/Character/PC6/PC6_S2.mp3" id="2_0ny0u"]
 
 [node name="S_BuffAtk" type="Node2D"]
 script = ExtResource("1_35q8j")
@@ -10,3 +11,7 @@ buff_duration = 2
 skill_name = "IKEA Shark"
 skill_description = "Increases self ATK +2 for 2 turns"
 max_cooldown = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0ny0u")
+volume_db = -10.0

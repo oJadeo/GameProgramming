@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://numle83ju3vg"]
 
 [ext_resource type="Script" path="res://Skills/PC3/S1/GD_BigShuriken.gd" id="1_ce1tx"]
 [ext_resource type="Texture2D" uid="uid://dk6anbxdfum02" path="res://Character/PlayerCharacter/PC3/BigShuriken.png" id="1_uw8ml"]

@@ -1,6 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://bard51nhitw36"]
+[gd_scene load_steps=7 format=3 uid="uid://bard51nhitw36"]
 
 [ext_resource type="Script" path="res://System/Menu/LevelSelect/GD_LevelSelect.gd" id="1_nhi3v"]
+[ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="2_w2nco"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsrvy"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fenw"]
+bg_color = Color(0.709804, 0.709804, 0.709804, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.196078, 0.196078, 0.196078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhwxn"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogew6"]
+bg_color = Color(0.709804, 0.709804, 0.709804, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.196078, 0.196078, 0.196078, 1)
 
 [node name="Levels" type="Control"]
 layout_mode = 3
@@ -11,52 +44,138 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nhi3v")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 870.0
-offset_top = 25.0
-offset_right = 1150.0
-offset_bottom = 222.0
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.87451, 0.87451, 0.87451, 1)
 
-[node name="HBoxContainer1" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
+[node name="LevelButton" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="11" type="Button" parent="VBoxContainer/HBoxContainer1"]
-layout_mode = 2
+[node name="1" type="Button" parent="LevelButton"]
+offset_left = 1291.0
+offset_top = 233.0
+offset_right = 1734.0
+offset_bottom = 313.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_w2nco")
 theme_override_font_sizes/font_size = 40
-text = "1-1"
+theme_override_styles/normal = SubResource("StyleBoxFlat_nsrvy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3fenw")
+text = "Level 1"
 
-[node name="12" type="Button" parent="VBoxContainer/HBoxContainer1"]
-layout_mode = 2
+[node name="2" type="Button" parent="LevelButton"]
+offset_left = 1291.0
+offset_top = 331.0
+offset_right = 1734.0
+offset_bottom = 411.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_w2nco")
 theme_override_font_sizes/font_size = 40
-text = "1-2"
+theme_override_styles/normal = SubResource("StyleBoxFlat_nsrvy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3fenw")
+text = "Level 2"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="21" type="Button" parent="VBoxContainer/HBoxContainer2"]
-layout_mode = 2
+[node name="3" type="Button" parent="LevelButton"]
+offset_left = 1291.0
+offset_top = 429.0
+offset_right = 1734.0
+offset_bottom = 509.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_w2nco")
 theme_override_font_sizes/font_size = 40
-text = "2-1"
+theme_override_styles/normal = SubResource("StyleBoxFlat_nsrvy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3fenw")
+text = "Level 3"
 
-[node name="22" type="Button" parent="VBoxContainer/HBoxContainer2"]
-layout_mode = 2
+[node name="4" type="Button" parent="LevelButton"]
+offset_left = 1291.0
+offset_top = 527.0
+offset_right = 1734.0
+offset_bottom = 607.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_w2nco")
 theme_override_font_sizes/font_size = 40
-text = "2-2"
+theme_override_styles/normal = SubResource("StyleBoxFlat_nsrvy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3fenw")
+text = "Level 4"
 
-[node name="23" type="Button" parent="VBoxContainer/HBoxContainer2"]
-layout_mode = 2
+[node name="5" type="Button" parent="LevelButton"]
+offset_left = 1291.0
+offset_top = 625.0
+offset_right = 1734.0
+offset_bottom = 705.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_w2nco")
 theme_override_font_sizes/font_size = 40
-text = "2-3"
+theme_override_styles/normal = SubResource("StyleBoxFlat_nsrvy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3fenw")
+text = "Level 5"
 
-[node name="24" type="Button" parent="VBoxContainer/HBoxContainer2"]
-layout_mode = 2
+[node name="6" type="Button" parent="LevelButton"]
+offset_left = 1291.0
+offset_top = 723.0
+offset_right = 1734.0
+offset_bottom = 803.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_w2nco")
 theme_override_font_sizes/font_size = 40
-text = "2-4"
+theme_override_styles/normal = SubResource("StyleBoxFlat_nsrvy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3fenw")
+text = "Level 6"
 
-[node name="Back" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
+[node name="Back" type="Button" parent="."]
+offset_left = 1512.0
+offset_top = 972.0
+offset_right = 1729.0
+offset_bottom = 1052.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_w2nco")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_yhwxn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ogew6")
 text = "Back"
 
-[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1159.0
+offset_top = 129.0
+offset_right = 1734.0
+offset_bottom = 196.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_w2nco")
+theme_override_font_sizes/font_size = 60
+text = "Select the Level"
+horizontal_alignment = 2
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

@@ -3,6 +3,7 @@ extends BaseSkills
 var target:Character
 var push_velocity:Vector2 = Vector2.ZERO
 @onready var push_timer = $PushTimer
+@onready var audioPlayer = $AudioStreamPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -22,6 +23,7 @@ func select_target(cood:Vector2) -> void:
 	else:
 		push_velocity = Vector2.ZERO
 	Board.reset_all_tile()
+	audioPlayer.play()
 	player.play_animaiton("Push") 
 	player.move_timer.set_wait_time(2.5)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)

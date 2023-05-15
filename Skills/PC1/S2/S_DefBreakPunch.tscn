@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://hcre8ptwhrn5"]
+[gd_scene load_steps=3 format=3 uid="uid://hcre8ptwhrn5"]
 
 [ext_resource type="Script" path="res://Skills/PC1/S2/GD_DefBreakPunch.gd" id="1_pbdns"]
+[ext_resource type="AudioStream" uid="uid://8n7vvrxub5i0" path="res://Audio/Character/PC1/PC1_S2.mp3" id="2_8ambb"]
 
 [node name="S_DefBreakPunch" type="Node2D"]
 script = ExtResource("1_pbdns")
@@ -8,3 +9,7 @@ skill_name = "Swing"
 skill_description = "Attacks targat horzizontally, range 1. Target's defense is halved.
 DAMAGE: ATK * 1"
 max_cooldown = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8ambb")
+volume_db = -5.0

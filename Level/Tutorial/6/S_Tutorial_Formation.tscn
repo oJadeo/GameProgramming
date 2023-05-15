@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://drrykm0uvgh3t"]
+
+[ext_resource type="Script" path="res://Level/Tutorial/6/GD_Tutorial_Formation.gd" id="1_cad6j"]
+[ext_resource type="Script" path="res://Level/GD_Sprite_Board.gd" id="2_3bx3o"]
+[ext_resource type="PackedScene" uid="uid://l2gbp32bgfl" path="res://Level/Tutorial/S_tutorial_popup.tscn" id="2_ut462"]
+[ext_resource type="PackedScene" uid="uid://m4cr7ou4tlfn" path="res://Tile/S_Tile.tscn" id="3_23r8o"]
+[ext_resource type="Texture2D" uid="uid://d0ncn5pkbn1bn" path="res://Assets/test_bg_2.png" id="4_023jk"]
+[ext_resource type="PackedScene" uid="uid://c8ee50y5d7voi" path="res://Level/Tutorial/S_TutorialTurnManager.tscn" id="5_3fpu1"]
+[ext_resource type="PackedScene" uid="uid://djxm5bktnxj2d" path="res://Level/Tutorial/2/EM_Tutorial/S_EM1_AI.tscn" id="6_q7lns"]
+[ext_resource type="PackedScene" uid="uid://0dfly7tn1w0j" path="res://Level/Tutorial/6/PC_tutorial/S_PC_tutorial.tscn" id="7_7grlu"]
+[ext_resource type="PackedScene" uid="uid://cfxxxnvkp4m12" path="res://Level/Tutorial/6/PC3_Tutorial/ST_PC3.tscn" id="8_u3csa"]
+[ext_resource type="PackedScene" uid="uid://b0vbaffjifs31" path="res://Level/Tutorial/6/PC2_tutorial/ST_PC2.tscn" id="9_bebbu"]
+
+[sub_resource type="Animation" id="Animation_mxlh2"]
+resource_name = "Opening"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Board")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3gdfo"]
+_data = {
+"Opening": SubResource("Animation_mxlh2")
+}
+
+[node name="S_Tutorial_Basic" type="Node2D"]
+script = ExtResource("1_cad6j")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_ut462")]
+visible = false
+title = "Formation"
+description = "     When the characters are in the position of the formation.The formation skill button will show up on the top right of the screens."
+
+[node name="Board" type="Node2D" parent="."]
+position = Vector2(120, 350)
+script = ExtResource("2_3bx3o")
+tile = ExtResource("3_23r8o")
+tile_size = Vector2(187.2, 96)
+x_offset = 33
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_023jk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Opening"
+libraries = {
+"": SubResource("AnimationLibrary_3gdfo")
+}
+
+[node name="S_tutorial_turn_manager" parent="." instance=ExtResource("5_3fpu1")]
+
+[node name="S_EM1_AI" parent="S_tutorial_turn_manager/EnemyManager/Characters" index="0" instance=ExtResource("6_q7lns")]
+start_speed = 1
+start_direction = Vector2(-1, 0)
+start_cood = Vector2(3, 2)
+
+[node name="S_PC_basic_tutorial" parent="S_tutorial_turn_manager/PlayerManager/Characters" index="0" instance=ExtResource("7_7grlu")]
+start_cood = Vector2(1, 2)
+
+[node name="S_PC3" parent="S_tutorial_turn_manager/PlayerManager/Characters" index="1" instance=ExtResource("8_u3csa")]
+start_cood = Vector2(2, 2)
+
+[node name="Skills" parent="S_tutorial_turn_manager/PlayerManager/Characters/S_PC3/CanvasLayer" index="2"]
+visible = false
+
+[node name="ControlButton" parent="S_tutorial_turn_manager/PlayerManager/Characters/S_PC3/CanvasLayer" index="4"]
+visible = false
+
+[node name="S_PC2" parent="S_tutorial_turn_manager/PlayerManager/Characters" index="2" instance=ExtResource("9_bebbu")]
+start_cood = Vector2(0, 2)
+
+[connection signal="start_turn" from="S_tutorial_turn_manager" to="." method="_on_s_tutorial_turn_manager_start_turn"]
+[connection signal="finish_tutorial" from="S_tutorial_turn_manager/PlayerManager/CanvasLayer/VBoxContainer/F_3/S_Formation3" to="." method="_on_s_formation_3_finish_tutorial"]
+
+[editable path="S_tutorial_turn_manager"]
+[editable path="S_tutorial_turn_manager/PlayerManager/Characters/S_PC3"]

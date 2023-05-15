@@ -185,7 +185,6 @@ gauge = ExtResource("13_1n2f6")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("13_kp5uk")
-level = 1
 enemy_data_json = ExtResource("14_dciaw")
 EM1 = ExtResource("15_6fe4u")
 EM2 = ExtResource("16_u1bhv")
@@ -199,7 +198,6 @@ one_shot = true
 
 [node name="PlayerSpawner" type="Node2D" parent="."]
 script = ExtResource("18_xd340")
-level = 1
 player_data_json = ExtResource("19_bwrv8")
 PC1 = ExtResource("20_swqkd")
 PC2 = ExtResource("21_0i0i6")

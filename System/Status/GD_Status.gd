@@ -27,7 +27,7 @@ var health: int = 0:
 			emit_signal('death')
 			return
 		health = new_value if new_value < max_health else max_health
-		emit_signal('health_updated',new_value)
+		emit_signal('health_updated',health)
 var max_health:int = 0:
 	set(new_value):
 		max_health = new_value

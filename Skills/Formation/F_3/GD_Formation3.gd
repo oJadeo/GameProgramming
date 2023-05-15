@@ -1,8 +1,12 @@
 extends BaseSkills
 
+signal finish_tutorial
+
 var amount:int  = 0
 var skill_direction:Vector2 = Vector2.ZERO
 var target
+@onready var audioPlayer = $AudioStreamPlayer
+
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -25,6 +29,7 @@ func select_target(cood:Vector2) -> void:
 	for i in range(amount):
 		var cha = Board.get_character(player.board_cood-i*skill_direction)
 		cha.play_animaiton("Shuriken") 
+	audioPlayer.play()
 	player.move_timer.set_wait_time(0.625)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)
 	player.move_timer.start()
@@ -46,13 +51,13 @@ func finish_skill() -> void:
 	for i in range(amount):
 		var cha = Board.get_character(player.board_cood-i*skill_direction)
 		cha.return_to_idle()
-		
+	emit_signal("finish_tutorial")
 
 func update(delta:float) -> void:
 	pass
 
 func deselect() -> void:
-	pass
+	Board.reset_all_tile()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

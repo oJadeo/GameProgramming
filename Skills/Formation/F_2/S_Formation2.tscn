@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctrtwbaekf8se"]
+[gd_scene load_steps=3 format=3 uid="uid://ctrtwbaekf8se"]
 
 [ext_resource type="Script" path="res://Skills/Formation/F_2/GD_Formation2.gd" id="1_m3rem"]
+[ext_resource type="AudioStream" uid="uid://crvh5b562pwqp" path="res://Audio/basic/melee.mp3" id="2_p4avk"]
 
 [node name="S_Formation2" type="Node2D"]
 script = ExtResource("1_m3rem")
@@ -11,3 +12,7 @@ DAMAGE: Sum of both characters' ATK * 1"
 [node name="StartDownTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_p4avk")
+volume_db = -7.0

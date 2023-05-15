@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhap8jxlgxb55"]
+[gd_scene load_steps=3 format=3 uid="uid://dhap8jxlgxb55"]
 
 [ext_resource type="Script" path="res://Skills/Boss2/Sweep/GD_Sweep.gd" id="1_46abd"]
+[ext_resource type="AudioStream" uid="uid://2xt5pjc0k0be" path="res://Audio/Character/Boss2/Boss2_S1.mp3" id="2_myk6q"]
 
 [node name="S_Sweep" type="Node2D"]
 script = ExtResource("1_46abd")
@@ -9,3 +10,7 @@ max_cooldown = 3
 [node name="SweepTimer" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_myk6q")
+volume_db = -15.0

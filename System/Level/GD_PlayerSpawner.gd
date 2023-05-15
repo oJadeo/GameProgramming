@@ -1,6 +1,5 @@
 extends Node
 
-@export var level:int
 @onready var player_list_node = $"../PlayerManager/Characters"
 @export var player_data_json:JSON
 @export var PC1:Resource
@@ -26,7 +25,7 @@ func _ready():
 		"PC5":PC5,
 		"PC6":PC6
 	}
-	select_level(level)
+	select_level(PlayerVar.selectedLevel)
 
 func select_level(lv:int):
 	var all_level_data = player_data_json.get_data()
@@ -39,7 +38,7 @@ func select_level(lv:int):
 		var player_instance = pc_dict[char_data["char_id"]].instantiate()
 		player_instance.start_cood = player_cood
 		player_instance.start_direction = Vector2(1,0)
-		if "charm" in char_data:
+		if char_data["charm"]:
 			player_instance.charm = char_data["charm"]
 		player_instance.level = GlobalSave.get_character_level(char_data["char_id"])
 		player_instance.equip_skill_list = char_data["skills"]

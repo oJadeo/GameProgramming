@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdnhadov1thg8"]
+[gd_scene load_steps=3 format=3 uid="uid://cdnhadov1thg8"]
 
 [ext_resource type="Script" path="res://Skills/EM2/Palm/GD_Palm.gd" id="1_d7ocf"]
+[ext_resource type="AudioStream" uid="uid://7eot4cijyilx" path="res://Audio/Character/EM2/EM2_S1.mp3" id="2_ex7kt"]
 
 [node name="S_Palm" type="Node2D"]
 script = ExtResource("1_d7ocf")
@@ -10,5 +11,9 @@ max_cooldown = 2
 [node name="PalmTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ex7kt")
+volume_db = -10.0
 
 [connection signal="timeout" from="PalmTimer" to="." method="_on_palm_timer_timeout"]

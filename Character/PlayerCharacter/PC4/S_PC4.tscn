@@ -1,19 +1,24 @@
-[gd_scene load_steps=36 format=3 uid="uid://b5m68l0i55v07"]
+[gd_scene load_steps=37 format=3 uid="uid://b5m68l0i55v07"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_f2nid"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC4/pc4_stat.json" id="2_g8iqq"]
 [ext_resource type="Texture2D" uid="uid://dsq0lde5prec3" path="res://Character/PlayerCharacter/PC4/PC4_itachi.png" id="3_cgo07"]
 [ext_resource type="JSON" path="res://System/Global/charm_list.json" id="3_wqx72"]
-[ext_resource type="PackedScene" path="res://Skills/PC4/S1/S_Pull.tscn" id="4_20xhw"]
+[ext_resource type="PackedScene" uid="uid://cjvvrlkqrf6bh" path="res://Skills/PC4/S1/S_Pull.tscn" id="4_20xhw"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="4_m000q"]
-[ext_resource type="PackedScene" path="res://Skills/PC4/S2/S_BuffDef.tscn" id="5_rgksl"]
+[ext_resource type="PackedScene" uid="uid://b2h7tttjeclw1" path="res://Skills/PC4/S2/S_BuffDef.tscn" id="5_rgksl"]
 [ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="5_uhw6a"]
-[ext_resource type="PackedScene" path="res://Skills/PC4/S3/S_Kick.tscn" id="6_i0ows"]
-[ext_resource type="FontFile" uid="uid://blglop12tuiv5" path="res://Assets/Font/BrunoAce-Regular.ttf" id="10_nownm"]
+[ext_resource type="PackedScene" uid="uid://f7luqmd1aan" path="res://Skills/PC4/S3/S_Kick.tscn" id="6_i0ows"]
+[ext_resource type="PackedScene" uid="uid://c0qyi6bvtkv28" path="res://Character/PlayerCharacter/Ui/S_Skills.tscn" id="10_cmamg"]
 [ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="11_vvqtl"]
 [ext_resource type="Texture2D" uid="uid://cchd6rflvj8r4" path="res://Character/PlayerCharacter/PC4/PC4.png" id="11_w3l5k"]
+[ext_resource type="PackedScene" uid="uid://8ba0frl04q03" path="res://Character/PlayerCharacter/Ui/S_Tooltips.tscn" id="11_yurlq"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="12_53vyh"]
+[ext_resource type="AudioStream" uid="uid://b3t8rk8at2snw" path="res://Audio/basic/cast.mp3" id="13_kdhgt"]
 [ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="13_usfpg"]
+[ext_resource type="AudioStream" uid="uid://dc5mcaq3t0pw3" path="res://Audio/Character/PC4/PC4_hurt.mp3" id="14_egpsf"]
+[ext_resource type="AudioStream" uid="uid://crvh5b562pwqp" path="res://Audio/basic/melee.mp3" id="15_dnju1"]
+[ext_resource type="AudioStream" uid="uid://c4m160wdity7f" path="res://Audio/basic/walk.mp3" id="16_p3xsn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnamp"]
 bg_color = Color(0.870588, 0.490196, 0, 1)
@@ -25,17 +30,6 @@ Panel/styles/panel = SubResource("StyleBoxFlat_hnamp")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slje5"]
 bg_color = Color(0.866667, 0.278431, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdwta"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3b72"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8r5ri"]
-bg_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bskah"]
-bg_color = Color(0, 0.717647, 0.396078, 1)
 
 [sub_resource type="Animation" id="Animation_xuxal"]
 resource_name = "Cast"
@@ -67,6 +61,33 @@ tracks/1/keys = {
 "method": &"trigger"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("13_kdhgt")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-20.0]
+}
 
 [sub_resource type="Animation" id="Animation_wruyv"]
 resource_name = "Death"
@@ -97,6 +118,33 @@ tracks/1/keys = {
 "args": [],
 "method": &"queue_free"
 }]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.4,
+"stream": ExtResource("14_egpsf")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-15.0]
 }
 
 [sub_resource type="Animation" id="Animation_2aifp"]
@@ -146,6 +194,33 @@ tracks/1/keys = {
 "method": &"return_to_idle"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.4,
+"stream": ExtResource("14_egpsf")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-15.0]
+}
 
 [sub_resource type="Animation" id="Animation_h4dee"]
 resource_name = "Idle"
@@ -194,6 +269,33 @@ tracks/1/keys = {
 "args": [],
 "method": &"trigger"
 }]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_dnju1")
+}],
+"times": PackedFloat32Array(0.2919)
+}
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-12.0]
 }
 
 [sub_resource type="Animation" id="Animation_ylw2f"]
@@ -257,6 +359,33 @@ tracks/1/keys = {
 "method": &"trigger"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_dnju1")
+}],
+"times": PackedFloat32Array(0.1251)
+}
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-7.0]
+}
 
 [sub_resource type="Animation" id="Animation_h5pqb"]
 length = 0.001
@@ -271,6 +400,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2i(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_i1prq"]
@@ -337,6 +478,33 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("16_p3xsn")
+}],
+"times": PackedFloat32Array(-0.9174)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-7.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xmd81"]
@@ -416,376 +584,13 @@ offset_top = -263.0
 offset_right = 1069.0
 offset_bottom = -46.0
 
-[node name="Skills" type="HBoxContainer" parent="CanvasLayer"]
-offset_left = 600.0
-offset_top = 920.0
-offset_right = 1064.0
-offset_bottom = 1030.0
-theme_override_constants/separation = 8
-alignment = 2
+[node name="Skills" parent="CanvasLayer" instance=ExtResource("10_cmamg")]
 
-[node name="Move" type="TextureButton" parent="CanvasLayer/Skills"]
-custom_minimum_size = Vector2(110, 0)
-layout_mode = 2
-stretch_mode = 0
-
-[node name="Basic_atk" type="TextureButton" parent="CanvasLayer/Skills"]
-custom_minimum_size = Vector2(110, 0)
-layout_mode = 2
-
-[node name="Skill_1" type="TextureButton" parent="CanvasLayer/Skills"]
-custom_minimum_size = Vector2(110, 0)
-layout_mode = 2
-
-[node name="Skill_2" type="TextureButton" parent="CanvasLayer/Skills"]
-custom_minimum_size = Vector2(110, 0)
-layout_mode = 2
-
-[node name="Tooltips" type="VBoxContainer" parent="CanvasLayer"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -556.0
-offset_top = -1061.0
-offset_right = -10.0
-offset_bottom = -10.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/separation = 4
-alignment = 2
-
-[node name="Move" type="Control" parent="CanvasLayer/Tooltips"]
-custom_minimum_size = Vector2(0, 190)
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 505.0
-offset_bottom = 185.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_gdwta")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Move"]
-layout_mode = 0
-offset_right = 500.0
-offset_bottom = 40.0
-theme_override_constants/separation = 0
-
-[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Top"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -247.5
-offset_top = -27.0
-offset_right = 247.5
-offset_bottom = 27.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
-
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Top/Panel"]
-layout_mode = 0
-offset_right = 496.0
-offset_bottom = 54.0
-theme_override_fonts/font = ExtResource("10_nownm")
-theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxFlat_bskah")
-text = "Move"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Description"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -247.0
-offset_top = -60.0
-offset_right = 248.0
-offset_bottom = 57.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
-
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Move/VBoxContainer/Description/Panel"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 4.0
-offset_right = 481.0
-offset_bottom = 101.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "Move 1 - 2 spaces"
-
-[node name="Basic_atk" type="Control" parent="CanvasLayer/Tooltips"]
-custom_minimum_size = Vector2(0, 190)
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 505.0
-offset_bottom = 185.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_gdwta")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Basic_atk"]
-layout_mode = 0
-offset_right = 500.0
-offset_bottom = 40.0
-theme_override_constants/separation = 0
-
-[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Top"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -247.5
-offset_top = -27.0
-offset_right = 247.5
-offset_bottom = 27.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
-
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Top/Panel"]
-layout_mode = 0
-offset_right = 496.0
-offset_bottom = 54.0
-theme_override_fonts/font = ExtResource("10_nownm")
-theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxFlat_bskah")
-text = "Punch"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Description"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -247.0
-offset_top = -60.0
-offset_right = 248.0
-offset_bottom = 57.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
-
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Basic_atk/VBoxContainer/Description/Panel"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 4.0
-offset_right = 481.0
-offset_bottom = 115.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "Choose to attack in 1 of 3 vertical 
-squares (front, diagonal up, diagonal-
-down)."
-
-[node name="Skill_1" type="Control" parent="CanvasLayer/Tooltips"]
-custom_minimum_size = Vector2(0, 190)
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_1"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 505.0
-offset_bottom = 185.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_gdwta")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Skill_1"]
-layout_mode = 0
-offset_right = 500.0
-offset_bottom = 40.0
-theme_override_constants/separation = 0
-
-[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Top"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -247.5
-offset_top = -27.0
-offset_right = 247.5
-offset_bottom = 27.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
-
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Top/Panel"]
-layout_mode = 0
-offset_right = 496.0
-offset_bottom = 54.0
-theme_override_fonts/font = ExtResource("10_nownm")
-theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxFlat_bskah")
-text = "Fish Blessing"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Description"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -247.0
-offset_top = -60.0
-offset_right = 248.0
-offset_bottom = 57.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
-
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_1/VBoxContainer/Description/Panel"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 4.0
-offset_right = 481.0
-offset_bottom = 101.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "Choose 1 team member (including 
-yourself) and heal with Atk * 1."
-
-[node name="Skill_2" type="Control" parent="CanvasLayer/Tooltips"]
-custom_minimum_size = Vector2(0, 190)
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_2"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 505.0
-offset_bottom = 185.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_gdwta")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tooltips/Skill_2"]
-layout_mode = 0
-offset_right = 500.0
-offset_bottom = 40.0
-theme_override_constants/separation = 0
-
-[node name="Top" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Top"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -247.5
-offset_top = -27.0
-offset_right = 247.5
-offset_bottom = 27.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
-
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Top/Panel"]
-layout_mode = 0
-offset_right = 496.0
-offset_bottom = 54.0
-theme_override_fonts/font = ExtResource("10_nownm")
-theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxFlat_bskah")
-text = "Sakura's Fist"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Description" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h3b72")
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Description"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -247.0
-offset_top = -60.0
-offset_right = 248.0
-offset_bottom = 57.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_8r5ri")
-
-[node name="Label" type="Label" parent="CanvasLayer/Tooltips/Skill_2/VBoxContainer/Description/Panel"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 4.0
-offset_right = 481.0
-offset_bottom = 101.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "Increases ATK/DEF by 1 each for 2 turns."
+[node name="Tooltips" parent="CanvasLayer" instance=ExtResource("11_yurlq")]
+offset_left = -3588.0
+offset_top = -4263.0
+offset_right = -3042.0
+offset_bottom = -3212.0
 
 [node name="ControlButton" parent="CanvasLayer" instance=ExtResource("11_vvqtl")]
 
@@ -812,3 +617,5 @@ one_shot = true
 [node name="S_Move" parent="SkillsList" instance=ExtResource("12_53vyh")]
 
 [node name="S_Punch" parent="SkillsList" instance=ExtResource("13_usfpg")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

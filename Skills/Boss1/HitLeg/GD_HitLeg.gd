@@ -3,6 +3,7 @@ extends BaseSkills
 var target:Character
 @export var speed_decrease:int = 2
 @export var debuff_duration:int = 2
+@onready var audioPlayer = $AudioStreamPlayer
 var debuff_stat:Status
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,6 +19,8 @@ func select_target(cood:Vector2) -> void:
 	player.direction = Vector2(cood.x - player.board_cood.x,0)
 	
 	Board.reset_all_tile()
+	audioPlayer.seek(1.7)
+	audioPlayer.play()
 	player.play_animaiton("HitLeg") 
 	player.move_timer.set_wait_time(0.5)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)

@@ -19,15 +19,21 @@ func check_formation(character:Character) -> bool:
 		formation_btn_list[i].visible = can
 		can_formation = can or can_formation
 	return can_formation
-
+	
+func update_list() -> void:
+	Board.player_list = all_character
+	
 func select_formation(num:int)->void:
+	for btn in formation_btn_list:
+		btn.get_child(0).deselect()
+	
 	var skill = formation_btn_list[num].get_child(0)
 	get_parent().current_turn_unit.select_formation(skill)
 	skill.select()
 
 func check_finish_level():
 	if len(Board.player_list) == 0:
-		print("Lose")
+		get_tree().get_current_scene().lose_level()
 
 func end_turn():
 	super()

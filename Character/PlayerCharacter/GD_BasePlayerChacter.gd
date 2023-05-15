@@ -7,6 +7,7 @@ class_name PlayerCharacter
 @onready var tooltips = $CanvasLayer/Tooltips
 @onready var move_button = $CanvasLayer/ControlButton/Move
 @onready var endturn_button = $CanvasLayer/ControlButton/EndTurn
+@onready var audioPlayer = $AudioStreamPlayer
 @export var stat_json:JSON
 @export var charm_json:JSON
 @export var level:int = 1

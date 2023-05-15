@@ -1,6 +1,7 @@
 extends BaseSkills
 
 @export var range:int = 4
+@onready var audioPlayer = $AudioStreamPlayer
 var target_list = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,6 +26,8 @@ func select_target(cood:Vector2) -> void:
 		if check:
 			target_list.append(check)
 	Board.reset_all_tile()
+	audioPlayer.seek(0.75)
+	audioPlayer.play()
 	player.play_animaiton("Fire") 
 	player.move_timer.set_wait_time(1.67)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)
