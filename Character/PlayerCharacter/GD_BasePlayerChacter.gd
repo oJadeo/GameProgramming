@@ -72,6 +72,7 @@ func start_turn()->void:
 	SKILL_SELECT_UI.visible = true
 	for i in range(1, len(skill_list)):
 		btn_list[i - 1].set_cooldown(skill_list[i].cooldown)
+		tooltip_list[i].set_tooltip_cooldown(skill_list[i].cooldown)
 
 func end_turn()->void:
 	super()
@@ -111,6 +112,9 @@ func setting_skills_button():
 			tooltip_list[i].set_tooltip_desc(
 				skill_list[i].skill_name, 
 				skill_list[i].skill_description,
+			)
+			tooltip_list[i].set_tooltip_max_cooldown(
+				skill_list[i].max_cooldown,
 			)
 		skill_list[i].init(self)	
 			

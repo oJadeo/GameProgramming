@@ -22,34 +22,42 @@ border_color = Color(0, 0, 0, 1)
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="TextTooltip" type="VBoxContainer"]
+[node name="TextTooltip" type="VBoxContainer" node_paths=PackedStringArray("header_label", "description_label", "cooldown_label", "status_label", "top_bg", "description_bg", "cooldown_bg")]
 material = SubResource("ShaderMaterial_doj1b")
 size_flags_horizontal = 0
 theme_override_constants/separation = -8
 alignment = 1
 script = ExtResource("1_wkxmd")
+header_label = NodePath("Top/HeaderLabel")
+description_label = NodePath("Description/Label")
+cooldown_label = NodePath("Cooldown/CooldownLabel")
+status_label = NodePath("Cooldown/StatusLabel")
+top_bg = NodePath("Top/TopBackground")
+description_bg = NodePath("Description")
+cooldown_bg = NodePath("Cooldown")
 ready_color = Color(0.537255, 1, 0.505882, 0.784314)
 not_ready_color = Color(1, 0.415686, 0.34902, 0.784314)
 outline_color = Color(0, 0, 0, 0.784314)
 background_color = Color(1, 1, 1, 0.784314)
 
 [node name="Top" type="Control" parent="."]
-custom_minimum_size = Vector2(512, 64)
+custom_minimum_size = Vector2(512, 96)
 layout_mode = 2
 
 [node name="TopBackground" type="Sprite2D" parent="Top"]
 material = ExtResource("3_wig36")
-position = Vector2(256, 32)
+position = Vector2(256, 48)
+scale = Vector2(1, 1.5)
 texture = ExtResource("2_btm5p")
 
-[node name="HeaderLabel" type="Label" parent="Top/TopBackground"]
-custom_minimum_size = Vector2(512, 64)
-offset_left = -256.0
-offset_top = -32.0
-offset_right = 256.0
-offset_bottom = 32.0
+[node name="HeaderLabel" type="Label" parent="Top"]
+custom_minimum_size = Vector2(512, 96)
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 0.784314)
 theme_override_fonts/font = ExtResource("2_dsoh5")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
 text = "Header"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -74,12 +82,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_dsoh5")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 24
 text = "Descripiton"
 autowrap_mode = 3
 
 [node name="Cooldown" type="Panel" parent="."]
-custom_minimum_size = Vector2(490, 64)
+custom_minimum_size = Vector2(490, 84)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_w4vpk")
@@ -92,18 +100,18 @@ offset_right = 506.0
 offset_bottom = 31.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_dsoh5")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 24
 text = "Cooldown: 3"
 autowrap_mode = 3
 
 [node name="StatusLabel" type="Label" parent="Cooldown"]
 layout_mode = 2
 offset_left = 16.0
-offset_top = 32.0
+offset_top = 40.0
 offset_right = 506.0
-offset_bottom = 51.0
+offset_bottom = 65.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_dsoh5")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 24
 text = "Status: Not Ready (0/3)"
 autowrap_mode = 3

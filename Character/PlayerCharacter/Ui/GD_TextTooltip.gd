@@ -1,13 +1,13 @@
-extends Control
+extends VBoxContainer
 class_name TextTooltip
 
-@onready var header_label: Label = $Top/TopBackground/HeaderLabel
-@onready var description_label: Label = $Description/Label
-@onready var cooldown_label: Label = $Cooldown/CooldownLabel
-@onready var status_label: Label = $Cooldown/StatusLabel
-@onready var top_bg: Sprite2D = $Top/TopBackground
-@onready var description_bg: Panel = $Description
-@onready var cooldown_bg: Panel = $Cooldown
+@export var header_label: Label
+@export var description_label: Label
+@export var cooldown_label: Label
+@export var status_label: Label
+@export var top_bg: Sprite2D
+@export var description_bg: Panel
+@export var cooldown_bg: Panel
 
 @export var ready_color: Color
 @export var not_ready_color: Color
@@ -22,10 +22,9 @@ func _ready():
 		"BG_COLOR", 
 		ready_color,
 	)
-	set_tooltip_max_cooldown(3)
-	set_tooltip_cooldown(2)
 	set_tooltip_outline_color(outline_color)
 	set_tooltip_background_color(background_color)
+	set_tooltip_max_cooldown(0)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
