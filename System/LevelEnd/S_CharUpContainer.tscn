@@ -1,0 +1,270 @@
+[gd_scene load_steps=10 format=3 uid="uid://bjmpba0hyawoe"]
+
+[ext_resource type="Texture2D" uid="uid://rflmq48tekve" path="res://Character/PlayerCharacter/PC1/I_PC1.png" id="1_8umks"]
+[ext_resource type="Script" path="res://System/LevelEnd/GD_CharUpContainer.gd" id="1_elr4p"]
+[ext_resource type="Texture2D" uid="uid://cjbmoq0aa6wof" path="res://Character/PlayerCharacter/PC1/PC1.png" id="2_opffj"]
+[ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="3_tytxe"]
+[ext_resource type="Texture2D" uid="uid://jylvv0oji7w0" path="res://Assets/PC1/PC1_S1.png" id="4_67nkd"]
+
+[sub_resource type="Gradient" id="Gradient_goeo8"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vjss3"]
+gradient = SubResource("Gradient_goeo8")
+
+[sub_resource type="Animation" id="Animation_pdc6f"]
+resource_name = "idle"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qifnx"]
+_data = {
+"idle": SubResource("Animation_pdc6f")
+}
+
+[node name="CharUpContainer" type="HBoxContainer"]
+custom_minimum_size = Vector2(480, 173)
+offset_right = 472.0
+offset_bottom = 173.0
+script = ExtResource("1_elr4p")
+char_name = "aaaaaaaaaa"
+hp = 10
+atk = 10
+def = 10
+spd = 10
+hp_up = true
+spd_up = true
+char_id = "PC1"
+skill_id_1 = "S3"
+skill_id_2 = "S2"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(480, 173)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_vjss3")
+
+[node name="CharacterIcon" type="VBoxContainer" parent="TextureRect"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+offset_right = 160.0
+offset_bottom = 173.0
+size_flags_horizontal = 0
+
+[node name="Icon" type="Sprite2D" parent="TextureRect/CharacterIcon"]
+visible = false
+position = Vector2(30, 10)
+texture = ExtResource("1_8umks")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect/CharacterIcon"]
+z_index = 3
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(-32, -32)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_opffj")
+centered = false
+hframes = 6
+vframes = 11
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/CharacterIcon"]
+libraries = {
+"": SubResource("AnimationLibrary_qifnx")
+}
+
+[node name="Stats" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 2
+offset_left = 164.0
+offset_right = 472.0
+offset_bottom = 173.0
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="TextureRect/Stats"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+
+[node name="Name" type="HBoxContainer" parent="TextureRect/Stats"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Value" type="Label" parent="TextureRect/Stats/Name"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tytxe")
+theme_override_font_sizes/font_size = 24
+text = "NameHere"
+
+[node name="HBox_HP-ATK" type="HBoxContainer" parent="TextureRect/Stats"]
+layout_mode = 2
+
+[node name="HP" type="HBoxContainer" parent="TextureRect/Stats/HBox_HP-ATK"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="TextureRect/Stats/HBox_HP-ATK/HP"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tytxe")
+theme_override_font_sizes/font_size = 24
+text = "HP"
+
+[node name="Value" type="Label" parent="TextureRect/Stats/HBox_HP-ATK/HP"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tytxe")
+theme_override_font_sizes/font_size = 24
+text = "XX"
+horizontal_alignment = 2
+
+[node name="upAlert" type="Label" parent="TextureRect/Stats/HBox_HP-ATK/HP"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.843137, 0.235294, 1)
+theme_override_fonts/font = ExtResource("3_tytxe")
+theme_override_font_sizes/font_size = 20
+text = "up!"
+horizontal_alignment = 1
+
+[node name="Attack" type="HBoxContainer" parent="TextureRect/Stats/HBox_HP-ATK"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="TextureRect/Stats/HBox_HP-ATK/Attack"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tytxe")
+theme_override_font_sizes/font_size = 24
+text = "ATK"
+
+[node name="Value" type="Label" parent="TextureRect/Stats/HBox_HP-ATK/Attack"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tytxe")
+theme_override_font_sizes/font_size = 24
+text = "XX"
+horizontal_alignment = 2
+
+[node name="upAlert" type="Label" parent="TextureRect/Stats/HBox_HP-ATK/Attack"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.843137, 0.235294, 1)
+theme_override_fonts/font = ExtResource("3_tytxe")
+theme_override_font_sizes/font_size = 20
+text = "up!"
+horizontal_alignment = 2
+
+[node name="HBox_DEF-SPD" type="HBoxContainer" parent="TextureRect/Stats"]
+layout_mode = 2
+
+[node name="Defence" type="HBoxContainer" parent="TextureRect/Stats/HBox_DEF-SPD"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="TextureRect/Stats/HBox_DEF-SPD/Defence"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tytxe")
+theme_override_font_sizes/font_size = 24
+text = "DEF"
+
+[node name="Value" type="Label" parent="TextureRect/Stats/HBox_DEF-SPD/Defence"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tytxe")
+theme_override_font_sizes/font_size = 24
+text = "XX"
+horizontal_alignment = 2
+
+[node name="upAlert" type="Label" parent="TextureRect/Stats/HBox_DEF-SPD/Defence"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.843137, 0.235294, 1)
+theme_override_fonts/font = ExtResource("3_tytxe")
+theme_override_font_sizes/font_size = 20
+text = "up!"
+horizontal_alignment = 1
+
+[node name="Speed" type="HBoxContainer" parent="TextureRect/Stats/HBox_DEF-SPD"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="TextureRect/Stats/HBox_DEF-SPD/Speed"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tytxe")
+theme_override_font_sizes/font_size = 24
+text = "SPD"
+
+[node name="Value" type="Label" parent="TextureRect/Stats/HBox_DEF-SPD/Speed"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tytxe")
+theme_override_font_sizes/font_size = 24
+text = "XX"
+horizontal_alignment = 2
+
+[node name="upAlert" type="Label" parent="TextureRect/Stats/HBox_DEF-SPD/Speed"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.843137, 0.235294, 1)
+theme_override_fonts/font = ExtResource("3_tytxe")
+theme_override_font_sizes/font_size = 20
+text = "up!"
+horizontal_alignment = 2
+
+[node name="VBox_skill" type="VBoxContainer" parent="TextureRect/Stats"]
+visible = false
+layout_mode = 2
+
+[node name="newAlert" type="Label" parent="TextureRect/Stats/VBox_skill"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.843137, 0.235294, 1)
+theme_override_fonts/font = ExtResource("3_tytxe")
+theme_override_font_sizes/font_size = 20
+text = "new skill!"
+horizontal_alignment = 2
+
+[node name="skillIcon1" type="Sprite2D" parent="TextureRect/Stats/VBox_skill"]
+visible = false
+position = Vector2(253, 23)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_67nkd")
+centered = false
+
+[node name="skillIcon2" type="Sprite2D" parent="TextureRect/Stats/VBox_skill"]
+visible = false
+position = Vector2(198, 23)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_67nkd")
+centered = false
