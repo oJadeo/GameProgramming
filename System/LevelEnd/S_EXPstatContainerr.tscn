@@ -1,0 +1,142 @@
+[gd_scene load_steps=8 format=3 uid="uid://joj10m72gf2o"]
+
+[ext_resource type="Script" path="res://System/LevelEnd/GD_EXPstatContainerr.gd" id="1_3efbi"]
+[ext_resource type="Texture2D" uid="uid://rflmq48tekve" path="res://Character/PlayerCharacter/PC1/I_PC1.png" id="1_pjhh3"]
+[ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="2_dvbcq"]
+[ext_resource type="Texture2D" uid="uid://lcfv7kpu00vr" path="res://Character/PlayerCharacter/Ui/HealthBarBGTile.png" id="3_pwqvo"]
+[ext_resource type="Texture2D" uid="uid://h1yjpqsh6y8e" path="res://Character/PlayerCharacter/Ui/EXPbarEXPTile.png" id="4_m12j4"]
+
+[sub_resource type="Gradient" id="Gradient_5viuw"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kxok6"]
+gradient = SubResource("Gradient_5viuw")
+
+[node name="EXPstatContainer" type="HBoxContainer"]
+custom_minimum_size = Vector2(480, 108)
+offset_right = 480.0
+offset_bottom = 108.0
+script = ExtResource("1_3efbi")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(480, 108)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_kxok6")
+
+[node name="CharacterIcon" type="VBoxContainer" parent="TextureRect"]
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 2
+offset_right = 108.0
+offset_bottom = 108.0
+size_flags_horizontal = 0
+
+[node name="Icon" type="Sprite2D" parent="TextureRect/CharacterIcon"]
+position = Vector2(12, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pjhh3")
+centered = false
+
+[node name="Stats" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 2
+offset_left = 112.0
+offset_right = 478.0
+offset_bottom = 108.0
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="TextureRect/Stats"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+
+[node name="Name" type="HBoxContainer" parent="TextureRect/Stats"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Value" type="Label" parent="TextureRect/Stats/Name"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_dvbcq")
+theme_override_font_sizes/font_size = 24
+text = "NameHere"
+
+[node name="LevelBox" type="HBoxContainer" parent="TextureRect/Stats"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Level" type="HBoxContainer" parent="TextureRect/Stats/LevelBox"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="TextureRect/Stats/LevelBox/Level"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_dvbcq")
+theme_override_font_sizes/font_size = 24
+text = "Lv."
+
+[node name="Value" type="Label" parent="TextureRect/Stats/LevelBox/Level"]
+custom_minimum_size = Vector2(36, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_dvbcq")
+theme_override_font_sizes/font_size = 24
+text = "XX"
+horizontal_alignment = 2
+
+[node name="LevelUpAlert" type="Label" parent="TextureRect/Stats/LevelBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.843137, 0.235294, 1)
+theme_override_fonts/font = ExtResource("2_dvbcq")
+theme_override_font_sizes/font_size = 24
+text = "level up!"
+horizontal_alignment = 2
+
+[node name="EXPBar" type="HBoxContainer" parent="TextureRect/Stats"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="ProgressBarContainer" type="PanelContainer" parent="TextureRect/Stats/EXPBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="ProgressBar" type="TextureProgressBar" parent="TextureRect/Stats/EXPBar/ProgressBarContainer"]
+layout_mode = 2
+value = 70.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_pwqvo")
+texture_progress = ExtResource("4_m12j4")
+
+[node name="EXPLabelContainer" type="HBoxContainer" parent="TextureRect/Stats/EXPBar/ProgressBarContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="EXPLabel" type="Label" parent="TextureRect/Stats/EXPBar/ProgressBarContainer/EXPLabelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_dvbcq")
+theme_override_font_sizes/font_size = 20
+text = "XX"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SeperatorLabel" type="Label" parent="TextureRect/Stats/EXPBar/ProgressBarContainer/EXPLabelContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvbcq")
+theme_override_font_sizes/font_size = 20
+text = "/"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoalEXPLabel" type="Label" parent="TextureRect/Stats/EXPBar/ProgressBarContainer/EXPLabelContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvbcq")
+theme_override_font_sizes/font_size = 20
+text = "XX"
