@@ -6,9 +6,9 @@
 [ext_resource type="AudioStream" uid="uid://b6mrujj88cfnt" path="res://Audio/Character/Boss2/Boss2_hurt.mp3" id="5_0xl0g"]
 [ext_resource type="AudioStream" uid="uid://crvh5b562pwqp" path="res://Audio/basic/melee.mp3" id="6_bkra0"]
 [ext_resource type="AudioStream" uid="uid://c4m160wdity7f" path="res://Audio/basic/walk.mp3" id="7_0jcgl"]
+[ext_resource type="PackedScene" uid="uid://ch51imgjt8abe" path="res://Skills/Basic_Atk/Shuriken/S_ThrowShuriken.tscn" id="9_ewenf"]
 [ext_resource type="Texture2D" uid="uid://bj1fytkfm377j" path="res://Character/EnemyCharacter_Test/Boss2/Boss2.png" id="10_o3mxj"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="11_tqcuh"]
-[ext_resource type="PackedScene" uid="uid://dr8bt77t5fa85" path="res://Skills/Basic_Atk/Punch/S_Punch.tscn" id="12_n54ov"]
 [ext_resource type="PackedScene" uid="uid://mikbcnflpeb0" path="res://Skills/Boss2/Thunder/S_Thunder.tscn" id="13_ox47l"]
 [ext_resource type="PackedScene" uid="uid://dhap8jxlgxb55" path="res://Skills/Boss2/Sweep/S_Sweep.tscn" id="14_d5u77"]
 
@@ -448,7 +448,7 @@ one_shot = true
 
 [node name="S_Move" parent="SkillsList" instance=ExtResource("11_tqcuh")]
 
-[node name="S_Punch" parent="SkillsList" instance=ExtResource("12_n54ov")]
+[node name="S_Shuriken" parent="SkillsList" instance=ExtResource("9_ewenf")]
 
 [node name="S_Thunder" parent="SkillsList" instance=ExtResource("13_ox47l")]
 
