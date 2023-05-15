@@ -73,6 +73,7 @@ func start_turn()->void:
 	SKILL_SELECT_UI.visible = true
 	for i in range(1, len(skill_list)):
 		btn_list[i - 1].set_cooldown(skill_list[i].cooldown)
+		tooltip_list[i].set_tooltip_cooldown(skill_list[i].cooldown)
 
 func end_turn()->void:
 	super()
@@ -113,6 +114,9 @@ func setting_skills_button():
 				skill_list[i].skill_name, 
 				skill_list[i].skill_description,
 			)
+			tooltip_list[i].set_tooltip_max_cooldown(
+				skill_list[i].max_cooldown,
+			)
 		skill_list[i].init(self)	
 			
 func select_skill(num:int)->void:
@@ -138,8 +142,8 @@ func enter_skill(num:int)->void:
 	if num >= len(tooltip_list):
 		return
 	for i in range(len(tooltip_list)):
-		tooltip_list[i].visible = false
-	tooltip_list[num].visible = true
+		tooltip_list[i].set_showing(false)
+	tooltip_list[num].set_showing(true)
 func enter_move():
 	enter_skill(0)
 func enter_basic_atk():
@@ -153,7 +157,7 @@ func enter_endturn():
 
 func exited_skill()->void:
 	for i in range(len(tooltip_list)):
-		tooltip_list[i].visible = false
+		tooltip_list[i].set_showing(false)
 
 func select_formation(formation_skill:BaseSkills) -> void:
 	for i in range(len(skill_list)):

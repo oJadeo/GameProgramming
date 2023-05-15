@@ -1,0 +1,177 @@
+[gd_scene load_steps=11 format=3 uid="uid://crc5beeladvdl"]
+
+[ext_resource type="Script" path="res://Character/PlayerCharacter/Ui/GD_TextTooltip.gd" id="1_wkxmd"]
+[ext_resource type="Shader" path="res://Character/PlayerCharacter/Ui/S_TextTooltip.gdshader" id="2_07utu"]
+[ext_resource type="Texture2D" uid="uid://bt6bonml4ucvv" path="res://Assets/test_Tooltip.png" id="2_btm5p"]
+[ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="2_dsoh5"]
+[ext_resource type="Material" uid="uid://buof310l5ftc6" path="res://Character/PlayerCharacter/Ui/M_TextTooltipTop.tres" id="3_wig36"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_doj1b"]
+shader = ExtResource("2_07utu")
+shader_parameter/OUTLINE_COLOR = null
+shader_parameter/BG_COLOR = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4vpk"]
+resource_local_to_scene = true
+bg_color = Color(1, 1, 1, 0.784314)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Animation" id="Animation_013iq"]
+resource_name = "fade_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:transparent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_jo085"]
+resource_name = "fade_out"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:transparent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bxht1"]
+_data = {
+"fade_in": SubResource("Animation_013iq"),
+"fade_out": SubResource("Animation_jo085")
+}
+
+[node name="TextTooltip" type="VBoxContainer"]
+material = SubResource("ShaderMaterial_doj1b")
+size_flags_horizontal = 0
+theme_override_constants/separation = -8
+alignment = 1
+script = ExtResource("1_wkxmd")
+ready_color = Color(0.537255, 1, 0.505882, 0.784314)
+not_ready_color = Color(1, 0.415686, 0.34902, 0.784314)
+outline_color = Color(0, 0, 0, 0.784314)
+background_color = Color(1, 1, 1, 0.784314)
+
+[node name="Top" type="Control" parent="."]
+custom_minimum_size = Vector2(512, 96)
+layout_mode = 2
+
+[node name="TopBackground" type="Sprite2D" parent="Top"]
+material = ExtResource("3_wig36")
+position = Vector2(256, 48)
+scale = Vector2(1, 1.5)
+texture = ExtResource("2_btm5p")
+
+[node name="HeaderLabel" type="Label" parent="Top"]
+custom_minimum_size = Vector2(512, 96)
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 0.784314)
+theme_override_fonts/font = ExtResource("2_dsoh5")
+theme_override_font_sizes/font_size = 32
+text = "Header"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Panel" parent="."]
+custom_minimum_size = Vector2(490, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_w4vpk")
+
+[node name="Label" type="Label" parent="Description"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -11.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_dsoh5")
+theme_override_font_sizes/font_size = 24
+text = "Descripiton"
+autowrap_mode = 3
+
+[node name="Cooldown" type="Panel" parent="."]
+custom_minimum_size = Vector2(490, 84)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_w4vpk")
+
+[node name="CooldownLabel" type="Label" parent="Cooldown"]
+layout_mode = 2
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 506.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_dsoh5")
+theme_override_font_sizes/font_size = 24
+text = "Cooldown: 3"
+autowrap_mode = 3
+
+[node name="StatusLabel" type="Label" parent="Cooldown"]
+layout_mode = 2
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 506.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_dsoh5")
+theme_override_font_sizes/font_size = 24
+text = "Status: Not Ready (0/3)"
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bxht1")
+}
