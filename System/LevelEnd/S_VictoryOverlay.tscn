@@ -1,0 +1,232 @@
+[gd_scene load_steps=10 format=3 uid="uid://bpw62ppjhvpts"]
+
+[ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="1_mm01j"]
+[ext_resource type="PackedScene" uid="uid://b5hnlctbpogh3" path="res://System/LevelEnd/S_RewardContainer.tscn" id="2_d03qb"]
+[ext_resource type="Texture2D" uid="uid://b0xh54iryv3gf" path="res://Character/PlayerCharacter/PC2/PC2.png" id="3_xaqlh"]
+[ext_resource type="Texture2D" uid="uid://brtvyylr2ejhw" path="res://Assets/charm/C2.png" id="4_rsd0p"]
+[ext_resource type="PackedScene" uid="uid://joj10m72gf2o" path="res://System/LevelEnd/S_EXPstatContainerr.tscn" id="5_xiyif"]
+[ext_resource type="Texture2D" uid="uid://bt03wad32c8k2" path="res://Character/PlayerCharacter/PC3/I_PC3.png" id="6_tu61u"]
+[ext_resource type="PackedScene" uid="uid://bjmpba0hyawoe" path="res://System/LevelEnd/S_CharUpContainer.tscn" id="7_oh0bv"]
+
+[sub_resource type="Gradient" id="Gradient_px6pb"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_swwdf"]
+gradient = SubResource("Gradient_px6pb")
+
+[node name="VictoryOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 0)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.627451)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 120.0
+offset_right = 1800.0
+offset_bottom = 960.0
+color = Color(1, 1, 1, 0.784314)
+
+[node name="Lines" type="Control" parent="ColorRect/ColorRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="line1" type="TextureRect" parent="ColorRect/ColorRect/Lines"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 104.0
+offset_right = 1636.0
+offset_bottom = 112.0
+texture = SubResource("GradientTexture1D_swwdf")
+
+[node name="line2" type="TextureRect" parent="ColorRect/ColorRect/Lines"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 180.0
+offset_right = 480.0
+offset_bottom = 188.0
+texture = SubResource("GradientTexture1D_swwdf")
+
+[node name="line3" type="TextureRect" parent="ColorRect/ColorRect/Lines"]
+layout_mode = 0
+offset_left = 540.0
+offset_top = 180.0
+offset_right = 1040.0
+offset_bottom = 188.0
+texture = SubResource("GradientTexture1D_swwdf")
+
+[node name="line4" type="TextureRect" parent="ColorRect/ColorRect/Lines"]
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 180.0
+offset_right = 1610.0
+offset_bottom = 188.0
+texture = SubResource("GradientTexture1D_swwdf")
+
+[node name="Titles" type="Control" parent="ColorRect/ColorRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VictoryTitle" type="Label" parent="ColorRect/ColorRect/Titles"]
+layout_mode = 2
+offset_left = 48.0
+offset_top = 40.0
+offset_right = 272.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_mm01j")
+theme_override_font_sizes/font_size = 48
+text = "VICTORY!"
+
+[node name="RewardsTitle" type="Label" parent="ColorRect/ColorRect/Titles"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 144.0
+offset_right = 213.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_mm01j")
+theme_override_font_sizes/font_size = 32
+text = "Rewards"
+
+[node name="CharTitle" type="Label" parent="ColorRect/ColorRect/Titles"]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 144.0
+offset_right = 750.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_mm01j")
+theme_override_font_sizes/font_size = 32
+text = "Characters"
+
+[node name="CharUpTitle" type="Label" parent="ColorRect/ColorRect/Titles"]
+layout_mode = 0
+offset_left = 1120.0
+offset_top = 144.0
+offset_right = 1443.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_mm01j")
+theme_override_font_sizes/font_size = 32
+text = "Character Upgrade"
+
+[node name="VBox_rewards" type="VBoxContainer" parent="ColorRect/ColorRect"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 0
+offset_left = 60.0
+offset_top = 210.0
+offset_right = 420.0
+offset_bottom = 210.0
+
+[node name="RewardContainer" parent="ColorRect/ColorRect/VBox_rewards" instance=ExtResource("2_d03qb")]
+layout_mode = 2
+reward_name = "EXP"
+reward_exp = 777
+e_vis = true
+
+[node name="RewardContainer2" parent="ColorRect/ColorRect/VBox_rewards" instance=ExtResource("2_d03qb")]
+layout_mode = 2
+reward_name = "Sakura"
+icon_c = ExtResource("3_xaqlh")
+c_vis = true
+
+[node name="RewardContainer3" parent="ColorRect/ColorRect/VBox_rewards" instance=ExtResource("2_d03qb")]
+layout_mode = 2
+reward_name = "Bahhhhh"
+icon_i = ExtResource("4_rsd0p")
+i_vis = true
+
+[node name="VBox_characters" type="VBoxContainer" parent="ColorRect/ColorRect"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 0
+offset_left = 540.0
+offset_top = 210.0
+offset_right = 1020.0
+offset_bottom = 318.0
+
+[node name="EXPstatContainer" parent="ColorRect/ColorRect/VBox_characters" instance=ExtResource("5_xiyif")]
+layout_mode = 2
+char_name = "Sasukeee"
+icon = ExtResource("6_tu61u")
+lvl = 11
+c_exp = 70
+g_exp = 100
+
+[node name="EXPstatContainer2" parent="ColorRect/ColorRect/VBox_characters" instance=ExtResource("5_xiyif")]
+layout_mode = 2
+
+[node name="EXPstatContainer3" parent="ColorRect/ColorRect/VBox_characters" instance=ExtResource("5_xiyif")]
+layout_mode = 2
+
+[node name="VBox_charUp" type="VBoxContainer" parent="ColorRect/ColorRect"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 210.0
+offset_right = 1580.0
+offset_bottom = 210.0
+
+[node name="CharUpContainer" parent="ColorRect/ColorRect/VBox_charUp" instance=ExtResource("7_oh0bv")]
+layout_mode = 2
+char_name = "Naruto"
+hp = 10
+atk = 9
+def = 8
+spd = 7
+hp_up = true
+atk_up = true
+def_up = true
+
+[node name="CharUpContainer2" parent="ColorRect/ColorRect/VBox_charUp" instance=ExtResource("7_oh0bv")]
+layout_mode = 2
+
+[node name="CharUpContainer3" parent="ColorRect/ColorRect/VBox_charUp" instance=ExtResource("7_oh0bv")]
+layout_mode = 2
+
+[node name="HBox_button" type="HBoxContainer" parent="ColorRect/ColorRect"]
+layout_mode = 0
+offset_left = 1203.0
+offset_top = 788.0
+offset_right = 1658.0
+offset_bottom = 823.0
+
+[node name="mainMenu" type="Label" parent="ColorRect/ColorRect/HBox_button"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_mm01j")
+theme_override_font_sizes/font_size = 36
+text = "Main Menu"
+
+[node name="mainMenu2" type="Button" parent="ColorRect/ColorRect/HBox_button"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_mm01j")
+theme_override_font_sizes/font_size = 36
+text = "Main Menu"
+
+[node name="line" type="Label" parent="ColorRect/ColorRect/HBox_button"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_mm01j")
+theme_override_font_sizes/font_size = 36
+text = "|"
+horizontal_alignment = 1
+
+[node name="nextLevel" type="Label" parent="ColorRect/ColorRect/HBox_button"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_mm01j")
+theme_override_font_sizes/font_size = 36
+text = "Next Level"
