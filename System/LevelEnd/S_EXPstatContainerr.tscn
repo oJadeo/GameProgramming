@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://joj10m72gf2o"]
+[gd_scene load_steps=10 format=3 uid="uid://joj10m72gf2o"]
 
 [ext_resource type="Script" path="res://System/LevelEnd/GD_EXPstatContainerr.gd" id="1_3efbi"]
 [ext_resource type="Texture2D" uid="uid://rflmq48tekve" path="res://Character/PlayerCharacter/PC1/I_PC1.png" id="1_pjhh3"]
 [ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="2_dvbcq"]
 [ext_resource type="Texture2D" uid="uid://lcfv7kpu00vr" path="res://Character/PlayerCharacter/Ui/HealthBarBGTile.png" id="3_pwqvo"]
+[ext_resource type="Script" path="res://System/LevelEnd/Custom_TextHover.gd" id="4_73xi1"]
 [ext_resource type="Texture2D" uid="uid://h1yjpqsh6y8e" path="res://Character/PlayerCharacter/Ui/EXPbarEXPTile.png" id="4_m12j4"]
 
 [sub_resource type="Gradient" id="Gradient_5viuw"]
@@ -12,11 +13,20 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_kxok6"]
 gradient = SubResource("Gradient_5viuw")
 
+[sub_resource type="RichTextEffect" id="RichTextEffect_7excn"]
+script = ExtResource("4_73xi1")
+
 [node name="EXPstatContainer" type="HBoxContainer"]
 custom_minimum_size = Vector2(480, 108)
 offset_right = 480.0
 offset_bottom = 108.0
 script = ExtResource("1_3efbi")
+char_name = "Narr"
+char_id = "PC1"
+lvl = 1
+c_exp = 10.0
+g_exp = 50.0
+lvl_up = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(480, 108)
@@ -90,6 +100,7 @@ text = "XX"
 horizontal_alignment = 2
 
 [node name="LevelUpAlert" type="Label" parent="TextureRect/Stats/LevelBox"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.843137, 0.235294, 1)
 theme_override_fonts/font = ExtResource("2_dvbcq")
@@ -97,11 +108,23 @@ theme_override_font_sizes/font_size = 24
 text = "level up!"
 horizontal_alignment = 2
 
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/Stats/LevelBox"]
+clip_contents = false
+custom_minimum_size = Vector2(126, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.843137, 0.235294, 1)
+theme_override_fonts/normal_font = ExtResource("2_dvbcq")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[hover amp=3 y_offset=-1]level up!"
+custom_effects = [SubResource("RichTextEffect_7excn")]
+
 [node name="EXPBar" type="HBoxContainer" parent="TextureRect/Stats"]
 layout_mode = 2
 theme_override_constants/separation = 64
 
 [node name="ProgressBarContainer" type="PanelContainer" parent="TextureRect/Stats/EXPBar"]
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -140,3 +163,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dvbcq")
 theme_override_font_sizes/font_size = 20
 text = "XX"
+
+[node name="Control" type="Control" parent="TextureRect/Stats/EXPBar"]
+layout_mode = 2
