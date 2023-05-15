@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://crc5beeladvdl"]
+[gd_scene load_steps=11 format=3 uid="uid://crc5beeladvdl"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/Ui/GD_TextTooltip.gd" id="1_wkxmd"]
 [ext_resource type="Shader" path="res://Character/PlayerCharacter/Ui/S_TextTooltip.gdshader" id="2_07utu"]
@@ -22,19 +22,74 @@ border_color = Color(0, 0, 0, 1)
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="TextTooltip" type="VBoxContainer" node_paths=PackedStringArray("header_label", "description_label", "cooldown_label", "status_label", "top_bg", "description_bg", "cooldown_bg")]
+[sub_resource type="Animation" id="Animation_013iq"]
+resource_name = "fade_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:transparent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_jo085"]
+resource_name = "fade_out"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:transparent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bxht1"]
+_data = {
+"fade_in": SubResource("Animation_013iq"),
+"fade_out": SubResource("Animation_jo085")
+}
+
+[node name="TextTooltip" type="VBoxContainer"]
 material = SubResource("ShaderMaterial_doj1b")
 size_flags_horizontal = 0
 theme_override_constants/separation = -8
 alignment = 1
 script = ExtResource("1_wkxmd")
-header_label = NodePath("Top/HeaderLabel")
-description_label = NodePath("Description/Label")
-cooldown_label = NodePath("Cooldown/CooldownLabel")
-status_label = NodePath("Cooldown/StatusLabel")
-top_bg = NodePath("Top/TopBackground")
-description_bg = NodePath("Description")
-cooldown_bg = NodePath("Cooldown")
 ready_color = Color(0.537255, 1, 0.505882, 0.784314)
 not_ready_color = Color(1, 0.415686, 0.34902, 0.784314)
 outline_color = Color(0, 0, 0, 0.784314)
@@ -115,3 +170,8 @@ theme_override_fonts/font = ExtResource("2_dsoh5")
 theme_override_font_sizes/font_size = 24
 text = "Status: Not Ready (0/3)"
 autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bxht1")
+}
