@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://buof310l5ftc6"]
+
+[ext_resource type="Shader" path="res://Character/PlayerCharacter/Ui/S_TextTooltip.gdshader" id="1_1ls5c"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_1ls5c")
+shader_parameter/OUTLINE_COLOR = Color(0, 0, 0, 1)
+shader_parameter/BG_COLOR = Color(0.4, 1, 0.368627, 0.784314)

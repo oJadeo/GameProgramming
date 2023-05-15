@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://m4cr7ou4tlfn" path="res://Tile/S_Tile.tscn" id="2_ex7t4"]
 [ext_resource type="Script" path="res://Level/GD_Sprite_Board.gd" id="3_571tc"]
 [ext_resource type="Texture2D" uid="uid://d0ncn5pkbn1bn" path="res://Assets/test_bg_2.png" id="4_a4u4w"]
-[ext_resource type="PackedScene" uid="uid://c6rtg8ritwip" path="res://System/TurnManager/S_TestTurnManager.tscn" id="5_4g3is"]
+[ext_resource type="PackedScene" uid="uid://d4i012to4ab7v" path="res://System/TurnManager/S_TestTurnManager.tscn" id="5_4g3is"]
 
 [sub_resource type="Animation" id="Animation_mxlh2"]
 resource_name = "Opening"
