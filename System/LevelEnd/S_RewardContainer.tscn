@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5hnlctbpogh3"]
+[gd_scene load_steps=8 format=3 uid="uid://b5hnlctbpogh3"]
 
 [ext_resource type="Script" path="res://System/LevelEnd/GD_RewardContainer.gd" id="1_c2fd6"]
 [ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="1_l1hfi"]
 [ext_resource type="Texture2D" uid="uid://cjbmoq0aa6wof" path="res://Character/PlayerCharacter/PC1/PC1.png" id="2_u1ecm"]
 [ext_resource type="Texture2D" uid="uid://rf1b8ock6vb6" path="res://Assets/charm/C1.png" id="3_gib1s"]
+[ext_resource type="Texture2D" uid="uid://rflmq48tekve" path="res://Character/PlayerCharacter/PC1/I_PC1.png" id="3_rgohm"]
 
 [sub_resource type="Gradient" id="Gradient_ihijr"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -16,6 +17,7 @@ custom_minimum_size = Vector2(360, 80)
 offset_right = 360.0
 offset_bottom = 80.0
 script = ExtResource("1_c2fd6")
+reward_exp = 15
 
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(360, 80)
@@ -37,7 +39,14 @@ theme_override_font_sizes/font_size = 24
 text = "999"
 horizontal_alignment = 1
 
+[node name="Icon" type="Sprite2D" parent="TextureRect/BoxContainer"]
+visible = false
+position = Vector2(54, 40)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_rgohm")
+
 [node name="Sprite2D" type="Sprite2D" parent="TextureRect/BoxContainer"]
+visible = false
 z_index = 3
 y_sort_enabled = true
 texture_filter = 1
@@ -48,6 +57,7 @@ hframes = 6
 vframes = 11
 
 [node name="itemIcon" type="Sprite2D" parent="TextureRect/BoxContainer"]
+visible = false
 position = Vector2(23, 10)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_gib1s")

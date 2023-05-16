@@ -59,7 +59,9 @@ func tooltip_hide() -> void:
 
 func check_finish_level():
 	if len(Board.player_list) == 0:
-		get_tree().get_current_scene().lose_level()
+		var current_scene = get_tree().get_current_scene()
+		if current_scene is LEVEL:
+			current_scene.lose_level()
 
 func end_turn():
 	super()

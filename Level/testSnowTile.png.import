@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpatxwlwoykmx"
-path="res://.godot/imported/F_2.PNG-3e64f2062424a6f62a279d25e6f9e223.ctex"
+uid="uid://vi8p23pyqnc0"
+path="res://.godot/imported/testSnowTile.png-c20e3d11c88472dbe6535a18429381f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Skills/formation/raw/F_2.PNG"
-dest_files=["res://.godot/imported/F_2.PNG-3e64f2062424a6f62a279d25e6f9e223.ctex"]
+source_file="res://Level/testSnowTile.png"
+dest_files=["res://.godot/imported/testSnowTile.png-c20e3d11c88472dbe6535a18429381f0.ctex"]
 
 [params]
 

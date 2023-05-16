@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpatxwlwoykmx"
-path="res://.godot/imported/F_2.PNG-3e64f2062424a6f62a279d25e6f9e223.ctex"
+uid="uid://b2mwrdcldolmj"
+path="res://.godot/imported/I_PC4.png-d72d3f0d081981df24f1292ee295b2c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Skills/formation/raw/F_2.PNG"
-dest_files=["res://.godot/imported/F_2.PNG-3e64f2062424a6f62a279d25e6f9e223.ctex"]
+source_file="res://Character/PlayerCharacter/PC4/I_PC4.png"
+dest_files=["res://.godot/imported/I_PC4.png-d72d3f0d081981df24f1292ee295b2c6.ctex"]
 
 [params]
 

@@ -45,6 +45,7 @@ grow_vertical = 2
 script = ExtResource("1_nhi3v")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.87451, 0.87451, 0.87451, 1)
@@ -55,6 +56,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="1" type="Button" parent="LevelButton"]
+layout_mode = 0
 offset_left = 1291.0
 offset_top = 233.0
 offset_right = 1734.0
@@ -71,6 +73,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_3fenw")
 text = "Level 1"
 
 [node name="2" type="Button" parent="LevelButton"]
+layout_mode = 0
 offset_left = 1291.0
 offset_top = 331.0
 offset_right = 1734.0
@@ -87,6 +90,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_3fenw")
 text = "Level 2"
 
 [node name="3" type="Button" parent="LevelButton"]
+layout_mode = 0
 offset_left = 1291.0
 offset_top = 429.0
 offset_right = 1734.0
@@ -103,6 +107,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_3fenw")
 text = "Level 3"
 
 [node name="4" type="Button" parent="LevelButton"]
+layout_mode = 0
 offset_left = 1291.0
 offset_top = 527.0
 offset_right = 1734.0
@@ -119,6 +124,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_3fenw")
 text = "Level 4"
 
 [node name="5" type="Button" parent="LevelButton"]
+layout_mode = 0
 offset_left = 1291.0
 offset_top = 625.0
 offset_right = 1734.0
@@ -135,6 +141,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_3fenw")
 text = "Level 5"
 
 [node name="6" type="Button" parent="LevelButton"]
+layout_mode = 0
 offset_left = 1291.0
 offset_top = 723.0
 offset_right = 1734.0
@@ -151,6 +158,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_3fenw")
 text = "Level 6"
 
 [node name="Back" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1512.0
 offset_top = 972.0
 offset_right = 1729.0

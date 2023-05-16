@@ -24,6 +24,15 @@ func _ready()->void:
 			row.append(null)
 		board.append(row)
 	pass # Replace with function body.
+	
+func clear_board():
+	board = []
+	for i in range(board_size.y):
+		var row = []
+		for j in range(board_size.x):
+			row.append(null)
+		board.append(row)
+	
 func is_cood_in_board(cood:Vector2) -> bool:
 	if cood.x < 0 or cood.x >= board_size.x:
 		return false
