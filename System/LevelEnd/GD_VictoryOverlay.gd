@@ -15,12 +15,9 @@ var new_character_lv = {}
 func _ready():
 	pass
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-
 
 func update():
 	old_character_lv = get_character_lv()
@@ -39,18 +36,38 @@ func get_character_lv():
 		
 func set_reward():
 	GlobalSave.add_exp(exp_lists[PlayerVar.selectedLevel])
+	var exp_reward_container = $ColorRect/ColorRect/VBox_rewards/RewardContainer
+	exp_reward_container.reward_name = "Exp"
+	exp_reward_container.reward_exp = exp_lists[PlayerVar.selectedLevel]
+	
 	match PlayerVar.selectedLevel:
 		3:
 			GlobalSave.unlock_charm("C1")
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.reward_name = "new charm"
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.charm_id = "C1"
 			GlobalSave.unlock_charm("C4")
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer3.reward_name = "new charm"
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer3.charm_id = "C4"
 			GlobalSave.unlock_character("PC4")
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer4.reward_name = "new character"
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer4.char_id = "PC4"
 		4:
 			GlobalSave.unlock_charm("C2")
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.reward_name = "new charm"
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.charm_id = "C2"
 			GlobalSave.unlock_charm("C5")
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer3.reward_name = "new charm"
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer3.charm_id = "C5"
 			GlobalSave.unlock_character("PC5")
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer4.reward_name = "new character"
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer4.char_id = "PC5"
 			GlobalSave.unlock_character("PC6")
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer5.reward_name = "new character"
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer5.char_id = "PC6"
 		5:
 			GlobalSave.unlock_charm("C3")
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.reward_name = "new charm"
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.charm_id = "C3"
 
 func update_exp():
 	for i in range(3):
@@ -89,16 +106,38 @@ func set_up_character_level_up(container:Node,char_id:String):
 	container.hp =  stat_data[new_lv]['hp']
 	container.hp_up =  stat_data[new_lv]['hp'] > stat_data[old_lv]['hp']
 	
+	var skill_up = []
 	match char_id:
 		"PC1":
-			pass
+			if old_character_lv[char_id] < 2 and new_character_lv[char_id] >= 2:
+				skill_up.append("S2")
+			if old_character_lv[char_id] < 4 and new_character_lv[char_id] >= 4:
+				skill_up.append("S3")
 		"PC2":
-			pass
+			if old_character_lv[char_id] < 2 and new_character_lv[char_id] >= 2:
+				skill_up.append("S2")
+			if old_character_lv[char_id] < 3 and new_character_lv[char_id] >= 3:
+				skill_up.append("S3")
 		"PC3":
-			pass
+			if old_character_lv[char_id] < 3 and new_character_lv[char_id] >= 3:
+				skill_up.append("S2")
+			if old_character_lv[char_id] < 4 and new_character_lv[char_id] >= 4:
+				skill_up.append("S3")
 		"PC4":
-			pass
+			if old_character_lv[char_id] < 4 and new_character_lv[char_id] >= 4:
+				skill_up.append("S3")
 		"PC5":
-			pass
+			if old_character_lv[char_id] < 3 and new_character_lv[char_id] >= 3:
+				skill_up.append("S2")
+				skill_up.append("S3")
 		"PC6":
-			pass
+			if old_character_lv[char_id] < 3 and new_character_lv[char_id] >= 3:
+				skill_up.append("S2")
+				skill_up.append("S3")
+				
+	for i in range(len(skill_up)):
+		match i:
+			0:
+				container.skill_id_1 = skill_up[i]
+			1:
+				container.skill_id_2 = skill_up[i]
