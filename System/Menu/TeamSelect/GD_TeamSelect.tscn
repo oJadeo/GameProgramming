@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cibm6rmqyq6ra"]
+[gd_scene load_steps=12 format=3 uid="uid://cibm6rmqyq6ra"]
 
 [ext_resource type="Script" path="res://System/Menu/TeamSelect/GD_TeamSelect.gd" id="1_doa6j"]
 [ext_resource type="Script" path="res://System/Menu/TeamSelect/GD_DrawUtils.gd" id="2_w8jeg"]
@@ -14,12 +14,20 @@ border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2ah3"]
-bg_color = Color(0.709804, 0.709804, 0.709804, 1)
+bg_color = Color(0.819608, 0.737255, 0, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.196078, 0.196078, 0.196078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07ipw"]
+bg_color = Color(1, 0.901961, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_huudj"]
 bg_color = Color(0.690196, 0.980392, 0.666667, 1)
@@ -99,6 +107,25 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6nxn4")
 theme_override_styles/hover = SubResource("StyleBoxFlat_q2ah3")
 text = "Back"
 
+[node name="Swap" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1634.0
+offset_top = 220.0
+offset_right = 1851.0
+offset_bottom = 300.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_d3uab")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_6nxn4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q2ah3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_07ipw")
+toggle_mode = true
+text = "Swap"
+
 [node name="ConfirmSelection" type="Button" parent="."]
 layout_mode = 0
 offset_left = 1512.0
@@ -152,6 +179,18 @@ theme_override_font_sizes/font_size = 48
 text = "Floor
 "
 
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 477.0
+offset_right = 575.0
+offset_bottom = 537.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_d3uab")
+theme_override_font_sizes/font_size = 42
+text = "Level 1
+"
+
 [node name="Slot1" parent="." instance=ExtResource("4_p7b2p")]
 layout_mode = 0
 offset_left = 139.0
@@ -183,5 +222,6 @@ offset_bottom = 40.0
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="draw" from="Node2D" to="." method="_on_node_2d_draw"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="toggled" from="Swap" to="." method="_on_swap_toggled"]
 [connection signal="pressed" from="ConfirmSelection" to="." method="_on_confirm_selection_pressed"]
 [connection signal="pressed" from="Slot1" to="." method="_on_slot_1_pressed"]

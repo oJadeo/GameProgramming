@@ -32,7 +32,6 @@ _data = {
 script = ExtResource("1_hkra6")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_d4rau")]
-visible = false
 title = "Move"
 description = "   All Character can move up to 2 space Then turn will automaticly end if there are no action avaiable left.
 
@@ -57,13 +56,12 @@ libraries = {
 "": SubResource("AnimationLibrary_3gdfo")
 }
 
-[node name="S_tutorial_move_turn_manager" parent="." instance=ExtResource("5_vrvf7")]
+[node name="S_tutorial_turn_manager" parent="." instance=ExtResource("5_vrvf7")]
 
-[node name="S_PC_move_tutorial" parent="S_tutorial_move_turn_manager/PlayerManager/Characters" index="0" instance=ExtResource("6_jha0w")]
+[node name="S_PC_move_tutorial" parent="S_tutorial_turn_manager/PlayerManager/Characters" index="0" instance=ExtResource("6_jha0w")]
 start_cood = Vector2(2, 2)
 
-[connection signal="start_turn" from="S_tutorial_move_turn_manager" to="." method="_on_s_tutorial_move_turn_manager_start_turn"]
-[connection signal="finish_tutorial" from="S_tutorial_move_turn_manager/PlayerManager/Characters/S_PC_move_tutorial/SkillsList/S_MoveTutorial" to="." method="_on_s_move_tutorial_finish_tutorial"]
+[connection signal="finish_tutorial" from="S_tutorial_turn_manager/PlayerManager/Characters/S_PC_move_tutorial/SkillsList/S_MoveTutorial" to="." method="_on_s_move_tutorial_finish_tutorial"]
 
-[editable path="S_tutorial_move_turn_manager"]
-[editable path="S_tutorial_move_turn_manager/PlayerManager/Characters/S_PC_move_tutorial"]
+[editable path="S_tutorial_turn_manager"]
+[editable path="S_tutorial_turn_manager/PlayerManager/Characters/S_PC_move_tutorial"]

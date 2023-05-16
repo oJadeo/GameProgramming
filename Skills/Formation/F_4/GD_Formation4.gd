@@ -2,8 +2,7 @@ extends BaseSkills
 
 var amount:int  = 0
 var skill_direction:Vector2 = Vector2.ZERO
-var up_player
-var down_player
+
 @export var buff_duration:int = 3
 func _ready() -> void:
 	pass # Replace with function body.
@@ -20,20 +19,13 @@ func set_up(_amount:int,_skill_direction:Vector2) -> void:
 
 func select_target(cood:Vector2) -> void:
 	super(cood)
-	player.direction = skill_direction
 	Board.reset_all_tile()
 	
 	player.formation_use -= 1
-	if player.direction == Vector2(1,0):
-		up_player = Board.get_character(player.board_cood-Vector2(2,1))
-		down_player = Board.get_character(player.board_cood-Vector2(2,-1))
-	else:
-		up_player = Board.get_character(player.board_cood+Vector2(2,1))
-		down_player = Board.get_character(player.board_cood+Vector2(2,-1))
+	
 	# Every one cast
-	player.play_animaiton("Cast") 
-	up_player.play_animaiton("Cast") 
-	down_player.play_animaiton("Cast") 
+	for char in Board.player_list:
+		char.play_animaiton("Cast") 
 	
 	player.move_timer.set_wait_time(0.625)
 	player.move_timer.timeout.connect(finish_skill,CONNECT_ONE_SHOT)
@@ -43,16 +35,24 @@ func check_target()->bool:
 	var can_do = false
 	if Board.get_character(player.board_cood+Vector2(2,1)) in Board.player_list and Board.get_character(player.board_cood+Vector2(2,-1)) in Board.player_list :
 		can_do = true
-		skill_direction = Vector2(-1,0)
 	if Board.get_character(player.board_cood-Vector2(2,1)) in Board.player_list and Board.get_character(player.board_cood-Vector2(2,-1)) in Board.player_list :
 		can_do = true
-		skill_direction = Vector2(1,0)
+	if Board.get_character(player.board_cood+Vector2(2,1)) in Board.player_list and Board.get_character(player.board_cood+Vector2(0,2)) in Board.player_list :
+		can_do = true
+	if Board.get_character(player.board_cood+Vector2(-2,1)) in Board.player_list and Board.get_character(player.board_cood+Vector2(0,2)) in Board.player_list :
+		can_do = true
+	if Board.get_character(player.board_cood+Vector2(2,-1)) in Board.player_list and Board.get_character(player.board_cood-Vector2(0,2)) in Board.player_list :
+		can_do = true
+	if Board.get_character(player.board_cood+Vector2(-2,-1)) in Board.player_list and Board.get_character(player.board_cood-Vector2(0,2)) in Board.player_list :
+		can_do = true
 	return can_do
 
 func finish_skill() -> void:
 	super()
-	up_player.return_to_idle()
-	down_player.return_to_idle()
+	
+	for char in Board.player_list:
+		char.return_to_idle()
+
 	player.end_turn()
 		
 

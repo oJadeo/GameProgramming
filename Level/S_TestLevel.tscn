@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmfevdj0kio04"]
+[gd_scene load_steps=10 format=3 uid="uid://dfb8h6hvpmwhw"]
 
 [ext_resource type="Script" path="res://Level/GD_TestLevel.gd" id="1_foyb7"]
 [ext_resource type="PackedScene" uid="uid://m4cr7ou4tlfn" path="res://Tile/S_Tile.tscn" id="2_ex7t4"]
 [ext_resource type="Script" path="res://Level/GD_Sprite_Board.gd" id="3_571tc"]
-[ext_resource type="Texture2D" uid="uid://mwfkimn0gkq8" path="res://Assets/test_bg.png" id="4_7ng0u"]
+[ext_resource type="Texture2D" uid="uid://d0ncn5pkbn1bn" path="res://Assets/test_bg_2.png" id="4_a4u4w"]
 [ext_resource type="PackedScene" uid="uid://d4i012to4ab7v" path="res://System/TurnManager/S_TestTurnManager.tscn" id="5_4g3is"]
+[ext_resource type="PackedScene" uid="uid://bpw62ppjhvpts" path="res://System/LevelEnd/S_VictoryOverlay.tscn" id="6_faheq"]
+[ext_resource type="PackedScene" uid="uid://c0ybs024fjdqt" path="res://System/LevelEnd/S_DefeatOverlay.tscn" id="7_44y2d"]
 
 [sub_resource type="Animation" id="Animation_mxlh2"]
 resource_name = "Opening"
@@ -60,7 +62,7 @@ x_offset = 33
 z_index = -1
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("4_7ng0u")
+texture = ExtResource("4_a4u4w")
 
 [node name="S_turn_manager" parent="." instance=ExtResource("5_4g3is")]
 
@@ -69,3 +71,12 @@ autoplay = "Opening"
 libraries = {
 "": SubResource("AnimationLibrary_3gdfo")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="VictoryOverlay" parent="CanvasLayer" instance=ExtResource("6_faheq")]
+visible = false
+
+[node name="DefeatOverlay" parent="CanvasLayer" instance=ExtResource("7_44y2d")]
+visible = false

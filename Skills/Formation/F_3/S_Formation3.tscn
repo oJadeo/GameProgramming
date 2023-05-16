@@ -7,7 +7,7 @@
 script = ExtResource("1_d2agf")
 skill_name = "Linkage Formation"
 skill_description = "Attack character in front of Activator, range 1 .
-Damage: Activator's ATK * Number of characters in formation"
+DAMAGE: Activator's ATK * Number of characters in formation"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_xmw2t")
