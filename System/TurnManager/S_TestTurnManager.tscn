@@ -184,6 +184,19 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_661mu")
 script = ExtResource("12_gfjle")
 gauge = ExtResource("13_1n2f6")
 
+[node name="Tooltips" type="VBoxContainer" parent="PlayerManager/CanvasLayer"]
+custom_minimum_size = Vector2(512, 0)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -720.0
+offset_top = -474.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("13_kp5uk")
 enemy_data_json = ExtResource("14_dciaw")
