@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfb8h6hvpmwhw"]
+[gd_scene load_steps=8 format=3 uid="uid://dmfevdj0kio04"]
 
 [ext_resource type="Script" path="res://Level/GD_TestLevel.gd" id="1_foyb7"]
 [ext_resource type="PackedScene" uid="uid://m4cr7ou4tlfn" path="res://Tile/S_Tile.tscn" id="2_ex7t4"]
 [ext_resource type="Script" path="res://Level/GD_Sprite_Board.gd" id="3_571tc"]
-[ext_resource type="Texture2D" uid="uid://d0ncn5pkbn1bn" path="res://Assets/test_bg_2.png" id="4_a4u4w"]
+[ext_resource type="Texture2D" uid="uid://mwfkimn0gkq8" path="res://Assets/test_bg.png" id="4_7ng0u"]
 [ext_resource type="PackedScene" uid="uid://d4i012to4ab7v" path="res://System/TurnManager/S_TestTurnManager.tscn" id="5_4g3is"]
 
 [sub_resource type="Animation" id="Animation_mxlh2"]
@@ -60,7 +60,7 @@ x_offset = 33
 z_index = -1
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("4_a4u4w")
+texture = ExtResource("4_7ng0u")
 
 [node name="S_turn_manager" parent="." instance=ExtResource("5_4g3is")]
 
