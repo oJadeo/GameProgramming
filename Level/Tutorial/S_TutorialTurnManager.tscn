@@ -167,3 +167,16 @@ offset_bottom = 103.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_o0ha5")
 script = ExtResource("8_u7jtt")
 gauge = ExtResource("9_pf01b")
+
+[node name="Tooltips" type="VBoxContainer" parent="PlayerManager/CanvasLayer"]
+custom_minimum_size = Vector2(512, 0)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -720.0
+offset_top = -474.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
