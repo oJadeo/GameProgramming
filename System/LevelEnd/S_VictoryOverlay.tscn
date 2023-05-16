@@ -145,24 +145,14 @@ reward_name = "EXP"
 reward_exp = 777
 
 [node name="RewardContainer2" parent="ColorRect/ColorRect/VBox_rewards" instance=ExtResource("2_d03qb")]
-visible = false
 layout_mode = 2
-reward_exp = 0
+reward_name = "Itachi"
+char_id = "PC4"
 
 [node name="RewardContainer3" parent="ColorRect/ColorRect/VBox_rewards" instance=ExtResource("2_d03qb")]
-visible = false
 layout_mode = 2
-reward_exp = 0
-
-[node name="RewardContainer4" parent="ColorRect/ColorRect/VBox_rewards" instance=ExtResource("2_d03qb")]
-visible = false
-layout_mode = 2
-reward_exp = 0
-
-[node name="RewardContainer5" parent="ColorRect/ColorRect/VBox_rewards" instance=ExtResource("2_d03qb")]
-visible = false
-layout_mode = 2
-reward_exp = 0
+reward_name = "Charm2"
+charm_id = "C2"
 
 [node name="VBox_characters" type="VBoxContainer" parent="ColorRect/ColorRect"]
 custom_minimum_size = Vector2(480, 0)
@@ -176,9 +166,8 @@ theme_override_constants/separation = 16
 [node name="EXPstatContainer" parent="ColorRect/ColorRect/VBox_characters" instance=ExtResource("5_xiyif")]
 layout_mode = 2
 char_name = "Naruto"
-char_id = "PC1"
 lvl = 2
-c_exp = 49
+c_exp = 12
 g_exp = 50
 
 [node name="EXPstatContainer2" parent="ColorRect/ColorRect/VBox_characters" instance=ExtResource("5_xiyif")]
@@ -187,6 +176,7 @@ char_name = "Sakura"
 char_id = "PC2"
 c_exp = 7
 g_exp = 10
+lvl_up = false
 
 [node name="EXPstatContainer3" parent="ColorRect/ColorRect/VBox_characters" instance=ExtResource("5_xiyif")]
 layout_mode = 2
@@ -194,6 +184,7 @@ char_name = "Sasuke"
 char_id = "PC3"
 c_exp = 1
 g_exp = 5
+lvl_up = false
 
 [node name="VBox_charUp" type="VBoxContainer" parent="ColorRect/ColorRect"]
 custom_minimum_size = Vector2(500, 0)
@@ -206,12 +197,37 @@ theme_override_constants/separation = 16
 
 [node name="CharUpContainer" parent="ColorRect/ColorRect/VBox_charUp" instance=ExtResource("7_oh0bv")]
 layout_mode = 2
+char_name = "Naruto"
+hp = 12
+atk = 12
+def = 10
+spd = 10
+hp_up = true
+atk_up = true
+char_id = "PC1"
+skill_id_1 = "S1"
+skill_id_2 = "S2"
 
 [node name="CharUpContainer2" parent="ColorRect/ColorRect/VBox_charUp" instance=ExtResource("7_oh0bv")]
 layout_mode = 2
+char_name = "Sakura"
+hp = 10
+atk = 10
+def = 10
+spd = 10
+atk_up = true
+def_up = true
+char_id = "PC2"
 
 [node name="CharUpContainer3" parent="ColorRect/ColorRect/VBox_charUp" instance=ExtResource("7_oh0bv")]
 layout_mode = 2
+char_name = "Sasuke"
+hp = 10
+atk = 10
+def = 10
+spd = 10
+char_id = "PC3"
+skill_id_1 = "S1"
 
 [node name="HBox_button" type="HBoxContainer" parent="ColorRect/ColorRect"]
 layout_mode = 0
