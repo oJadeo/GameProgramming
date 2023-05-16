@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://clt3toc7errfd" path="res://Skills/PC5/S3/S_VericalBomb.tscn" id="6_en65v"]
 [ext_resource type="Texture2D" uid="uid://dhj44176ufq0o" path="res://Assets/character icon/combat&selected/PC5_Deidara.png" id="7_h8gcd"]
 [ext_resource type="PackedScene" uid="uid://c0qyi6bvtkv28" path="res://Character/PlayerCharacter/Ui/S_Skills.tscn" id="10_c3y0o"]
-[ext_resource type="PackedScene" uid="uid://8ba0frl04q03" path="res://Character/PlayerCharacter/Ui/S_Tooltips.tscn" id="11_he6wu"]
+[ext_resource type="PackedScene" uid="uid://bqsnymftdlc26" path="res://Character/PlayerCharacter/Ui/S_Tooltips.tscn" id="11_he6wu"]
 [ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="11_r53xl"]
 [ext_resource type="Texture2D" uid="uid://dt5pricqwwxop" path="res://Character/PlayerCharacter/PC5/PC5.png" id="11_xu25y"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="12_okxa3"]

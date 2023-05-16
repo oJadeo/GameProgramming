@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c5oljp8bfqx43" path="res://Skills/PC6/S2/S_BuffAtk.tscn" id="5_h31if"]
 [ext_resource type="PackedScene" uid="uid://dlncdu4owme4c" path="res://Skills/PC6/S3/S_BackSlide.tscn" id="6_q5gds"]
 [ext_resource type="PackedScene" uid="uid://c0qyi6bvtkv28" path="res://Character/PlayerCharacter/Ui/S_Skills.tscn" id="10_v7w14"]
-[ext_resource type="PackedScene" uid="uid://8ba0frl04q03" path="res://Character/PlayerCharacter/Ui/S_Tooltips.tscn" id="11_7txw7"]
+[ext_resource type="PackedScene" uid="uid://bqsnymftdlc26" path="res://Character/PlayerCharacter/Ui/S_Tooltips.tscn" id="11_7txw7"]
 [ext_resource type="Texture2D" uid="uid://d0gxb23ndytjk" path="res://Character/PlayerCharacter/PC6/PC6.png" id="11_c4re7"]
 [ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="11_h1fmp"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="12_3os77"]
