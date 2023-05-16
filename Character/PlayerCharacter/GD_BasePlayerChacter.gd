@@ -142,8 +142,8 @@ func enter_skill(num:int)->void:
 	if num >= len(tooltip_list):
 		return
 	for i in range(len(tooltip_list)):
-		tooltip_list[i].visible = false
-	tooltip_list[num].visible = true
+		tooltip_list[i].set_showing(false)
+	tooltip_list[num].set_showing(true)
 func enter_move():
 	enter_skill(0)
 func enter_basic_atk():
@@ -157,7 +157,7 @@ func enter_endturn():
 
 func exited_skill()->void:
 	for i in range(len(tooltip_list)):
-		tooltip_list[i].visible = false
+		tooltip_list[i].set_showing(false)
 
 func select_formation(formation_skill:BaseSkills) -> void:
 	for i in range(len(skill_list)):
