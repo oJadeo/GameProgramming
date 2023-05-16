@@ -46,6 +46,12 @@ func check_walk():
 			if enemy.get_name() == "S_Boss2_AI":
 				target_cood = Board.get_cood(enemy)
 		skill_select = 2
+		var init_dist = 999
+		for player in Board.player_list:
+			var player_cood = Board.get_cood(player)
+			var i_dist = abs(board_cood.x-player_cood.x)+abs(board_cood.y-player_cood.y)
+			if init_dist > i_dist:
+				init_dist = i_dist
 		for movable_cood in movable_coods:
 			var min_dist = 999
 			var min_cood = Vector2(-1,-1)
@@ -55,7 +61,7 @@ func check_walk():
 				if min_dist > dist:
 					min_dist = dist
 					min_cood = movable_cood
-			if min_cood != Vector2(-1,-1) and int(min_dist) % 3 == 1:
+			if min_cood != Vector2(-1,-1) and int(min_dist) % 3 == 1 and min_dist < init_dist:
 				move_to_cood = min_cood
 				return
 		return

@@ -29,11 +29,13 @@ grow_vertical = 2
 script = ExtResource("1_htd4f")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.87451, 0.87451, 0.87451, 1)
 
 [node name="Continue" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1291.0
 offset_top = 382.0
 offset_right = 1734.0
@@ -50,6 +52,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_pc5o0")
 text = "Continue"
 
 [node name="LevelSelect" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1291.0
 offset_top = 480.0
 offset_right = 1734.0
@@ -65,11 +68,29 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_28b7g")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pc5o0")
 text = "Select Level"
 
-[node name="Quit" type="Button" parent="."]
+[node name="Tutorial" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1291.0
-offset_top = 578.0
+offset_top = 579.0
 offset_right = 1734.0
-offset_bottom = 658.0
+offset_bottom = 659.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ridf8")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_28b7g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pc5o0")
+text = "Tutorial"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1291.0
+offset_top = 677.0
+offset_right = 1734.0
+offset_bottom = 757.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -83,6 +104,7 @@ text = "Quit
 "
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 1174.0
 offset_top = 248.0
 offset_right = 1734.0
@@ -95,4 +117,5 @@ horizontal_alignment = 2
 
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="LevelSelect" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
