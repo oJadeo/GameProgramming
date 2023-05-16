@@ -39,35 +39,44 @@ func set_reward():
 	var exp_reward_container = $ColorRect/ColorRect/VBox_rewards/RewardContainer
 	exp_reward_container.reward_name = "Exp"
 	exp_reward_container.reward_exp = exp_lists[PlayerVar.selectedLevel]
+	exp_reward_container.update_display()
 	
 	match PlayerVar.selectedLevel:
 		3:
 			GlobalSave.unlock_charm("C1")
 			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.reward_name = "new charm"
 			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.charm_id = "C1"
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.visible = true
 			GlobalSave.unlock_charm("C4")
 			$ColorRect/ColorRect/VBox_rewards/RewardContainer3.reward_name = "new charm"
 			$ColorRect/ColorRect/VBox_rewards/RewardContainer3.charm_id = "C4"
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer3.visible = true
 			GlobalSave.unlock_character("PC4")
 			$ColorRect/ColorRect/VBox_rewards/RewardContainer4.reward_name = "new character"
 			$ColorRect/ColorRect/VBox_rewards/RewardContainer4.char_id = "PC4"
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer4.visible = true
 		4:
 			GlobalSave.unlock_charm("C2")
 			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.reward_name = "new charm"
 			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.charm_id = "C2"
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.visible = true
 			GlobalSave.unlock_charm("C5")
 			$ColorRect/ColorRect/VBox_rewards/RewardContainer3.reward_name = "new charm"
 			$ColorRect/ColorRect/VBox_rewards/RewardContainer3.charm_id = "C5"
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer3.visible = true
 			GlobalSave.unlock_character("PC5")
 			$ColorRect/ColorRect/VBox_rewards/RewardContainer4.reward_name = "new character"
 			$ColorRect/ColorRect/VBox_rewards/RewardContainer4.char_id = "PC5"
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer4.visible = true
 			GlobalSave.unlock_character("PC6")
 			$ColorRect/ColorRect/VBox_rewards/RewardContainer5.reward_name = "new character"
 			$ColorRect/ColorRect/VBox_rewards/RewardContainer5.char_id = "PC6"
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer5.visible = true
 		5:
 			GlobalSave.unlock_charm("C3")
 			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.reward_name = "new charm"
 			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.charm_id = "C3"
+			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.visible = true
 
 func update_exp():
 	for i in range(3):
@@ -87,6 +96,7 @@ func update_character():
 		var char_id = char_id_list[i]
 		var lvl_up = new_character_lv[char_id] > old_character_lv[char_id]
 		container.char_name = char_id
+		container.char_id = char_id
 		container.visible = lvl_up
 		if lvl_up:
 			set_up_character_level_up(container,char_id)
@@ -97,6 +107,7 @@ func set_up_character_level_up(container:Node,char_id:String):
 	var stat_data = stat_json.get_data()
 	var old_lv = old_character_lv[char_id]
 	var new_lv = new_character_lv[char_id]
+	container.char_id = char_id
 	container.atk =  stat_data[new_lv]['atk']
 	container.atk_up =  stat_data[new_lv]['atk'] > stat_data[old_lv]['atk']
 	container.def =  stat_data[new_lv]['def']
@@ -134,7 +145,7 @@ func set_up_character_level_up(container:Node,char_id:String):
 			if old_character_lv[char_id] < 3 and new_character_lv[char_id] >= 3:
 				skill_up.append("S2")
 				skill_up.append("S3")
-				
+	
 	for i in range(len(skill_up)):
 		match i:
 			0:
