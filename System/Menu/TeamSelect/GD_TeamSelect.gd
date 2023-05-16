@@ -110,12 +110,12 @@ func _on_node_2d_draw():
 		$Node2D.draw_line(i[0],i[1],Color(0, 0, 0),3)
 
 func _on_confirm_selection_pressed():
+	#get_tree().change_scene_to_file("res://Level/S_TestLevel.tscn")
 	var next_scene = load("res://Level/S_TestLevel.tscn").instantiate()
 	get_tree().get_root().add_child(next_scene)
 	get_tree().set_current_scene(next_scene)
 	queue_free()
-
-
+	
 func _on_swap_toggled(button_pressed):
 	if button_pressed:
 		$Slot1.set_swap(true)
