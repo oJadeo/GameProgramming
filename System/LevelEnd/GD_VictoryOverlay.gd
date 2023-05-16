@@ -162,6 +162,7 @@ func _on_next_level_pressed():
 		var next_level = cur_level + 1
 		PlayerVar.selectedLevel = next_level
 		GlobalSave.unlock_level(next_level)
+		Board.clear_board()
 		get_tree().change_scene_to_file("res://System/Menu/TeamSelect/GD_TeamSelect.tscn")
 	else:
 		get_tree().change_scene_to_file("res://System/Menu/LevelSelect/GD_LevelSelect.tscn")
