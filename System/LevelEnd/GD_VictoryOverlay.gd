@@ -44,45 +44,64 @@ func set_reward():
 	match PlayerVar.selectedLevel:
 		3:
 			GlobalSave.unlock_charm("C1")
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.reward_name = "new charm"
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.charm_id = "C1"
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.visible = true
+			var container = $ColorRect/ColorRect/VBox_rewards/RewardContainer2
+			container.reward_name = "new charm"
+			container.charm_id = "C1"
+			container.update_display()
+			container.visible = true
+			
 			GlobalSave.unlock_charm("C4")
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer3.reward_name = "new charm"
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer3.charm_id = "C4"
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer3.visible = true
+			var container2 = $ColorRect/ColorRect/VBox_rewards/RewardContainer3
+			container2.reward_name = "new charm"
+			container2.charm_id = "C4"
+			container2.update_display()
+			container2.visible = true
+			
 			GlobalSave.unlock_character("PC4")
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer4.reward_name = "new character"
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer4.char_id = "PC4"
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer4.visible = true
+			var container3 = $ColorRect/ColorRect/VBox_rewards/RewardContainer4
+			container3.reward_name = "new character"
+			container3.char_id = "PC4"
+			container3.update_display()
+			container3.visible = true
 		4:
 			GlobalSave.unlock_charm("C2")
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.reward_name = "new charm"
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.charm_id = "C2"
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.visible = true
+			var container = $ColorRect/ColorRect/VBox_rewards/RewardContainer2
+			container.reward_name = "new charm"
+			container.charm_id = "C2"
+			container.update_display()
+			container.visible = true
 			GlobalSave.unlock_charm("C5")
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer3.reward_name = "new charm"
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer3.charm_id = "C5"
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer3.visible = true
+			var container2 = $ColorRect/ColorRect/VBox_rewards/RewardContainer3
+			container2.reward_name = "new charm"
+			container2.charm_id = "C5"
+			container2.update_display()
+			container2.visible = true
 			GlobalSave.unlock_character("PC5")
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer4.reward_name = "new character"
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer4.char_id = "PC5"
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer4.visible = true
+			var container3 = $ColorRect/ColorRect/VBox_rewards/RewardContainer4
+			container3.reward_name = "new character"
+			container3.char_id = "PC5"
+			container3.update_display()
+			container3.visible = true
 			GlobalSave.unlock_character("PC6")
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer5.reward_name = "new character"
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer5.char_id = "PC6"
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer5.visible = true
+			var container4 = $ColorRect/ColorRect/VBox_rewards/RewardContainer5
+			container4.reward_name = "new character"
+			container4.char_id = "PC6"
+			container4.update_display()
+			container4.visible = true
 		5:
 			GlobalSave.unlock_charm("C3")
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.reward_name = "new charm"
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.charm_id = "C3"
-			$ColorRect/ColorRect/VBox_rewards/RewardContainer2.visible = true
+			var container = $ColorRect/ColorRect/VBox_rewards/RewardContainer2
+			container.reward_name = "new charm"
+			container.charm_id = "C3"
+			container.update_display()
+			container.visible = true
 
 func update_exp():
 	for i in range(3):
 		var container = exp_guage_container_lists.get_child(i)
 		var char_id = char_id_list[i]
 		container.char_name = char_id
+		container.char_id = char_id
 		container.lvl = new_character_lv[char_id]
 		container.c_exp = GlobalSave.get_character_exp(char_id)
 		container.g_exp = max_exp[container.lvl]

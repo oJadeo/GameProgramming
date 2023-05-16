@@ -147,26 +147,22 @@ reward_exp = 777
 [node name="RewardContainer2" parent="ColorRect/ColorRect/VBox_rewards" instance=ExtResource("2_d03qb")]
 visible = false
 layout_mode = 2
-reward_name = "Itachi"
-char_id = "PC4"
+reward_exp = 0
 
 [node name="RewardContainer3" parent="ColorRect/ColorRect/VBox_rewards" instance=ExtResource("2_d03qb")]
 visible = false
 layout_mode = 2
-reward_name = "Charm2"
-charm_id = "C2"
+reward_exp = 0
 
 [node name="RewardContainer4" parent="ColorRect/ColorRect/VBox_rewards" instance=ExtResource("2_d03qb")]
 visible = false
 layout_mode = 2
-reward_name = "Charm2"
-charm_id = "C2"
+reward_exp = 0
 
 [node name="RewardContainer5" parent="ColorRect/ColorRect/VBox_rewards" instance=ExtResource("2_d03qb")]
 visible = false
 layout_mode = 2
-reward_name = "Charm2"
-charm_id = "C2"
+reward_exp = 0
 
 [node name="VBox_characters" type="VBoxContainer" parent="ColorRect/ColorRect"]
 custom_minimum_size = Vector2(480, 0)
