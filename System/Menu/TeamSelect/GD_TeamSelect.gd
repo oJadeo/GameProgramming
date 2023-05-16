@@ -16,6 +16,7 @@ func _ready():
 	checkStartCondition()
 	draw_enemy()
 	draw_player()
+	$Label3.text = "Level " + str(PlayerVar.selectedLevel)
 	
 func draw_enemy():
 	var offset = Vector2(15,25)
