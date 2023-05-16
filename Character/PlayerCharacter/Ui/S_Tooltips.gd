@@ -18,7 +18,7 @@ func _process(delta):
 func new_text_tooltip(name: String, header: String, description: String) -> TextTooltip:
 	var _tooltip = text_tooltip.instantiate()
 	_tooltip.name = name
-	_tooltip.set_tooltip_desc(header, description)
 	add_child(_tooltip)
+	_tooltip.set_tooltip_desc(header, description)
 	
 	return _tooltip
