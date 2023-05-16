@@ -1,6 +1,5 @@
 extends Node2D
 
-class_name LEVEL
 var select_level:int
 
 
