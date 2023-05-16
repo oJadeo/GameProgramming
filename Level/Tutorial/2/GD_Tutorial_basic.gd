@@ -21,7 +21,11 @@ func lose_level() -> void:
 	
 
 func _on_s_shuriken_finish_tutorial():
-	print("Finish Basic tutorial")
+	
+	var next_scene = load("res://System/Menu/TutorialSelect/GD_TutorialSelect.tscn").instantiate()
+	get_tree().get_root().add_child(next_scene)
+	queue_free()
+	Board.clear_board()
 
 
 func _on_s_tutorial_turn_manager_start_turn():

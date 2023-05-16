@@ -39,6 +39,7 @@ func select_target(cood:Vector2) -> void:
 	player.move_timer.start()
 
 func check_target()->bool:
+	print(Board.get_character(player.board_cood+Vector2(0,1)))
 	return Board.get_character(player.board_cood+Vector2(0,1)) in Board.player_list and Board.get_character(player.board_cood-Vector2(0,1)) in Board.player_list
 
 func finish_skill() -> void:
