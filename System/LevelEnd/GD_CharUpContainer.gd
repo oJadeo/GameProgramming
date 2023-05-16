@@ -43,14 +43,14 @@ func update_display():
 	atk_val.text = str(atk)
 	def_val.text = str(def)
 	spd_val.text = str(spd)
-	if not hp_up:
-		hp_up_val.add_theme_color_override("font_color", Color8(0,0,0,0))
-	if not atk_up:
-		atk_up_val.add_theme_color_override("font_color", Color8(0,0,0,0))
-	if not def_up:
-		def_up_val.add_theme_color_override("font_color", Color8(0,0,0,0))
-	if not spd_up:
-		spd_up_val.add_theme_color_override("font_color", Color8(0,0,0,0))
+	var hp_up_color = Color8(0,215,60,255) if hp_up else Color8(0,0,0,0)
+	hp_up_val.add_theme_color_override("font_color", hp_up_color)
+	var atk_up_color = Color8(0,215,60,255) if atk_up else Color8(0,0,0,0)
+	atk_up_val.add_theme_color_override("font_color", atk_up_color)
+	var def_up_color = Color8(0,215,60,255) if def_up else Color8(0,0,0,0)
+	def_up_val.add_theme_color_override("font_color", def_up_color)
+	var spd_up_color = Color8(0,215,60,255) if spd_up else Color8(0,0,0,0)
+	spd_up_val.add_theme_color_override("font_color", spd_up_color)
 	
 	if not skill_id_1.is_empty():
 		skill_icon_1_val.texture = load("res://Assets/" + char_id + "/" + char_id + "_" + skill_id_1 + ".png")

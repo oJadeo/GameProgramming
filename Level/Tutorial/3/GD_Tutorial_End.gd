@@ -19,7 +19,11 @@ func lose_level() -> void:
 	pass
 	
 func _on_s_tutorial_move_turn_manager_finish_tutorial():
-	print("Finish Endturn tutorial")
+	
+	var next_scene = load("res://System/Menu/TutorialSelect/GD_TutorialSelect.tscn").instantiate()
+	get_tree().get_root().add_child(next_scene)
+	queue_free()
+	Board.clear_board()
 
 
 func _on_s_tutorial_move_turn_manager_start_turn():
