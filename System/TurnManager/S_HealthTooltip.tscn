@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://c84yc5q1gdbox"]
+
+[ext_resource type="Script" path="res://System/TurnManager/GD_HealthTooltip.gd" id="1_tsxx2"]
+[ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="2_bcj2y"]
+
+[node name="HealthTooltip" type="Panel"]
+custom_minimum_size = Vector2(500, 200)
+offset_right = 770.0
+offset_bottom = 228.0
+size_flags_horizontal = 8
+script = ExtResource("1_tsxx2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="StatsContainer" parent="MarginContainer" instance=ExtResource("2_bcj2y")]
+layout_mode = 2

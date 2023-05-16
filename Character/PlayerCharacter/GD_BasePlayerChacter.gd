@@ -26,6 +26,7 @@ var last_skill_selected = -1
 
 func _ready()->void:
 	super()
+	$CanvasLayer/StatsContainer.connect_character(self)
 	SKILL_SELECT_UI.visible = false
 	equip_skill()
 	skill_list = skills_node.get_children()
