@@ -95,6 +95,7 @@ func add_swap(slot_id):
 		PlayerVar.charDataList[swapping[1]] = temp
 		swapping = []
 		set_text()
+		draw_player()
 		$Slot1.set_swap(false)
 		$Slot2.set_swap(false)
 		$Slot3.set_swap(false)

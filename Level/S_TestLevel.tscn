@@ -76,7 +76,5 @@ libraries = {
 layer = 3
 
 [node name="VictoryOverlay" parent="CanvasLayer" instance=ExtResource("6_faheq")]
-visible = false
 
 [node name="DefeatOverlay" parent="CanvasLayer" instance=ExtResource("7_44y2d")]
-visible = false
