@@ -176,8 +176,9 @@ theme_override_constants/separation = 16
 [node name="EXPstatContainer" parent="ColorRect/ColorRect/VBox_characters" instance=ExtResource("5_xiyif")]
 layout_mode = 2
 char_name = "Naruto"
+char_id = "PC1"
 lvl = 2
-c_exp = 12
+c_exp = 49
 g_exp = 50
 
 [node name="EXPstatContainer2" parent="ColorRect/ColorRect/VBox_characters" instance=ExtResource("5_xiyif")]
@@ -186,7 +187,6 @@ char_name = "Sakura"
 char_id = "PC2"
 c_exp = 7
 g_exp = 10
-lvl_up = false
 
 [node name="EXPstatContainer3" parent="ColorRect/ColorRect/VBox_characters" instance=ExtResource("5_xiyif")]
 layout_mode = 2
@@ -194,7 +194,6 @@ char_name = "Sasuke"
 char_id = "PC3"
 c_exp = 1
 g_exp = 5
-lvl_up = false
 
 [node name="VBox_charUp" type="VBoxContainer" parent="ColorRect/ColorRect"]
 custom_minimum_size = Vector2(500, 0)
