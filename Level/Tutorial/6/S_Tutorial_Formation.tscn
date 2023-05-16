@@ -81,7 +81,7 @@ visible = false
 start_cood = Vector2(0, 2)
 
 [connection signal="start_turn" from="S_tutorial_turn_manager" to="." method="_on_s_tutorial_turn_manager_start_turn"]
-[connection signal="finish_tutorial" from="S_tutorial_turn_manager/PlayerManager/CanvasLayer/VBoxContainer/F_3/S_Formation3" to="." method="_on_s_formation_3_finish_tutorial"]
+[connection signal="finish_tutorial" from="S_tutorial_turn_manager/PlayerManager/CanvasLayer/FormationButtons/Formation3/S_Formation3" to="." method="_on_s_formation_3_finish_tutorial"]
 
 [editable path="S_tutorial_turn_manager"]
 [editable path="S_tutorial_turn_manager/PlayerManager/Characters/S_PC3"]
