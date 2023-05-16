@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0ybs024fjdqt"]
+[gd_scene load_steps=10 format=3 uid="uid://c0ybs024fjdqt"]
 
+[ext_resource type="Script" path="res://System/LevelEnd/GD_DefeatOverlay.gd" id="1_ms34r"]
 [ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="1_we6b6"]
 
 [sub_resource type="Gradient" id="Gradient_px6pb"]
@@ -23,9 +24,11 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+script = ExtResource("1_ms34r")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1920, 0)
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 0.627451)
@@ -121,3 +124,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_3ehgg")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_4736n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_l0lna")
 text = "Main Menu"
+
+[connection signal="pressed" from="ColorRect/ColorRect/VBoxContainer/restartLevel" to="." method="_on_restart_level_pressed"]
+[connection signal="pressed" from="ColorRect/ColorRect/VBoxContainer/reselectCharacters" to="." method="_on_reselect_characters_pressed"]
+[connection signal="pressed" from="ColorRect/ColorRect/VBoxContainer/mainMenu" to="." method="_on_main_menu_pressed"]

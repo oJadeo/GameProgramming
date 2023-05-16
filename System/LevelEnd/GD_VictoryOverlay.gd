@@ -11,17 +11,6 @@ var new_character_lv = {}
 @onready var exp_guage_container_lists = $ColorRect/ColorRect/VBox_characters
 @onready var character_upgrade_lists = $ColorRect/ColorRect/VBox_charUp
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-
 func update():
 	old_character_lv = get_character_lv()
 	set_reward()
@@ -102,3 +91,17 @@ func set_up_character_level_up(container:Node,char_id:String):
 			pass
 		"PC6":
 			pass
+
+
+func _on_main_menu_pressed():
+	get_tree().change_scene_to_file("res://System/Menu/MainMenu/GD_MainMenu.tscn")
+
+func _on_next_level_pressed():
+	var cur_level = PlayerVar.selectedLevel
+	if cur_level < PlayerVar.allLevelOrder[-1]:
+		var next_level = cur_level + 1
+		PlayerVar.selectedLevel = next_level
+		GlobalSave.unlock_level(next_level)
+		get_tree().change_scene_to_file("res://System/Menu/TeamSelect/GD_TeamSelect.tscn")
+	else:
+		get_tree().change_scene_to_file("res://System/Menu/LevelSelect/GD_LevelSelect.tscn")
