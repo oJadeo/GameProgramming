@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpw62ppjhvpts"]
+[gd_scene load_steps=13 format=3 uid="uid://bpw62ppjhvpts"]
 
 [ext_resource type="Script" path="res://System/LevelEnd/GD_VictoryOverlay.gd" id="1_7oi2a"]
 [ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="1_mm01j"]

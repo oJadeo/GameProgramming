@@ -32,7 +32,6 @@ _data = {
 script = ExtResource("1_hkra6")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_d4rau")]
-visible = false
 title = "Move"
 description = "   All Character can move up to 2 space Then turn will automaticly end if there are no action avaiable left.
 
