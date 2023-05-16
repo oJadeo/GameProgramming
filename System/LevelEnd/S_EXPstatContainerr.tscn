@@ -24,8 +24,6 @@ script = ExtResource("1_3efbi")
 char_name = "Narr"
 char_id = "PC1"
 lvl = 1
-c_exp = 10.0
-g_exp = 50.0
 lvl_up = true
 
 [node name="TextureRect" type="TextureRect" parent="."]

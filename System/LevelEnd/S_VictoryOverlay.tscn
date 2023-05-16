@@ -165,22 +165,23 @@ theme_override_constants/separation = 16
 layout_mode = 2
 char_name = "Naruto"
 lvl = 2
-c_exp = 12.0
+c_exp = 12
+g_exp = 50
 
 [node name="EXPstatContainer2" parent="ColorRect/ColorRect/VBox_characters" instance=ExtResource("5_xiyif")]
 layout_mode = 2
 char_name = "Sakura"
 char_id = "PC2"
-c_exp = 7.0
-g_exp = 10.0
+c_exp = 7
+g_exp = 10
 lvl_up = false
 
 [node name="EXPstatContainer3" parent="ColorRect/ColorRect/VBox_characters" instance=ExtResource("5_xiyif")]
 layout_mode = 2
 char_name = "Sasuke"
 char_id = "PC3"
-c_exp = 5.0
-g_exp = 10.0
+c_exp = 1
+g_exp = 5
 lvl_up = false
 
 [node name="VBox_charUp" type="VBoxContainer" parent="ColorRect/ColorRect"]
@@ -237,6 +238,7 @@ offset_bottom = 823.0
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0.101961, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_mm01j")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m7gwk")
@@ -260,6 +262,7 @@ vertical_alignment = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0.101961, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_mm01j")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m7gwk")

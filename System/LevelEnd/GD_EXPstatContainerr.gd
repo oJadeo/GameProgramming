@@ -3,8 +3,8 @@ extends HBoxContainer
 @export var char_name:String
 @export var char_id:String
 @export var lvl:int
-@export var c_exp:float
-@export var g_exp:float
+@export var c_exp:int
+@export var g_exp:int
 @export var lvl_up:bool
 
 @onready var char_name_val = $TextureRect/Stats/Name/Value
@@ -31,7 +31,9 @@ func update_display():
 	lvl_val.text = str(lvl)
 	c_exp_val.text = str(c_exp)
 	g_exp_val.text = str(g_exp)
-	progress_bar.value = (c_exp/g_exp)*100
+	#progress_bar.value = (c_exp/g_exp)*100
+	progress_bar.value = c_exp
+	progress_bar.max_value = g_exp
 	lvl_up_val.visible = lvl_up
 	#if not lvl_up:
 	#	lvl_up_val.add_theme_color_override("font_color", Color8(0,0,0,0))
