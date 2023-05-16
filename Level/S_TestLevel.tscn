@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c6rtg8ritwip" path="res://System/TurnManager/S_TestTurnManager.tscn" id="5_4g3is"]
 [ext_resource type="PackedScene" uid="uid://bpw62ppjhvpts" path="res://System/LevelEnd/S_VictoryOverlay.tscn" id="6_faheq"]
 
+
 [sub_resource type="Animation" id="Animation_mxlh2"]
 resource_name = "Opening"
 length = 3.0
@@ -61,7 +62,7 @@ x_offset = 33
 z_index = -1
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("4_a4u4w")
+texture = ExtResource("4_7ng0u")
 
 [node name="S_turn_manager" parent="." instance=ExtResource("5_4g3is")]
 

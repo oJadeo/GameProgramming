@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjvvrlkqrf6bh"]
+[gd_scene load_steps=4 format=3 uid="uid://cjvvrlkqrf6bh"]
 
 [ext_resource type="Script" path="res://Skills/PC4/S1/GD_Pull.gd" id="1_jjvol"]
+[ext_resource type="Texture2D" uid="uid://dj7gqexvivj01" path="res://Assets/Skills/PC4_Itachi/SP_PC4_S1.png" id="2_5cubc"]
 [ext_resource type="AudioStream" uid="uid://4pircioqrhk2" path="res://Audio/Character/PC4/PC4_S1.mp3" id="2_hr2d1"]
 
 [node name="S_Pull" type="Node2D"]
@@ -8,6 +9,7 @@ script = ExtResource("1_jjvol")
 skill_name = "You Are Weak"
 skill_description = "Pull target within 3 tiles horizontally toward yourself."
 max_cooldown = 3
+skill_spritesheet = ExtResource("2_5cubc")
 
 [node name="PullTimer" type="Timer" parent="."]
 wait_time = 0.2

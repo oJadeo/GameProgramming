@@ -23,12 +23,19 @@ extends HBoxContainer
 @onready var skill_icon_1_val = $TextureRect/Stats/VBox_skill/skillIcon1
 @onready var skill_icon_2_val = $TextureRect/Stats/VBox_skill/skillIcon2
 
-@onready var hp_up_val = $"TextureRect/Stats/HBox_HP-ATK/HP/upAlert"
-@onready var atk_up_val = $"TextureRect/Stats/HBox_HP-ATK/Attack/upAlert"
-@onready var def_up_val = $"TextureRect/Stats/HBox_DEF-SPD/Defence/upAlert"
-@onready var spd_up_val = $"TextureRect/Stats/HBox_DEF-SPD/Speed/upAlert"
+#@onready var hp_up_val = $"TextureRect/Stats/HBox_HP-ATK/HP/upAlert"
+#@onready var atk_up_val = $"TextureRect/Stats/HBox_HP-ATK/Attack/upAlert"
+#@onready var def_up_val = $"TextureRect/Stats/HBox_DEF-SPD/Defence/upAlert"
+#@onready var spd_up_val = $"TextureRect/Stats/HBox_DEF-SPD/Speed/upAlert"
+@onready var hp_up_val = $"TextureRect/Stats/HBox_HP-ATK/HP/RichTextLabel"
+@onready var atk_up_val = $"TextureRect/Stats/HBox_HP-ATK/Attack/RichTextLabel"
+@onready var def_up_val = $"TextureRect/Stats/HBox_DEF-SPD/Defence/RichTextLabel"
+@onready var spd_up_val = $"TextureRect/Stats/HBox_DEF-SPD/Speed/RichTextLabel"
 @onready var skill_up_val = $TextureRect/Stats/VBox_skill
 
+@onready var sprite_path = "TextureRect/CharacterIcon/Sprite2D_"+char_id
+@onready var sprite = get_node(sprite_path)
+@onready var ani = $TextureRect/CharacterIcon/AnimationPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	update_display()
@@ -39,18 +46,20 @@ func _process(delta):
 
 func update_display():
 	char_name_val.text = char_name
+	sprite.visible = true
+	ani.play("idle")
 	hp_val.text = str(hp)
 	atk_val.text = str(atk)
 	def_val.text = str(def)
 	spd_val.text = str(spd)
 	var hp_up_color = Color8(0,215,60,255) if hp_up else Color8(0,0,0,0)
-	hp_up_val.add_theme_color_override("font_color", hp_up_color)
+	hp_up_val.add_theme_color_override("default_color", hp_up_color)
 	var atk_up_color = Color8(0,215,60,255) if atk_up else Color8(0,0,0,0)
-	atk_up_val.add_theme_color_override("font_color", atk_up_color)
+	atk_up_val.add_theme_color_override("default_color", atk_up_color)
 	var def_up_color = Color8(0,215,60,255) if def_up else Color8(0,0,0,0)
-	def_up_val.add_theme_color_override("font_color", def_up_color)
+	def_up_val.add_theme_color_override("default_color", def_up_color)
 	var spd_up_color = Color8(0,215,60,255) if spd_up else Color8(0,0,0,0)
-	spd_up_val.add_theme_color_override("font_color", spd_up_color)
+	spd_up_val.add_theme_color_override("default_color", spd_up_color)
 	
 	if not skill_id_1.is_empty():
 		skill_icon_1_val.texture = load("res://Assets/" + char_id + "/" + char_id + "_" + skill_id_1 + ".png")

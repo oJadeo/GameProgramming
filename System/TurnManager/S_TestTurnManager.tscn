@@ -1,14 +1,21 @@
-[gd_scene load_steps=28 format=3 uid="uid://c6rtg8ritwip"]
+[gd_scene load_steps=35 format=3 uid="uid://d4i012to4ab7v"]
 
 [ext_resource type="Script" path="res://System/TurnManager/GD_TurnManager.gd" id="1_dflja"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_EnemyManager.gd" id="2_mrvh1"]
+[ext_resource type="Texture2D" uid="uid://cbkblcisfc5fc" path="res://Assets/Formation/F1_spritesheet.png" id="5_c74oi"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_PlayerManager.gd" id="5_nehn5"]
+[ext_resource type="Texture2D" uid="uid://bgiq8me4j0xfl" path="res://Assets/Skills/PC3_Sasuke/SP_PC3_S3.png" id="8_coxhn"]
+[ext_resource type="Script" path="res://System/TurnManager/GD_ButtonFormation.gd" id="8_k0cgb"]
+[ext_resource type="Texture2D" uid="uid://cpxdsu3g5uavs" path="res://Assets/Formation/F2_spritesheet.png" id="9_58s8e"]
+[ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="9_a4erm"]
 [ext_resource type="PackedScene" uid="uid://bbe53oyy08kdb" path="res://Skills/Formation/F_1/S_Formation1.tscn" id="9_dgnif"]
 [ext_resource type="PackedScene" uid="uid://ctrtwbaekf8se" path="res://Skills/Formation/F_2/S_Formation2.tscn" id="10_xs2ya"]
+[ext_resource type="Texture2D" uid="uid://dduvdhrqm7eqo" path="res://Assets/Formation/F3_spritesheet.png" id="11_03b1w"]
 [ext_resource type="PackedScene" uid="uid://dyie2k2ftkq5p" path="res://Skills/Formation/F_4/S_Formation4.tscn" id="11_ch5yg"]
 [ext_resource type="PackedScene" uid="uid://xdsaw08y6pfy" path="res://Skills/Formation/F_3/S_Formation3.tscn" id="11_uyf1h"]
 [ext_resource type="Script" path="res://System/TurnManager/GD_TurnLineManager.gd" id="12_gfjle"]
 [ext_resource type="PackedScene" uid="uid://deaafmasgxd4y" path="res://System/TurnManager/S_CharacterGauge.tscn" id="13_1n2f6"]
+[ext_resource type="Texture2D" uid="uid://bngv7310ms8ev" path="res://Assets/Formation/F4_spritesheet.png" id="13_jwrbq"]
 [ext_resource type="Script" path="res://System/Level/GD_EnemySpawner.gd" id="13_kp5uk"]
 [ext_resource type="JSON" path="res://Level/Data/emeny_cood.json" id="14_dciaw"]
 [ext_resource type="PackedScene" uid="uid://cwbb5bd1qny4w" path="res://Character/EnemyCharacter_AI/EM1/S_EM1_AI.tscn" id="15_6fe4u"]
@@ -19,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://bgd3hb5w3wnip" path="res://Character/EnemyCharacter_AI/Boss1/S_Boss1_AI.tscn" id="19_b5fbv"]
 [ext_resource type="JSON" path="res://Level/Data/player_start_cood.json" id="19_bwrv8"]
 [ext_resource type="PackedScene" uid="uid://xkgsdj68abw3" path="res://Character/EnemyCharacter_AI/Boss2/S_Boss2_AI.tscn" id="20_lauar"]
-[ext_resource type="PackedScene" uid="uid://carpx82hev0x0" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="20_swqkd"]
+[ext_resource type="PackedScene" uid="uid://dlwbobh00tg0w" path="res://Character/PlayerCharacter/PC1/S_PC1.tscn" id="20_swqkd"]
 [ext_resource type="PackedScene" uid="uid://dvciusaoi1wv0" path="res://Character/PlayerCharacter/PC2/S_PC2.tscn" id="21_0i0i6"]
 [ext_resource type="PackedScene" uid="uid://ci8mf1gmdprq7" path="res://Character/PlayerCharacter/PC3/S_PC3.tscn" id="22_fmeed"]
 [ext_resource type="PackedScene" uid="uid://b5m68l0i55v07" path="res://Character/PlayerCharacter/PC4/S_PC4.tscn" id="23_p0big"]
@@ -51,47 +58,122 @@ script = ExtResource("5_nehn5")
 y_sort_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="PlayerManager"]
-visible = false
 
-[node name="VBoxContainer" type="HBoxContainer" parent="PlayerManager/CanvasLayer"]
+[node name="FormationButtons" type="HBoxContainer" parent="PlayerManager/CanvasLayer"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -254.0
-offset_bottom = 40.0
+offset_left = -544.0
+offset_top = 21.0
+offset_right = -20.0
+offset_bottom = 149.0
 grow_horizontal = 0
 theme = SubResource("Theme_44u5n")
 alignment = 2
 
-[node name="F_1" type="Button" parent="PlayerManager/CanvasLayer/VBoxContainer"]
+[node name="Formation1" type="TextureButton" parent="PlayerManager/CanvasLayer/FormationButtons"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
+script = ExtResource("8_k0cgb")
+spritesheet = ExtResource("5_c74oi")
+
+[node name="S_Formation1" parent="PlayerManager/CanvasLayer/FormationButtons/Formation1" instance=ExtResource("9_dgnif")]
+
+[node name="Sprite" type="Sprite2D" parent="PlayerManager/CanvasLayer/FormationButtons/Formation1"]
+texture = ExtResource("8_coxhn")
+offset = Vector2(64, 64)
+hframes = 4
+frame = 3
+
+[node name="Label" type="Label" parent="PlayerManager/CanvasLayer/FormationButtons/Formation1/Sprite"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_a4erm")
 theme_override_font_sizes/font_size = 64
-text = "F_1"
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="S_Formation1" parent="PlayerManager/CanvasLayer/VBoxContainer/F_1" instance=ExtResource("9_dgnif")]
-
-[node name="F_2" type="Button" parent="PlayerManager/CanvasLayer/VBoxContainer"]
+[node name="Formation2" type="TextureButton" parent="PlayerManager/CanvasLayer/FormationButtons"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
+script = ExtResource("8_k0cgb")
+spritesheet = ExtResource("9_58s8e")
+
+[node name="S_Formation2" parent="PlayerManager/CanvasLayer/FormationButtons/Formation2" instance=ExtResource("10_xs2ya")]
+
+[node name="Sprite" type="Sprite2D" parent="PlayerManager/CanvasLayer/FormationButtons/Formation2"]
+texture = ExtResource("8_coxhn")
+offset = Vector2(64, 64)
+hframes = 4
+frame = 3
+
+[node name="Label" type="Label" parent="PlayerManager/CanvasLayer/FormationButtons/Formation2/Sprite"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_a4erm")
 theme_override_font_sizes/font_size = 64
-text = "F_2
-"
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="S_Formation2" parent="PlayerManager/CanvasLayer/VBoxContainer/F_2" instance=ExtResource("10_xs2ya")]
-
-[node name="F_3" type="Button" parent="PlayerManager/CanvasLayer/VBoxContainer"]
+[node name="Formation3" type="TextureButton" parent="PlayerManager/CanvasLayer/FormationButtons"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
+script = ExtResource("8_k0cgb")
+spritesheet = ExtResource("11_03b1w")
+
+[node name="S_Formation3" parent="PlayerManager/CanvasLayer/FormationButtons/Formation3" instance=ExtResource("11_uyf1h")]
+
+[node name="Sprite" type="Sprite2D" parent="PlayerManager/CanvasLayer/FormationButtons/Formation3"]
+texture = ExtResource("8_coxhn")
+offset = Vector2(64, 64)
+hframes = 4
+frame = 3
+
+[node name="Label" type="Label" parent="PlayerManager/CanvasLayer/FormationButtons/Formation3/Sprite"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_a4erm")
 theme_override_font_sizes/font_size = 64
-text = "F_3
-"
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="S_Formation3" parent="PlayerManager/CanvasLayer/VBoxContainer/F_3" instance=ExtResource("11_uyf1h")]
-
-[node name="F_4" type="Button" parent="PlayerManager/CanvasLayer/VBoxContainer"]
+[node name="Formation4" type="TextureButton" parent="PlayerManager/CanvasLayer/FormationButtons"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "F_4"
+script = ExtResource("8_k0cgb")
+spritesheet = ExtResource("13_jwrbq")
 
-[node name="S_Formation4" parent="PlayerManager/CanvasLayer/VBoxContainer/F_4" instance=ExtResource("11_ch5yg")]
+[node name="S_Formation4" parent="PlayerManager/CanvasLayer/FormationButtons/Formation4" instance=ExtResource("11_ch5yg")]
+
+[node name="Sprite" type="Sprite2D" parent="PlayerManager/CanvasLayer/FormationButtons/Formation4"]
+texture = ExtResource("8_coxhn")
+offset = Vector2(64, 64)
+hframes = 4
+frame = 3
+
+[node name="Label" type="Label" parent="PlayerManager/CanvasLayer/FormationButtons/Formation4/Sprite"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_a4erm")
+theme_override_font_sizes/font_size = 64
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TurnLineManager" type="Panel" parent="PlayerManager/CanvasLayer"]
 offset_left = 101.0

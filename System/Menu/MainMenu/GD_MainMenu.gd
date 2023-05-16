@@ -22,3 +22,7 @@ func _on_continue_pressed():
 		PlayerVar.selectedLevel = last_level_name
 	get_tree().get_root().add_child(next_scene)
 	queue_free()
+
+
+func _on_tutorial_pressed():
+	get_tree().change_scene_to_file("res://System/Menu/TutorialSelect/GD_TutorialSelect.tscn")

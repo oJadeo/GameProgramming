@@ -22,7 +22,7 @@ var move_to_cood
 var skill_select
 
 func finish_walk()->void:
-	print(target_cood,move_to_cood,skill_select)
+	#print(target_cood,move_to_cood,skill_select)
 	if target_cood != Vector2(-1,-1):
 		select_skill(skill_select)
 		selecting_move.select_target(target_cood)
@@ -41,16 +41,66 @@ func check_walk():
 	select_skill(0)
 	var movable_coods = Board.get_highlight()
 	
-	if skill_list[2].cooldown == 0:
-		#TODO: everything
-		pass
 	if skill_list[3].cooldown == 0:
-		#TODO: everything
-		pass
-			
+		for can in [board_cood+direction,board_cood-direction]:
+			var playerHit = 0
+			for y in [Vector2(0,1),Vector2(0,0),Vector2(0,-1)]:
+				for player in Board.player_list:
+					var player_cood = Board.get_cood(player)
+					if player_cood == can + y:
+						playerHit += 1
+			if playerHit > 1:
+				target_cood = can
+				skill_select = 3
+				return
+				
+		for movable_cood in movable_coods:		
+			for can in [movable_cood+direction,movable_cood-direction]:
+				var playerHit = 0
+				for y in [Vector2(0,1),Vector2(0,0),Vector2(0,-1)]:
+					for player in Board.player_list:
+						var player_cood = Board.get_cood(player)
+						if player_cood == can + y:
+							playerHit += 1
+				if playerHit > 1:
+					move_to_cood = movable_cood
+					target_cood = can
+					skill_select = 3
+					return
+					
+		for can in [board_cood+direction,board_cood-direction]:
+			var playerHit = 0
+			for y in [Vector2(0,1),Vector2(0,0),Vector2(0,-1)]:
+				for player in Board.player_list:
+					var player_cood = Board.get_cood(player)
+					if player_cood == can + y and not Board.get_character(2*player_cood-board_cood):
+						playerHit += 1
+			if playerHit > 0:
+				target_cood = can
+				skill_select = 3
+				return
+					
+		for movable_cood in movable_coods:		
+			for can in [movable_cood+direction,movable_cood-direction]:
+				var playerHit = 0
+				for y in [Vector2(0,1),Vector2(0,0),Vector2(0,-1)]:
+					for player in Board.player_list:
+						var player_cood = Board.get_cood(player)
+						if player_cood == can + y and not Board.get_character(2*player_cood-movable_cood):
+							playerHit += 1
+				if playerHit > 0:
+					move_to_cood = movable_cood
+					target_cood = can
+					skill_select = 3
+					return
+					
 	for player in Board.player_list:
 		var player_cood = Board.get_cood(player)
 		var back_pos = player_cood - player.direction
+		if skill_list[2].cooldown == 0 and back_pos == board_cood and not Board.get_character(2*player_cood-board_cood):
+			target_cood = player_cood
+			skill_select = 2
+			return
 		for y in [0,1,2]:
 			if back_pos - player.direction * y == board_cood:
 				target_cood = player_cood
@@ -61,6 +111,11 @@ func check_walk():
 		for player in Board.player_list:
 			var player_cood = Board.get_cood(player)
 			var back_pos = player_cood - player.direction
+			if skill_list[2].cooldown == 0 and back_pos == movable_cood and not Board.get_character(2*player_cood-movable_cood):
+				move_to_cood = movable_cood
+				target_cood = player_cood
+				skill_select = 2
+				return	
 			for y in [0,1,2]:
 				if back_pos - player.direction * y == movable_cood:
 					move_to_cood = movable_cood
@@ -71,6 +126,10 @@ func check_walk():
 	for player in Board.player_list:
 		var player_cood = Board.get_cood(player)
 		var front_pos = player_cood + player.direction
+		if skill_list[2].cooldown == 0 and front_pos == board_cood and not Board.get_character(2*player_cood-board_cood):
+			target_cood = player_cood
+			skill_select = 2
+			return
 		for y in [0,1,2]:
 			if front_pos + player.direction * y == board_cood:
 				target_cood = player_cood
@@ -81,6 +140,11 @@ func check_walk():
 		for player in Board.player_list:
 			var player_cood = Board.get_cood(player)
 			var front_pos = player_cood + player.direction
+			if skill_list[2].cooldown == 0 and front_pos == movable_cood and not Board.get_character(2*player_cood-movable_cood):
+				move_to_cood = movable_cood
+				target_cood = player_cood
+				skill_select = 2
+				return	
 			for y in [0,1,2]:
 				if front_pos + player.direction * y == movable_cood:
 					move_to_cood = movable_cood

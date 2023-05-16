@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2h7tttjeclw1"]
+[gd_scene load_steps=4 format=3 uid="uid://b2h7tttjeclw1"]
 
 [ext_resource type="Script" path="res://Skills/PC4/S2/GD_BuffDef.gd" id="1_epade"]
+[ext_resource type="Texture2D" uid="uid://b8cwiby61pqq4" path="res://Assets/Skills/PC4_Itachi/SP_PC4_S2.png" id="2_5bgv2"]
 [ext_resource type="AudioStream" uid="uid://drb0xhavx04js" path="res://Audio/Character/PC4/PC4_S2.mp3" id="2_dsa1j"]
 
 [node name="S_BuffDef" type="Node2D"]
@@ -11,6 +12,7 @@ buff_duration = 2
 skill_name = "Fried Egg"
 skill_description = "Increase self DEF +2 for 2 turns."
 max_cooldown = 4
+skill_spritesheet = ExtResource("2_5bgv2")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_dsa1j")
