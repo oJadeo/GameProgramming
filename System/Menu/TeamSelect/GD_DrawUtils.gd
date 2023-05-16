@@ -25,7 +25,7 @@ func i2f(v):
 	return Vector2(float(v[0]),float(v[1]))
 	
 func calculateGrid(top_l,top_r,btm_l,btm_r,h_grid,v_grid):
-	print(top_l,top_r,btm_l,btm_r,h_grid,v_grid)
+	#print(top_l,top_r,btm_l,btm_r,h_grid,v_grid)
 	top_l = i2f(top_l)
 	top_r = i2f(top_r)
 	btm_l = i2f(btm_l)

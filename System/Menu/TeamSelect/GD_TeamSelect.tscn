@@ -152,6 +152,18 @@ theme_override_font_sizes/font_size = 48
 text = "Floor
 "
 
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 477.0
+offset_right = 575.0
+offset_bottom = 537.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_d3uab")
+theme_override_font_sizes/font_size = 42
+text = "Level 1
+"
+
 [node name="Slot1" parent="." instance=ExtResource("4_p7b2p")]
 layout_mode = 0
 offset_left = 139.0

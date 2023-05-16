@@ -1,7 +1,7 @@
 extends Control
 
 @export var slot_id:int
-
+@onready var swapped_mode = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -13,7 +13,21 @@ func _process(delta):
 	#else:
 	#	$Unselected/Label5.add_theme_color_override("font_color", Color("000000"))
 	pass
-	
+
+func set_swap(swap_mode):
+	if swap_mode:
+		swapped_mode = true
+		var new_stylebox_hover = get_theme_stylebox("hover").duplicate()
+		new_stylebox_hover.border_color = Color("ffe600")
+		$Button.add_theme_stylebox_override("hover", new_stylebox_hover)
+		$Button.add_theme_stylebox_override("pressed", new_stylebox_hover)
+	else:
+		swapped_mode = false
+		var new_stylebox_normal = get_theme_stylebox("normal").duplicate()
+		var new_stylebox_hover = get_theme_stylebox("hover").duplicate()
+		new_stylebox_hover.border_color = Color("001aff")
+		$Button.add_theme_stylebox_override("hover", new_stylebox_hover)
+		$Button.add_theme_stylebox_override("pressed", new_stylebox_hover)
 func ch2n(char_id):
 	match char_id:
 		"PC1":
