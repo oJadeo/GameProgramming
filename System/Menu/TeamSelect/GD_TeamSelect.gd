@@ -3,6 +3,7 @@ extends Control
 var draw_data
 var enemy_cood = load("res://Level/Data/emeny_cood.json").get_data()
 var player_cood = load("res://Level/Data/player_start_cood.json").get_data()
+var swapping = []
 
 func _ready():
 	var top_l = $ReferenceTopGrid.position + Vector2(0,$ReferenceTopGrid.size.y)
@@ -85,6 +86,19 @@ func init_character_select(slot_id):
 	else:
 		char_select_scene.init_scene(slot_id,null)
 	add_child(char_select_scene)
+	
+func add_swap(slot_id):
+	swapping.append(slot_id)
+	if len(swapping) == 2:
+		var temp = PlayerVar.charDataList[swapping[0]]
+		PlayerVar.charDataList[swapping[0]] = PlayerVar.charDataList[swapping[1]]
+		PlayerVar.charDataList[swapping[1]] = temp
+		swapping = []
+		set_text()
+		$Slot1.set_swap(false)
+		$Slot2.set_swap(false)
+		$Slot3.set_swap(false)
+		$Swap.set_pressed(false)
 
 func _on_back_pressed():
 	get_tree().change_scene_to_file("res://System/Menu/LevelSelect/GD_LevelSelect.tscn")
@@ -99,3 +113,10 @@ func _on_confirm_selection_pressed():
 	get_tree().get_root().add_child(next_scene)
 	get_tree().set_current_scene(next_scene)
 	queue_free()
+
+
+func _on_swap_toggled(button_pressed):
+	if button_pressed:
+		$Slot1.set_swap(true)
+		$Slot2.set_swap(true)
+		$Slot3.set_swap(true)

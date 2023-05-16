@@ -1,4 +1,4 @@
-extends Control
+extends Button
 
 @export var slot_id:int
 @onready var swapped_mode = false
@@ -17,17 +17,20 @@ func _process(delta):
 func set_swap(swap_mode):
 	if swap_mode:
 		swapped_mode = true
+		set_toggle_mode(true)
 		var new_stylebox_hover = get_theme_stylebox("hover").duplicate()
 		new_stylebox_hover.border_color = Color("ffe600")
-		$Button.add_theme_stylebox_override("hover", new_stylebox_hover)
-		$Button.add_theme_stylebox_override("pressed", new_stylebox_hover)
+		add_theme_stylebox_override("hover", new_stylebox_hover)
+		add_theme_stylebox_override("pressed", new_stylebox_hover)
 	else:
 		swapped_mode = false
+		set_toggle_mode(false)
 		var new_stylebox_normal = get_theme_stylebox("normal").duplicate()
 		var new_stylebox_hover = get_theme_stylebox("hover").duplicate()
 		new_stylebox_hover.border_color = Color("001aff")
-		$Button.add_theme_stylebox_override("hover", new_stylebox_hover)
-		$Button.add_theme_stylebox_override("pressed", new_stylebox_hover)
+		add_theme_stylebox_override("hover", new_stylebox_hover)
+		add_theme_stylebox_override("pressed", new_stylebox_normal)
+		
 func ch2n(char_id):
 	match char_id:
 		"PC1":
@@ -47,7 +50,6 @@ func update_button():
 	if slot_id == null or slot_id == -1:
 		return
 	if PlayerVar.charDataList[slot_id]:
-		print(PlayerVar.charDataList[slot_id])
 		$Unselected.visible = false
 		$Selected.visible = true
 		#{"char_id":selected_char,"skills":selected_skills,"charm":selected_charm}
@@ -96,7 +98,10 @@ func update_button():
 
 
 func _on_mouse_entered():
-	$Unselected/Label5.add_theme_color_override("font_color", Color("001aff"))
+	if swapped_mode:
+		$Unselected/Label5.add_theme_color_override("font_color", Color("ffe600"))
+	else:
+		$Unselected/Label5.add_theme_color_override("font_color", Color("001aff"))
 
 
 func _on_mouse_exited():
@@ -104,4 +109,7 @@ func _on_mouse_exited():
 
 
 func _on_pressed():
-	get_parent().init_character_select(slot_id)
+	if swapped_mode:
+		get_parent().add_swap(slot_id)
+	else:
+		get_parent().init_character_select(slot_id)

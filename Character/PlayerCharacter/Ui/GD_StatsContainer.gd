@@ -6,32 +6,33 @@ extends HBoxContainer
 @onready var hp_progress_bar = $Stats/HP/ProgressBarContainer/ProgressBar
 @onready var health_label = $Stats/HP/ProgressBarContainer/HealthLabelContainer/HealthLabel
 @onready var max_health_label = $Stats/HP/ProgressBarContainer/HealthLabelContainer/MaxHealthLabel
-@onready var character = $"../.."
 @onready var icon = $CharacterIcon/Icon
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# signal connection
-	character.stat.atk_updated.connect(_on_atk_updated)
-	character.stat.def_updated.connect(_on_def_updated)
-	character.stat.speed_updated.connect(_on_speed_updated)
-	character.stat.health_updated.connect(_on_health_updated)
-	character.stat.max_health_updated.connect(_on_max_health_updated)
-	
-	# on-ready value set
-	atk_value.text = str(character.stat.atk)
-	def_value.text = str(character.stat.def)
-	speed_value.text = str(character.stat.speed)
-	hp_progress_bar.value = character.stat.max_health
-	hp_progress_bar.max_value = character.stat.max_health
-	health_label.text = str(character.stat.max_health)
-	max_health_label.text = str(character.stat.max_health)
-	icon.texture = character.icon_texture
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func connect_character(_character):
+	# signal connection
+	_character.stat.atk_updated.connect(_on_atk_updated)
+	_character.stat.def_updated.connect(_on_def_updated)
+	_character.stat.speed_updated.connect(_on_speed_updated)
+	_character.stat.health_updated.connect(_on_health_updated)
+	_character.stat.max_health_updated.connect(_on_max_health_updated)
+	
+	# on-ready value set
+	atk_value.text = str(_character.stat.atk)
+	def_value.text = str(_character.stat.def)
+	speed_value.text = str(_character.stat.speed)
+	hp_progress_bar.value = _character.stat.max_health
+	hp_progress_bar.max_value = _character.stat.max_health
+	health_label.text = str(_character.stat.max_health)
+	max_health_label.text = str(_character.stat.max_health)
+	icon.texture = _character.icon_texture
 
 func _on_atk_updated(new_value:int) -> void:
 	atk_value.text = str(new_value)

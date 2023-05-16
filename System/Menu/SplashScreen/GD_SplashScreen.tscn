@@ -41,6 +41,7 @@ horizontal_alignment = 1
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
 clip_contents = false
 custom_minimum_size = Vector2(126, 0)
+layout_mode = 0
 offset_top = 895.0
 offset_right = 1920.0
 offset_bottom = 927.0
