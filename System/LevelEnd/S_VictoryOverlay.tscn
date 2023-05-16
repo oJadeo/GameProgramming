@@ -283,3 +283,6 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_2pars")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ipaa3")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_md6pj")
 text = "Next Level"
+
+[connection signal="pressed" from="ColorRect/ColorRect/HBox_button/mainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="ColorRect/ColorRect/HBox_button/nextLevel" to="." method="_on_next_level_pressed"]
