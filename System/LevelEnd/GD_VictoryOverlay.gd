@@ -94,23 +94,14 @@ func set_up_character_level_up(container:Node,char_id:String):
 
 
 func _on_main_menu_pressed():
-	var next_scene = load("res://System/Menu/MainMenu/GD_MainMenu.tscn").instantiate()
-	get_tree().get_root().add_child(next_scene)
-	get_tree().set_current_scene(next_scene)
-	queue_free()
+	get_tree().change_scene_to_file("res://System/Menu/MainMenu/GD_MainMenu.tscn")
 
 func _on_next_level_pressed():
-	var cur_level = PlayerVar.selected_level
+	var cur_level = PlayerVar.selectedLevel
 	if cur_level < PlayerVar.allLevelOrder[-1]:
 		var next_level = cur_level + 1
-		PlayerVar.selected_level = next_level
+		PlayerVar.selectedLevel = next_level
 		GlobalSave.unlock_level(next_level)
-		var next_scene = load("res://System/Menu/TeamSelect/GD_TeamSelect.tscn").instantiate()
-		#PlayerVar.charDataList = [null,null,null]
-		get_tree().get_root().add_child(next_scene)
-		queue_free()
+		get_tree().change_scene_to_file("res://System/Menu/TeamSelect/GD_TeamSelect.tscn")
 	else:
-		var next_scene = load("res://System/Menu/LevelSelect/GD_LevelSelect.tscn").instantiate()
-		get_tree().get_root().add_child(next_scene)
-		get_tree().set_current_scene(next_scene)
-		queue_free()
+		get_tree().change_scene_to_file("res://System/Menu/LevelSelect/GD_LevelSelect.tscn")

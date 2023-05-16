@@ -28,7 +28,7 @@ func print_data():
 func get_unlock_level():
 	return save.unlockedLevels 
 
-func unlock_level(level:String) -> void:
+func unlock_level(level:int) -> void:
 	if level in save.unlockedLevels:
 		return
 		
