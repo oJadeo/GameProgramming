@@ -12,9 +12,9 @@ func _ready():
 		tutorial.connect('pressed',change_level.bind(iName))
 
 func change_level(tutorial_name:int):
-	var next_scene = load("res://Level/Tutorial/"+str(tutorial_name)+tutorial_scene[tutorial_name]).instantiate()
-	get_tree().get_root().add_child(next_scene)
+	Util.change_scene("res://Level/Tutorial/"+str(tutorial_name)+tutorial_scene[tutorial_name])
 	queue_free()
 
 func _on_back_pressed():
-	get_tree().change_scene_to_file("res://System/Menu/MainMenu/GD_MainMenu.tscn")
+	Util.change_scene("res://System/Menu/MainMenu/GD_MainMenu.tscn")
+	queue_free()
