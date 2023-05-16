@@ -1,10 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjmpba0hyawoe"]
+[gd_scene load_steps=16 format=3 uid="uid://bjmpba0hyawoe"]
 
-[ext_resource type="Texture2D" uid="uid://rflmq48tekve" path="res://Character/PlayerCharacter/PC1/I_PC1.png" id="1_8umks"]
 [ext_resource type="Script" path="res://System/LevelEnd/GD_CharUpContainer.gd" id="1_elr4p"]
 [ext_resource type="Texture2D" uid="uid://cjbmoq0aa6wof" path="res://Character/PlayerCharacter/PC1/PC1.png" id="2_opffj"]
+[ext_resource type="Texture2D" uid="uid://b0xh54iryv3gf" path="res://Character/PlayerCharacter/PC2/PC2.png" id="3_3g7p3"]
 [ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="3_tytxe"]
 [ext_resource type="Texture2D" uid="uid://jylvv0oji7w0" path="res://Assets/PC1/PC1_S1.png" id="4_67nkd"]
+[ext_resource type="Texture2D" uid="uid://bqrmpk32cw0ce" path="res://Character/PlayerCharacter/PC3/PC3.png" id="4_qt0q1"]
+[ext_resource type="Texture2D" uid="uid://cchd6rflvj8r4" path="res://Character/PlayerCharacter/PC4/PC4.png" id="5_ore5q"]
+[ext_resource type="Texture2D" uid="uid://dt5pricqwwxop" path="res://Character/PlayerCharacter/PC5/PC5.png" id="6_30sd1"]
+[ext_resource type="Texture2D" uid="uid://d0gxb23ndytjk" path="res://Character/PlayerCharacter/PC6/PC6.png" id="7_fax5c"]
+[ext_resource type="Script" path="res://System/LevelEnd/Custom_TextHover.gd" id="9_i26st"]
 
 [sub_resource type="Gradient" id="Gradient_goeo8"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -19,7 +24,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Sprite2D_PC1:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -28,27 +33,80 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D_PC2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D_PC3:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 0, 1, 2, 1, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D_PC4:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D_PC5:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D_PC6:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qifnx"]
 _data = {
 "idle": SubResource("Animation_pdc6f")
 }
 
+[sub_resource type="RichTextEffect" id="RichTextEffect_7excn"]
+script = ExtResource("9_i26st")
+
 [node name="CharUpContainer" type="HBoxContainer"]
-custom_minimum_size = Vector2(480, 173)
+custom_minimum_size = Vector2(500, 180)
 offset_right = 472.0
 offset_bottom = 173.0
 script = ExtResource("1_elr4p")
-char_name = "aaaaaaaaaa"
-hp = 10
-atk = 10
-def = 10
-spd = 10
-hp_up = true
-spd_up = true
-char_id = "PC1"
-skill_id_1 = "S3"
-skill_id_2 = "S2"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(480, 173)
@@ -62,13 +120,8 @@ offset_right = 160.0
 offset_bottom = 173.0
 size_flags_horizontal = 0
 
-[node name="Icon" type="Sprite2D" parent="TextureRect/CharacterIcon"]
+[node name="Sprite2D_PC1" type="Sprite2D" parent="TextureRect/CharacterIcon"]
 visible = false
-position = Vector2(30, 10)
-texture = ExtResource("1_8umks")
-centered = false
-
-[node name="Sprite2D" type="Sprite2D" parent="TextureRect/CharacterIcon"]
 z_index = 3
 y_sort_enabled = true
 texture_filter = 1
@@ -77,6 +130,67 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_opffj")
 centered = false
 hframes = 6
+vframes = 11
+
+[node name="Sprite2D_PC2" type="Sprite2D" parent="TextureRect/CharacterIcon"]
+visible = false
+z_index = 3
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(-32, -52)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_3g7p3")
+centered = false
+hframes = 6
+vframes = 9
+
+[node name="Sprite2D_PC3" type="Sprite2D" parent="TextureRect/CharacterIcon"]
+visible = false
+z_index = 3
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(-512, -52)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_qt0q1")
+centered = false
+hframes = 21
+vframes = 10
+frame = 3
+
+[node name="Sprite2D_PC4" type="Sprite2D" parent="TextureRect/CharacterIcon"]
+visible = false
+z_index = 3
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(-32, -38)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("5_ore5q")
+centered = false
+hframes = 6
+vframes = 11
+
+[node name="Sprite2D_PC5" type="Sprite2D" parent="TextureRect/CharacterIcon"]
+visible = false
+z_index = 3
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(-58, -33)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("6_30sd1")
+centered = false
+hframes = 11
+vframes = 9
+
+[node name="Sprite2D_PC6" type="Sprite2D" parent="TextureRect/CharacterIcon"]
+visible = false
+z_index = 3
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(-154, -87)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("7_fax5c")
+centered = false
+hframes = 9
 vframes = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/CharacterIcon"]
@@ -136,6 +250,7 @@ text = "XX"
 horizontal_alignment = 2
 
 [node name="upAlert" type="Label" parent="TextureRect/Stats/HBox_HP-ATK/HP"]
+visible = false
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.843137, 0.235294, 1)
@@ -143,6 +258,21 @@ theme_override_fonts/font = ExtResource("3_tytxe")
 theme_override_font_sizes/font_size = 20
 text = "up!"
 horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="TextureRect/Stats/HBox_HP-ATK/HP"]
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/Stats/HBox_HP-ATK/HP"]
+clip_contents = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.843137, 0.235294, 1)
+theme_override_fonts/normal_font = ExtResource("3_tytxe")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[hover amp=3]up!"
+custom_effects = [SubResource("RichTextEffect_7excn")]
 
 [node name="Attack" type="HBoxContainer" parent="TextureRect/Stats/HBox_HP-ATK"]
 layout_mode = 2
@@ -168,6 +298,7 @@ text = "XX"
 horizontal_alignment = 2
 
 [node name="upAlert" type="Label" parent="TextureRect/Stats/HBox_HP-ATK/Attack"]
+visible = false
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.843137, 0.235294, 1)
@@ -175,6 +306,21 @@ theme_override_fonts/font = ExtResource("3_tytxe")
 theme_override_font_sizes/font_size = 20
 text = "up!"
 horizontal_alignment = 2
+
+[node name="Control" type="Control" parent="TextureRect/Stats/HBox_HP-ATK/Attack"]
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/Stats/HBox_HP-ATK/Attack"]
+clip_contents = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.843137, 0.235294, 1)
+theme_override_fonts/normal_font = ExtResource("3_tytxe")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[hover amp=3]up!"
+custom_effects = [SubResource("RichTextEffect_7excn")]
 
 [node name="HBox_DEF-SPD" type="HBoxContainer" parent="TextureRect/Stats"]
 layout_mode = 2
@@ -203,6 +349,7 @@ text = "XX"
 horizontal_alignment = 2
 
 [node name="upAlert" type="Label" parent="TextureRect/Stats/HBox_DEF-SPD/Defence"]
+visible = false
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.843137, 0.235294, 1)
@@ -210,6 +357,21 @@ theme_override_fonts/font = ExtResource("3_tytxe")
 theme_override_font_sizes/font_size = 20
 text = "up!"
 horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="TextureRect/Stats/HBox_DEF-SPD/Defence"]
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/Stats/HBox_DEF-SPD/Defence"]
+clip_contents = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.843137, 0.235294, 1)
+theme_override_fonts/normal_font = ExtResource("3_tytxe")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[hover amp=3]up!"
+custom_effects = [SubResource("RichTextEffect_7excn")]
 
 [node name="Speed" type="HBoxContainer" parent="TextureRect/Stats/HBox_DEF-SPD"]
 layout_mode = 2
@@ -235,6 +397,7 @@ text = "XX"
 horizontal_alignment = 2
 
 [node name="upAlert" type="Label" parent="TextureRect/Stats/HBox_DEF-SPD/Speed"]
+visible = false
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.843137, 0.235294, 1)
@@ -243,17 +406,48 @@ theme_override_font_sizes/font_size = 20
 text = "up!"
 horizontal_alignment = 2
 
+[node name="Control" type="Control" parent="TextureRect/Stats/HBox_DEF-SPD/Speed"]
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/Stats/HBox_DEF-SPD/Speed"]
+clip_contents = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.843137, 0.235294, 1)
+theme_override_fonts/normal_font = ExtResource("3_tytxe")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[hover amp=3]up!"
+custom_effects = [SubResource("RichTextEffect_7excn")]
+
 [node name="VBox_skill" type="VBoxContainer" parent="TextureRect/Stats"]
 visible = false
 layout_mode = 2
 
-[node name="newAlert" type="Label" parent="TextureRect/Stats/VBox_skill"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/Stats/VBox_skill"]
+layout_mode = 2
+alignment = 2
+
+[node name="newAlert" type="Label" parent="TextureRect/Stats/VBox_skill/HBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.843137, 0.235294, 1)
 theme_override_fonts/font = ExtResource("3_tytxe")
 theme_override_font_sizes/font_size = 20
 text = "new skill!"
 horizontal_alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/Stats/VBox_skill/HBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(120, 21)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.843137, 0.235294, 1)
+theme_override_fonts/normal_font = ExtResource("3_tytxe")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[hover amp=3]new skill!"
+custom_effects = [SubResource("RichTextEffect_7excn")]
 
 [node name="skillIcon1" type="Sprite2D" parent="TextureRect/Stats/VBox_skill"]
 visible = false
