@@ -33,14 +33,14 @@ script = ExtResource("1_lg7hh")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_gik4j")]
 title = "Skill"
-description = "     After Player hover mouse over skil butoon, The skill description will appear on the right bottom corner.
+description = "     After player hovers mouse over skill button, The skill description will appear at the right bottom corner. 
 
-     Green header mean the skill is available."
+     Green header mean the skill is available. Once used, the turn will be automatically ended."
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("2_gik4j")]
 visible = false
 title = "Skill Cooldown"
-description = "     The skill button that use will show the current cooldown instead.Player can still hover to see the skill description."
+description = "     The skill button that is used will show the current cooldown instead. Player can still hover over skill button to see the skill description."
 
 [node name="Board" type="Node2D" parent="."]
 position = Vector2(120, 350)

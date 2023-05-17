@@ -35,7 +35,7 @@ script = ExtResource("1_kfmmu")
 [node name="CanvasLayer" parent="." instance=ExtResource("2_bfrnd")]
 visible = false
 title = "Backstab"
-description = "    When character is attacked in back in the back the damage will increase (*1.5)."
+description = "    When character get attacked at the back, the received damage will be increased(*1.5)."
 
 [node name="Board" type="Node2D" parent="."]
 position = Vector2(120, 350)
