@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmr3xchclk53s"]
+[gd_scene load_steps=9 format=3 uid="uid://cmr3xchclk53s"]
 
 [ext_resource type="Script" path="res://System/Menu/SplashScreen/GD_SplashScreen.gd" id="1_xcne1"]
 [ext_resource type="Texture2D" uid="uid://jk4tap6negkm" path="res://Assets/BG2.jpg" id="2_ahu1b"]
@@ -7,6 +7,68 @@
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_7excn"]
 script = ExtResource("4_7kuby")
+
+[sub_resource type="Animation" id="Animation_6umas"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionColor:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionColor:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_xrsbr"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionColor:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionColor:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d5t0b"]
+_data = {
+"fade_in": SubResource("Animation_6umas"),
+"fade_out": SubResource("Animation_xrsbr")
+}
 
 [node name="SplashScreen" type="Control"]
 layout_mode = 3
@@ -51,6 +113,21 @@ theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "[p align=center][hover amp=3 y_offset=-1]Click to Continue"
 custom_effects = [SubResource("RichTextEffect_7excn")]
+
+[node name="TransitionColor" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_d5t0b")
+}
 
 [connection signal="gui_input" from="TextureRect" to="." method="_on_texture_rect_gui_input"]
 [connection signal="gui_input" from="ReferenceRect" to="." method="_on_reference_rect_gui_input"]
