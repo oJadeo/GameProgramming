@@ -29,6 +29,9 @@ func print_data():
 func get_played_tutorial():
 	return save.already_played_tutorial
 
+func played_tutorial():
+	save.already_played_tutorial = true
+
 func get_unlock_level():
 	return save.unlockedLevels 
 

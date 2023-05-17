@@ -173,7 +173,8 @@ func set_up_character_level_up(container:Node,char_id:String):
 				container.skill_id_2 = skill_up[i]
 
 func _on_main_menu_pressed():
-	get_tree().change_scene_to_file("res://System/Menu/MainMenu/GD_MainMenu.tscn")
+	Util.change_scene("res://System/Menu/MainMenu/GD_MainMenu.tscn")
+	get_parent().get_parent().queue_free()
 
 func _on_next_level_pressed():
 	var cur_level = PlayerVar.selectedLevel
@@ -182,8 +183,7 @@ func _on_next_level_pressed():
 		PlayerVar.selectedLevel = next_level
 		GlobalSave.unlock_level(next_level)
 		Board.clear_board()
-		get_tree().change_scene_to_file("res://System/Menu/TeamSelect/GD_TeamSelect.tscn")
+		Util.change_scene("res://System/Menu/TeamSelect/GD_TeamSelect.tscn")
 	else:
-		get_tree().change_scene_to_file("res://System/Menu/LevelSelect/GD_LevelSelect.tscn")
-
-
+		Util.change_scene("res://System/Menu/LevelSelect/GD_LevelSelect.tscn")
+	get_parent().get_parent().queue_free()

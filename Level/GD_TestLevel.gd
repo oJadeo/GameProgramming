@@ -11,7 +11,7 @@ func _ready() -> void:
 			bg.texture = load("res://Assets/bg2.png")
 		5,6:
 			bg.texture = load("res://Assets/bg3.png")
-
+	win_level()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
