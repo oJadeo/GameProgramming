@@ -1,7 +1,7 @@
 extends Node2D
 
 var select_level:int
-
+var order = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,8 +21,16 @@ func lose_level() -> void:
 
 func _on_s_tutorial_move_turn_manager_finish_tutorial():
 	
-	var next_scene = load("res://System/Menu/TutorialSelect/GD_TutorialSelect.tscn").instantiate()
-	get_tree().get_root().add_child(next_scene)
-	queue_free()
-	
-	Board.clear_board()
+	match order:
+		0:
+			$CanvasLayer2.visible = true
+			order += 1
+			var player = $S_tutorial_move_turn_manager/PlayerManager/Characters/S_PC2
+			var control = player.get_node("CanvasLayer/ControlButton")
+			control.visible = true
+		1:
+			var next_scene = load("res://System/Menu/TutorialSelect/GD_TutorialSelect.tscn").instantiate()
+			get_tree().get_root().add_child(next_scene)
+			queue_free()
+			
+			Board.clear_board()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://l2gbp32bgfl"]
+[gd_scene load_steps=8 format=3 uid="uid://l2gbp32bgfl"]
 
 [ext_resource type="Script" path="res://Level/Tutorial/GD_tutorial_popup.gd" id="1_85rud"]
 [ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="2_hr4ft"]
@@ -11,6 +11,22 @@ bg_color = Color(0, 0.717647, 0.396078, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8srfk"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_daxc1"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlxyq"]
+bg_color = Color(0.709804, 0.709804, 0.709804, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.196078, 0.196078, 0.196078, 1)
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 2
@@ -91,10 +107,21 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -50.0
+offset_left = -227.0
+offset_top = -90.0
+offset_right = -10.0
+offset_bottom = -10.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_hr4ft")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_daxc1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rlxyq")
 text = "Close"
 
 [connection signal="pressed" from="EndTurn/Container/Description/Panel/Close" to="." method="_on_close_pressed"]

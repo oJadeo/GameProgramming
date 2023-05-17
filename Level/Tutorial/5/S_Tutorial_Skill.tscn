@@ -33,6 +33,14 @@ script = ExtResource("1_lg7hh")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_gik4j")]
 title = "Skill"
+description = "     After Player hover mouse over skil butoon, The skill description will appear on the right bottom corner.
+
+     Green header mean the skill is available."
+
+[node name="CanvasLayer2" parent="." instance=ExtResource("2_gik4j")]
+visible = false
+title = "Skill Cooldown"
+description = "     The skill button that use will show the current cooldown instead.Player can still hover to see the skill description."
 
 [node name="Board" type="Node2D" parent="."]
 position = Vector2(120, 350)
@@ -61,3 +69,4 @@ start_cood = Vector2(2, 2)
 [connection signal="finish_tutorial" from="S_tutorial_move_turn_manager" to="." method="_on_s_tutorial_move_turn_manager_finish_tutorial"]
 
 [editable path="S_tutorial_move_turn_manager"]
+[editable path="S_tutorial_move_turn_manager/PlayerManager/Characters/S_PC2"]

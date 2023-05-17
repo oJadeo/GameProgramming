@@ -67,6 +67,11 @@ start_cood = Vector2(3, 2)
 start_direction = Vector2(-1, 0)
 start_cood = Vector2(4, 2)
 
+[node name="S_Punch" parent="S_tutorial_turn_manager/PlayerManager/Characters/S_PC_basic_tutorial/SkillsList" index="1"]
+skill_name = "Punch"
+skill_description = "Attack target horizontally or diagonally, range 1
+DAMAGE: ATK * 1"
+
 [connection signal="start_turn" from="S_tutorial_turn_manager" to="." method="_on_s_tutorial_turn_manager_start_turn"]
 [connection signal="finish_tutorial" from="S_tutorial_turn_manager/PlayerManager/Characters/S_PC_basic_tutorial/SkillsList/S_Punch" to="." method="_on_s_punch_finish_tutorial"]
 
