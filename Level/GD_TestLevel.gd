@@ -18,10 +18,12 @@ func _process(delta: float) -> void:
 	pass
 
 func win_level()-> void:
+	print("win!")
 	GlobalSave.unlock_level(PlayerVar.selectedLevel+1)
 	$CanvasLayer/VictoryOverlay.visible = true
 	$CanvasLayer/VictoryOverlay.update()
 
 func lose_level() -> void:
+	print("lose!")
 	$CanvasLayer/DefeatOverlay.visible = true
 
