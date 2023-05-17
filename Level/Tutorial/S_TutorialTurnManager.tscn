@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c8ee50y5d7voi"]
+[gd_scene load_steps=20 format=3 uid="uid://c8ee50y5d7voi"]
 
 [ext_resource type="Script" path="res://Level/Tutorial/GD_TutorialTurnManager.gd" id="1_xvm80"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_EnemyManager.gd" id="2_coy1w"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://deaafmasgxd4y" path="res://System/TurnManager/S_CharacterGauge.tscn" id="9_pf01b"]
 [ext_resource type="Texture2D" uid="uid://dduvdhrqm7eqo" path="res://Assets/Formation/F3_spritesheet.png" id="11_2gnpj"]
 [ext_resource type="Texture2D" uid="uid://bngv7310ms8ev" path="res://Assets/Formation/F4_spritesheet.png" id="13_d4w8o"]
+[ext_resource type="Script" path="res://System/TurnManager/GD_TooltipController.gd" id="17_ufmpq"]
 
 [sub_resource type="Theme" id="Theme_jw8up"]
 
@@ -168,15 +169,18 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_o0ha5")
 script = ExtResource("8_u7jtt")
 gauge = ExtResource("9_pf01b")
 
-[node name="Tooltips" type="VBoxContainer" parent="PlayerManager/CanvasLayer"]
+[node name="TooltipController" type="VBoxContainer" parent="PlayerManager/CanvasLayer"]
 custom_minimum_size = Vector2(512, 0)
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -720.0
-offset_top = -474.0
+offset_left = -748.0
+offset_top = -499.0
+offset_right = -28.0
+offset_bottom = -25.0
 grow_horizontal = 0
 grow_vertical = 0
 alignment = 2
+script = ExtResource("17_ufmpq")
