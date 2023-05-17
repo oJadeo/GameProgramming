@@ -71,5 +71,5 @@ func trigger() -> void:
 		print(target.global_position)
 		target.turn_effect(Character.EFFECT.debuff,debuff_stat,debuff_duration)
 		var new_insect = insect.instantiate()
-		get_tree().current_scene.add_child(new_insect)
-		new_insect.set_position(target.global_position)
+		add_child(new_insect)
+		new_insect.global_position = target.global_position
