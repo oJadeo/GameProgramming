@@ -1,5 +1,8 @@
 extends Control
 
+signal enter_area
+signal exited_area
+
 @onready var gauge_bar = $GaugeBar
 @onready var health_bar = $HealthBar
 @onready var character = $".."
@@ -36,6 +39,8 @@ func _on_max_health_updated(new_value:int) -> void:
 
 func _on_area_2d_mouse_entered():
 	show_bar()
+	emit_signal("enter_area")
 
 func _on_area_2d_mouse_exited():
 	hide_bar()
+	emit_signal("exited_area")
