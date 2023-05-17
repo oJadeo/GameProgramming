@@ -20,11 +20,12 @@ func lose_level() -> void:
 	
 
 func _on_s_punch_finish_tutorial():
+	var next_scene = "res://System/Menu/TutorialSelect/GD_TutorialSelect.tscn" if GlobalSave.get_played_tutorial() \
+				else "res://Level/Tutorial/5/S_Tutorial_Skill.tscn"
 	
-	var next_scene = load("res://System/Menu/TutorialSelect/GD_TutorialSelect.tscn").instantiate()
-	get_tree().get_root().add_child(next_scene)
-	queue_free()
 	Board.clear_board()
+	Util.change_scene(next_scene)
+	queue_free()
 
 func _on_s_tutorial_turn_manager_start_turn():
 	$CanvasLayer.visible = true
