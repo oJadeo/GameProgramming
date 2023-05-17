@@ -13,6 +13,8 @@ func _process(delta):
 
 func check_finish_level():
 	if len(Board.enemy_list) == 0:
+		print("HERE")
 		var current_scene = get_tree().get_current_scene()
 		if current_scene is LEVEL:
+			print("HERE2")
 			current_scene.win_level()

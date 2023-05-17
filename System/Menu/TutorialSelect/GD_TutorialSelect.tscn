@@ -1,4 +1,4 @@
-[gd_scene load_steps=1475 format=3 uid="uid://bh4s60marrcrl"]
+[gd_scene load_steps=1478 format=3 uid="uid://bh4s60marrcrl"]
 
 [ext_resource type="Script" path="res://System/Menu/TutorialSelect/GD_TutorialSelect.gd" id="1_y81gp"]
 [ext_resource type="Texture2D" uid="uid://bk8levjljhuix" path="res://Assets/bg_animate/bg_animate1.png" id="2_0ca5k"]
@@ -5876,7 +5876,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 60.0
+"speed": 30.0
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsrvy"]
