@@ -3,7 +3,15 @@ class_name LEVEL
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	var bg = $TextureRect
+	match PlayerVar.selectedLevel:
+		1,2:
+			bg.texture = load("res://Assets/test_bg.png")
+		3,4:
+			bg.texture = load("res://Assets/bg2.png")
+		5,6:
+			bg.texture = load("res://Assets/bg3.png")
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

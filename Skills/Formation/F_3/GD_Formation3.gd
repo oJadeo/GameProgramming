@@ -50,7 +50,8 @@ func finish_skill() -> void:
 	player.end_turn()
 	for i in range(amount):
 		var cha = Board.get_character(player.board_cood-i*skill_direction)
-		cha.return_to_idle()
+		if cha:
+			cha.return_to_idle()
 	emit_signal("finish_tutorial")
 
 func update(delta:float) -> void:
