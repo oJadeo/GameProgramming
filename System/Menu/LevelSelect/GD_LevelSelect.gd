@@ -11,14 +11,19 @@ func _ready():
 			level.connect('pressed',change_level.bind(iName))
 		else:
 			level.disabled = true
+	$AnimationPlayer.play("fade_in")
+	await $AnimationPlayer.animation_finished
 
 func change_level(level_name:int):
-	var next_scene = load("res://System/Menu/TeamSelect/GD_TeamSelect.tscn").instantiate()
 	PlayerVar.selectedLevel = level_name
 	#PlayerVar.charDataList = [null,null,null]
-	get_tree().get_root().add_child(next_scene)
+	$AnimationPlayer.play("fade_out")
+	await $AnimationPlayer.animation_finished
+	Util.change_scene("res://System/Menu/TeamSelect/GD_TeamSelect.tscn")
 	queue_free()
 
 func _on_back_pressed():
+	$AnimationPlayer.play("fade_out")
+	await $AnimationPlayer.animation_finished
 	Util.change_scene("res://System/Menu/MainMenu/GD_MainMenu.tscn")
 	queue_free()
