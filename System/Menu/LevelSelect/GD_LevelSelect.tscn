@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bard51nhitw36"]
+[gd_scene load_steps=11 format=3 uid="uid://bard51nhitw36"]
 
 [ext_resource type="Script" path="res://System/Menu/LevelSelect/GD_LevelSelect.gd" id="1_nhi3v"]
 [ext_resource type="Texture2D" uid="uid://30liyjtyusi4" path="res://Assets/konohapixel.png" id="2_uco2c"]
@@ -108,11 +108,13 @@ grow_vertical = 2
 script = ExtResource("1_nhi3v")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 1916.0
 offset_bottom = 1078.0
 texture = ExtResource("2_uco2c")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
