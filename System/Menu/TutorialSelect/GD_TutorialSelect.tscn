@@ -4,7 +4,6 @@
 [ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="2_2st3o"]
 [ext_resource type="Texture2D" uid="uid://30liyjtyusi4" path="res://Assets/konohapixel.png" id="2_6b2px"]
 
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsrvy"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 3

@@ -78,6 +78,7 @@ func start_turn()->void:
 
 func end_turn()->void:
 	super()
+	select_formation_skill = null
 	SKILL_SELECT_UI.visible = false
 	
 func setting_skills_button():

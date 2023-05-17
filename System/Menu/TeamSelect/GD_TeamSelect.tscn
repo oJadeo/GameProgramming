@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://System/Menu/TeamSelect/GD_TeamSelect.gd" id="1_doa6j"]
 [ext_resource type="Script" path="res://System/Menu/TeamSelect/GD_DrawUtils.gd" id="2_w8jeg"]
 [ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="3_d3uab"]
-[ext_resource type="PackedScene" path="res://System/Menu/TeamSelect/GD_SlotButton.tscn" id="4_p7b2p"]
+[ext_resource type="PackedScene" uid="uid://dpjju6q6bxph5" path="res://System/Menu/TeamSelect/GD_SlotButton.tscn" id="4_p7b2p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6nxn4"]
 bg_color = Color(1, 1, 1, 1)
