@@ -37,9 +37,11 @@ script = ExtResource("1_cad6j")
 [node name="CanvasLayer" parent="." instance=ExtResource("2_ut462")]
 visible = false
 title = "Formation"
-description = "     When characters are in the required position of formation. The available formation skill button will show up at the top right of the screen. 
-	 All characters can activate formation only once.
-Once used, the turn will be automatically ended."
+description = "     When characters are aligned in the required position of formation. The available formation skill button will show up at the top right of the screen. 
+
+	 Each characters can activate formation only once.
+
+	 Once used, the turn will be automatically ended. And that character cannot be used to activate formation until the end of level."
 
 [node name="Board" type="Node2D" parent="."]
 position = Vector2(120, 350)
