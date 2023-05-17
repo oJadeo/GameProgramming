@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cibm6rmqyq6ra"]
+[gd_scene load_steps=13 format=3 uid="uid://cibm6rmqyq6ra"]
 
 [ext_resource type="Script" path="res://System/Menu/TeamSelect/GD_TeamSelect.gd" id="1_doa6j"]
 [ext_resource type="Script" path="res://System/Menu/TeamSelect/GD_DrawUtils.gd" id="2_w8jeg"]
@@ -7,6 +7,13 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6nxn4"]
 bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrkd3"]
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -104,7 +111,7 @@ theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_d3uab")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_6nxn4")
-theme_override_styles/hover = SubResource("StyleBoxFlat_q2ah3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mrkd3")
 text = "Back"
 
 [node name="Swap" type="Button" parent="."]

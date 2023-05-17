@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://d4i012to4ab7v"]
+[gd_scene load_steps=36 format=3 uid="uid://d4i012to4ab7v"]
 
 [ext_resource type="Script" path="res://System/TurnManager/GD_TurnManager.gd" id="1_dflja"]
 [ext_resource type="Script" path="res://System/CharacterManager/GD_EnemyManager.gd" id="2_mrvh1"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cwbb5bd1qny4w" path="res://Character/EnemyCharacter_AI/EM1/S_EM1_AI.tscn" id="15_6fe4u"]
 [ext_resource type="PackedScene" uid="uid://g73g6o4p2ukg" path="res://Character/EnemyCharacter_AI/EM2/S_EM2_AI.tscn" id="16_u1bhv"]
 [ext_resource type="PackedScene" uid="uid://cspcb1h7kr4tf" path="res://Character/EnemyCharacter_AI/EM3/S_EM3_AI.tscn" id="17_qqeb1"]
+[ext_resource type="Script" path="res://System/TurnManager/GD_TooltipController.gd" id="17_smahq"]
 [ext_resource type="PackedScene" uid="uid://dx3rkyno4p2wb" path="res://Character/EnemyCharacter_AI/EM4/S_EM4_AI.tscn" id="18_d2u3t"]
 [ext_resource type="Script" path="res://System/Level/GD_PlayerSpawner.gd" id="18_xd340"]
 [ext_resource type="PackedScene" uid="uid://bgd3hb5w3wnip" path="res://Character/EnemyCharacter_AI/Boss1/S_Boss1_AI.tscn" id="19_b5fbv"]
@@ -184,18 +185,21 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_661mu")
 script = ExtResource("12_gfjle")
 gauge = ExtResource("13_1n2f6")
 
-[node name="Tooltips" type="VBoxContainer" parent="PlayerManager/CanvasLayer"]
+[node name="TooltipController" type="VBoxContainer" parent="PlayerManager/CanvasLayer"]
 custom_minimum_size = Vector2(512, 0)
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -720.0
-offset_top = -474.0
+offset_left = -748.0
+offset_top = -499.0
+offset_right = -28.0
+offset_bottom = -25.0
 grow_horizontal = 0
 grow_vertical = 0
 alignment = 2
+script = ExtResource("17_smahq")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("13_kp5uk")

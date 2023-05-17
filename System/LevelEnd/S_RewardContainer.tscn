@@ -17,7 +17,6 @@ custom_minimum_size = Vector2(360, 80)
 offset_right = 360.0
 offset_bottom = 80.0
 script = ExtResource("1_c2fd6")
-reward_exp = 15
 
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(360, 80)
