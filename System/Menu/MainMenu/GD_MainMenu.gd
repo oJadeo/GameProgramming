@@ -1,10 +1,8 @@
 extends Control
 
-var toTutorial = false
 func _ready():
-	if len(GlobalSave.get_unlock_level()) == 0 or GlobalSave.get_unlock_level()[-1] == 1:
+	if not GlobalSave.get_played_tutorial():
 		$Continue.text = "New Game"
-		toTutorial = true
 	$AnimationPlayer.play("fade_in")
 	await $AnimationPlayer.animation_finished
 	
@@ -19,10 +17,14 @@ func _on_level_select_pressed():
 
 func _on_continue_pressed():
 	var next_scene
-	if toTutorial:
+	if not GlobalSave.get_played_tutorial():
+		GlobalSave.played_tutorial()
 		$AnimationPlayer.play("fade_out")
 		await $AnimationPlayer.animation_finished
+		
 		Util.change_scene("res://System/Menu/TutorialSelect/GD_TutorialSelect.tscn")
+		###Change this to beginning of tutorial
+		
 		queue_free()
 	else:
 		var last_level_name = GlobalSave.get_unlock_level()[-1]
