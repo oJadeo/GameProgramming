@@ -5912,6 +5912,7 @@ offset_bottom = 1080.0
 color = Color(0.87451, 0.87451, 0.87451, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(960, 540)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_wy2vy")
