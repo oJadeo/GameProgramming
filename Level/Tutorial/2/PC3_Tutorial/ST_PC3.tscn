@@ -1,18 +1,19 @@
-[gd_scene load_steps=35 format=3 uid="uid://cff1yqjplc1rm"]
+[gd_scene load_steps=36 format=3 uid="uid://cff1yqjplc1rm"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_dbweo"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC3/pc3_stat.json" id="2_hxct7"]
 [ext_resource type="JSON" path="res://System/Global/charm_list.json" id="3_kqrcb"]
-[ext_resource type="PackedScene" path="res://Skills/PC3/S1/S_ThrowBigShuriken.tscn" id="4_25odk"]
-[ext_resource type="PackedScene" path="res://Skills/PC3/S2/S_Teleport.tscn" id="5_3wtae"]
-[ext_resource type="PackedScene" path="res://Skills/PC3/S3/S_ThrowFire.tscn" id="6_tat6n"]
+[ext_resource type="PackedScene" uid="uid://bihoqmaajcxp1" path="res://Skills/PC3/S1/S_ThrowBigShuriken.tscn" id="4_25odk"]
+[ext_resource type="PackedScene" uid="uid://bnvnim4omss3x" path="res://Skills/PC3/S2/S_Teleport.tscn" id="5_3wtae"]
+[ext_resource type="PackedScene" uid="uid://wsvqsp1vx6fb" path="res://Skills/PC3/S3/S_ThrowFire.tscn" id="6_tat6n"]
 [ext_resource type="Texture2D" uid="uid://bt03wad32c8k2" path="res://Character/PlayerCharacter/PC3/I_PC3.png" id="7_etcmw"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="8_7t7rc"]
 [ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="9_m8obo"]
 [ext_resource type="PackedScene" uid="uid://c0qyi6bvtkv28" path="res://Character/PlayerCharacter/Ui/S_Skills.tscn" id="10_h0dbo"]
-[ext_resource type="PackedScene" uid="uid://8ba0frl04q03" path="res://Character/PlayerCharacter/Ui/S_Tooltips.tscn" id="11_50doy"]
+[ext_resource type="PackedScene" uid="uid://bqsnymftdlc26" path="res://Character/PlayerCharacter/Ui/S_Tooltips.tscn" id="11_50doy"]
 [ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="12_sgd27"]
 [ext_resource type="Texture2D" uid="uid://bqrmpk32cw0ce" path="res://Character/PlayerCharacter/PC3/PC3.png" id="13_snss6"]
+[ext_resource type="AudioStream" uid="uid://c4m160wdity7f" path="res://Audio/basic/walk.mp3" id="14_a3qt0"]
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="14_smuq8"]
 [ext_resource type="PackedScene" uid="uid://dunr0ohy5tl13" path="res://Level/Tutorial/2/Basic_Atk_Tutorial/Shuriken/ST_ThrowShuriken.tscn" id="15_ivyw1"]
 [ext_resource type="PackedScene" uid="uid://ynov7x4ybtsb" path="res://Level/Tutorial/2/Basic_Atk_Tutorial/Shuriken/S_Shuriken.tscn" id="16_gqy0t"]
@@ -330,6 +331,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2)]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 7.0,
+"start_offset": 1.0,
+"stream": ExtResource("14_a3qt0")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xmd81"]
 _data = {
@@ -440,3 +456,5 @@ one_shot = true
 [node name="S_Shuriken" parent="SkillsList" instance=ExtResource("15_ivyw1")]
 shuriken = ExtResource("16_gqy0t")
 skill_spritesheet = ExtResource("17_yyq8n")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
