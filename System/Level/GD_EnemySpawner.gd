@@ -1,6 +1,8 @@
 extends Node
 
 @onready var enemy_list_node = $"../EnemyManager/Characters"
+@onready var tooltip_controller = $"../PlayerManager/CanvasLayer/TooltipController"
+
 @export var enemy_data_json:JSON
 @export var EM1:Resource
 @export var EM2:Resource
@@ -41,6 +43,8 @@ func select_level(lv:int):
 		start_velocity.append(enemy_instance.global_position.x - 2020)
 		
 		enemy_instance.global_position.x = 2020
+
+		tooltip_controller.new_health_tooltip(enemy_instance)
 
 	enemy_list_node.get_parent().update_all_character()
 	enemy_list_node.get_parent().random_start_guage()

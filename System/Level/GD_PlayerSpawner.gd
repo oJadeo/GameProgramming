@@ -1,18 +1,21 @@
 extends Node
 
 @onready var player_list_node = $"../PlayerManager/Characters"
+@onready var tooltip_controller = $"../PlayerManager/CanvasLayer/TooltipController"
+
 @export var player_data_json:JSON
-@export var PC1:Resource
-@export var PC2:Resource
-@export var PC3:Resource
-@export var PC4:Resource
-@export var PC5:Resource
-@export var PC6:Resource
+@export var PC1: Resource
+@export var PC2: Resource
+@export var PC3: Resource
+@export var PC4: Resource
+@export var PC5: Resource
+@export var PC6: Resource
 var pc_dict
 var selected_PC
 @onready var turnline = $"../PlayerManager/CanvasLayer/TurnLineManager"
 
 var start_velocity = []
+var health_tooltip = load("res://System/TurnManager/S_HealthTooltip.tscn")
 
 var player_scene:Dictionary
 # Called when the node enters the scene tree for the first time.
@@ -47,14 +50,16 @@ func select_level(lv:int):
 		start_velocity.append(player_instance.global_position.x + 100)
 		
 		player_instance.global_position.x = - 100
+
+		tooltip_controller.new_health_tooltip(player_instance)
+
 		
 	player_list_node.get_parent().update_all_character()
 	player_list_node.get_parent().random_start_guage()
 	
 	Board.player_list = player_list_node.get_children()
 	
-	turnline.update_player_list()
-	
+	turnline.update_player_list()	
 	
 func start_player_move():
 	$MoveTimer.start()

@@ -16,6 +16,7 @@ class_name TextTooltip
 @export var text_color: Color
 @export_range(0, 1) var transparent: float:
 	set(value):
+		transparent = value
 		set_tooltip_text_color(
 			Color(
 				text_color.r,
@@ -63,6 +64,7 @@ var last_state = false
 var max_cooldown:int = 0
 var cooldown:int = 0:
 	set(value):
+		cooldown = value
 		if value <= 0:
 			set_tooltip_top_background_color(
 				Color(
