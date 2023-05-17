@@ -1,6 +1,6 @@
 extends Control
 
-var draw_data
+var draw_data = []
 var enemy_cood = load("res://Level/Data/emeny_cood.json").get_data()
 var player_cood = load("res://Level/Data/player_start_cood.json").get_data()
 var swapping = []
@@ -18,6 +18,8 @@ func _ready():
 	draw_enemy()
 	draw_player()
 	$Label3.text = "Level " + str(PlayerVar.selectedLevel)
+	$AnimationPlayer.play("fade_in")
+	await $AnimationPlayer.animation_finished
 	
 func draw_enemy():
 	var offset = Vector2(15,25)
@@ -47,6 +49,8 @@ func draw_player():
 			char_pos.set_character(PlayerVar.charDataList[i].char_id)
 		else:
 			char_pos.set_text(i)
+		print(p_cood)
+		print(len(draw_data))
 		char_pos.set_position(draw_data[1][4-p_cood.y][p_cood.x])
 		$PlayerPos.add_child(char_pos)
 	
@@ -75,17 +79,20 @@ func set_char_done(slot_id,char_data):
 		PlayerVar.charDataList[slot_id] = char_data
 		
 	set_text()
-	draw_player()
+	#draw_player()
 	checkStartCondition()
 
 func init_character_select(slot_id):
+	$AnimationPlayer.play("fade_out")
+	await $AnimationPlayer.animation_finished
 	var char_select_scene = load("res://System/Menu/CharacterSelect/GD_CharacterSelect.tscn").instantiate()
 
 	if PlayerVar.charDataList[slot_id]:
 		char_select_scene.init_scene(slot_id,PlayerVar.charDataList[slot_id].char_id)
 	else:
 		char_select_scene.init_scene(slot_id,null)
-	add_child(char_select_scene)
+	get_tree().get_root().add_child(char_select_scene)
+	queue_free()
 	
 func add_swap(slot_id):
 	swapping.append(slot_id)
@@ -102,6 +109,8 @@ func add_swap(slot_id):
 		$Swap.set_pressed(false)
 
 func _on_back_pressed():
+	$AnimationPlayer.play("fade_out")
+	await $AnimationPlayer.animation_finished
 	Util.change_scene("res://System/Menu/LevelSelect/GD_LevelSelect.tscn")
 	queue_free()
 
@@ -110,6 +119,8 @@ func _on_node_2d_draw():
 		$Node2D.draw_line(i[0],i[1],Color(0, 0, 0),3)
 
 func _on_confirm_selection_pressed():
+	$AnimationPlayer.play("fade_out")
+	await $AnimationPlayer.animation_finished
 	Util.change_scene("res://Level/S_TestLevel.tscn")
 	queue_free()
 	
