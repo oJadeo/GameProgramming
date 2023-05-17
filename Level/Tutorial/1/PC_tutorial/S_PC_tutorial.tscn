@@ -1,19 +1,20 @@
-[gd_scene load_steps=31 format=3 uid="uid://dbggkmw510u1p"]
+[gd_scene load_steps=32 format=3 uid="uid://dbggkmw510u1p"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/GD_BasePlayerChacter.gd" id="1_otvho"]
 [ext_resource type="JSON" path="res://Character/PlayerCharacter/PC1/pc1_stat.json" id="2_se06i"]
 [ext_resource type="JSON" path="res://System/Global/charm_list.json" id="3_5oaop"]
-[ext_resource type="PackedScene" path="res://Skills/PC1/S1/S_GaugePunch.tscn" id="4_qaesb"]
-[ext_resource type="PackedScene" path="res://Skills/PC1/S2/S_DefBreakPunch.tscn" id="5_kxdig"]
-[ext_resource type="PackedScene" path="res://Skills/PC1/S3/S_NoDefPunch.tscn" id="6_e68me"]
+[ext_resource type="PackedScene" uid="uid://dm4sc7b4o17gl" path="res://Skills/PC1/S1/S_GaugePunch.tscn" id="4_qaesb"]
+[ext_resource type="PackedScene" uid="uid://hcre8ptwhrn5" path="res://Skills/PC1/S2/S_DefBreakPunch.tscn" id="5_kxdig"]
+[ext_resource type="PackedScene" uid="uid://y2wrr87tcjx" path="res://Skills/PC1/S3/S_NoDefPunch.tscn" id="6_e68me"]
 [ext_resource type="Texture2D" uid="uid://rflmq48tekve" path="res://Character/PlayerCharacter/PC1/I_PC1.png" id="7_y5ppy"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="8_e6ogt"]
 [ext_resource type="PackedScene" uid="uid://chpxq2gtmybyg" path="res://Character/PlayerCharacter/Ui/S_StatsContainer.tscn" id="9_i4gs4"]
 [ext_resource type="PackedScene" uid="uid://c0qyi6bvtkv28" path="res://Character/PlayerCharacter/Ui/S_Skills.tscn" id="10_hgr0e"]
-[ext_resource type="PackedScene" uid="uid://8ba0frl04q03" path="res://Character/PlayerCharacter/Ui/S_Tooltips.tscn" id="11_lgj0u"]
+[ext_resource type="PackedScene" uid="uid://bqsnymftdlc26" path="res://Character/PlayerCharacter/Ui/S_Tooltips.tscn" id="11_lgj0u"]
 [ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="12_trepj"]
 [ext_resource type="Texture2D" uid="uid://cjbmoq0aa6wof" path="res://Character/PlayerCharacter/PC1/PC1.png" id="13_dgiac"]
 [ext_resource type="PackedScene" uid="uid://cgs1qkxf07oh" path="res://Level/Tutorial/1/PC_tutorial/Movement_tutorial/S_MoveTutorial.tscn" id="14_07dev"]
+[ext_resource type="AudioStream" uid="uid://c4m160wdity7f" path="res://Audio/basic/walk.mp3" id="14_io687"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsj8r"]
 bg_color = Color(0.870588, 0.490196, 0, 1)
@@ -258,6 +259,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [Vector2i(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_qti31"]
 resource_name = "Shuriken"
@@ -323,6 +336,33 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 7.0,
+"start_offset": 1.0,
+"stream": ExtResource("14_io687")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xmd81"]
@@ -429,3 +469,5 @@ one_shot = true
 [node name="SkillsList" type="Node2D" parent="."]
 
 [node name="S_MoveTutorial" parent="SkillsList" instance=ExtResource("14_07dev")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -36,18 +36,18 @@ script = ExtResource("1_3f1is")
 [node name="CanvasLayer" parent="." instance=ExtResource("2_morxn")]
 visible = false
 title = "Punch"
-description = "    Character can use basic attack to deal damage to the enemy. 
+description = "    All characters can use basic attack skill to deal damage to the enemy.  Once used, the turn is automatically ended.
 
-     character with punch as their basic attack can attack target horizontally or diagonally.
+     Character with punch as their basic attack can attack target horizontally or diagonally.
 
-    Play can read skill description in the bottom right of the screen when hover mouse over skill button."
+    Player can read skill description at the bottom right of the screen while hovering mouse over the skill button."
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("2_morxn")]
 visible = false
 title = "Shuriken"
-description = "    character with shuriken as their basic attack can attack target horizontally within 3 space. This attack can go through other target.
+description = "    Character with shuriken as their basic attack can attack target horizontally within 3 space. This attack can go through other target.
 
-    Character can move before attack."
+    All characters can move once before attacking."
 
 [node name="Board" type="Node2D" parent="."]
 position = Vector2(120, 350)

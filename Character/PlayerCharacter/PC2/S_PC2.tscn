@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dibfb1py3ool5" path="res://Character/PlayerCharacter/PC2/I_PC2.png" id="5_t8w1n"]
 [ext_resource type="PackedScene" uid="uid://u3mnq0br21wf" path="res://Skills/PC2/S3/S_BuffSpeed.tscn" id="6_45bsb"]
 [ext_resource type="PackedScene" uid="uid://c0qyi6bvtkv28" path="res://Character/PlayerCharacter/Ui/S_Skills.tscn" id="6_65ywg"]
-[ext_resource type="PackedScene" uid="uid://8ba0frl04q03" path="res://Character/PlayerCharacter/Ui/S_Tooltips.tscn" id="7_l6pu2"]
+[ext_resource type="PackedScene" uid="uid://bqsnymftdlc26" path="res://Character/PlayerCharacter/Ui/S_Tooltips.tscn" id="7_l6pu2"]
 [ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="12_8h6uu"]
 [ext_resource type="AudioStream" uid="uid://b3t8rk8at2snw" path="res://Audio/basic/cast.mp3" id="14_m13mt"]
 [ext_resource type="AudioStream" uid="uid://h5f7buifetls" path="res://Audio/Character/PC2/PC2_hurt.mp3" id="15_fxl2w"]

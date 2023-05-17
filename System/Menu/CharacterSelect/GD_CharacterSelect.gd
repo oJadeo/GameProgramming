@@ -21,7 +21,13 @@ func _ready():
 		button.get_node("TextureButton").connect('pressed',set_charm.bind(button.charm_id))
 		button.get_node("TextureButton").connect('mouse_entered',show_charm_desc.bind(button.charm_id))
 		button.get_node("TextureButton").connect('mouse_exited',hide_charm_desc)
-
+		
+	update_charm_stat()
+	
+	$AnimationPlayer.play("fade_in")
+	await $AnimationPlayer.animation_finished
+	
+	
 func init_scene(slot_id,char_id):
 	cur_slot = slot_id
 	selected_char = char_id
@@ -99,6 +105,7 @@ func set_stat(char_id):
 	
 func update_charm_stat():
 	if selected_charm:
+		print(selected_charm)
 		$StatDetails/Label3.visible = true
 		$StatDetails/ModifySigns2.visible = true
 		var chr = $CharSprite.get_child(0)
@@ -141,6 +148,7 @@ func set_character(char_id):
 		else:
 			button.select()
 	button_skill_locked = []
+	
 	if char_id:
 		for button in $SkillWindow/SkillButtons.get_children():
 			if GlobalSave.get_character_level(char_id) >= PlayerVar.get_skill_unlocked_level(char_id,button.skill_id):
@@ -299,15 +307,25 @@ func hide_charm_desc():
 	$CharmWindow/CharmDesc.visible = false
 
 func _on_back_pressed():
+	$AnimationPlayer.play("fade_out")
+	await $AnimationPlayer.animation_finished
+	Util.change_scene("res://System/Menu/TeamSelect/GD_TeamSelect.tscn")
 	queue_free()
 	
 func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_ESCAPE:
+			$AnimationPlayer.play("fade_out")
+			await $AnimationPlayer.animation_finished
+			Util.change_scene("res://System/Menu/TeamSelect/GD_TeamSelect.tscn")
 			queue_free()
 
 func _on_confirm_selection_pressed():
+	$AnimationPlayer.play("fade_out")
+	await $AnimationPlayer.animation_finished
+	var team_scene = load("res://System/Menu/TeamSelect/GD_TeamSelect.tscn").instantiate()
 	if selected_char:
 		var char_data = {"char_id":selected_char,"skills":selected_skills,"charm":selected_charm}
-		get_parent().set_char_done(cur_slot,char_data)
+		team_scene.set_char_done(cur_slot,char_data)
+	get_tree().get_root().add_child(team_scene)
 	queue_free()

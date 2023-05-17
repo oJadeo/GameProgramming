@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dunr0ohy5tl13"]
+[gd_scene load_steps=3 format=3 uid="uid://dunr0ohy5tl13"]
 
 [ext_resource type="Script" path="res://Level/Tutorial/2/Basic_Atk_Tutorial/Shuriken/GDT_ThrowShuriken.gd" id="1_01e5h"]
+[ext_resource type="AudioStream" uid="uid://c03y44sa8q0i8" path="res://Audio/basic/shuriken.mp3" id="2_lb2c7"]
 
 [node name="S_Shuriken" type="Node2D"]
 script = ExtResource("1_01e5h")
@@ -11,5 +12,9 @@ one_shot = true
 
 [node name="ShurikenSpawnLocation" type="Node2D" parent="."]
 position = Vector2(20, -20)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lb2c7")
+volume_db = -10.0
 
 [connection signal="timeout" from="ShurikenTimer" to="." method="_on_shuriken_timer_timeout"]
