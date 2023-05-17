@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmr3xchclk53s"]
+[gd_scene load_steps=12 format=3 uid="uid://cmr3xchclk53s"]
 
 [ext_resource type="Script" path="res://System/Menu/SplashScreen/GD_SplashScreen.gd" id="1_xcne1"]
-[ext_resource type="Texture2D" uid="uid://jk4tap6negkm" path="res://Assets/BG2.jpg" id="2_ahu1b"]
+[ext_resource type="Shader" path="res://System/Menu/SplashScreen/GD_SplashScreen.gdshader" id="2_dfdf7"]
+[ext_resource type="Texture2D" uid="uid://6prenv2wrv6e" path="res://Assets/splash_bg.jpg" id="2_qjig8"]
 [ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="3_6from"]
 [ext_resource type="Script" path="res://System/LevelEnd/Custom_TextHover.gd" id="4_7kuby"]
 [ext_resource type="Texture2D" uid="uid://01e528ufryih" path="res://Assets/logo.png" id="5_o4iui"]
@@ -116,6 +117,11 @@ _data = {
 "fade_out": SubResource("Animation_xrsbr")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iarqe"]
+shader = ExtResource("2_dfdf7")
+shader_parameter/OUTLINE_COLOR = Color(0, 0, 0, 1)
+shader_parameter/BG_COLOR = null
+
 [sub_resource type="RichTextEffect" id="RichTextEffect_7excn"]
 script = ExtResource("4_7kuby")
 
@@ -134,10 +140,11 @@ libraries = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_iarqe")
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("2_ahu1b")
+texture = ExtResource("2_qjig8")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 layout_mode = 0
@@ -153,7 +160,7 @@ offset_right = 1920.0
 offset_bottom = 927.0
 mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("3_6from")
-theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
 text = "[p align=center][hover amp=3 y_offset=-1]Click to Continue"
 custom_effects = [SubResource("RichTextEffect_7excn")]
