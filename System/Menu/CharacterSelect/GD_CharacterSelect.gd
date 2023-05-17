@@ -21,8 +21,12 @@ func _ready():
 		button.get_node("TextureButton").connect('pressed',set_charm.bind(button.charm_id))
 		button.get_node("TextureButton").connect('mouse_entered',show_charm_desc.bind(button.charm_id))
 		button.get_node("TextureButton").connect('mouse_exited',hide_charm_desc)
+		
+	update_charm_stat()
+	
 	$AnimationPlayer.play("fade_in")
 	await $AnimationPlayer.animation_finished
+	
 	
 func init_scene(slot_id,char_id):
 	cur_slot = slot_id
@@ -101,6 +105,7 @@ func set_stat(char_id):
 	
 func update_charm_stat():
 	if selected_charm:
+		print(selected_charm)
 		$StatDetails/Label3.visible = true
 		$StatDetails/ModifySigns2.visible = true
 		var chr = $CharSprite.get_child(0)
@@ -143,6 +148,7 @@ func set_character(char_id):
 		else:
 			button.select()
 	button_skill_locked = []
+	
 	if char_id:
 		for button in $SkillWindow/SkillButtons.get_children():
 			if GlobalSave.get_character_level(char_id) >= PlayerVar.get_skill_unlocked_level(char_id,button.skill_id):

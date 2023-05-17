@@ -1,13 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmr3xchclk53s"]
+[gd_scene load_steps=12 format=3 uid="uid://cmr3xchclk53s"]
 
 [ext_resource type="Script" path="res://System/Menu/SplashScreen/GD_SplashScreen.gd" id="1_xcne1"]
-[ext_resource type="Texture2D" uid="uid://jk4tap6negkm" path="res://Assets/BG2.jpg" id="2_ahu1b"]
+[ext_resource type="Shader" path="res://System/Menu/SplashScreen/GD_SplashScreen.gdshader" id="2_dfdf7"]
+[ext_resource type="Texture2D" uid="uid://6prenv2wrv6e" path="res://Assets/splash_bg.jpg" id="2_qjig8"]
 [ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="3_6from"]
 [ext_resource type="Script" path="res://System/LevelEnd/Custom_TextHover.gd" id="4_7kuby"]
+[ext_resource type="Texture2D" uid="uid://01e528ufryih" path="res://Assets/logo.png" id="5_o4iui"]
 
 [sub_resource type="Animation" id="Animation_6umas"]
 resource_name = "fade_in"
-length = 0.5
+length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -31,6 +33,54 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Logo:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.5, 1.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/Logo:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 100), Vector2(0, -120)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RichTextLabel2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_xrsbr"]
@@ -67,6 +117,11 @@ _data = {
 "fade_out": SubResource("Animation_xrsbr")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iarqe"]
+shader = ExtResource("2_dfdf7")
+shader_parameter/OUTLINE_COLOR = Color(0, 0, 0, 1)
+shader_parameter/BG_COLOR = null
+
 [sub_resource type="RichTextEffect" id="RichTextEffect_7excn"]
 script = ExtResource("4_7kuby")
 
@@ -85,25 +140,16 @@ libraries = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_iarqe")
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("2_ahu1b")
+texture = ExtResource("2_qjig8")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_top = 500.0
-offset_right = 1920.0
-offset_bottom = 588.0
-theme_override_fonts/font = ExtResource("3_6from")
-theme_override_font_sizes/font_size = 112
-text = "Game Title"
-horizontal_alignment = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
 clip_contents = false
@@ -114,12 +160,13 @@ offset_right = 1920.0
 offset_bottom = 927.0
 mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("3_6from")
-theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
 text = "[p align=center][hover amp=3 y_offset=-1]Click to Continue"
 custom_effects = [SubResource("RichTextEffect_7excn")]
 
 [node name="TransitionColor" type="ColorRect" parent="."]
+visible = false
 z_index = 99
 layout_mode = 1
 anchors_preset = 15
@@ -129,6 +176,25 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 19.999
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="Sprite2D" parent="Control"]
+position = Vector2(0, -120)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_o4iui")
 
 [connection signal="gui_input" from="TextureRect" to="." method="_on_texture_rect_gui_input"]
 [connection signal="gui_input" from="ReferenceRect" to="." method="_on_reference_rect_gui_input"]
