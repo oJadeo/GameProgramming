@@ -12,7 +12,7 @@ func _ready():
 		tutorial.connect('pressed',change_level.bind(iName))
 	$AnimationPlayer.play("fade_in")
 	await $AnimationPlayer.animation_finished
-
+	
 func change_level(tutorial_name:int):
 	$AnimationPlayer.play("fade_out")
 	await $AnimationPlayer.animation_finished

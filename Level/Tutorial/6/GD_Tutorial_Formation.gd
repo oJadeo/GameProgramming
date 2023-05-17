@@ -19,11 +19,13 @@ func lose_level() -> void:
 	pass
 	
 func _on_s_formation_3_finish_tutorial():
+	if GlobalSave.get_played_tutorial():
+		Util.change_scene("res://System/Menu/TutorialSelect/GD_TutorialSelect.tscn")
 	
-	var next_scene = load("res://System/Menu/TutorialSelect/GD_TutorialSelect.tscn").instantiate()
-	get_tree().get_root().add_child(next_scene)
-	queue_free()
-	Board.clear_board()
+	else:
+		GlobalSave.played_tutorial()
+		PlayerVar.selectedLevel = 1
+		Util.change_scene("res://System/Menu/TeamSelect/GD_TeamSelect.tscn")
 
 
 func _on_s_tutorial_turn_manager_start_turn():
