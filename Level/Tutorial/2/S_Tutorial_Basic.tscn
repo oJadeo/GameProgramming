@@ -36,11 +36,11 @@ script = ExtResource("1_3f1is")
 [node name="CanvasLayer" parent="." instance=ExtResource("2_morxn")]
 visible = false
 title = "Punch"
-description = "    All characters can use basic attack to deal damage to the enemy.  Once used, the turn will be automatically ended.
+description = "    All characters can use basic attack skill to deal damage to the enemy.  Once used, the turn is automatically ended.
 
      Character with punch as their basic attack can attack target horizontally or diagonally.
 
-    Player can read skill description at the bottom right of the screen when hovering mouse over the skill button."
+    Player can read skill description at the bottom right of the screen while hovering mouse over the skill button."
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("2_morxn")]
 visible = false

@@ -40,7 +40,9 @@ description = "     After player hovers mouse over skill button, The skill descr
 [node name="CanvasLayer2" parent="." instance=ExtResource("2_gik4j")]
 visible = false
 title = "Skill Cooldown"
-description = "     The skill button that is used will show the current cooldown instead. Player can still hover over skill button to see the skill description."
+description = "     The skill button that is used and on cooldown will show the current cooldown instead. Player can still hover over skill button to see the skill description.
+
+	Move and end turn to finish this tutorial."
 
 [node name="Board" type="Node2D" parent="."]
 position = Vector2(120, 350)

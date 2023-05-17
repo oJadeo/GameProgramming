@@ -33,9 +33,9 @@ script = ExtResource("1_hkra6")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_d4rau")]
 title = "Move"
-description = "   All characters can move up to 2 spaces. Then, character's turn will be automatically ended if there are no action available left.
+description = "   All characters can move up to 2 spaces. After moved, the character's turn will be automatically ended if there are no action available left.
 
-   After pressing move button at the right side of the screen, all available spaces will be highlighted. Then click desired space to move to that space."
+   After pressing move button at the right side of the screen, all available spaces will be highlighted. Then, click a desired position to move."
 
 [node name="Board" type="Node2D" parent="."]
 position = Vector2(120, 350)
