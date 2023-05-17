@@ -22,10 +22,14 @@ func _on_s_formation_3_finish_tutorial():
 	if GlobalSave.get_played_tutorial():
 		Util.change_scene("res://System/Menu/TutorialSelect/GD_TutorialSelect.tscn")
 	
+		Board.clear_board()
+		queue_free()
 	else:
 		GlobalSave.played_tutorial()
 		PlayerVar.selectedLevel = 1
 		Util.change_scene("res://System/Menu/TeamSelect/GD_TeamSelect.tscn")
+		Board.clear_board()
+		queue_free()
 
 
 func _on_s_tutorial_turn_manager_start_turn():

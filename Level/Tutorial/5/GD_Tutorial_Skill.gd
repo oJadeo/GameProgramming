@@ -29,8 +29,9 @@ func _on_s_tutorial_move_turn_manager_finish_tutorial():
 			var control = player.get_node("CanvasLayer/ControlButton")
 			control.visible = true
 		1:
-			var next_scene = load("res://System/Menu/TutorialSelect/GD_TutorialSelect.tscn").instantiate()
-			get_tree().get_root().add_child(next_scene)
-			queue_free()
+			var next_scene = "res://System/Menu/TutorialSelect/GD_TutorialSelect.tscn" if GlobalSave.get_played_tutorial() \
+						else "res://Level/Tutorial/6/S_Tutorial_Formation.tscn"
 			
 			Board.clear_board()
+			Util.change_scene(next_scene)
+			queue_free()
