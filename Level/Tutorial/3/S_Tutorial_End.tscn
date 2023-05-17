@@ -34,7 +34,7 @@ script = ExtResource("1_uky6a")
 [node name="CanvasLayer" parent="." instance=ExtResource("2_q6yox")]
 visible = false
 title = "End Turn"
-description = "    Player can not end turn without doing anything. But can end turn after move. The move button will change to end turn button after character move."
+description = "    Player cannot end turn without doing anything. But can end turn after moving. The move button will change to end turn button after the character has moved."
 
 [node name="Board" type="Node2D" parent="."]
 position = Vector2(120, 350)
