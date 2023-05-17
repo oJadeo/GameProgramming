@@ -1,5 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://4v42vv7hma02"]
 
+
 [ext_resource type="Script" path="res://System/Menu/MainMenu/GD_MainMenu.gd" id="1_htd4f"]
 [ext_resource type="Texture2D" uid="uid://30liyjtyusi4" path="res://Assets/konohapixel.png" id="2_55e7k"]
 [ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="2_ridf8"]
@@ -99,7 +100,6 @@ offset_bottom = 1078.0
 texture = ExtResource("2_55e7k")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
