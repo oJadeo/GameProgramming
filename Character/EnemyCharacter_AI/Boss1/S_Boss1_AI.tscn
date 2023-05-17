@@ -367,6 +367,10 @@ _data = {
 [node name="S_Boss1_AI" type="Node2D" groups=["character"]]
 scale = Vector2(3, 3)
 script = ExtResource("1_o1fjm")
+start_atk = 5
+start_def = 0
+start_speed = 8
+start_max_health = 20
 icon_texture = ExtResource("2_td4qk")
 
 [node name="S_GaugeBar" parent="." instance=ExtResource("2_8yvlx")]

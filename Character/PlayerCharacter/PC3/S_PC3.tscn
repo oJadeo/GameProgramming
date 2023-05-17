@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bnvnim4omss3x" path="res://Skills/PC3/S2/S_Teleport.tscn" id="5_ykjj8"]
 [ext_resource type="PackedScene" uid="uid://c0qyi6bvtkv28" path="res://Character/PlayerCharacter/Ui/S_Skills.tscn" id="6_6f1o5"]
 [ext_resource type="PackedScene" uid="uid://wsvqsp1vx6fb" path="res://Skills/PC3/S3/S_ThrowFire.tscn" id="6_dpb7u"]
-[ext_resource type="PackedScene" uid="uid://8ba0frl04q03" path="res://Character/PlayerCharacter/Ui/S_Tooltips.tscn" id="7_5jt7p"]
+[ext_resource type="PackedScene" uid="uid://bqsnymftdlc26" path="res://Character/PlayerCharacter/Ui/S_Tooltips.tscn" id="7_5jt7p"]
 [ext_resource type="PackedScene" uid="uid://cdm38iwcrhoqd" path="res://Character/PlayerCharacter/Ui/S_end_turn_button.tscn" id="12_gnvqc"]
 [ext_resource type="PackedScene" uid="uid://ch51imgjt8abe" path="res://Skills/Basic_Atk/Shuriken/S_ThrowShuriken.tscn" id="13_c48m8"]
 [ext_resource type="AudioStream" uid="uid://b3t8rk8at2snw" path="res://Audio/basic/cast.mp3" id="14_e7tik"]

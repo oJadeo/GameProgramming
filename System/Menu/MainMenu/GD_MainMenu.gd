@@ -18,12 +18,11 @@ func _on_level_select_pressed():
 func _on_continue_pressed():
 	var next_scene
 	if not GlobalSave.get_played_tutorial():
-		GlobalSave.played_tutorial()
 		$AnimationPlayer.play("fade_out")
 		await $AnimationPlayer.animation_finished
 		
-		Util.change_scene("res://System/Menu/TutorialSelect/GD_TutorialSelect.tscn")
-		###Change this to beginning of tutorial
+		
+		Util.change_scene("res://Level/Tutorial/1/S_Tutorial_Move.tscn")
 		
 		queue_free()
 	else:
