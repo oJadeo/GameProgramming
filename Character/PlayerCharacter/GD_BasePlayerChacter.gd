@@ -175,7 +175,10 @@ func select_target(cood:Vector2)-> void:
 
 func finish_walk()->void:
 	var can_move = false
-	can_move = can_move or manager.check_formation(self)
+	var can_formation = false
+	if formation_use > 0:
+		can_formation = manager.check_formation(self)
+	can_move = can_move or can_formation
 	for skill in skill_list:
 		can_move = can_move or skill.check_target()
 	if can_move:

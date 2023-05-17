@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Board="*res://System/Global/GD_Board.gd"
 PlayerVar="*res://System/Global/GD_PlayerVariables.gd"
 GlobalSave="*res://System/Global/GD_GlobalSave.gd"
+Util="*res://System/Global/GD_Utils.gd"
 
 [display]
 

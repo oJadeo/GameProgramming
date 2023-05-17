@@ -2,6 +2,8 @@ extends Node2D
 class_name Character
 
 signal can_end_turn(new_value)
+signal on_character_hover_enter
+signal on_character_hover_exited
 
 enum EFFECT{
 	buff,
@@ -34,11 +36,12 @@ var board_cood:Vector2 = Vector2(-1,-1):
 @onready var animation = $AnimationPlayer
 @onready var move_timer = $MoveTimer
 @onready var manager = get_parent().get_parent()
+@onready var gauge_bar = $S_GaugeBar
 var selecting_move:BaseSkills
 var is_move:bool:
 	set(new_value):
 		is_move = new_value
-		emit_signal('can_end_turn',new_value)
+		emit_signal('can_end_turn', new_value)
 var is_turn:bool = false
 var is_target:bool = false
 var status_effect:Array
@@ -50,8 +53,16 @@ func _ready()->void:
 	stat.death.connect(death)
 	set_global_position(Board.get_tile_pos(board_cood))
 	set_up_start_stat()
+	gauge_bar.enter_area.connect(_on_gauge_bar_enter_area)
+	gauge_bar.exited_area.connect(_on_gauge_bar_exited_area)
 	animation.play("Idle")
 	animation.stop()
+
+func _on_gauge_bar_enter_area():
+	emit_signal("on_character_hover_enter")
+
+func _on_gauge_bar_exited_area():
+	emit_signal("on_character_hover_exited")
 	
 func set_up_start_stat():
 	stat.atk = start_atk
