@@ -13,7 +13,9 @@ var new_character_lv = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	if PlayerVar.allLevelOrder[-1] == PlayerVar.selectedLevel:
+		$ColorRect/ColorRect/HBox_button/nextLevel.text = "Level Select"
+		$ColorRect/ColorRect/HBox_button/nextLevel.add_theme_font_size_override("font_size", 30)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -174,10 +176,12 @@ func set_up_character_level_up(container:Node,char_id:String):
 				container.skill_id_2 = skill_up[i]
 
 func _on_main_menu_pressed():
+	Board.clear_board()
 	Util.change_scene("res://System/Menu/MainMenu/GD_MainMenu.tscn")
 	get_parent().get_parent().queue_free()
 
 func _on_next_level_pressed():
+	Board.clear_board()
 	var cur_level = PlayerVar.selectedLevel
 	if cur_level < PlayerVar.allLevelOrder[-1]:
 		var next_level = cur_level + 1
