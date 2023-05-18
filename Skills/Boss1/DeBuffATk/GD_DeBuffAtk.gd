@@ -76,4 +76,4 @@ func trigger() -> void:
 		var buff_instance = buff_effect.instantiate()
 		add_child(buff_instance)
 		buff_instance.set_effect(false,"atk",2)
-		buff_instance.global_position = player.global_position -Vector2(0,60)
+		buff_instance.global_position = target.global_position -Vector2(0,60)
