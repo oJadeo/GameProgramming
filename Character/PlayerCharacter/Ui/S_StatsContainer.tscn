@@ -8,8 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://c6jd516ry3116" path="res://Character/PlayerCharacter/Ui/HealthBarHealthTileNew.png" id="6_cl4im"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_flpg8"]
+resource_local_to_scene = true
 shader = ExtResource("4_y6p80")
-shader_parameter/PROGRESS_COLOR = Color(0, 0.760784, 0.113725, 1)
+shader_parameter/PROGRESS_COLOR = Color(0.223529, 0.713726, 0, 1)
 
 [node name="StatsContainer" type="HBoxContainer"]
 anchors_preset = 2

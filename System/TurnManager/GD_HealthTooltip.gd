@@ -1,6 +1,8 @@
 @tool
 extends Panel
 
+@onready var stats_container = $MarginContainer/StatsContainer
+
 @export_category("Color Override")
 @export var border_color: Color:
 	set(value):
@@ -23,14 +25,14 @@ extends Panel
 @export var progress_color: Color:
 	set(value):
 		progress_color = value
-		$MarginContainer/StatsContainer.progress_color = value
+		if stats_container:
+			stats_container.progress_color = value
 
 var last_visible = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
