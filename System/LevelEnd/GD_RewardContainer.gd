@@ -27,5 +27,5 @@ func update_display():
 		char_val.texture = load("res://Character/PlayerCharacter/" + char_id + "/" + "I_" + char_id + ".png")
 		char_val.visible = true
 	elif not charm_id.is_empty():
-		charm_val.texture = load("res://Assets/Charm/" + charm_id + ".png")
+		charm_val.texture = load("res://Assets/charm/" + charm_id + ".png")
 		charm_val.visible = true

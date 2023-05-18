@@ -6,11 +6,12 @@ func _ready() -> void:
 	var bg = $TextureRect
 	match PlayerVar.selectedLevel:
 		1,2:
-			bg.texture = load("res://Assets/test_bg.png")
+			$TextureRect.visible = true
+			
 		3,4:
-			bg.texture = load("res://Assets/bg2.png")
+			$TextureRect2.visible = true
 		5,6:
-			bg.texture = load("res://Assets/bg3.png")
+			$TextureRect3.visible = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
