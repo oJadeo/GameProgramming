@@ -58,6 +58,7 @@ script = ExtResource("1_tsxx2")
 background_color = Color(0.647059, 0.317647, 0.768627, 1)
 transparent = 1.0
 default_transparent = 0.784
+progress_color = null
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

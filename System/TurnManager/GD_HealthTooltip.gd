@@ -20,6 +20,10 @@ extends Panel
 		default_transparent = value
 		set_tooltip_border_color(border_color)
 		set_tooltip_background_color(background_color)
+@export var progress_color: Color:
+	set(value):
+		progress_color = value
+		$MarginContainer/StatsContainer.progress_color = value
 
 var last_visible = false
 
