@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dx3rkyno4p2wb"]
+[gd_scene load_steps=21 format=3 uid="uid://dx3rkyno4p2wb"]
 
 [ext_resource type="Script" path="res://Character/EnemyCharacter_AI/EM4/GD_EM4_AI.gd" id="1_2scc5"]
 [ext_resource type="Texture2D" uid="uid://b1wu6d7o6loec" path="res://Character/EnemyCharacter_AI/EM4/I_EM4_AI.png" id="2_ckpb7"]
@@ -10,6 +10,9 @@
 [ext_resource type="AudioStream" uid="uid://crvh5b562pwqp" path="res://Audio/basic/melee.mp3" id="6_lgmf6"]
 [ext_resource type="AudioStream" uid="uid://c4m160wdity7f" path="res://Audio/basic/walk.mp3" id="7_c22e4"]
 [ext_resource type="PackedScene" uid="uid://csoi80d61uckw" path="res://Skills/EM4/ShurikenBomb/S_ThrowBombShuriken.tscn" id="7_easml"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7joay"]
+bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_jtqh0"]
 resource_name = "Bomb"
@@ -364,6 +367,9 @@ offset_top = -64.0
 offset_right = -20.0
 offset_bottom = -64.0
 
+[node name="HealthBar" parent="S_GaugeBar" index="1"]
+theme_override_styles/fill = SubResource("StyleBoxFlat_7joay")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3
 y_sort_enabled = true
@@ -396,3 +402,5 @@ one_shot = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
+
+[editable path="S_GaugeBar"]
