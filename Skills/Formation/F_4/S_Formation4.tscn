@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyie2k2ftkq5p"]
+[gd_scene load_steps=3 format=3 uid="uid://dyie2k2ftkq5p"]
 
 [ext_resource type="Script" path="res://Skills/Formation/F_4/GD_Formation4.gd" id="1_gulsq"]
+[ext_resource type="PackedScene" uid="uid://bde575n26abuq" path="res://System/BuffEffect/S_BuffEffect.tscn" id="2_yrfox"]
 
 [node name="S_Formation4" type="Node2D"]
+scale = Vector2(3, 3)
 script = ExtResource("1_gulsq")
+buff_effect = ExtResource("2_yrfox")
 skill_name = "Arrowhead Formation"
 skill_description = "Double all team members' ATK for 3 turns"

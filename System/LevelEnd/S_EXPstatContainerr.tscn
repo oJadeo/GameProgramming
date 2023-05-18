@@ -129,7 +129,7 @@ size_flags_vertical = 4
 
 [node name="ProgressBar" type="TextureProgressBar" parent="TextureRect/Stats/EXPBar/ProgressBarContainer"]
 layout_mode = 2
-value = 70.0
+value = 90.0
 nine_patch_stretch = true
 texture_under = ExtResource("3_pwqvo")
 texture_progress = ExtResource("4_m12j4")
@@ -141,6 +141,8 @@ size_flags_vertical = 4
 [node name="EXPLabel" type="Label" parent="TextureRect/Stats/EXPBar/ProgressBarContainer/EXPLabelContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 7
 theme_override_fonts/font = ExtResource("2_dvbcq")
 theme_override_font_sizes/font_size = 20
 text = "XX"
@@ -149,6 +151,8 @@ vertical_alignment = 1
 
 [node name="SeperatorLabel" type="Label" parent="TextureRect/Stats/EXPBar/ProgressBarContainer/EXPLabelContainer"]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 7
 theme_override_fonts/font = ExtResource("2_dvbcq")
 theme_override_font_sizes/font_size = 20
 text = "/"
@@ -158,6 +162,8 @@ vertical_alignment = 1
 [node name="GoalEXPLabel" type="Label" parent="TextureRect/Stats/EXPBar/ProgressBarContainer/EXPLabelContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 7
 theme_override_fonts/font = ExtResource("2_dvbcq")
 theme_override_font_sizes/font_size = 20
 text = "XX"

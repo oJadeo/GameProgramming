@@ -2,7 +2,7 @@ extends BaseSkills
 
 var amount:int  = 0
 var skill_direction:Vector2 = Vector2.ZERO
-
+@export var buff_effect:Resource
 @export var buff_duration:int = 3
 func _ready() -> void:
 	pass # Replace with function body.
@@ -72,5 +72,9 @@ func trigger() -> void:
 		buff_stat.def = 0
 		buff_stat.speed = 0
 		buff_stat.gauge = 0
+		var buff_instance = buff_effect.instantiate()
+		add_child(buff_instance)
+		buff_instance.global_position = character.global_position -Vector2(0,60)
+		buff_instance.set_effect(true,"atk",character.stat.atk)
 		character.turn_effect(Character.EFFECT.buff,buff_stat,buff_duration)
 

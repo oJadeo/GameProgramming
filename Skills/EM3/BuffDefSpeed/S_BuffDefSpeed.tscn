@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://fwcqm25eg6bc"]
+[gd_scene load_steps=4 format=3 uid="uid://fwcqm25eg6bc"]
 
 [ext_resource type="Script" path="res://Skills/EM3/BuffDefSpeed/GD_BuffDefSpeed..gd" id="1_56b71"]
 [ext_resource type="AudioStream" uid="uid://bfq4q7k4e5kpf" path="res://Audio/Character/EM3/EM3_S1.mp3" id="2_3y4qx"]
+[ext_resource type="PackedScene" uid="uid://bde575n26abuq" path="res://System/BuffEffect/S_BuffEffect.tscn" id="2_bg0h2"]
 
 [node name="S_BuffDefSpeed" type="Node2D"]
 script = ExtResource("1_56b71")
@@ -9,6 +10,8 @@ is_buff = true
 def = 1
 speed = 1
 buff_duration = 1
+buff_effect = ExtResource("2_bg0h2")
+target_mode = 1
 max_cooldown = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

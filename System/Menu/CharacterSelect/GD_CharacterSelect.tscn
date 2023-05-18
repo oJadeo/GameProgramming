@@ -697,7 +697,7 @@ offset_left = 1545.0
 offset_top = 239.0
 offset_right = 1655.0
 offset_bottom = 349.0
-charm_id = "C2"
+charm_id = "C4"
 
 [node name="CharmButton3" parent="CharmWindow/CharmButtons" instance=ExtResource("6_inn8g")]
 layout_mode = 0
@@ -705,7 +705,7 @@ offset_left = 1702.0
 offset_top = 239.0
 offset_right = 1812.0
 offset_bottom = 349.0
-charm_id = "C3"
+charm_id = "C2"
 
 [node name="CharmButton4" parent="CharmWindow/CharmButtons" instance=ExtResource("6_inn8g")]
 layout_mode = 0
@@ -713,7 +713,7 @@ offset_left = 1466.0
 offset_top = 390.0
 offset_right = 1576.0
 offset_bottom = 500.0
-charm_id = "C4"
+charm_id = "C5"
 
 [node name="CharmButton5" parent="CharmWindow/CharmButtons" instance=ExtResource("6_inn8g")]
 layout_mode = 0
@@ -721,7 +721,7 @@ offset_left = 1623.0
 offset_top = 390.0
 offset_right = 1733.0
 offset_bottom = 500.0
-charm_id = "C5"
+charm_id = "C3"
 
 [node name="CharmDesc" type="Control" parent="CharmWindow"]
 anchors_preset = 0

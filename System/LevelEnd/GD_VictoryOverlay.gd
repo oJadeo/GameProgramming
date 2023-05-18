@@ -2,7 +2,7 @@ extends Control
 
 var exp_lists = [0,12,27,35,35,50,100]
 var max_exp = [0,10,30,75,200,0]
-
+var name_dict = {"PC1":"Naruto","PC2":"Sakura","PC3":"Sasuke","PC4":"Itachi","PC5":"Deidara","PC6":"Kisame"}
 var char_id_list = []
 var old_character_lv = {}
 var new_character_lv = {}
@@ -13,7 +13,9 @@ var new_character_lv = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	if PlayerVar.allLevelOrder[-1] == PlayerVar.selectedLevel:
+		$ColorRect/ColorRect/HBox_button/nextLevel.text = "Level Select"
+		$ColorRect/ColorRect/HBox_button/nextLevel.add_theme_font_size_override("font_size", 30)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -40,6 +42,7 @@ func set_reward():
 	exp_reward_container.reward_name = "Exp"
 	exp_reward_container.reward_exp = exp_lists[PlayerVar.selectedLevel]
 	exp_reward_container.update_display()
+	exp_reward_container.visible = true
 	
 	match PlayerVar.selectedLevel:
 		3:
@@ -100,7 +103,7 @@ func update_exp():
 	for i in range(3):
 		var container = exp_guage_container_lists.get_child(i)
 		var char_id = char_id_list[i]
-		container.char_name = char_id
+		container.char_name = name_dict[char_id]
 		container.char_id = char_id
 		container.lvl = new_character_lv[char_id]
 		container.c_exp = GlobalSave.get_character_exp(char_id)
@@ -114,7 +117,7 @@ func update_character():
 		var container = character_upgrade_lists.get_child(i)
 		var char_id = char_id_list[i]
 		var lvl_up = new_character_lv[char_id] > old_character_lv[char_id]
-		container.char_name = char_id
+		container.char_name = name_dict[char_id]
 		container.char_id = char_id
 		container.visible = lvl_up
 		if lvl_up:
@@ -173,10 +176,12 @@ func set_up_character_level_up(container:Node,char_id:String):
 				container.skill_id_2 = skill_up[i]
 
 func _on_main_menu_pressed():
+	Board.clear_board()
 	Util.change_scene("res://System/Menu/MainMenu/GD_MainMenu.tscn")
 	get_parent().get_parent().queue_free()
 
 func _on_next_level_pressed():
+	Board.clear_board()
 	var cur_level = PlayerVar.selectedLevel
 	if cur_level < PlayerVar.allLevelOrder[-1]:
 		var next_level = cur_level + 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://g73g6o4p2ukg"]
+[gd_scene load_steps=20 format=3 uid="uid://g73g6o4p2ukg"]
 
 [ext_resource type="Script" path="res://Character/EnemyCharacter_AI/EM2/GD_EM2_AI.gd" id="1_j5jbx"]
 [ext_resource type="Texture2D" uid="uid://dve022q7hu5ep" path="res://Character/EnemyCharacter_AI/EM2/I_EM2_AI.png" id="2_ls8f7"]
@@ -10,6 +10,9 @@
 [ext_resource type="AudioStream" uid="uid://crvh5b562pwqp" path="res://Audio/basic/melee.mp3" id="6_j2aj7"]
 [ext_resource type="PackedScene" uid="uid://cdnhadov1thg8" path="res://Skills/EM2/Palm/S_Palm.tscn" id="6_qunde"]
 [ext_resource type="AudioStream" uid="uid://c4m160wdity7f" path="res://Audio/basic/walk.mp3" id="7_8y3p0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbppx"]
+bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_n1vr6"]
 resource_name = "Death"
@@ -306,6 +309,8 @@ _data = {
 }
 
 [node name="S_EM2_AI" type="Node2D" groups=["character"]]
+z_index = 3
+y_sort_enabled = true
 scale = Vector2(3, 3)
 script = ExtResource("1_j5jbx")
 start_atk = 2
@@ -320,8 +325,10 @@ offset_top = -64.0
 offset_right = -20.0
 offset_bottom = -64.0
 
+[node name="HealthBar" parent="S_GaugeBar" index="1"]
+theme_override_styles/fill = SubResource("StyleBoxFlat_lbppx")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 3
 y_sort_enabled = true
 texture_filter = 1
 texture = ExtResource("3_ytubr")
@@ -352,3 +359,5 @@ one_shot = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
+
+[editable path="S_GaugeBar"]
