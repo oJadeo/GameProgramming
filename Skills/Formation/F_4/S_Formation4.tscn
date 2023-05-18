@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bde575n26abuq" path="res://System/BuffEffect/S_BuffEffect.tscn" id="2_yrfox"]
 
 [node name="S_Formation4" type="Node2D"]
+scale = Vector2(3, 3)
 script = ExtResource("1_gulsq")
 buff_effect = ExtResource("2_yrfox")
 skill_name = "Arrowhead Formation"

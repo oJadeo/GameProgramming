@@ -42,6 +42,8 @@ func check_walk():
 	
 	if skill_list[2].cooldown == 0:
 		var bossNotTarget = true
+		if len(Board.enemy_list) == 0:
+			return
 		target_cood = Board.get_cood(Board.enemy_list[0])
 		for enemy in Board.enemy_list:
 			if enemy.get_name() == "S_Boss2_AI" or enemy.get_name() == "S_Boss1_AI":
