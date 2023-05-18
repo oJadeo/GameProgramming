@@ -107,10 +107,10 @@ color = Color(0.87451, 0.87451, 0.87451, 1)
 
 [node name="Continue" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1291.0
-offset_top = 382.0
-offset_right = 1734.0
-offset_bottom = 462.0
+offset_left = 734.0
+offset_top = 548.0
+offset_right = 1177.0
+offset_bottom = 628.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -124,10 +124,10 @@ text = "Continue"
 
 [node name="LevelSelect" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1291.0
-offset_top = 480.0
-offset_right = 1734.0
-offset_bottom = 560.0
+offset_left = 734.0
+offset_top = 646.0
+offset_right = 1177.0
+offset_bottom = 726.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -141,10 +141,10 @@ text = "Select Level"
 
 [node name="Tutorial" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1291.0
-offset_top = 579.0
-offset_right = 1734.0
-offset_bottom = 659.0
+offset_left = 734.0
+offset_top = 745.0
+offset_right = 1177.0
+offset_bottom = 825.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -158,10 +158,10 @@ text = "Tutorial"
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1291.0
-offset_top = 677.0
-offset_right = 1734.0
-offset_bottom = 757.0
+offset_left = 734.0
+offset_top = 843.0
+offset_right = 1177.0
+offset_bottom = 923.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -180,6 +180,7 @@ libraries = {
 }
 
 [node name="TransitionColor" type="ColorRect" parent="."]
+visible = false
 z_index = 99
 layout_mode = 1
 anchors_preset = 15
@@ -188,7 +189,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
@@ -205,6 +206,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Logo" type="Sprite2D" parent="Control"]
+position = Vector2(-542, 151)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_evow0")
 

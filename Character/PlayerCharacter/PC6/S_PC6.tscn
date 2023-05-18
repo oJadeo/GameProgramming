@@ -550,6 +550,7 @@ _data = {
 }
 
 [node name="S_PC6" type="Node2D" groups=["character"]]
+z_index = 3
 y_sort_enabled = true
 scale = Vector2(3, 3)
 script = ExtResource("1_0j13i")
@@ -617,7 +618,6 @@ offset_bottom = -46.0
 [node name="ControlButton" parent="CanvasLayer" instance=ExtResource("11_h1fmp")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 3
 y_sort_enabled = true
 texture_filter = 1
 texture = ExtResource("11_c4re7")
