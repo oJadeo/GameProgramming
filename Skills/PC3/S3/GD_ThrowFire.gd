@@ -57,5 +57,6 @@ func _process(delta: float) -> void:
 
 func trigger() -> void:
 	for target in target_list:
-		target.damaged(player.stat.atk*0.5,player.direction)
+		if is_instance_valid(target):
+			target.damaged(player.stat.atk*0.5,player.direction)
 
