@@ -3,7 +3,6 @@ extends CharacterManager
 @onready var tooltip_controller = $CanvasLayer/TooltipController
 
 var formation_btn_list:Array
-var _formation_tooltip = load("res://System/TurnManager/S_FormationTooltip.tscn")
 
 func _ready() -> void:
 	super()
@@ -51,9 +50,10 @@ func check_finish_level():
 
 func end_turn():
 	super()
+	tooltip_controller.tooltip_hide()
 	for i in len(formation_btn_list):
 		formation_btn_list[i].visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass

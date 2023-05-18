@@ -73,7 +73,7 @@ func check_walk():
 			for y in [Vector2(0,1),Vector2(0,0),Vector2(0,-1)]:
 				for player in Board.player_list:
 					var player_cood = Board.get_cood(player)
-					if player_cood == can + y and not Board.get_character(2*player_cood-board_cood):
+					if player_cood == can + y and not Board.get_character(2*player_cood-board_cood) and Board.is_cood_in_board(2*player_cood-board_cood):
 						playerHit += 1
 			if playerHit > 0:
 				target_cood = can
@@ -86,7 +86,7 @@ func check_walk():
 				for y in [Vector2(0,1),Vector2(0,0),Vector2(0,-1)]:
 					for player in Board.player_list:
 						var player_cood = Board.get_cood(player)
-						if player_cood == can + y and not Board.get_character(2*player_cood-movable_cood):
+						if player_cood == can + y and not Board.get_character(2*player_cood-movable_cood) and Board.is_cood_in_board(2*player_cood-movable_cood):
 							playerHit += 1
 				if playerHit > 0:
 					move_to_cood = movable_cood
@@ -97,7 +97,7 @@ func check_walk():
 	for player in Board.player_list:
 		var player_cood = Board.get_cood(player)
 		var back_pos = player_cood - player.direction
-		if skill_list[2].cooldown == 0 and back_pos == board_cood and not Board.get_character(2*player_cood-board_cood):
+		if skill_list[2].cooldown == 0 and back_pos == board_cood and not Board.get_character(2*player_cood-board_cood) and Board.is_cood_in_board(2*player_cood-board_cood):
 			target_cood = player_cood
 			skill_select = 2
 			return
@@ -111,7 +111,7 @@ func check_walk():
 		for player in Board.player_list:
 			var player_cood = Board.get_cood(player)
 			var back_pos = player_cood - player.direction
-			if skill_list[2].cooldown == 0 and back_pos == movable_cood and not Board.get_character(2*player_cood-movable_cood):
+			if skill_list[2].cooldown == 0 and back_pos == movable_cood and not Board.get_character(2*player_cood-movable_cood) and Board.is_cood_in_board(2*player_cood-movable_cood):
 				move_to_cood = movable_cood
 				target_cood = player_cood
 				skill_select = 2
@@ -126,7 +126,7 @@ func check_walk():
 	for player in Board.player_list:
 		var player_cood = Board.get_cood(player)
 		var front_pos = player_cood + player.direction
-		if skill_list[2].cooldown == 0 and front_pos == board_cood and not Board.get_character(2*player_cood-board_cood):
+		if skill_list[2].cooldown == 0 and front_pos == board_cood and not Board.get_character(2*player_cood-board_cood) and Board.is_cood_in_board(2*player_cood-board_cood):
 			target_cood = player_cood
 			skill_select = 2
 			return
@@ -140,7 +140,7 @@ func check_walk():
 		for player in Board.player_list:
 			var player_cood = Board.get_cood(player)
 			var front_pos = player_cood + player.direction
-			if skill_list[2].cooldown == 0 and front_pos == movable_cood and not Board.get_character(2*player_cood-movable_cood):
+			if skill_list[2].cooldown == 0 and front_pos == movable_cood and not Board.get_character(2*player_cood-movable_cood) and Board.is_cood_in_board(2*player_cood-movable_cood):
 				move_to_cood = movable_cood
 				target_cood = player_cood
 				skill_select = 2

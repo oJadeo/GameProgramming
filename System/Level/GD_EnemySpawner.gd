@@ -44,7 +44,7 @@ func select_level(lv:int):
 		
 		enemy_instance.global_position.x = 2020
 
-		tooltip_controller.new_health_tooltip(enemy_instance)
+		tooltip_controller.new_health_tooltip(enemy_instance, Color(1, 0, 0, 1))
 
 	enemy_list_node.get_parent().update_all_character()
 	enemy_list_node.get_parent().random_start_guage()

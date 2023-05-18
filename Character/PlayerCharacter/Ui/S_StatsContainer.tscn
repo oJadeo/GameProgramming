@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://chpxq2gtmybyg"]
+[gd_scene load_steps=8 format=3 uid="uid://chpxq2gtmybyg"]
 
 [ext_resource type="Script" path="res://Character/PlayerCharacter/Ui/GD_StatsContainer.gd" id="1_hcoq7"]
 [ext_resource type="Texture2D" uid="uid://rflmq48tekve" path="res://Character/PlayerCharacter/PC1/I_PC1.png" id="2_fvpdo"]
 [ext_resource type="Texture2D" uid="uid://lcfv7kpu00vr" path="res://Character/PlayerCharacter/Ui/HealthBarBGTile.png" id="3_8ahcb"]
 [ext_resource type="FontFile" uid="uid://deynq3w2tsjig" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="3_27b8g"]
-[ext_resource type="Texture2D" uid="uid://cvd2yra5ud71n" path="res://Character/PlayerCharacter/Ui/HealthBarHealthTile.png" id="4_0snja"]
+[ext_resource type="Shader" path="res://Character/PlayerCharacter/Ui/S_StatsContainerProgressBar.gdshader" id="4_y6p80"]
+[ext_resource type="Texture2D" uid="uid://c6jd516ry3116" path="res://Character/PlayerCharacter/Ui/HealthBarHealthTileNew.png" id="6_cl4im"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_flpg8"]
+shader = ExtResource("4_y6p80")
+shader_parameter/PROGRESS_COLOR = Color(0, 0.760784, 0.113725, 1)
 
 [node name="StatsContainer" type="HBoxContainer"]
 anchors_preset = 2
@@ -15,6 +20,7 @@ offset_right = 900.0
 offset_bottom = -20.0
 grow_vertical = 0
 script = ExtResource("1_hcoq7")
+progress_color = Color(0, 0.760784, 0.113725, 1)
 
 [node name="CharacterIcon" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(230, 0)
@@ -47,11 +53,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 
 [node name="ProgressBar" type="TextureProgressBar" parent="Stats/HP/ProgressBarContainer"]
+material = SubResource("ShaderMaterial_flpg8")
 layout_mode = 2
 value = 70.0
 nine_patch_stretch = true
 texture_under = ExtResource("3_8ahcb")
-texture_progress = ExtResource("4_0snja")
+texture_progress = ExtResource("6_cl4im")
 
 [node name="HealthLabelContainer" type="HBoxContainer" parent="Stats/HP/ProgressBarContainer"]
 custom_minimum_size = Vector2(0, 60)

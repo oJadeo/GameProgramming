@@ -69,6 +69,7 @@ func equip_skill():
 	
 func start_turn()->void:
 	super()
+	exited_skill()
 	if formation_use > 0:
 		manager.check_formation(self)
 	SKILL_SELECT_UI.visible = true

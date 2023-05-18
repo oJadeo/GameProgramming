@@ -51,7 +51,7 @@ func select_level(lv:int):
 		
 		player_instance.global_position.x = - 100
 
-		tooltip_controller.new_health_tooltip(player_instance)
+		tooltip_controller.new_health_tooltip(player_instance, Color(0, 1, 0, 1))
 
 		
 	player_list_node.get_parent().update_all_character()

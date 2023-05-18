@@ -41,10 +41,14 @@ func check_walk():
 	var movable_coods = Board.get_highlight()
 	
 	if skill_list[2].cooldown == 0:
+		var bossNotTarget = true
+		if len(Board.enemy_list) == 0:
+			return
 		target_cood = Board.get_cood(Board.enemy_list[0])
 		for enemy in Board.enemy_list:
-			if enemy.get_name() == "S_Boss2_AI":
+			if enemy.get_name() == "S_Boss2_AI" or enemy.get_name() == "S_Boss1_AI":
 				target_cood = Board.get_cood(enemy)
+				bossNotTarget = false
 		skill_select = 2
 		var init_dist = 999
 		for player in Board.player_list:
@@ -63,6 +67,8 @@ func check_walk():
 					min_cood = movable_cood
 			if min_cood != Vector2(-1,-1) and int(min_dist) % 3 == 1 and min_dist < init_dist:
 				move_to_cood = min_cood
+				if bossNotTarget and target_cood == board_cood:
+					target_cood = move_to_cood
 				return
 		return
 		
