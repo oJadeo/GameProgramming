@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://Level/GD_TestLevel.gd" id="1_foyb7"]
 [ext_resource type="PackedScene" uid="uid://m4cr7ou4tlfn" path="res://Tile/S_Tile.tscn" id="2_ex7t4"]
 [ext_resource type="Script" path="res://Level/GD_Sprite_Board.gd" id="3_571tc"]
-[ext_resource type="Texture2D" uid="uid://d0ncn5pkbn1bn" path="res://Assets/test_bg_2.png" id="4_a4u4w"]
+[ext_resource type="Texture2D" uid="uid://dhwoe3fm6egmx" path="res://Assets/bg.png" id="4_e1pwl"]
 [ext_resource type="PackedScene" uid="uid://d4i012to4ab7v" path="res://System/TurnManager/S_TestTurnManager.tscn" id="5_4g3is"]
 [ext_resource type="Texture2D" uid="uid://b33u1fh75vte1" path="res://Assets/bg2.png" id="5_wehg4"]
 [ext_resource type="Texture2D" uid="uid://fc20l2cda81i" path="res://Assets/bg3.png" id="6_1jfwm"]
 [ext_resource type="PackedScene" uid="uid://bpw62ppjhvpts" path="res://System/LevelEnd/S_VictoryOverlay.tscn" id="6_faheq"]
-[ext_resource type="PackedScene" path="res://System/LevelEnd/S_DefeatOverlay.tscn" id="7_44y2d"]
+[ext_resource type="PackedScene" uid="uid://c0ybs024fjdqt" path="res://System/LevelEnd/S_DefeatOverlay.tscn" id="7_44y2d"]
 
 [sub_resource type="Animation" id="Animation_mxlh2"]
 resource_name = "Opening"
@@ -61,11 +61,10 @@ tile_size = Vector2(187.2, 96)
 x_offset = 33
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
 z_index = -1
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("4_a4u4w")
+texture = ExtResource("4_e1pwl")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 visible = false
