@@ -5,8 +5,8 @@ const SAVE_GAME_PATH = "user://savegame.tres"
 
 
 var allLevelOrder = [1,2,3,4,5,6]
-var unlockedLevels = [1]
-var character_level = {"PC1":1,"PC2":5,"PC3":1,"PC4":0,"PC5":0,"PC6":0}
+var unlockedLevels = [1,2,3,4,5,6]
+var character_level = {"PC1":5,"PC2":5,"PC3":5,"PC4":5,"PC5":5,"PC6":5}
 var character_exp = {"PC1":0,"PC2":0,"PC3":0,"PC4":0,"PC5":0,"PC6":0}
 var unlockedCharms = {"C1":false,"C2":false,"C3":false,"C4":false,"C5":false}
 var unlockedFormations= {"F1":false,"F2":false,"F3":false,"F4":false}

@@ -76,7 +76,7 @@ func trigger() -> void:
 				player.turn_effect(Character.EFFECT.buff,buff_stat,buff_duration)
 				var buff_instance = buff_effect.instantiate()
 				add_child(buff_instance)
-				buff_instance.set_effect(true,"def",2)
+				buff_instance.set_effect(true,"atk",2)
 				buff_instance.global_position = player.global_position -Vector2(0,60)
 			if is_heal:
 				player.healed(player.stat.atk*heal_multiplier)
