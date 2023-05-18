@@ -58,7 +58,7 @@ script = ExtResource("1_tsxx2")
 background_color = Color(0.647059, 0.317647, 0.768627, 1)
 transparent = 1.0
 default_transparent = 0.784
-progress_color = null
+progress_color = Color(0.223529, 0.713726, 0, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -73,6 +73,7 @@ theme_override_constants/margin_bottom = 8
 
 [node name="StatsContainer" parent="MarginContainer" instance=ExtResource("2_bcj2y")]
 layout_mode = 2
+progress_color = Color(0.223529, 0.713726, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

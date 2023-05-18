@@ -23,7 +23,7 @@ func new_formation_tooltip(_btn, _name, _description):
 	_btn.mouse_exited.connect(tooltip_hide)
 	_tooltip.visible = false
 
-func new_health_tooltip(_character, _color: Color):
+func new_health_tooltip(_character, _color):
 	var _tooltip = _health_tooltip.instantiate()
 	add_child(_tooltip)
 

@@ -12,11 +12,7 @@ extends HBoxContainer
 @export var progress_color: Color:
 	set(value):
 		progress_color = value
-		if hp_progress_bar:
-			hp_progress_bar.material.set_shader_parameter(
-				"PROGRESS_COLOR",
-				value,
-			)
+		set_color()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -56,3 +52,10 @@ func _on_health_updated(new_value:int) -> void:
 func _on_max_health_updated(new_value:int) -> void:
 	hp_progress_bar.max_value = new_value
 	max_health_label.text = str(new_value)
+
+func set_color():
+	if hp_progress_bar:
+		hp_progress_bar.material.set_shader_parameter(
+			"PROGRESS_COLOR",
+			progress_color,
+		)
