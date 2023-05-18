@@ -8,6 +8,7 @@ extends BaseSkills
 @export var buff_duration:int = 0
 @export var is_heal:bool
 @export var heal_multiplier:float = 1
+@export var buff_effect:Resource
 @onready var audioPlayer = $AudioStreamPlayer
 enum TARGET_MODE{
 	SELF,
@@ -83,6 +84,10 @@ func trigger() -> void:
 			for character in Board.player_list:
 				if is_buff:
 					character.turn_effect(Character.EFFECT.buff,buff_stat,buff_duration)
+					var buff_instance = buff_effect.instantiate()
+					add_child(buff_instance)
+					buff_instance.global_position = character.global_position -Vector2(0,60)
+					buff_instance.set_effect(true,"spd",2)
 			for character in Board.player_list:
 				if is_heal:
 					character.healed(player.stat.atk*heal_multiplier)

@@ -15,13 +15,19 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func stop_level():
+	var manager = $S_turn_manager
+	manager.stop_level()
+
 func win_level()-> void:
-	print("win!")
+	# Disable ui TODO STOP
+	stop_level()
 	GlobalSave.unlock_level(PlayerVar.selectedLevel+1)
 	$CanvasLayer/VictoryOverlay.visible = true
 	$CanvasLayer/VictoryOverlay.update()
 
 func lose_level() -> void:
-	print("lose!")
+	#  TODO STOP
+	stop_level()
 	$CanvasLayer/DefeatOverlay.visible = true
 

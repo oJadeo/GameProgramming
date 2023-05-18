@@ -40,6 +40,7 @@ func set_reward():
 	exp_reward_container.reward_name = "Exp"
 	exp_reward_container.reward_exp = exp_lists[PlayerVar.selectedLevel]
 	exp_reward_container.update_display()
+	exp_reward_container.visible = true
 	
 	match PlayerVar.selectedLevel:
 		3:

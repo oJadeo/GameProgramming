@@ -350,6 +350,7 @@ _data = {
 }
 
 [node name="S_EM4_AI" type="Node2D" groups=["character"]]
+y_sort_enabled = true
 scale = Vector2(3, 3)
 script = ExtResource("1_2scc5")
 start_atk = 5
