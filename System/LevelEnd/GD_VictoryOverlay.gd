@@ -2,7 +2,7 @@ extends Control
 
 var exp_lists = [0,12,27,35,35,50,100]
 var max_exp = [0,10,30,75,200,0]
-
+var name_dict = {"PC1":"Naruto","PC2":"Sakura","PC3":"Sasuke","PC4":"Itachi","PC5":"Deidara","PC6":"Kisame"}
 var char_id_list = []
 var old_character_lv = {}
 var new_character_lv = {}
@@ -101,7 +101,7 @@ func update_exp():
 	for i in range(3):
 		var container = exp_guage_container_lists.get_child(i)
 		var char_id = char_id_list[i]
-		container.char_name = char_id
+		container.char_name = name_dict[char_id]
 		container.char_id = char_id
 		container.lvl = new_character_lv[char_id]
 		container.c_exp = GlobalSave.get_character_exp(char_id)
@@ -115,7 +115,7 @@ func update_character():
 		var container = character_upgrade_lists.get_child(i)
 		var char_id = char_id_list[i]
 		var lvl_up = new_character_lv[char_id] > old_character_lv[char_id]
-		container.char_name = char_id
+		container.char_name = name_dict[char_id]
 		container.char_id = char_id
 		container.visible = lvl_up
 		if lvl_up:
