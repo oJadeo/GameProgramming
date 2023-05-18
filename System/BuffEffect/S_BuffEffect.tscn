@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bde575n26abuq"]
+
+[ext_resource type="Script" path="res://System/BuffEffect/GD_BuffEffect.gd" id="1_4e6vm"]
+[ext_resource type="Texture2D" uid="uid://c0t21s2qsrkif" path="res://Assets/Skills/typeOfAbility/attackBuff.png" id="2_bej1x"]
+
+[node name="S_BuffEffect" type="Node2D"]
+script = ExtResource("1_4e6vm")
+
+[node name="LabelContainer" type="Node2D" parent="."]
+
+[node name="DamageLabel" type="Label" parent="LabelContainer"]
+z_index = 5
+offset_left = 1.0
+offset_top = -12.0
+offset_right = 41.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0, 0.521569, 1, 1)
+text = "12"
+
+[node name="TextureRect" type="TextureRect" parent="LabelContainer"]
+z_index = 5
+offset_left = -18.0
+offset_top = -7.0
+offset_right = 12.0
+offset_bottom = 23.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_bej1x")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

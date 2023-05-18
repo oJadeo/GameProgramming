@@ -6,6 +6,7 @@ extends BaseSkills
 @export var gauge:int = 0
 @export var debuff_duration:int = 0
 @export var insect:Resource
+@export var buff_effect:Resource
 @onready var audioPlayer = $AudioStreamPlayer
 enum TARGET_MODE{
 	ENEMY,
@@ -68,8 +69,11 @@ func _process(delta: float) -> void:
 
 func trigger() -> void:
 	for target in target_list:
-		print(target.global_position)
 		target.turn_effect(Character.EFFECT.debuff,debuff_stat,debuff_duration)
 		var new_insect = insect.instantiate()
 		add_child(new_insect)
 		new_insect.global_position = target.global_position
+		var buff_instance = buff_effect.instantiate()
+		add_child(buff_instance)
+		buff_instance.set_effect(false,"atk",2)
+		buff_instance.global_position = player.global_position -Vector2(0,60)

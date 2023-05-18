@@ -91,3 +91,7 @@ func start_player_move():
 	
 func start_enemy_move():
 	$EnemySpawner.start_enemy_move()
+
+func stop_level():
+	playing = false
+	ui.visible = false
