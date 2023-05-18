@@ -13,7 +13,9 @@ var new_character_lv = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	if PlayerVar.allLevelOrder[-1] == PlayerVar.selectedLevel:
+		$ColorRect/ColorRect/HBox_button/nextLevel.text = "Level Select"
+		$ColorRect/ColorRect/HBox_button/nextLevel.add_theme_font_size_override("font_size", 30)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
