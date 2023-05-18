@@ -119,6 +119,7 @@ func _on_node_2d_draw():
 		$Node2D.draw_line(i[0],i[1],Color(0, 0, 0),3)
 
 func _on_confirm_selection_pressed():
+	Board.clear_board()
 	$AnimationPlayer.play("fade_out")
 	await $AnimationPlayer.animation_finished
 	Util.change_scene("res://Level/S_TestLevel.tscn")
