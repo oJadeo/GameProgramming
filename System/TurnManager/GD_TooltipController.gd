@@ -23,11 +23,12 @@ func new_formation_tooltip(_btn, _name, _description):
 	_btn.mouse_exited.connect(tooltip_hide)
 	_tooltip.visible = false
 
-func new_health_tooltip(_character):
+func new_health_tooltip(_character, _color):
 	var _tooltip = _health_tooltip.instantiate()
 	add_child(_tooltip)
 
 	_tooltip.connect_character(_character)
+	_tooltip.progress_color = _color
 
 	var _tooltip_num: int = get_child_count() - 1
 	_character.on_character_hover_enter.connect(tooltip_show.bind(_tooltip_num))

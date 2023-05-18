@@ -1,3 +1,4 @@
+@tool
 extends HBoxContainer
 
 @onready var atk_value = $Stats/Attack/Value
@@ -8,12 +9,21 @@ extends HBoxContainer
 @onready var max_health_label = $Stats/HP/ProgressBarContainer/HealthLabelContainer/MaxHealthLabel
 @onready var icon = $CharacterIcon/Icon
 
+@export var progress_color: Color:
+	set(value):
+		progress_color = value
+		if hp_progress_bar:
+			hp_progress_bar.material.set_shader_parameter(
+				"PROGRESS_COLOR",
+				value,
+			)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func connect_character(_character):
