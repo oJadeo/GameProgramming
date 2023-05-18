@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ba1e2woa3lyj"]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://System/Menu/CharacterSelect/GD_CharmButton.gd" id="1_avp8d"]
-[ext_resource type="Texture2D" uid="uid://g77dhwmj7fx6" path="res://Assets/charm/grey/C1.png" id="2_3endm"]
-[ext_resource type="Texture2D" uid="uid://7of3fd4geubw" path="res://Assets/charm/selected/C1.png" id="3_etfh3"]
-[ext_resource type="Texture2D" uid="uid://rf1b8ock6vb6" path="res://Assets/charm/C1.png" id="3_yay82"]
+[ext_resource type="Texture2D" uid="uid://g77dhwmj7fx6" path="res://Assets/Charm/grey/C1.png" id="2_3endm"]
+[ext_resource type="Texture2D" uid="uid://7of3fd4geubw" path="res://Assets/Charm/selected/C1.png" id="3_etfh3"]
+[ext_resource type="Texture2D" uid="uid://rf1b8ock6vb6" path="res://Assets/Charm/C1.png" id="3_yay82"]
 [ext_resource type="Texture2D" uid="uid://dlgkb3wllff40" path="res://Assets/character select/selecteditem.png" id="5_j3act"]
 
 [node name="CharmButton" type="ColorRect"]

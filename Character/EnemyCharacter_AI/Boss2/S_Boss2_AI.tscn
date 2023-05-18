@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://xkgsdj68abw3"]
+[gd_scene load_steps=22 format=3 uid="uid://xkgsdj68abw3"]
 
 [ext_resource type="Script" path="res://Character/EnemyCharacter_AI/Boss2/GD_Boss2_AI.gd" id="1_0srun"]
 [ext_resource type="Texture2D" uid="uid://ct1jkcn3lj0uy" path="res://Character/EnemyCharacter_AI/Boss2/I_Boss2.png" id="2_2emij"]
@@ -11,9 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cagawxjdpn61t" path="res://Skills/Movement/Move/S_Move.tscn" id="11_tqcuh"]
 [ext_resource type="PackedScene" uid="uid://mikbcnflpeb0" path="res://Skills/Boss2/Thunder/S_Thunder.tscn" id="13_ox47l"]
 [ext_resource type="PackedScene" uid="uid://dhap8jxlgxb55" path="res://Skills/Boss2/Sweep/S_Sweep.tscn" id="14_d5u77"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ekoi"]
-bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_lsid7"]
 resource_name = "Death"
@@ -428,9 +425,6 @@ offset_top = -68.0
 offset_right = -20.0
 offset_bottom = -68.0
 
-[node name="HealthBar" parent="S_GaugeBar" index="1"]
-theme_override_styles/fill = SubResource("StyleBoxFlat_8ekoi")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
 texture_filter = 1
@@ -467,5 +461,3 @@ position = Vector2(809, 575)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
-
-[editable path="S_GaugeBar"]
