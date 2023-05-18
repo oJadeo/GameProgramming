@@ -72,9 +72,9 @@ func trigger() -> void:
 		buff_stat.def = 0
 		buff_stat.speed = 0
 		buff_stat.gauge = 0
-		character.turn_effect(Character.EFFECT.buff,buff_stat,buff_duration)
 		var buff_instance = buff_effect.instantiate()
 		add_child(buff_instance)
 		buff_instance.global_position = character.global_position -Vector2(0,60)
 		buff_instance.set_effect(true,"atk",character.stat.atk)
+		character.turn_effect(Character.EFFECT.buff,buff_stat,buff_duration)
 
