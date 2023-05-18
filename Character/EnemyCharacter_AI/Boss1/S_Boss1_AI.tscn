@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bgd3hb5w3wnip"]
+[gd_scene load_steps=25 format=3 uid="uid://bgd3hb5w3wnip"]
 
 [ext_resource type="Script" path="res://Character/EnemyCharacter_AI/Boss1/GD_Boss1_AI.gd" id="1_o1fjm"]
 [ext_resource type="PackedScene" uid="uid://dsskmi02nper0" path="res://Character/PlayerCharacter/Ui/S_GaugeBar.tscn" id="2_8yvlx"]
@@ -11,6 +11,19 @@
 [ext_resource type="PackedScene" uid="uid://b305f0cmtvlx3" path="res://Skills/Boss1/HitLeg/S_HitLeg.tscn" id="6_eb3uo"]
 [ext_resource type="AudioStream" uid="uid://c4m160wdity7f" path="res://Audio/basic/walk.mp3" id="7_gwd2j"]
 [ext_resource type="PackedScene" uid="uid://c84gp60mw7qft" path="res://Skills/Boss1/DeBuffATk/S_DeBuffAtk.tscn" id="7_tnqxf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gvjjp"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_amk6q"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="Theme" id="Theme_c1ksc"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_gvjjp")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_amk6q")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4p0ms"]
+bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_6wvck"]
 resource_name = "Death"
@@ -381,6 +394,10 @@ offset_top = -74.0
 offset_right = -20.0
 offset_bottom = -74.0
 
+[node name="HealthBar" parent="S_GaugeBar" index="1"]
+theme = SubResource("Theme_c1ksc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4p0ms")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
 texture_filter = 1
@@ -414,3 +431,5 @@ one_shot = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
+
+[editable path="S_GaugeBar"]
